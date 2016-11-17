@@ -2,16 +2,19 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class NPC : MonoBehaviour {
+public class NPC  {
 
-    public string Name = "Donald thrump";
-    public string intro = "Im Donald thrump owner of a lot of money and better then you!\nBuild the wall!!";
+    public string Name; 
+   
     public bool is_muderer = false;
     public bool is_accused = false;
+    public bool is_victim = false;
+
     public bool first_interaction = true;
 
     public string clue;
 
+    public string intro;
 
 
     public void respond()
@@ -21,6 +24,15 @@ public class NPC : MonoBehaviour {
 
     // clue 
 
+        public void isMurder()
+    {
+        is_muderer = true;
+    }
+
+    public void is_Victim()
+    {
+        is_victim = true;
+    }
 
 
 

@@ -15,6 +15,10 @@ public class gameManager : MonoBehaviour {
     static public string Name;                         // players name 
     static public Personality_player personailty;      // players pesonailty 
     static public Sprite Sprite;                       // players look 
+    static public NPC murderer;
+    static public NPC victim; 
+
+    public NPC current_interaction;
 
 
     // UI elements --> USED IN THE PLAYER SLECTION MENU
@@ -60,6 +64,25 @@ public class gameManager : MonoBehaviour {
         return personailty;
     }
 
+
+    public void set_murder(NPC npc)
+    {
+        murderer = npc;
+    }
+    public string get_murder()
+    {
+        return murderer.Name;
+    }
+
+
+    public void set_victim(NPC npc)
+    {
+        victim = npc;
+    }
+    public string get_victim()
+    {
+        return victim.Name; ;
+    }
 
 
 

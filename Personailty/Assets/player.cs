@@ -49,6 +49,7 @@ public class player : MonoBehaviour {
     {
             if (interactions < 1)
             {
+                
                 speachbox.text = Personailty.Intro();       //if its his first interaction user will intoduce them selve
                 interactions++;
             } else
