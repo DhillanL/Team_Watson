@@ -10,6 +10,8 @@ public class NPC : MonoBehaviour {
     public bool is_accused = false;
     public bool first_interaction = true;
 
+    public string clue;
+
 
 
     public void respond()
