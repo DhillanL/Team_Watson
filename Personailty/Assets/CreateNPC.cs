@@ -3,29 +3,48 @@ using System.Collections;
 
 public class CreateNPC : MonoBehaviour {
 
-    public gameManager Gameman;
+    public gameManager Gameman;   //gamemanager
 
-    public NPC Tonald_Dump = new NPC();    //all test names for NPC
-    public NPC Bernard_lowe = new NPC();
-    public NPC George_allen = new NPC();
-    public NPC Ethan_hawk = new NPC();
+    public GameObject Tonald;
+    public GameObject Bernard;
+    public GameObject George;
+    public GameObject Ethan;
+
+    public NPC Tonald_Dump ;    //all test names for NPC
+    public NPC Bernard_lowe ;
+    public NPC George_allen;
+    public NPC Ethan_hawk ;
+
+    public SpriteRenderer tonald_look;
+    public SpriteRenderer bernard_look;
 
     public NPC[] npc_list = new NPC[4];        // lists for selecting a murder and a victim ... will need to make correct size when all NPC's are in the game 
     public NPC[] npc_list_vic = new NPC[3];
    
 
+    public void setNCPS()
+    {
+        Tonald_Dump = Tonald.GetComponent<NPC>();
+        tonald_look = Tonald.GetComponent<SpriteRenderer>();    // to set the look 
+        Bernard_lowe = Bernard.GetComponent<NPC>();
+        bernard_look = Bernard.GetComponent<SpriteRenderer>();  // to se the look 
+        George_allen = George.GetComponent<NPC>();
+        Ethan_hawk = Ethan.GetComponent<NPC>();
+    }
 
    
     public void make_tonald()   // set of tonalds attrutes 
     {
         Tonald_Dump.Name = "Tonald Dump";
         Tonald_Dump.intro = "I want to build a wall!";
+        tonald_look.sprite = Tonald_Dump.look;                 //set look set from the sprite added to gaem object 
     }
 
     public void make_bernard()   // set bernards 
     {
         Bernard_lowe.Name = "Bernard Lowe";
         Bernard_lowe.intro = "My name is bernard, I like lamps";
+        bernard_look.sprite = Bernard_lowe.look;
     }
 
     public void make_George()
@@ -53,15 +72,6 @@ public class CreateNPC : MonoBehaviour {
     }
 
 
-    public NPC get_tonald()
-    {
-        return Tonald_Dump;
-    }
-
-    public NPC get_bernard()
-    {
-        return Bernard_lowe;
-    }
 
 
 
@@ -95,12 +105,17 @@ public class CreateNPC : MonoBehaviour {
 
     public void Make_NPC() // called when initilased so to create all of the NPC's 
     {
-        make_tonald();
+        setNCPS();         // set the gaemobjects to the corect npc
+        make_tonald();     // make all of the npcs
         make_bernard();
         make_Ethan();
         make_George();
-        makelst();
-        set_murderer_and_victim();
+        makelst();                      // make a list 
+        set_murderer_and_victim();      // set a murdere and a victim
+
+
+
+
     }
    
 

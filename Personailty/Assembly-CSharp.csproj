@@ -53,6 +53,7 @@
      <Compile Include="Assets\gameManager.cs" />
      <Compile Include="Assets\mousedowm.cs" />
      <Compile Include="Assets\player.cs" />
+     <Compile Include="Assets\setnpcrooms.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

@@ -2,9 +2,11 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class NPC  {
+public class NPC : MonoBehaviour {
 
-    public string Name; 
+    public Sprite look;
+
+    public string Name;
    
     public bool is_muderer = false;
     public bool is_accused = false;

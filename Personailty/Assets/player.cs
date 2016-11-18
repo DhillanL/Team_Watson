@@ -110,13 +110,16 @@ public class player : MonoBehaviour {
 
     }
 
-    
-   
-    
+
+    void Awake() // will not destroy the player on each new scene 
+    {
+        DontDestroyOnLoad(transform.gameObject);
+    }
 
 
 
-    
+
+
     void Start()
     {
         setPlay();   //when the Chacrter is created set the name and personailty as seleted by user 

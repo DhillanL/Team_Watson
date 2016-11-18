@@ -15,6 +15,7 @@ public class gameManager : MonoBehaviour {
     static public string Name;                         // players name 
     static public Personality_player personailty;      // players pesonailty 
     static public Sprite Sprite;                       // players look 
+
     static public NPC murderer;
     static public NPC victim; 
 
