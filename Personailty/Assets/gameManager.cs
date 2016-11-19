@@ -16,11 +16,17 @@ public class gameManager : MonoBehaviour {
     static public Personality_player personailty;      // players pesonailty 
     static public Sprite Sprite;                       // players look 
 
-    static public NPC murderer;
-    static public NPC victim; 
+    static public NPC murderer;      // murderer
+    static public NPC victim;        // victim 
 
     public NPC current_interaction;
 
+    public GameObject room11;
+    public GameObject room12;
+    public GameObject room21;
+
+
+    //public GameObject[] roomlst = { Room11, Room12, Room21 };
 
     // UI elements --> USED IN THE PLAYER SLECTION MENU
     public Button finish_playerSelect;                 // button finish for player select screen 
@@ -44,7 +50,7 @@ public class gameManager : MonoBehaviour {
         personailty = personal;
     }
 
-    public void loadSprite(Sprite sprite)
+    public void loadSprite(Sprite sprite)   // load the sprite
     {
         Sprite = sprite;
     }
@@ -54,7 +60,7 @@ public class gameManager : MonoBehaviour {
         return Name;
     }
 
-    public Sprite getSprite()
+    public Sprite getSprite()  // returns the sprite
     {
         return Sprite;
     }
@@ -86,9 +92,35 @@ public class gameManager : MonoBehaviour {
     }
 
 
+    public void setroom11(GameObject npc)
+    {
+        room11 = npc;
+    }
+    public void setroom12(GameObject npc)
+    {
+        room12 = npc;
+    }
+    public void setroom21(GameObject npc)
+    {
+        room21 = npc;
+    }
+
+    public void populateroom1()
+    {
+       GameObject.FindWithTag(room11.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(300,0,0);
+       GameObject.FindWithTag(room12.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(400,0,0);
+    }
+
+    public void populateroom2()
+    {
+        GameObject.FindWithTag(room11.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(-300, 0, 0);
+        GameObject.FindWithTag(room12.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(-400, 0, 0);
+        GameObject.FindWithTag(room21.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(400, 0, 0);
+
+    }
 
 
-
+   
 
     // FUNCTIONs TO MOVE BETWEEN SCENES 
 
@@ -104,20 +136,25 @@ public class gameManager : MonoBehaviour {
     }
 
 
+    public void load_scence_3()   // 1. used in the player selection scene when the user hits the finish button 
+    {
+        SceneManager.LoadScene("Screen3");
+        populateroom2();
+
+    }
 
 
 
 
 
 
-   
 
 
 
 
 
     void Start () {
-	
+	    
 	}
 	
 	

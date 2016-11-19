@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class NPC : MonoBehaviour {
 
-    public Sprite look;
+    public Sprite look;    //sprite used for picture
 
     public string Name;
    
@@ -36,12 +36,17 @@ public class NPC : MonoBehaviour {
         is_victim = true;
     }
 
+    void Awake() // will not destroy the player on each new scene 
+    {
+        DontDestroyOnLoad(transform.gameObject);
+    }
 
 
 
 
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start () {
 	
 	}
 	
