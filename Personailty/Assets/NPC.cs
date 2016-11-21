@@ -18,28 +18,71 @@ public class NPC : MonoBehaviour {
 
     public string intro;
 
+    public GameObject interaction;
 
-    public void respond()
+    //BadCop
+    string arrgesive_reposne;
+    string violent_reponse;
+    string threaten_response;
+
+    //GoodCop
+    public string kind_response;
+    public string symethic_respose;
+    public string friendly_reponse;
+
+
+    Vector3 newPos = new Vector3(-300,-12,0);   // starting pos for all of the NPCS
+
+    public GameObject Interaction;
+    public GameObject me;
+
+    public void reponse()
     {
-       
-    }
+        
 
-    // clue 
 
-        public void isMurder()
+
+
+    } 
+
+    
+
+   
+
+    public void isMurder()
     {
         is_muderer = true;
     }
+
 
     public void is_Victim()
     {
         is_victim = true;
     }
 
+
+    public void reset_pos()
+    {
+        transform.position = newPos;
+    }
+
+
     void Awake() // will not destroy the player on each new scene 
     {
         DontDestroyOnLoad(transform.gameObject);
     }
+
+
+    void OnMouseDown()
+    {
+        Interaction.GetComponent<Interaction>().setNPC(me.GetComponent<NPC>());
+        Debug.Log("test");
+        Interaction.GetComponent<Interaction>().pick_interaction();
+    }
+
+
+
+
 
 
 

@@ -21,17 +21,19 @@ public class gameManager : MonoBehaviour {
 
     public NPC current_interaction;
 
-    public GameObject room11;
-    public GameObject room12;
-    public GameObject room21;
-
-
-    //public GameObject[] roomlst = { Room11, Room12, Room21 };
+    static public GameObject room11;
+    static public GameObject room12;
+    static public GameObject room21;
+    static public GameObject room31;
+    static public GameObject room41;
+    static public GameObject room51;
+    static public GameObject room61;
+    static public GameObject room71;
+    static public GameObject room72;
+    static public GameObject room81;
 
     // UI elements --> USED IN THE PLAYER SLECTION MENU
     public Button finish_playerSelect;                 // button finish for player select screen 
-
-
 
 
 
@@ -92,6 +94,8 @@ public class gameManager : MonoBehaviour {
     }
 
 
+    //methods for setting the players in the room in pos
+
     public void setroom11(GameObject npc)
     {
         room11 = npc;
@@ -104,17 +108,63 @@ public class gameManager : MonoBehaviour {
     {
         room21 = npc;
     }
+    public void setroom31(GameObject npc)
+    {
+        room31 = npc;
+    }
+    public void setroom41(GameObject npc)
+    {
+        room41 = npc;
+    }
+    public void setroom51(GameObject npc)
+    {
+        room51 = npc;
+    }
+    public void setroom61(GameObject npc)
+    {
+        room61 = npc;
+    }
+    public void setroom71(GameObject npc)
+    {
+        room71 = npc;
+    }
+    public void setroom72(GameObject npc)
+    {
+        room72 = npc;
+    }
+    public void setroom81(GameObject npc)
+    {
+        room81 = npc;
+    }
+
+
+    public void reset_npc_pos()    // will return all npcs back to starting pos. 
+    {
+        GameObject.FindWithTag(room11.GetComponent<NPC>().Name).GetComponent<NPC>().reset_pos();
+        GameObject.FindWithTag(room12.GetComponent<NPC>().Name).GetComponent<NPC>().reset_pos();
+        GameObject.FindWithTag(room21.GetComponent<NPC>().Name).GetComponent<NPC>().reset_pos();
+        GameObject.FindWithTag(room31.GetComponent<NPC>().Name).GetComponent<NPC>().reset_pos();
+        GameObject.FindWithTag(room41.GetComponent<NPC>().Name).GetComponent<NPC>().reset_pos();
+        GameObject.FindWithTag(room51.GetComponent<NPC>().Name).GetComponent<NPC>().reset_pos();
+        GameObject.FindWithTag(room61.GetComponent<NPC>().Name).GetComponent<NPC>().reset_pos();
+        GameObject.FindWithTag(room71.GetComponent<NPC>().Name).GetComponent<NPC>().reset_pos();
+        GameObject.FindWithTag(room72.GetComponent<NPC>().Name).GetComponent<NPC>().reset_pos();
+        GameObject.FindWithTag(room81.GetComponent<NPC>().Name).GetComponent<NPC>().reset_pos();
+    }
+
+
+    // FUNCTIONS TO POPULATE THE ROOMS WITH THE NPCS
 
     public void populateroom1()
     {
+        reset_npc_pos();
        GameObject.FindWithTag(room11.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(300,0,0);
        GameObject.FindWithTag(room12.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(400,0,0);
     }
 
     public void populateroom2()
     {
-        GameObject.FindWithTag(room11.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(-300, 0, 0);
-        GameObject.FindWithTag(room12.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(-400, 0, 0);
+        reset_npc_pos();
         GameObject.FindWithTag(room21.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(400, 0, 0);
 
     }
@@ -127,6 +177,7 @@ public class gameManager : MonoBehaviour {
     public void player_select_finish()   // 1. used in the player selection scene when the user hits the finish button 
     {
         SceneManager.LoadScene("Screen2");
+        populateroom1();
         
     }
 
@@ -140,22 +191,22 @@ public class gameManager : MonoBehaviour {
     {
         SceneManager.LoadScene("Screen3");
         populateroom2();
-
     }
 
 
-
-
-
-
-
-
-
-
-
     void Start () {
-	    
-	}
+        Debug.Log("Room1.1 = " + room11);    // so we can see who is in the rooms for testing 
+        Debug.Log("Room1.2 = " + room12);
+        Debug.Log("Room2.1 = " + room21);
+        Debug.Log("Room3.1 = " + room31);
+        Debug.Log("Room4.1 = " + room41);
+        Debug.Log("Room5.1 = " + room51);
+        Debug.Log("Room6.1 = " + room61);
+        Debug.Log("Room7.1 = " + room71);
+        Debug.Log("Room7.2 = " + room71);
+        Debug.Log("Room8.1 = " + room81);
+
+    }
 	
 	
 	void Update () {

@@ -31,7 +31,7 @@ public class createPersonalitys : MonoBehaviour {
         badCop.Name = Name;
         badCop.setintro("My name is dective " + Name.ToString());
         badCop.settype1("Aggresive");
-        badCop.set1("Tell me were you at the time of the murder?");  //aggresive
+        badCop.set1("Tell me were you at the time of the murder?");  
         badCop.settype2("Violent");
         badCop.set2("You tell me what you know");
         badCop.settype3("Threaten");
