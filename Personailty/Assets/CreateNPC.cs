@@ -279,7 +279,7 @@ public class CreateNPC : MonoBehaviour {
 
         set_murderer_and_victim();      // set a murdere and a victim
 
-        Gameman.GetComponent<gameManager>().populateroom1();   // populate room1.
+        //Gameman.GetComponent<gameManager>().populateroom1();   // populate room1.
 
 
 

@@ -35,7 +35,7 @@ public class gameManager : MonoBehaviour {
     // UI elements --> USED IN THE PLAYER SLECTION MENU
     public Button finish_playerSelect;                 // button finish for player select screen 
 
-
+    public GameObject create_npcs;
 
 
     
@@ -157,7 +157,7 @@ public class gameManager : MonoBehaviour {
 
     public void populateroom1()
     {
-        reset_npc_pos();
+       reset_npc_pos();
        GameObject.FindWithTag(room11.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(300,0,0);
        GameObject.FindWithTag(room12.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(400,0,0);
     }
@@ -166,33 +166,105 @@ public class gameManager : MonoBehaviour {
     {
         reset_npc_pos();
         GameObject.FindWithTag(room21.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(400, 0, 0);
-
     }
 
+    public void populateroom3()
+    {
+        reset_npc_pos();
+        GameObject.FindWithTag(room31.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(500, 30, 0);
+    }
 
+    public void populateroom4()
+    {
+        reset_npc_pos();
+        GameObject.FindWithTag(room41.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(400, 0, 0);
+    }
+
+    public void populateroom5()
+    {
+        reset_npc_pos();
+        GameObject.FindWithTag(room51.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(400, 0, 0);
+    }
+
+    public void populateroom6()
+    {
+        reset_npc_pos();
+        GameObject.FindWithTag(room61.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(400, 0, 0);
+    }
+
+    public void populateroom7()
+    {
+        reset_npc_pos();
+        GameObject.FindWithTag(room71.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(400, 0, 0);
+        GameObject.FindWithTag(room72.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(300, 0, 0);
+    }
+
+    public void populateroom8()
+    {
+        reset_npc_pos();
+        GameObject.FindWithTag(room81.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(400, 0, 0);
+    }
    
+
 
     // FUNCTIONs TO MOVE BETWEEN SCENES 
 
-    public void player_select_finish()   // 1. used in the player selection scene when the user hits the finish button 
-    {
-        SceneManager.LoadScene("Screen2");
-        populateroom1();
-        
-    }
 
     public void load_player_select()
     {
         SceneManager.LoadScene("test1");     // load the player selection scene
     }
 
+    public void player_select_finish()   // 1. used in the player selection scene when the user hits the finish button 
+    { // loads room 1 
+        SceneManager.LoadScene("Screen2");
+        populateroom1();
 
-    public void load_scence_3()   // 1. used in the player selection scene when the user hits the finish button 
-    {
+    }
+
+    public void load_room2()   // 1. used in the player selection scene when the user hits the finish button 
+    {  // loads rooom 2 
         SceneManager.LoadScene("Screen3");
         populateroom2();
     }
 
+    public void load_room3()  //load room 3 
+    {
+        SceneManager.LoadScene("Room3");
+        populateroom3();
+    }
+
+    public void load_room4()
+    {
+        SceneManager.LoadScene("Room4");
+        populateroom4();
+    }
+
+    public void load_room5()
+    {
+        SceneManager.LoadScene("Room5");
+        populateroom5();
+    }
+
+    public void load_room6()
+    {
+        SceneManager.LoadScene("Room6");
+        populateroom6();
+    }
+
+    public void load_room7()
+    {
+        SceneManager.LoadScene("Room7");
+        populateroom7();
+    }
+
+    public void load_room8()
+    {
+        SceneManager.LoadScene("Room8");
+        populateroom8();
+    }
+
+    
 
     void Start () {
         Debug.Log("Room1.1 = " + room11);    // so we can see who is in the rooms for testing 
