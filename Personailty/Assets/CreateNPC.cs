@@ -9,34 +9,35 @@ public class CreateNPC : MonoBehaviour {
     public GameObject Bernard;
     public GameObject George;
     public GameObject Ethan;
-    public GameObject NPC5;
-    public GameObject NPC6;
-    public GameObject NPC7;
-    public GameObject NPC8;
-    public GameObject NPC9;
-    public GameObject NPC10;
+    public GameObject Ryan;
+    public GameObject Zoe;
+    public GameObject Alice;
+    public GameObject Sophie;
+    public GameObject Stephen;
+    public GameObject Robert;
 
     public NPC Tonald_Dump ;    //all test names for NPC
     public NPC Bernard_lowe ;
     public NPC George_allen;
     public NPC Ethan_hawk ;
-    public NPC npc5;
-    public NPC npc6;
-    public NPC npc7;
-    public NPC npc8;
-    public NPC npc9;
-    public NPC npc10;
+	public NPC Ryan_Smith;
+	public NPC Zoe_Williams;
+	public NPC Alice_Davis;
+	public NPC Sophie_Aaron;
+	public NPC Stephen_Brown;
+	public NPC Robert_Henry;
+
 
     public SpriteRenderer tonald_look;  // for the look of the NPC
     public SpriteRenderer bernard_look;
     public SpriteRenderer george_look;
     public SpriteRenderer ethan_look;
-    public SpriteRenderer npc5_look;
-    public SpriteRenderer npc6_look;
-    public SpriteRenderer npc7_look;
-    public SpriteRenderer npc8_look;
-    public SpriteRenderer npc9_look;
-    public SpriteRenderer npc10_look;
+	public SpriteRenderer ryan_look;
+	public SpriteRenderer zoe_look;
+	public SpriteRenderer alice_look;
+	public SpriteRenderer sophie_look;
+	public SpriteRenderer stephen_look;
+	public SpriteRenderer robert_look;
 
     public NPC[] npc_list_ = new NPC[10];        // lists for selecting a murder and a victim
     public NPC[] npc_list_vic_ = new NPC[9];
@@ -60,23 +61,23 @@ public class CreateNPC : MonoBehaviour {
         Ethan_hawk = Ethan.GetComponent<NPC>();
         ethan_look = Ethan.GetComponent<SpriteRenderer>();
 
-        npc5 = NPC5.GetComponent<NPC>();
-        npc5_look = NPC5.GetComponent<SpriteRenderer>();
+		Ryan_Smith = Ryan.GetComponent<NPC>();
+        ryan_look = Ryan.GetComponent<SpriteRenderer>();
 
-        npc6 = NPC6.GetComponent<NPC>();
-        npc6_look = NPC6.GetComponent<SpriteRenderer>();
+        Zoe_Williams = Zoe.GetComponent<NPC>();
+        zoe_look = Zoe.GetComponent<SpriteRenderer>();
 
-        npc7 = NPC7.GetComponent<NPC>();
-        npc7_look = NPC7.GetComponent<SpriteRenderer>();
+        Alice_Davis = Alice.GetComponent<NPC>();
+        alice_look = Alice.GetComponent<SpriteRenderer>();
 
-        npc8 = NPC8.GetComponent<NPC>();
-        npc8_look = NPC8.GetComponent<SpriteRenderer>();
+        Sophie_Aaron = Sophie.GetComponent<NPC>();
+        sophie_look = Sophie.GetComponent<SpriteRenderer>();
 
-        npc9 = NPC9.GetComponent<NPC>();
-        npc9_look = NPC9.GetComponent<SpriteRenderer>();
+        Stephen_Brown = Stephen.GetComponent<NPC>();
+        stephen_look = Stephen.GetComponent<SpriteRenderer>();
 
-        npc10 = NPC10.GetComponent<NPC>();
-        npc10_look = NPC10.GetComponent<SpriteRenderer>();
+        Robert_Henry = Robert.GetComponent<NPC>();
+        robert_look = Robert.GetComponent<SpriteRenderer>();
     }
 
    
@@ -114,39 +115,39 @@ public class CreateNPC : MonoBehaviour {
 
 
 
-    public void make_npc5()
+    public void make_Ryan()
     {
-        npc5.Name = "NPC5";
-        npc5_look.sprite = npc5.look;
+		Ryan_Smith.Name = "Ryan";
+		ryan_look.sprite = Ryan_Smith.look;
     }
 
-    public void make_npc6()
+    public void make_Zoe()
     {
-        npc6.Name = "NPC6";
-        npc6_look.sprite = npc6.look;
+        Zoe_Williams.Name = "Zoe";
+		zoe_look.sprite = Zoe_Williams.look;
     }
-    public void make_npc7()
+    public void make_Alice()
     {
-        npc7.Name = "NPC7";
-        npc7_look.sprite = npc7.look;
-    }
-
-    public void make_npc8()
-    {
-        npc8.Name = "NPC8";
-        npc8_look.sprite = npc8.look;
+		Alice_Davis.Name = "Alice";
+		alice_look.sprite = Alice_Davis.look;
     }
 
-    public void make_npc9()
+    public void make_Sophie()
     {
-        npc9.Name = "NPC9";
-        npc9_look.sprite = npc9.look;
+        Sophie_Aaron.Name = "Sophie";
+		sophie_look.sprite = Sophie_Aaron.look;
     }
 
-    public void make_npc10()
+    public void make_Stephen()
     {
-        npc10.Name = "NPC10";
-        npc10_look.sprite = npc10.look;
+        Stephen_Brown.Name = "Stephen";
+		stephen_look.sprite = Stephen_Brown.look;
+    }
+
+    public void make_Robert()
+    {
+		Robert_Henry.Name = "Robert";
+		robert_look.sprite = Robert_Henry.look;
     }
 
 
@@ -157,12 +158,12 @@ public class CreateNPC : MonoBehaviour {
         npc_list_[1] = Bernard_lowe;
         npc_list_[2] = George_allen;
         npc_list_[3] = Ethan_hawk;
-        npc_list_[4] = npc5;
-        npc_list_[5] = npc6;
-        npc_list_[6] = npc7;
-        npc_list_[7] = npc8;
-        npc_list_[8] = npc9;
-        npc_list_[9] = npc10;
+		npc_list_[4] = Ryan_Smith;
+		npc_list_[5] = Zoe_Williams;
+        npc_list_[6] = Alice_Davis;
+		npc_list_[7] = Sophie_Aaron;
+		npc_list_[8] = Stephen_Brown;
+        npc_list_[9] = Robert_Henry;
     }
 
 
@@ -172,12 +173,12 @@ public class CreateNPC : MonoBehaviour {
         gameobjectlst_[1] = Bernard;
         gameobjectlst_[2] = George;
         gameobjectlst_[3] = Ethan;
-        gameobjectlst_[4] = NPC5;
-        gameobjectlst_[5] = NPC6;
-        gameobjectlst_[6] = NPC7;
-        gameobjectlst_[7] = NPC8;
-        gameobjectlst_[8] = NPC9;
-        gameobjectlst_[9] = NPC10;
+        gameobjectlst_[4] = Ryan;
+        gameobjectlst_[5] = Zoe;
+        gameobjectlst_[6] = Alice;
+        gameobjectlst_[7] = Sophie;
+        gameobjectlst_[8] = Stephen;
+        gameobjectlst_[9] = Robert;
     }
 
 
@@ -263,12 +264,12 @@ public class CreateNPC : MonoBehaviour {
         make_bernard();
         make_Ethan();
         make_George();
-        make_npc5();
-        make_npc6();
-        make_npc7();
-        make_npc8();
-        make_npc9();
-        make_npc10();
+        make_Ryan();
+        make_Zoe();
+        make_Alice();
+        make_Sophie();
+        make_Stephen();
+        make_Robert();
 
         makelst();
         makegameobjectlst();                   // make a list 
