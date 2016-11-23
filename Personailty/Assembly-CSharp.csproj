@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\CreateNPC.cs" />
+     <Compile Include="Assets\DonotDestoryBottomGUI.cs" />
      <Compile Include="Assets\Interaction.cs" />
      <Compile Include="Assets\NPC.cs" />
      <Compile Include="Assets\Personality_player.cs" />

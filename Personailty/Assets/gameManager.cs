@@ -32,10 +32,14 @@ public class gameManager : MonoBehaviour {
     static public GameObject room72;
     static public GameObject room81;
 
+
     // UI elements --> USED IN THE PLAYER SLECTION MENU
     public Button finish_playerSelect;                 // button finish for player select screen 
 
     public GameObject create_npcs;
+
+    public Camera maincamera;
+    public Canvas canvas;
 
 
     
@@ -155,6 +159,11 @@ public class gameManager : MonoBehaviour {
 
     // FUNCTIONS TO POPULATE THE ROOMS WITH THE NPCS
 
+   
+
+
+
+
     public void populateroom1()
     {
        reset_npc_pos();
@@ -171,7 +180,7 @@ public class gameManager : MonoBehaviour {
     public void populateroom3()
     {
         reset_npc_pos();
-        GameObject.FindWithTag(room31.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(500, 30, 0);
+        GameObject.FindWithTag(room31.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(400, 30, 0);
     }
 
     public void populateroom4()
@@ -275,7 +284,7 @@ public class gameManager : MonoBehaviour {
         Debug.Log("Room5.1 = " + room51);
         Debug.Log("Room6.1 = " + room61);
         Debug.Log("Room7.1 = " + room71);
-        Debug.Log("Room7.2 = " + room71);
+        Debug.Log("Room7.2 = " + room72);
         Debug.Log("Room8.1 = " + room81);
 
     }

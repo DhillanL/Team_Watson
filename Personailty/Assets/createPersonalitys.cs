@@ -7,13 +7,13 @@ public class createPersonalitys : MonoBehaviour {
     // each is of type Personailty player, this is just the scipt where they are all craeted // 
 
     public GameObject gameman;
-    public gameManager name;
+    public gameManager NAme;
     string Name = "";     //player name 
 
     public void getname()      // gets the name of the player 
     {
-        name = gameman.GetComponent<gameManager>();
-        Name = name.getName();
+        NAme = gameman.GetComponent<gameManager>();
+        Name = NAme.getName();
     }
 
 
@@ -30,7 +30,7 @@ public class createPersonalitys : MonoBehaviour {
         getname();
         badCop.Name = Name;
         badCop.setintro("My name is dective " + Name.ToString());
-        badCop.settype1("Aggresive");
+        badCop.settype1("Aggressive"); 
         badCop.set1("Tell me were you at the time of the murder?");  
         badCop.settype2("Violent");
         badCop.set2("You tell me what you know");

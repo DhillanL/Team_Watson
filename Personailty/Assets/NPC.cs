@@ -13,17 +13,22 @@ public class NPC : MonoBehaviour {
     public bool is_victim = false;
 
     public bool first_interaction = true;
+    public bool okay_to_interact = true;
 
     public string clue;
 
     public string intro;
 
-    public GameObject interaction;
+    public string dont_interact_response;
 
+    public string dont_interact_if1 = "";    // string is set to empty to start 
+    public string dont_interact_if2 = "";    // these are used to test against after an NPC has resposned to see if they wil talk again 
+    public string dont_interact_if3 = "";    // these are set to the responses that the npc would say if they dont want to talk anymore. EG: NPC may say 'thats horrible dont talk to me again'
+                                             // this may be there response if they are questioned aggresively. so we can test if they are the same and change okay_to_interact to false;
     //BadCop
-    string arrgesive_reposne;
-    string violent_reponse;
-    string threaten_response;
+    public string aggressive_response;
+    public string violent_response;
+    public string threaten_response;
 
     //GoodCop
     public string kind_response;
@@ -36,18 +41,6 @@ public class NPC : MonoBehaviour {
     public GameObject Interaction;
     public GameObject me;
 
-    public void reponse()
-    {
-        
-
-
-
-
-    } 
-
-    
-
-   
 
     public void isMurder()
     {
@@ -73,11 +66,22 @@ public class NPC : MonoBehaviour {
     }
 
 
+
+
+
     void OnMouseDown()
     {
-        Interaction.GetComponent<Interaction>().setNPC(me.GetComponent<NPC>());
-        Debug.Log("test");
-        Interaction.GetComponent<Interaction>().pick_interaction();
+        Interaction = GameObject.FindWithTag("interaction"); 
+        if (Interaction.GetComponent<Interaction>().npc == null)
+        {
+            Interaction.GetComponent<Interaction>().setNPC(me.GetComponent<NPC>());   // sets the npc who is being comuncated with in the gameman
+                                                                
+            Interaction.GetComponent<Interaction>().pick_interaction();               // starts the interaction
+        }
+        else
+        {
+            Debug.Log("finish current interaction");
+        }
     }
 
 

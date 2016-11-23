@@ -8,40 +8,92 @@ public class Interaction : MonoBehaviour {
     public player player;
     public NPC npc;
 
-    public Text speachbox ;    // the speach box 
+    public Text speachbox ;                // The speach box 
 
-    public InputField player_input;     //wher the player can input their choices
-    public Button pick_interaction_type;  // clicked when picked wether to Question or accuse
-    public Button pick_questioning_style;
+    public InputField player_input;        // Where the player can input their choices
+    public Button pick_interaction_type;   // Clicked when picked wether to Question or accuse
+    public Button pick_questioning_style;  // clicked when selecting the question they want to ask
 
+  
     public string question_style_text;
 
-    void Awake() // will not destroy the player on each new scene 
-    {
-        DontDestroyOnLoad(transform.gameObject);
-    }
+
+  
+
+
+
+    //void Awake() // will not destroy the player on each new scene 
+    //{
+     //   DontDestroyOnLoad(transform.gameObject);
+    //}
+
+
 
     public void setNPC(NPC npcin)
     {
         npc = npcin;
     }
 
-    public void pick_interaction()
-    {
-        if (npc.first_interaction == true)
-        {
-            speachbox.text  = player.Personailty.intro;
-            
-            speachbox.text = speachbox.text + "\n" + npc.intro;
 
-            npc.first_interaction = false;
-        } else
+
+    public string npc_response()   // more need to be added to account for all of the personailty types.  
+    {
+        if (question_style_text.Equals("Aggressive"))    // not reading aggressive
         {
-            speachbox.text = "how would you like to interact: \n1. Question \n2. Accuse";
-            player_input.transform.Translate(220,0,0);
-            pick_interaction_type.transform.Translate(220, 0, 0);
+            return (npc.aggressive_response);
+        }
+        else if (question_style_text.Equals("Violent"))
+        {
+            return (npc.violent_response);
+        }
+        else if (question_style_text.Equals("Threaten"))
+        {
+            return (npc.threaten_response);
+        }
+        else 
+        {
+            return (npc.kind_response);
         }
     }
+
+
+
+
+
+    public void pick_interaction()
+    {
+        if (npc.okay_to_interact == true)
+        {
+            if (npc.first_interaction == true)
+            {
+                speachbox.text = "detective " + player.Name + " :  " + player.Personailty.intro;
+
+                speachbox.text = speachbox.text + "\n\n" + npc.Name + ": " + npc.intro;
+
+                npc.first_interaction = false;
+
+                npc = null;
+            }
+            else
+            {
+                speachbox.text = "how would you like to interact: \n1. Question \n2. Accuse";
+                player_input.transform.Translate(250, 0, 0);                                // bring in the input and cnfirm boxes
+                pick_interaction_type.transform.Translate(250, 0, 0);
+            }
+
+        }
+        else
+        {
+            speachbox.text = npc.name + ": " + npc.dont_interact_response;
+            npc = null;
+        }
+        
+    }
+
+
+
+
+
 
     public void pick_question() // pick the question sytle -- called after selected interaction type
     {
@@ -49,7 +101,8 @@ public class Interaction : MonoBehaviour {
         {
             speachbox.text = "select questioing method:\n1. " + player.Personailty.type1() + "\n2. " + player.Personailty.type2() + "\n3. " + player.Personailty.type3();
             player_input.text = "";                                // make input box empty
-            pick_questioning_style.transform.Translate(220,0,0); // button comes in to call questioning style
+            pick_interaction_type.transform.Translate(-250, 0, 0);
+            pick_questioning_style.transform.Translate(250,0,0); // button comes in to call questioning style
         } else if(player_input.text.Equals("2"))
         {
             speachbox.text = "accuse";
@@ -60,22 +113,43 @@ public class Interaction : MonoBehaviour {
     }
 
 
-    public void questioing_style()  //-- called after the question has been selected need to finish all of the nteraction still. 
+
+
+
+    public void questioing_style()  //-- called after the question has been selected need to finish all of the interaction still. 
     {
-        if (player_input.text.Equals("1"))
+        if (player_input.text.Equals("1"))   // if the player chooses to perform question option 1 
         {
             question_style_text = player.Personailty.questiontype1;
-            speachbox.text = player.Personailty.Question1();
+            speachbox.text = "Detective " + player.Name + ": " + player.Personailty.Question1();
+            speachbox.text += "\n\n" + npc.Name + ": " +npc_response();
+            check_okay_to_interact();
+            pick_questioning_style.transform.Translate(-250, 0, 0);
+            player_input.transform.Translate(-250, 0, 0);
+            npc = null;
+
+
 
         } else if (player_input.text.Equals("2"))
         {
             question_style_text = player.Personailty.questiontype2;
             speachbox.text = player.Personailty.Question2();
+            speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
+            check_okay_to_interact();
+            pick_questioning_style.transform.Translate(-250, 0, 0);
+            player_input.transform.Translate(-250, 0, 0);
+            npc = null;
 
         } else if (player_input.text.Equals("3"))
         {
             question_style_text = player.Personailty.questiontype3;
             speachbox.text = player.Personailty.Question3();
+            speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
+            check_okay_to_interact();
+            pick_questioning_style.transform.Translate(-250, 0, 0);
+            player_input.transform.Translate(-250, 0, 0);
+            npc = null;
+
 
         } else
         {
@@ -85,7 +159,20 @@ public class Interaction : MonoBehaviour {
         
     }
 
-                
+    
+
+    public void check_okay_to_interact()
+    {
+        if (npc_response().Equals(npc.dont_interact_if1) || npc_response().Equals(npc.dont_interact_if2) || npc_response().Equals(npc.dont_interact_if3))
+        {
+            npc.okay_to_interact = false;
+        }
+        else
+        {
+            npc.okay_to_interact = true;
+        }
+    }
+             
 
     public void accuse()
     {
@@ -95,11 +182,13 @@ public class Interaction : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        Player = GameObject.FindWithTag("Player");
         player = Player.GetComponent<player>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        
 	
 	}
 }

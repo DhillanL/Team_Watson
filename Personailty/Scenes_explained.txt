@@ -1,0 +1,19 @@
+Scenes explained:
+
+HomeScreen -- home screen    /
+test1 -- player secltion     /
+screen2 -- room 1 (  )       /
+screen3 -- room 2 (  )       /
+room3 -- (  )                x     input not working for some reason?
+room4 -- (  )                x
+room5 -- (  )                x
+room6 -- (  )                x
+room7 -- (  )                x
+room8 -- (  )                x
+room9 -- (  )                x
+room10  - (  )               x
+
+
+Main camera size - 100
+canvas set to camera 
+make gamemanager object and add gamemanger scipt 

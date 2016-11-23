@@ -83,18 +83,39 @@ public class CreateNPC : MonoBehaviour {
    
     public void make_tonald()   // set of tonalds attibutes to make his personailty
     {
+        // basic setup
         Tonald_Dump.Name = "Tonald";
         Tonald_Dump.intro = "I want to build a wall!";
-        tonald_look.sprite = Tonald_Dump.look;                 //set look set from the sprite added to game object
-         
-        
+        tonald_look.sprite = Tonald_Dump.look;             //look set from the sprite added to game object
+        // bad cop responses 
+        Tonald_Dump.aggressive_response = "Dont talk to me like that you fuck!";
+        Tonald_Dump.violent_response = "I'm very violent";
+        Tonald_Dump.threaten_response = "DONMT THREATEN ME! dont talk to me again!";
+        //good cop responses 
+        Tonald_Dump.kind_response = "fucking nice mate";
+
+        // no more interaction set up 
+        Tonald_Dump.dont_interact_response = "IM not talking to you anymore";
+        Tonald_Dump.dont_interact_if1 = Tonald_Dump.threaten_response;       // Tonald wont interact if he is questioned 'threaten or violent'
+        Tonald_Dump.dont_interact_if2 = Tonald_Dump.violent_response;
     }
 
     public void make_bernard()   // set bernards 
     {
+        //basic setup
         Bernard_lowe.Name = "Bernard";
         Bernard_lowe.intro = "My name is bernard, I like lamps";
         bernard_look.sprite = Bernard_lowe.look;
+        //badcop setup
+        Bernard_lowe.aggressive_response = "Dont talk to me like that you fuck I'm Bernard !";
+        Bernard_lowe.violent_response = "I'm a violent bernard";
+        Bernard_lowe.threaten_response = "I dont appreiacte being theatened! dont ask me anymore!";
+        //goodcop setup 
+        Bernard_lowe.kind_response = "fucking nice mate";
+
+        //no more interaction setup
+        Bernard_lowe.dont_interact_response = "Ino longer wish to speak to you!";
+        Bernard_lowe.dont_interact_if1 = Bernard_lowe.threaten_response;
     }
 
 
@@ -224,7 +245,8 @@ public class CreateNPC : MonoBehaviour {
             {
                 y = Random.Range(0, 10);
             }
-            gameobjectlstshuffle_[y] = gameobjectlst_[x]; 
+            gameobjectlstshuffle_[y] = gameobjectlst_[x];
+
         }
     }
 
