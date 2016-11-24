@@ -19,6 +19,7 @@ public class createPersonalitys : MonoBehaviour {
 
    static public Personality_player badCop = new Personality_player();
    static public Personality_player goodCop = new Personality_player();
+   static public Personality_player smart = new Personality_player();
 
 
 
@@ -46,9 +47,6 @@ public class createPersonalitys : MonoBehaviour {
     }
 
 
-
-
-
     //      GOOD COP PERSONAILTY       //
 
     public void makegoodcop()
@@ -73,6 +71,26 @@ public class createPersonalitys : MonoBehaviour {
     }
 
 
+    // smart personailty 
+
+    public void makesmart()
+    {
+        getname();
+        smart.Name = Name;
+        smart.setintro("Why hello there I am very smart, call me Detective " + Name.ToString());
+        smart.settype1("Friendly");
+        smart.set1("");
+        smart.settype2("Cunning");
+        smart.set2("");
+        smart.settype3("Threaten");
+        smart.set3("");
+    }
+
+    public Personality_player getsmart()
+    {
+        makesmart();
+        return smart;
+    }
 
 
 

@@ -63,13 +63,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CreateNPC.cs" />
+    <Compile Include="Assets\DonotDestoryBottomGUI.cs" />
+    <Compile Include="Assets\Interaction.cs" />
     <Compile Include="Assets\NPC.cs" />
     <Compile Include="Assets\Personality_player.cs" />
     <Compile Include="Assets\PlayerSelect.cs" />
+    <Compile Include="Assets\clue.cs" />
+    <Compile Include="Assets\createClue.cs" />
     <Compile Include="Assets\createPersonalitys.cs" />
     <Compile Include="Assets\gameManager.cs" />
-    <Compile Include="Assets\mousedowm.cs" />
     <Compile Include="Assets\player.cs" />
+    <Compile Include="Assets\setnpcrooms.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

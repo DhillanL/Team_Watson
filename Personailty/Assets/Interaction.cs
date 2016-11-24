@@ -18,16 +18,6 @@ public class Interaction : MonoBehaviour {
     public string question_style_text;
 
 
-  
-
-
-
-    //void Awake() // will not destroy the player on each new scene 
-    //{
-     //   DontDestroyOnLoad(transform.gameObject);
-    //}
-
-
 
     public void setNPC(NPC npcin)
     {

@@ -14,25 +14,25 @@ Platform assembly: C:\Users\Ben\Documents\Team_Watson\Personailty\whynot_Data\Ma
 Loading C:\Users\Ben\Documents\Team_Watson\Personailty\whynot_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
 Platform assembly: C:\Users\Ben\Documents\Team_Watson\Personailty\whynot_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading C:\Users\Ben\Documents\Team_Watson\Personailty\whynot_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-- Completed reload, in  0.106 seconds
+- Completed reload, in  0.148 seconds
 Platform assembly: C:\Users\Ben\Documents\Team_Watson\Personailty\whynot_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Ben\Documents\Team_Watson\Personailty\whynot_Data\Managed\System.dll (this message is harmless)
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 1.762306 ms
+UnloadTime: 1.440850 ms
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 12.352674 ms
+UnloadTime: 8.392043 ms
 
 Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 236.
-Total: 0.724415 ms (FindLiveObjects: 0.053575 ms CreateObjectMapping: 0.029067 ms MarkObjects: 0.584205 ms  DeleteObjects: 0.036477 ms)
+Total: 0.476483 ms (FindLiveObjects: 0.038187 ms CreateObjectMapping: 0.022228 ms MarkObjects: 0.395550 ms  DeleteObjects: 0.013678 ms)
 
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.305770 ms
+UnloadTime: 1.550852 ms
 
 Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 237.
-Total: 0.359642 ms (FindLiveObjects: 0.029067 ms CreateObjectMapping: 0.015388 ms MarkObjects: 0.301507 ms  DeleteObjects: 0.012539 ms)
+Total: 0.404669 ms (FindLiveObjects: 0.035907 ms CreateObjectMapping: 0.017098 ms MarkObjects: 0.336274 ms  DeleteObjects: 0.014248 ms)
 
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 1bd4 -> priority: 1 
+  Thread -> id: 2948 -> priority: 1 

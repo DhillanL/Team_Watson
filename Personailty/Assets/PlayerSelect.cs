@@ -16,6 +16,7 @@ public class PlayerSelect : MonoBehaviour {
     
     public Button goodcopbutton;
     public Button badcopbutton;
+    public Button smartbutton;
     public Button Finish;
 
     public GameObject gameMan;       //game object of the dataholder object 
@@ -25,8 +26,9 @@ public class PlayerSelect : MonoBehaviour {
     public createPersonalitys personailtycreate;        // refernce of the script createPersonailtys 
 
     public GameObject characterpreview;
-    public Sprite goodcopsprite;
+    public Sprite goodcopsprite;    //looks for the personailtes 
     public Sprite badcopsprite;
+    public Sprite smartsprite;
 
 
 
@@ -39,9 +41,12 @@ public class PlayerSelect : MonoBehaviour {
         if (badcopbutton.image.color.Equals(Color.red))
         {
             personality = personailtycreate.getBadCop();    // sets personailty as bad cop
-        } else
+        } else if (goodcopbutton.image.color.Equals(Color.red))
         {
             personality = personailtycreate.getGoodCop();    // sets personailty as good cop
+        } else
+        {
+            personality = personailtycreate.getsmart();
         }
         
     }
@@ -56,12 +61,7 @@ public class PlayerSelect : MonoBehaviour {
     public void GoodcopColor()                                     // turns goodcop red
     {
         set_character_preview(goodcopsprite);
-        if (badcopbutton.image.color.Equals(Color.white))
-        {
-            goodcopbutton.image.color = Color.red;
-            
-        }
-
+        smartbutton.image.color = Color.white;
         badcopbutton.image.color = Color.white;
         goodcopbutton.image.color = Color.red;
     }
@@ -69,13 +69,16 @@ public class PlayerSelect : MonoBehaviour {
     public void BadcopColor()                                        // turns badcop red
     {
         set_character_preview(badcopsprite);
-        if (goodcopbutton.image.color.Equals(Color.white))
-        {
-            badcopbutton.image.color = Color.red;
-            
-        }
+        smartbutton.image.color = Color.white;
         goodcopbutton.image.color = Color.white;
         badcopbutton.image.color = Color.red;
+    }
+
+    public void SmartColor()                              //turns the smart button red 
+    {
+        smartbutton.image.color = Color.red;
+        goodcopbutton.image.color = Color.white;
+        badcopbutton.image.color = Color.white;
     }
 
     public void set_character_preview(Sprite sprite)
