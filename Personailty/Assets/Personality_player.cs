@@ -15,6 +15,9 @@ public  class Personality_player  {
     public string questiontype3;
     public string question3;
 
+	public string questiontype4;
+	public string question4;
+
     public string accuse;
 
 
@@ -92,6 +95,29 @@ public  class Personality_player  {
     {
         question3 = new1;
     }
+
+	// QUESTION SET 4
+
+	public void settype4(string new4)
+	{
+		questiontype4 = new4;
+	}
+
+	public string type4()
+	{
+		return questiontype4;
+	}
+
+	public string Question4()
+	{
+		return question4;
+	}
+
+	public void set4(string new4)
+	{
+		question4 = new4;
+	}
+
 
 
     // ACCUSE 

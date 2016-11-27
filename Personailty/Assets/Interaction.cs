@@ -26,27 +26,42 @@ public class Interaction : MonoBehaviour {
         npc = npcin;
     }
 
-
-
-    public string npc_response()   // more need to be added to account for all of the personailty types.  
-    {
-        if (question_style_text.Equals("Aggressive"))    // not reading aggressive
-        {
-            return (npc.aggressive_response);
-        }
-        else if (question_style_text.Equals("Violent"))
-        {
-            return (npc.violent_response);
-        }
-        else if (question_style_text.Equals("Threaten"))
-        {
-            return (npc.threaten_response);
-        }
-        else 
-        {
-            return (npc.kind_response);
-        }
-    }
+	public string npc_response()
+	{
+		switch(question_style_text)
+		{
+		case "Aggressive":
+			return (npc.aggressive_response);
+			break;
+		case "Violent":
+			return (npc.violent_response);
+			break;
+		case "Threaten":
+			return (npc.threaten_response);
+			break;
+		case "Arrogant":
+			return (npc.arrogant_response);
+			break;
+		case "Indifferent":
+			return (npc.indifferent_response);
+			break;
+		case "Kind":
+			return (npc.kind_response);
+			break;
+		case "Friendly":
+			return (npc.friendly_response);
+			break;
+		case "Humorous":
+			return (npc.humorous_response);
+			break;
+		case "Enthusiastic":
+			return (npc.enthusiastic_response);
+			break;
+		default:
+			return (npc.sympthetic_response);
+			break;
+		}
+	}
 
 
 
@@ -92,6 +107,7 @@ public class Interaction : MonoBehaviour {
     public void pick_question() // if the user clicks on question 
         
     {
+<<<<<<< HEAD
         speachbox.text = "select questioing method:";
         question.transform.Translate(0, -57, 0);
         accusebutt.transform.Translate(0, -57, 0);
@@ -101,6 +117,22 @@ public class Interaction : MonoBehaviour {
         questioingtype1.GetComponentInChildren<Text>().text = player.Personailty.type1();
         questioingtype2.GetComponentInChildren<Text>().text = player.Personailty.type2();
         questioingtype3.GetComponentInChildren<Text>().text = player.Personailty.type3();
+=======
+        if(player_input.text.Equals("1"))
+        {
+            speachbox.text = "select questioing method:\n1. " + player.Personailty.type1() + "\n2. " + player.Personailty.type2() + "\n3. " + player.Personailty.type3();
+            player_input.text = "";                                // make input box empty
+            pick_interaction_type.transform.Translate(-250, 0, 0);
+            pick_questioning_style.transform.Translate(250,0,0); // button comes in to call questioning style
+        } 
+		else if(player_input.text.Equals("2"))
+        {
+            speachbox.text = "accuse";
+        } else
+        {
+            speachbox.text = "please enter in correct format and interact again";
+        }
+>>>>>>> 49daa777ffcc51a032d8a883b27428804d6ea238
     }
 
 
@@ -109,6 +141,7 @@ public class Interaction : MonoBehaviour {
 
     public void questioing_style1()
     {
+<<<<<<< HEAD
         question.transform.Translate(0, -57, 0);
         accusebutt.transform.Translate(0, -57, 0);
         questioingtype1.transform.Translate(0, -57, 0);
@@ -139,6 +172,47 @@ public class Interaction : MonoBehaviour {
 
     public void questioning_style3()
 
+=======
+		if (player_input.text.Equals ("1")) {   // if the player chooses to perform question option 1 
+			question_style_text = player.Personailty.questiontype1;
+			speachbox.text = "Detective " + player.Name + ": " + player.Personailty.Question1 ();
+			speachbox.text += "\n\n" + npc.Name + ": " + npc_response ();
+			check_okay_to_interact ();
+			pick_questioning_style.transform.Translate (-250, 0, 0);
+			player_input.transform.Translate (-250, 0, 0);
+			npc = null;
+
+		} else if (player_input.text.Equals ("2")) {
+			question_style_text = player.Personailty.questiontype2;
+			speachbox.text = player.Personailty.Question2 ();
+			speachbox.text += "\n\n" + npc.Name + ": " + npc_response ();
+			check_okay_to_interact ();
+			pick_questioning_style.transform.Translate (-250, 0, 0);
+			player_input.transform.Translate (-250, 0, 0);
+			npc = null;
+
+		} else if (player_input.text.Equals ("3")) {
+			question_style_text = player.Personailty.questiontype3;
+			speachbox.text = player.Personailty.Question3 ();
+			speachbox.text += "\n\n" + npc.Name + ": " + npc_response ();
+			check_okay_to_interact ();
+			pick_questioning_style.transform.Translate (-250, 0, 0);
+			player_input.transform.Translate (-250, 0, 0);
+			npc = null;
+
+
+		} else if (player_input.text.Equals ("4")) {
+			question_style_text = player.Personailty.questiontype4;
+			speachbox.text = player.Personailty.Question4 ();
+			speachbox.text += "\n\n" + npc.Name + ": " + npc_response ();
+			check_okay_to_interact ();
+			pick_questioning_style.transform.Translate (-250, 0, 0);
+			player_input.transform.Translate (-250, 0, 0);
+			npc = null;
+		}
+
+		else
+>>>>>>> 49daa777ffcc51a032d8a883b27428804d6ea238
         {
         questioingtype1.transform.Translate(0, -57, 0);
         questioingtype2.transform.Translate(0, -57, 0);

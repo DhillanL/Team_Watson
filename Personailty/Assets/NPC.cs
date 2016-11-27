@@ -29,11 +29,15 @@ public class NPC : MonoBehaviour {
     public string aggressive_response;
     public string violent_response;
     public string threaten_response;
+	public string arrogant_response;
+	public string indifferent_response;
 
     //GoodCop
     public string kind_response;
-    public string symethic_respose;
-    public string friendly_reponse;
+	public string sympthetic_response;
+    public string friendly_response;
+	public string humorous_response;
+	public string enthusiastic_response;
 
 
     Vector3 newPos = new Vector3(-300,-12,0);   // starting pos for all of the NPCS
