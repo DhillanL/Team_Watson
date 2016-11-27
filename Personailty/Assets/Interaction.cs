@@ -10,9 +10,11 @@ public class Interaction : MonoBehaviour {
 
     public Text speachbox ;                // The speach box 
 
-    public InputField player_input;        // Where the player can input their choices
-    public Button pick_interaction_type;   // Clicked when picked wether to Question or accuse
-    public Button pick_questioning_style;  // clicked when selecting the question they want to ask
+    public Button question;        // Where the player can input their choices
+    public Button accusebutt;
+    public Button questioingtype1;
+    public Button questioingtype2;
+    public Button questioingtype3;
 
   
     public string question_style_text;
@@ -66,9 +68,11 @@ public class Interaction : MonoBehaviour {
             }
             else
             {
-                speachbox.text = "how would you like to interact: \n1. Question \n2. Accuse";
-                player_input.transform.Translate(250, 0, 0);                                // bring in the input and cnfirm boxes
-                pick_interaction_type.transform.Translate(250, 0, 0);
+                speachbox.text = "how would you like to interact:";
+                // Add the new button for picking how to interact with the npc 
+                question.transform.Translate(0,57,0);
+                accusebutt.transform.Translate(0,57,0);
+
             }
 
         }
@@ -85,68 +89,65 @@ public class Interaction : MonoBehaviour {
 
 
 
-    public void pick_question() // pick the question sytle -- called after selected interaction type
+    public void pick_question() // if the user clicks on question 
+        
     {
-        if(player_input.text.Equals("1"))
-        {
-            speachbox.text = "select questioing method:\n1. " + player.Personailty.type1() + "\n2. " + player.Personailty.type2() + "\n3. " + player.Personailty.type3();
-            player_input.text = "";                                // make input box empty
-            pick_interaction_type.transform.Translate(-250, 0, 0);
-            pick_questioning_style.transform.Translate(250,0,0); // button comes in to call questioning style
-        } else if(player_input.text.Equals("2"))
-        {
-            speachbox.text = "accuse";
-        } else
-        {
-            speachbox.text = "please enter in correct format and interact again";
-        }
+        speachbox.text = "select questioing method:";
+        question.transform.Translate(0, -57, 0);
+        accusebutt.transform.Translate(0, -57, 0);
+        questioingtype1.transform.Translate(0, 57, 0);
+        questioingtype2.transform.Translate(0, 57, 0);
+        questioingtype3.transform.Translate(0, 57, 0);
+        questioingtype1.GetComponentInChildren<Text>().text = player.Personailty.type1();
+        questioingtype2.GetComponentInChildren<Text>().text = player.Personailty.type2();
+        questioingtype3.GetComponentInChildren<Text>().text = player.Personailty.type3();
     }
 
 
 
 
 
-    public void questioing_style()  //-- called after the question has been selected need to finish all of the interaction still. 
+    public void questioing_style1()
     {
-        if (player_input.text.Equals("1"))   // if the player chooses to perform question option 1 
+        question.transform.Translate(0, -57, 0);
+        accusebutt.transform.Translate(0, -57, 0);
+        questioingtype1.transform.Translate(0, -57, 0);
+        questioingtype2.transform.Translate(0, -57, 0);
+        questioingtype3.transform.Translate(0, -57, 0);
+        question_style_text = player.Personailty.questiontype1;
+        speachbox.text = "Detective " + player.Name + ": " + player.Personailty.Question1();
+        speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
+        check_okay_to_interact();
+        npc = null;
+    }
+
+
+
+    public void questioing_style2()
         {
-            question_style_text = player.Personailty.questiontype1;
-            speachbox.text = "Detective " + player.Name + ": " + player.Personailty.Question1();
-            speachbox.text += "\n\n" + npc.Name + ": " +npc_response();
-            check_okay_to_interact();
-            pick_questioning_style.transform.Translate(-250, 0, 0);
-            player_input.transform.Translate(-250, 0, 0);
-            npc = null;
-
-
-
-        } else if (player_input.text.Equals("2"))
-        {
-            question_style_text = player.Personailty.questiontype2;
-            speachbox.text = player.Personailty.Question2();
-            speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
-            check_okay_to_interact();
-            pick_questioning_style.transform.Translate(-250, 0, 0);
-            player_input.transform.Translate(-250, 0, 0);
-            npc = null;
-
-        } else if (player_input.text.Equals("3"))
-        {
-            question_style_text = player.Personailty.questiontype3;
-            speachbox.text = player.Personailty.Question3();
-            speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
-            check_okay_to_interact();
-            pick_questioning_style.transform.Translate(-250, 0, 0);
-            player_input.transform.Translate(-250, 0, 0);
-            npc = null;
-
-
-        } else
-        {
-            ;
+        question.transform.Translate(0, -57, 0);
+        accusebutt.transform.Translate(0, -57, 0);
+        questioingtype1.transform.Translate(0, -57, 0);
+        questioingtype2.transform.Translate(0, -57, 0);
+        questioingtype3.transform.Translate(0, -57, 0);
+        question_style_text = player.Personailty.questiontype2;
+        speachbox.text = "Detective " + player.Name + ": " + player.Personailty.Question2();
+        speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
+        check_okay_to_interact();
+        npc = null;
         }
 
-        
+    public void questioning_style3()
+
+        {
+        questioingtype1.transform.Translate(0, -57, 0);
+        questioingtype2.transform.Translate(0, -57, 0);
+        questioingtype3.transform.Translate(0, -57, 0);
+        question_style_text = player.Personailty.questiontype3;
+        speachbox.text = "Detective " + player.Name + ": "  + player.Personailty.Question3();
+        speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
+        check_okay_to_interact();
+        npc = null;
     }
 
     
