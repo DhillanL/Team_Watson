@@ -24,27 +24,42 @@ public class Interaction : MonoBehaviour {
         npc = npcin;
     }
 
-
-
-    public string npc_response()   // more need to be added to account for all of the personailty types.  
-    {
-        if (question_style_text.Equals("Aggressive"))    // not reading aggressive
-        {
-            return (npc.aggressive_response);
-        }
-        else if (question_style_text.Equals("Violent"))
-        {
-            return (npc.violent_response);
-        }
-        else if (question_style_text.Equals("Threaten"))
-        {
-            return (npc.threaten_response);
-        }
-        else 
-        {
-            return (npc.kind_response);
-        }
-    }
+	public string npc_response()
+	{
+		switch(question_style_text)
+		{
+		case "Aggressive":
+			return (npc.aggressive_response);
+			break;
+		case "Violent":
+			return (npc.violent_response);
+			break;
+		case "Threaten":
+			return (npc.threaten_response);
+			break;
+		case "Arrogant":
+			return (npc.arrogant_response);
+			break;
+		case "Indifferent":
+			return (npc.indifferent_response);
+			break;
+		case "Kind":
+			return (npc.kind_response);
+			break;
+		case "Friendly":
+			return (npc.friendly_response);
+			break;
+		case "Humorous":
+			return (npc.humorous_response);
+			break;
+		case "Enthusiastic":
+			return (npc.enthusiastic_response);
+			break;
+		default:
+			return (npc.symethic_response);
+			break;
+		}
+	}
 
 
 
