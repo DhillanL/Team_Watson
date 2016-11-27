@@ -37,6 +37,8 @@ public class createPersonalitys : MonoBehaviour {
         badCop.set2("You tell me what you know");
         badCop.settype3("Threaten");
         badCop.set3("Tell me what you know or else...");
+		badCop.settype4("Arrogant");
+		badCop.set4("Tell me what you witness");
     }
 
 

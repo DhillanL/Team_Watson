@@ -56,7 +56,7 @@ public class Interaction : MonoBehaviour {
 			return (npc.enthusiastic_response);
 			break;
 		default:
-			return (npc.symethic_response);
+			return (npc.sympthetic_response);
 			break;
 		}
 	}
@@ -108,7 +108,8 @@ public class Interaction : MonoBehaviour {
             player_input.text = "";                                // make input box empty
             pick_interaction_type.transform.Translate(-250, 0, 0);
             pick_questioning_style.transform.Translate(250,0,0); // button comes in to call questioning style
-        } else if(player_input.text.Equals("2"))
+        } 
+		else if(player_input.text.Equals("2"))
         {
             speachbox.text = "accuse";
         } else
@@ -123,40 +124,45 @@ public class Interaction : MonoBehaviour {
 
     public void questioing_style()  //-- called after the question has been selected need to finish all of the interaction still. 
     {
-        if (player_input.text.Equals("1"))   // if the player chooses to perform question option 1 
-        {
-            question_style_text = player.Personailty.questiontype1;
-            speachbox.text = "Detective " + player.Name + ": " + player.Personailty.Question1();
-            speachbox.text += "\n\n" + npc.Name + ": " +npc_response();
-            check_okay_to_interact();
-            pick_questioning_style.transform.Translate(-250, 0, 0);
-            player_input.transform.Translate(-250, 0, 0);
-            npc = null;
+		if (player_input.text.Equals ("1")) {   // if the player chooses to perform question option 1 
+			question_style_text = player.Personailty.questiontype1;
+			speachbox.text = "Detective " + player.Name + ": " + player.Personailty.Question1 ();
+			speachbox.text += "\n\n" + npc.Name + ": " + npc_response ();
+			check_okay_to_interact ();
+			pick_questioning_style.transform.Translate (-250, 0, 0);
+			player_input.transform.Translate (-250, 0, 0);
+			npc = null;
+
+		} else if (player_input.text.Equals ("2")) {
+			question_style_text = player.Personailty.questiontype2;
+			speachbox.text = player.Personailty.Question2 ();
+			speachbox.text += "\n\n" + npc.Name + ": " + npc_response ();
+			check_okay_to_interact ();
+			pick_questioning_style.transform.Translate (-250, 0, 0);
+			player_input.transform.Translate (-250, 0, 0);
+			npc = null;
+
+		} else if (player_input.text.Equals ("3")) {
+			question_style_text = player.Personailty.questiontype3;
+			speachbox.text = player.Personailty.Question3 ();
+			speachbox.text += "\n\n" + npc.Name + ": " + npc_response ();
+			check_okay_to_interact ();
+			pick_questioning_style.transform.Translate (-250, 0, 0);
+			player_input.transform.Translate (-250, 0, 0);
+			npc = null;
 
 
+		} else if (player_input.text.Equals ("4")) {
+			question_style_text = player.Personailty.questiontype4;
+			speachbox.text = player.Personailty.Question4 ();
+			speachbox.text += "\n\n" + npc.Name + ": " + npc_response ();
+			check_okay_to_interact ();
+			pick_questioning_style.transform.Translate (-250, 0, 0);
+			player_input.transform.Translate (-250, 0, 0);
+			npc = null;
+		}
 
-        } else if (player_input.text.Equals("2"))
-        {
-            question_style_text = player.Personailty.questiontype2;
-            speachbox.text = player.Personailty.Question2();
-            speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
-            check_okay_to_interact();
-            pick_questioning_style.transform.Translate(-250, 0, 0);
-            player_input.transform.Translate(-250, 0, 0);
-            npc = null;
-
-        } else if (player_input.text.Equals("3"))
-        {
-            question_style_text = player.Personailty.questiontype3;
-            speachbox.text = player.Personailty.Question3();
-            speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
-            check_okay_to_interact();
-            pick_questioning_style.transform.Translate(-250, 0, 0);
-            player_input.transform.Translate(-250, 0, 0);
-            npc = null;
-
-
-        } else
+		else
         {
             ;
         }

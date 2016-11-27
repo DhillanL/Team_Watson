@@ -34,7 +34,7 @@ public class NPC : MonoBehaviour {
 
     //GoodCop
     public string kind_response;
-    public string symethic_response;
+	public string sympthetic_response;
     public string friendly_response;
 	public string humorous_response;
 	public string enthusiastic_response;

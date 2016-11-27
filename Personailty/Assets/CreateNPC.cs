@@ -91,9 +91,14 @@ public class CreateNPC : MonoBehaviour {
         Tonald_Dump.aggressive_response = "Dont talk to me like that you fuck!";
         Tonald_Dump.violent_response = "I'm very violent";
         Tonald_Dump.threaten_response = "DONMT THREATEN ME! dont talk to me again!";
+		Tonald_Dump.arrogant_response = "I don't want to waste my time on you!";
+		Tonald_Dump.indifferent_response = "It's none of my business.";
         //good cop responses 
-        Tonald_Dump.kind_response = "fucking nice mate";
-
+		Tonald_Dump.kind_response = "fucking nice mate";
+		Tonald_Dump.friendly_response = "I can give you all the clues I have.";
+		Tonald_Dump.enthusiastic_response = "I'm glad to help!";
+		Tonald_Dump.humorous_response = "It feels like a detective movie!";
+		Tonald_Dump.sympthetic_response = "I free sorry for what has happened today.";
         // no more interaction set up 
         Tonald_Dump.dont_interact_response = "IM not talking to you anymore";
         Tonald_Dump.dont_interact_if1 = Tonald_Dump.threaten_response;       // Tonald wont interact if he is questioned 'threaten or violent'
