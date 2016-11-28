@@ -279,6 +279,7 @@ public class CreateNPC : MonoBehaviour {
         Gameman.GetComponent<gameManager>().setroom71(gameobjectlstshuffle_[7]);
         Gameman.GetComponent<gameManager>().setroom72(gameobjectlstshuffle_[8]);
         Gameman.GetComponent<gameManager>().setroom81(gameobjectlstshuffle_[9]);
+
     }
 
 

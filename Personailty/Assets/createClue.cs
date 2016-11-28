@@ -70,33 +70,41 @@ public class createClue: MonoBehaviour{
 	}
 
 	public void make_game_object_lst(){
-		gameobjectlst [0] = rope;
-		gameobjectlst [1] = stick;
-		gameobjectlst [2] = clue3;
-		gameobjectlst [3] = clue4;
-		gameobjectlst [4] = clue5;
-		gameobjectlst [5] = clue6;
-		gameobjectlst [6] = clue7;
-		gameobjectlst [7] = clue8;
+		gameobjectlst [1] = rope;
+		gameobjectlst [2] = stick;
+		gameobjectlst [3] = clue3;
+		gameobjectlst [4] = clue4;
+		gameobjectlst [5] = clue5;
+		gameobjectlst [6] = clue6;
+		gameobjectlst [7] = clue7;
+		gameobjectlst [8] = clue8;
 	}
 
-	public void put_physical_clues_in_rooms(){
-		game_man.GetComponent<gameManager>().setroom11(gameobjectlst[0]);   // this wont work as it will set the npc to be a clue, need to create separte varibles for clues in game manager 
+	public void setCluesInGameman(){
+		game_man.GetComponent<gameManager>().setClue1(gameobjectlst[1]);
+		game_man.GetComponent<gameManager>().setClue2(gameobjectlst[2]);
+		game_man.GetComponent<gameManager>().setClue3(gameobjectlst[3]);
+		game_man.GetComponent<gameManager>().setClue4(gameobjectlst[4]);
+		game_man.GetComponent<gameManager>().setClue5(gameobjectlst[5]);
+		game_man.GetComponent<gameManager>().setClue6(gameobjectlst[6]);
+		game_man.GetComponent<gameManager>().setClue7(gameobjectlst[7]);
+		game_man.GetComponent<gameManager>().setClue8(gameobjectlst[8]);
 	}
 	public void makeClues(){
-		setClues ();
+		setClues();
 
-		make_rope ();
-		make_stick ();
+		make_rope();
+		make_stick();
 
-		make_game_object_lst ();
-		make_physical_clue_list ();
-		make_verbal_clue_list ();
-		Debug.Log("clue made");
-
+		make_game_object_lst();
+		make_physical_clue_list();
+		make_verbal_clue_list();
+		setCluesInGameman();
 	}
+
 	void start(){
 		makeClues ();
+		Debug.Log("clues made");
 
 	}
 }
