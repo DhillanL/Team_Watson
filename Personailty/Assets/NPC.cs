@@ -7,6 +7,10 @@ public class NPC : MonoBehaviour {
     public Sprite look;    //sprite used for picture
 
     public string Name;
+
+    public string he_she;
+
+    public string room;
    
     public bool is_muderer = false;
     public bool is_accused = false;

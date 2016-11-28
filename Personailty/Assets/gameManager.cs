@@ -19,6 +19,8 @@ public class gameManager : MonoBehaviour {
     static public NPC murderer;      // murderer
     static public NPC victim;        // victim 
 
+    static public string crime;    // the crime that took place EG: stabbed, drowned 
+
     public NPC current_interaction;
 
 
@@ -92,7 +94,7 @@ public class gameManager : MonoBehaviour {
     }
 
 
-    // FUNCTIONS TO SET THE MURDERER FOR THE GAME AND THE VICTIM 
+    // FUNCTIONS TO SET THE MURDERER FOR THE GAME AND THE VICTIM AND THE MURDER 
 
     public void set_murder(NPC npc)
     {
@@ -101,6 +103,20 @@ public class gameManager : MonoBehaviour {
     public string get_murder()
     {
         return murderer.Name;
+    }
+    public NPC get_whole_murderer()  // get all atributes of the murder
+    {
+        return murderer;
+    }
+
+    public void set_crime(string crimein)
+    {
+       crime = crimein;
+    }
+
+    public string get_crime()
+    {
+        return crime;
     }
 
 
@@ -111,6 +127,10 @@ public class gameManager : MonoBehaviour {
     public string get_victim()
     {
         return victim.Name; ;
+    }
+    public NPC get_whole_victim()
+    {
+        return victim;
     }
 
 	//methods for setting the rooms for the clues
@@ -261,7 +281,14 @@ public class gameManager : MonoBehaviour {
         SceneManager.LoadScene("test1");     // load the player selection scene
     }
 
-    public void player_select_finish()   // 1. used in the player selection scene when the user hits the finish button 
+    public void load_case_file()  // after player select load the case file 
+    {
+        SceneManager.LoadScene("casefile");
+    }
+
+
+
+    public void load_room1()   // load room 1 after the case file screen 
     { // loads room 1 
         SceneManager.LoadScene("Screen2");
         populateroom1();
