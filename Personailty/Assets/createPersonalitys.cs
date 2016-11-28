@@ -3,20 +3,20 @@ using System.Collections;
 
 public class createPersonalitys : MonoBehaviour {
 
-    // script which is used to create all of the personailtes that the playe can be //
-    // each is of type Personailty player, this is just the scipt where they are all craeted // 
+    /* script which is used to create all of the personailtes that the playe can be 
+     each is of type Personailty player, all of the attributes and questions are made here */
 
     public GameObject gameman;
     public gameManager NAme;
-    string Name = "";     //player name 
+    string Name = "";         //player name 
 
-    public void getname()      // gets the name of the player 
+    public void getname()    // gets the name of the player from the game manager 
     {
         NAme = gameman.GetComponent<gameManager>();
         Name = NAme.getName();
     }
 
-
+    // static variables for the personialtes of the player 
    static public Personality_player badCop = new Personality_player();
    static public Personality_player goodCop = new Personality_player();
    static public Personality_player smart = new Personality_player();
@@ -73,7 +73,7 @@ public class createPersonalitys : MonoBehaviour {
     }
 
 
-    // smart personailty 
+    // SMART PERSONAILTY //  
 
     public void makesmart()
     {

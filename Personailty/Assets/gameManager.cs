@@ -21,6 +21,8 @@ public class gameManager : MonoBehaviour {
 
     public NPC current_interaction;
 
+
+    // NPC GAMEOBJECTS AND LOCATIONS
     static public GameObject room11;
     static public GameObject room12;
     static public GameObject room21;
@@ -31,6 +33,15 @@ public class gameManager : MonoBehaviour {
     static public GameObject room71;
     static public GameObject room72;
     static public GameObject room81;
+
+    // CLUE ROOM LOCATIONS  --> need to create functions to assocaite a clue with a room 
+    static public GameObject clue1;
+    static public GameObject clue2;
+    static public GameObject clue3;
+    static public GameObject clue4;
+    static public GameObject clue5;
+    static public GameObject clue6;
+    static public GameObject clue7;
 
 
     // UI elements --> USED IN THE PLAYER SLECTION MENU
@@ -43,7 +54,7 @@ public class gameManager : MonoBehaviour {
 
 
     
-    // Accessors and mutators for attributes 
+    // Accessors and mutators for attributes for the player  
 
     public void loadName(string namein) //FUNCTION TO A CHANGE THE VALUE OF NAME 
     {
@@ -77,6 +88,8 @@ public class gameManager : MonoBehaviour {
         return personailty;
     }
 
+
+    // FUNCTIONS TO SET THE MURDERER FOR THE GAME AND THE VICTIM 
 
     public void set_murder(NPC npc)
     {
@@ -159,15 +172,10 @@ public class gameManager : MonoBehaviour {
 
     // FUNCTIONS TO POPULATE THE ROOMS WITH THE NPCS
 
-   
-
-
-
-
     public void populateroom1()
     {
        reset_npc_pos();
-       GameObject.FindWithTag(room11.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(300,0,0);
+       GameObject.FindWithTag(room11.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(300,0,0);   //each npc has a tag which is their name making them easier to find 
        GameObject.FindWithTag(room12.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(400,0,0);
     }
 
@@ -274,6 +282,10 @@ public class gameManager : MonoBehaviour {
     }
 
     
+
+    // for testing 
+
+
 
     void Start () {
         Debug.Log("Room1.1 = " + room11);    // so we can see who is in the rooms for testing 

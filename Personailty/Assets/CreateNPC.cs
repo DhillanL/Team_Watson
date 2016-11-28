@@ -3,8 +3,13 @@ using System.Collections;
 
 public class CreateNPC : MonoBehaviour {
 
+    /* script used to create all of the NPC's that will be used in the game, all of their responses to all of the posiible personailtes that the playe could be 
+     * also will have the types of questioning that the npcs will not like and so will ignore the player from 
+     * will also hold the look of the npc's */
+
     public gameManager Gameman;   //gamemanager
 
+    // GAMEOBJECTS OF EACH OF THE NPCS 
     public GameObject Tonald;
     public GameObject Bernard;
     public GameObject George;
@@ -16,10 +21,12 @@ public class CreateNPC : MonoBehaviour {
     public GameObject Stephen;
     public GameObject Robert;
 
-    public NPC Tonald_Dump ;    //all test names for NPC
-    public NPC Bernard_lowe ;
-    public NPC George_allen;
-    public NPC Ethan_hawk ;
+
+    // NPCS PF NPC TYPE WITH THEIR NAMES 
+    public NPC Tonald_Dump ;    //TEST NAME 
+    public NPC Bernard_lowe ;  // test name 
+    public NPC George_allen;   // test name 
+    public NPC Ethan_hawk ;    // test name 
 	public NPC Ryan_Smith;
 	public NPC Zoe_Williams;
 	public NPC Alice_Davis;
@@ -27,7 +34,7 @@ public class CreateNPC : MonoBehaviour {
 	public NPC Stephen_Brown;
 	public NPC Robert_Henry;
 
-
+    // NPC LOOKS 
     public SpriteRenderer tonald_look;  // for the look of the NPC
     public SpriteRenderer bernard_look;
     public SpriteRenderer george_look;
@@ -39,21 +46,22 @@ public class CreateNPC : MonoBehaviour {
 	public SpriteRenderer stephen_look;
 	public SpriteRenderer robert_look;
 
-    public NPC[] npc_list_ = new NPC[10];        // lists for selecting a murder and a victim
+    // lists for selecting a murder and a victim
+    public NPC[] npc_list_ = new NPC[10];        
     public NPC[] npc_list_vic_ = new NPC[9];
 
-
-    public GameObject[] gameobjectlst_ = new GameObject[10];       // lists needed for creating the room allocation 
+    // lists needed for creating the room allocation 
+    public GameObject[] gameobjectlst_ = new GameObject[10];       
     public GameObject[] gameobjectlstshuffle_ = new GameObject[10];
    
 
-    public void setNCPS()
+    public void setNCPS() // method to access the NPC script of each game object of the NPC so it can be modifed to make each one unique 
     {
         Tonald_Dump = Tonald.GetComponent<NPC>();
         tonald_look = Tonald.GetComponent<SpriteRenderer>();    // to set the look 
 
         Bernard_lowe = Bernard.GetComponent<NPC>();
-        bernard_look = Bernard.GetComponent<SpriteRenderer>();  // to set the look 
+        bernard_look = Bernard.GetComponent<SpriteRenderer>();   
 
         George_allen = George.GetComponent<NPC>();
         george_look = George.GetComponent<SpriteRenderer>();
@@ -84,13 +92,13 @@ public class CreateNPC : MonoBehaviour {
     public void make_tonald()   // set of tonalds attibutes to make his personailty
     {
         // basic setup
-        Tonald_Dump.Name = "Tonald";
+        Tonald_Dump.Name = "Tonald"; // HAS TO BE THE FIRST NAME ONLY AS IT MATCHES TE TAG OF THE PLAYER 
         Tonald_Dump.intro = "I want to build a wall!";
-        tonald_look.sprite = Tonald_Dump.look;             //look set from the sprite added to game object
+        tonald_look.sprite = Tonald_Dump.look;    //look set from the sprite added to game object
         // bad cop responses 
         Tonald_Dump.aggressive_response = "Dont talk to me like that!";
         Tonald_Dump.violent_response = "violent response";
-        Tonald_Dump.threaten_response = "DON'T THREATEN ME! dont talk to me again!";
+        Tonald_Dump.threaten_response = "DON'T THREATEN ME! dont talk to me again!";                 // GOOD COP AND BAD COP NEED FIXING AS ONLY HAVING 
 		Tonald_Dump.arrogant_response = "I don't want to waste my time on you!";
 		Tonald_Dump.indifferent_response = "It's none of my business.";
         //good cop responses 
@@ -193,7 +201,7 @@ public class CreateNPC : MonoBehaviour {
     }
 
 
-    public void makegameobjectlst()
+    public void makegameobjectlst()   // make the gameobjet list 
     {
         gameobjectlst_[0] = Tonald;
         gameobjectlst_[1] = Bernard;
@@ -212,19 +220,19 @@ public class CreateNPC : MonoBehaviour {
 
 
 
-    public void set_murderer_and_victim()    //sets a NPC to be ther murder and a differnt npc to be the victim 
+    public void set_murderer_and_victim()  //sets a NPC to be ther murder and a differnt npc to be the victim 
     {
-        int x = Random.Range(0, 10);   // random number between 0 and 3
-        npc_list_[x].isMurder();       // get npc at x in the array and set to muderer
+        int x = Random.Range(0, 10);       // random number between 0 and 9
+        npc_list_[x].isMurder();           // get npc at x in the array and set to muderer
         Gameman.GetComponent<gameManager>().set_murder(npc_list_[x]);    // store data in game manager 
-        lst_no_murder();   // create list of all other npcs 
-        int y = Random.Range(0, 9);   // pick number 
-        npc_list_vic_[y].is_Victim();   // set as victim 
+        lst_no_murder();                   // create list of all other npcs who arent the murderer 
+        int y = Random.Range(0, 9);        // pick number 
+        npc_list_vic_[y].is_Victim();      // set as victim 
         Gameman.GetComponent<gameManager>().set_victim(npc_list_vic_[y]);  // store data 
 
     }
 
-    public void lst_no_murder()   // creates a list of all other npcs who are not the murder. 
+    public void lst_no_murder()   // creates a list of all other npcs who are not the murder. --> called in fucntion set_murder_and_victim()
     {
         int y = 0;
         for (int x =0; x < npc_list_.Length; x++)
@@ -241,13 +249,13 @@ public class CreateNPC : MonoBehaviour {
 
 
 
-    public void shuffle_lst()    // prodcues a shuffled list of all the npcs; 
+    public void shuffle_lst()    // prodcues a shuffled list of all the npcs; --> used in the setroom() as it ensures they will be placed randomly into a room each time the game is loaded.  
     {
-        for(int x =0; x<gameobjectlst_.Length;x++)
+        for(int x =0; x<gameobjectlst_.Length;x++)     
         {
             int y = Random.Range(0, 10);
-            while (gameobjectlstshuffle_[y] != null)
-            {
+            while (gameobjectlstshuffle_[y] != null)    // while the element in the array gameobjectlstshuffle is empty put a random element y into it from gameobjectlst
+            {                                           // otherwise keep randomising the element for y untill a space is found. 
                 y = Random.Range(0, 10);
             }
             gameobjectlstshuffle_[y] = gameobjectlst_[x];
@@ -285,9 +293,9 @@ public class CreateNPC : MonoBehaviour {
 
     public void Make_NPC() // called when initilased so to create all of the NPC's 
     {
-        setNCPS();         // set the gaemobjects to the corect npc
+        setNCPS();         // set the gameobjects to the corect npc
 
-        make_tonald();     // make all of the npcs adn sets them to the objects. 
+        make_tonald();     // make all of the npcs and sets them to the objects. 
         make_bernard();
         make_Ethan();
         make_George();
@@ -298,16 +306,16 @@ public class CreateNPC : MonoBehaviour {
         make_Stephen();
         make_Robert();
 
-        makelst();
-        makegameobjectlst();                   // make a list 
+        makelst();                // make the lists 
+        makegameobjectlst();                  
 
         shuffle_lst();                  //creates a shuffled list 
 
         setroom();                      // sets the npcs to a room
 
-        set_murderer_and_victim();      // set a murdere and a victim
+        set_murderer_and_victim();      // set a murderer and a victim
 
-        //Gameman.GetComponent<gameManager>().populateroom1();   // populate room1.
+      
 
 
 

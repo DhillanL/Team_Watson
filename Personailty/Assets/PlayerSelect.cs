@@ -9,15 +9,15 @@ using UnityEngine.SceneManagement;
 
 public class PlayerSelect : MonoBehaviour {
 
-    public string Name;
-    public InputField Namein;
+    public string Name;   // Name of the player 
+    public InputField Namein;   //name inputed of the player 
    
-    public Personality_player personality;
+    public Personality_player personality;    // personailty of the player 
     
-    public Button goodcopbutton;
-    public Button badcopbutton;
- 
-    public Button Finish;
+    public Button goodcopbutton;   // personailty type 
+    public Button badcopbutton;    // personailty type 
+  
+    public Button Finish;    //buttton pressed when all selections are made
 
     public GameObject gameMan;       //game object of the dataholder object 
     public gameManager data;         //temp holder for data
@@ -32,7 +32,7 @@ public class PlayerSelect : MonoBehaviour {
 
 
 
-    // gets the personailty selected by the user depending on the color of the boxes selected
+    // gets the personailty selected by the user depending on the color of the boxes selected --> when the finish button is pressed 
 
     public void getPersonality()
     {
@@ -40,10 +40,10 @@ public class PlayerSelect : MonoBehaviour {
 
         if (badcopbutton.image.color.Equals(Color.red))
         {
-            personality = personailtycreate.getBadCop();    // sets personailty as bad cop
+            personality = personailtycreate.getBadCop();              // sets personailty as bad cop
         } else if (goodcopbutton.image.color.Equals(Color.red))
         {
-            personality = personailtycreate.getGoodCop();    // sets personailty as good cop
+            personality = personailtycreate.getGoodCop();             // sets personailty as good cop
         } 
         
     }
@@ -79,15 +79,15 @@ public class PlayerSelect : MonoBehaviour {
 
     // transfering data to gamemanager 
 
-    public void transfer_name()  // transfers the name and personailty into the gameManger script holding the static variables used in all scenes.   
+    public void transfer_name()  // transfers the name into the gameManger script holding the static variables used in all scenes.   
     {
         data = gameMan.GetComponent<gameManager>();
         data.loadName(Name); // load name into the gameManager
     }
-    public void transfer_personality()  // transfers the name and personailty into the gameManger script holding the static variables used in all scenes.   
+    public void transfer_personality()  // transfers the personailty into the gameManger script holding the static variables used in all scenes.   
     {
         data = gameMan.GetComponent<gameManager>();
-        data.loadPersonailty(personality); // load name into the gameManager
+        data.loadPersonailty(personality); // load personality into the gameManager
     }
     public void transfer_srite()  // transfers the sprite   
     {
@@ -105,16 +105,16 @@ public class PlayerSelect : MonoBehaviour {
 
     public void uploadname()     //set the name to what the user typed in and transfer it to gamManager 
     {
-        Name = Namein.text;
-        transfer_name();
+        Name = Namein.text;   // set name to what the user inputs 
+        transfer_name();      // transfer the name into game manager 
     }
 
 
     public void setPersonality()   // get personailty and transfer data         
     {
-        getPersonality();
-        transfer_personality();
-        transfer_srite();
+        getPersonality();          // check which personailty is selected and set that one 
+        transfer_personality();    // transfer teh data to game manager 
+        transfer_srite();          // also transfer the look of the detecttive
     }
 
 

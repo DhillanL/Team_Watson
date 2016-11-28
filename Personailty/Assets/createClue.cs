@@ -81,7 +81,7 @@ public class createClue: MonoBehaviour{
 	}
 
 	public void put_physical_clues_in_rooms(){
-		game_man.GetComponent<gameManager>().setroom11(gameobjectlst[0]);
+		game_man.GetComponent<gameManager>().setroom11(gameobjectlst[0]);   // this wont work as it will set the npc to be a clue, need to create separte varibles for clues in game manager 
 	}
 	public void makeClues(){
 		setClues ();

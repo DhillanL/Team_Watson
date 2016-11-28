@@ -11,7 +11,7 @@ public class Interaction : MonoBehaviour {
     public Text speachbox ;                // The speach box 
 
     public Button question;        // Where the player can input their choices
-    public Button accusebutt;
+    public Button accusebutt;      // accuse button 
     public Button questioingtype1;
     public Button questioingtype2;
     public Button questioingtype3;
