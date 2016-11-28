@@ -9,6 +9,8 @@ public class CreateNPC : MonoBehaviour {
 
     public gameManager Gameman;   //gamemanager
 
+    public CreateMurder crime;  // ga,me object so we can make the crime at the end after all NPC's have been made 
+
     // GAMEOBJECTS OF EACH OF THE NPCS 
     public GameObject Tonald;
     public GameObject Bernard;
@@ -95,6 +97,7 @@ public class CreateNPC : MonoBehaviour {
         Tonald_Dump.Name = "Tonald"; // HAS TO BE THE FIRST NAME ONLY AS IT MATCHES TE TAG OF THE PLAYER 
         Tonald_Dump.intro = "I want to build a wall!";
         tonald_look.sprite = Tonald_Dump.look;    //look set from the sprite added to game object
+        Tonald_Dump.he_she = "he";  // he or she
         // bad cop responses 
         Tonald_Dump.aggressive_response = "Dont talk to me like that!";
         Tonald_Dump.violent_response = "violent response";
@@ -119,6 +122,7 @@ public class CreateNPC : MonoBehaviour {
         Bernard_lowe.Name = "Bernard";
         Bernard_lowe.intro = "My name is bernard, I like lamps";
         bernard_look.sprite = Bernard_lowe.look;
+        Bernard_lowe.he_she = "he";   // he or she
         //badcop setup
         Bernard_lowe.aggressive_response = "Dont talk to me like that you fuck I'm Bernard !";
         Bernard_lowe.violent_response = "I'm a violent bernard";
@@ -136,6 +140,7 @@ public class CreateNPC : MonoBehaviour {
     public void make_George()
     {
         George_allen.Name = "George";
+        George_allen.he_she = "he";
         george_look.sprite = George_allen.look;  
     }
 
@@ -145,6 +150,7 @@ public class CreateNPC : MonoBehaviour {
     {
         Ethan_hawk.Name = "Ethan";
         ethan_look.sprite = Ethan_hawk.look;
+        Ethan_hawk.he_she = "he";
     }
 
 
@@ -153,35 +159,41 @@ public class CreateNPC : MonoBehaviour {
     {
 		Ryan_Smith.Name = "Ryan";
 		ryan_look.sprite = Ryan_Smith.look;
+        Ryan_Smith.he_she = "he";
     }
 
     public void make_Zoe()
     {
         Zoe_Williams.Name = "Zoe";
 		zoe_look.sprite = Zoe_Williams.look;
+        Zoe_Williams.he_she = "she";
     }
     public void make_Alice()
     {
 		Alice_Davis.Name = "Alice";
 		alice_look.sprite = Alice_Davis.look;
+        Alice_Davis.he_she = "she";
     }
 
     public void make_Sophie()
     {
         Sophie_Aaron.Name = "Sophie";
 		sophie_look.sprite = Sophie_Aaron.look;
+        Sophie_Aaron.he_she = "she";
     }
 
     public void make_Stephen()
     {
         Stephen_Brown.Name = "Stephen";
 		stephen_look.sprite = Stephen_Brown.look;
+        Stephen_Brown.he_she = "he";
     }
 
     public void make_Robert()
     {
 		Robert_Henry.Name = "Robert";
 		robert_look.sprite = Robert_Henry.look;
+        Robert_Henry.he_she = "he";
     }
 
 
@@ -270,25 +282,26 @@ public class CreateNPC : MonoBehaviour {
     public void setroom()
     {
         Gameman.GetComponent<gameManager>().setroom11(gameobjectlstshuffle_[0]);   //set the npc in room 1 pos 1 to shuffled index 0. 
+        gameobjectlstshuffle_[0].GetComponent<NPC>().room = "Room1";
         Gameman.GetComponent<gameManager>().setroom12(gameobjectlstshuffle_[1]);
+        gameobjectlstshuffle_[1].GetComponent<NPC>().room = "Room1";
         Gameman.GetComponent<gameManager>().setroom21(gameobjectlstshuffle_[2]);
+        gameobjectlstshuffle_[2].GetComponent<NPC>().room = "Room2";
         Gameman.GetComponent<gameManager>().setroom31(gameobjectlstshuffle_[3]);
+        gameobjectlstshuffle_[3].GetComponent<NPC>().room = "Room3";
         Gameman.GetComponent<gameManager>().setroom41(gameobjectlstshuffle_[4]);
+        gameobjectlstshuffle_[4].GetComponent<NPC>().room = "Room4";
         Gameman.GetComponent<gameManager>().setroom51(gameobjectlstshuffle_[5]);
+        gameobjectlstshuffle_[5].GetComponent<NPC>().room = "Room5";
         Gameman.GetComponent<gameManager>().setroom61(gameobjectlstshuffle_[6]);
+        gameobjectlstshuffle_[6].GetComponent<NPC>().room = "Room6";
         Gameman.GetComponent<gameManager>().setroom71(gameobjectlstshuffle_[7]);
+        gameobjectlstshuffle_[7].GetComponent<NPC>().room = "Room7";
         Gameman.GetComponent<gameManager>().setroom72(gameobjectlstshuffle_[8]);
+        gameobjectlstshuffle_[8].GetComponent<NPC>().room = "Room7";
         Gameman.GetComponent<gameManager>().setroom81(gameobjectlstshuffle_[9]);
-    }
-
-
-
-
-
-
-
-
-   
+        gameobjectlstshuffle_[9].GetComponent<NPC>().room = "Room8";
+    }   
 
 
     public void Make_NPC() // called when initilased so to create all of the NPC's 
@@ -314,6 +327,8 @@ public class CreateNPC : MonoBehaviour {
         setroom();                      // sets the npcs to a room
 
         set_murderer_and_victim();      // set a murderer and a victim
+
+        crime.GetComponent<CreateMurder>().create_crime();            // create the crime 
 
       
 
