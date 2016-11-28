@@ -36,14 +36,16 @@ public class gameManager : MonoBehaviour {
     static public GameObject room72;
     static public GameObject room81;
 
-    // CLUE ROOM LOCATIONS  --> need to create functions to assocaite a clue with a room 
-    static public GameObject clue1;
-    static public GameObject clue2;
-    static public GameObject clue3;
-    static public GameObject clue4;
-    static public GameObject clue5;
-    static public GameObject clue6;
-    static public GameObject clue7;
+    // CLUE ROOM LOCATIONS  
+	static public GameObject room1;
+	static public GameObject room2;
+	static public GameObject room3;
+	static public GameObject room4;
+	static public GameObject room5;
+	static public GameObject room6;
+	static public GameObject room7;
+	static public GameObject room8;
+
 
 
     // UI elements --> USED IN THE PLAYER SLECTION MENU
@@ -130,6 +132,31 @@ public class gameManager : MonoBehaviour {
         return victim;
     }
 
+	//methods for setting the rooms for the clues
+	public void setClue1(GameObject clue){
+		room1 = clue;
+	}
+	public void setClue2(GameObject clue){
+		room2 = clue;
+	}
+	public void setClue3(GameObject clue){
+		room3 = clue;
+	}
+	public void setClue4(GameObject clue){
+		room4 = clue;
+	}
+	public void setClue5(GameObject clue){
+		room5 = clue;
+	}
+	public void setClue6(GameObject clue){
+		room6 = clue;
+	}
+	public void setClue7(GameObject clue){
+		room7 = clue;
+	}
+	public void setClue8(GameObject clue){
+		room8 = clue;
+	}
 
     //methods for setting the players in the room in pos
 
@@ -197,6 +224,7 @@ public class gameManager : MonoBehaviour {
        reset_npc_pos();
        GameObject.FindWithTag(room11.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(300,0,0);   //each npc has a tag which is their name making them easier to find 
        GameObject.FindWithTag(room12.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(400,0,0);
+
     }
 
     public void populateroom2()

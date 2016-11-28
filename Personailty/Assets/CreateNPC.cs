@@ -303,6 +303,18 @@ public class CreateNPC : MonoBehaviour {
         gameobjectlstshuffle_[9].GetComponent<NPC>().room = "Room8";
     }   
 
+    
+
+
+
+
+
+
+
+
+   
+
+
 
     public void Make_NPC() // called when initilased so to create all of the NPC's 
     {
@@ -329,9 +341,6 @@ public class CreateNPC : MonoBehaviour {
         set_murderer_and_victim();      // set a murderer and a victim
 
         crime.GetComponent<CreateMurder>().create_crime();            // create the crime 
-
-      
-
 
 
 
