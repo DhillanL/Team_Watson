@@ -4,7 +4,7 @@ using System.Collections;
 
 public class createClue: MonoBehaviour{
 
-	public gameManager game_man;
+	public gameManager game_manager;
 
 	public GameObject rope;
 	public GameObject stick;
@@ -81,14 +81,14 @@ public class createClue: MonoBehaviour{
 	}
 
 	public void setCluesInGameman(){
-		game_man.GetComponent<gameManager>().setClue1(gameobjectlst[1]);
-		game_man.GetComponent<gameManager>().setClue2(gameobjectlst[2]);
-		game_man.GetComponent<gameManager>().setClue3(gameobjectlst[3]);
-		game_man.GetComponent<gameManager>().setClue4(gameobjectlst[4]);
-		game_man.GetComponent<gameManager>().setClue5(gameobjectlst[5]);
-		game_man.GetComponent<gameManager>().setClue6(gameobjectlst[6]);
-		game_man.GetComponent<gameManager>().setClue7(gameobjectlst[7]);
-		game_man.GetComponent<gameManager>().setClue8(gameobjectlst[8]);
+		game_manager.GetComponent<gameManager>().setClue1(gameobjectlst[1]);
+		game_manager.GetComponent<gameManager>().setClue2(gameobjectlst[2]);
+		game_manager.GetComponent<gameManager>().setClue3(gameobjectlst[3]);
+		game_manager.GetComponent<gameManager>().setClue4(gameobjectlst[4]);
+		game_manager.GetComponent<gameManager>().setClue5(gameobjectlst[5]);
+		game_manager.GetComponent<gameManager>().setClue6(gameobjectlst[6]);
+		game_manager.GetComponent<gameManager>().setClue7(gameobjectlst[7]);
+		game_manager.GetComponent<gameManager>().setClue8(gameobjectlst[8]);
 	}
 	public void makeClues(){
 		setClues();
@@ -102,9 +102,13 @@ public class createClue: MonoBehaviour{
 		setCluesInGameman();
 	}
 
-	void start(){
+	void awake(){
 		makeClues ();
 		Debug.Log("clues made");
+
+	}
+
+	void Update () {
 
 	}
 }

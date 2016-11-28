@@ -51,6 +51,7 @@ public class gameManager : MonoBehaviour {
 
     public GameObject create_npcs;
 
+
     public Camera maincamera;
     public Canvas canvas;
 
