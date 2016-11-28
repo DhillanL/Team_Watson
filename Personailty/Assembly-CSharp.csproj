@@ -45,7 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\CreateMurder.cs" />
+     <Compile Include="Assets\CreateCrime.cs" />
      <Compile Include="Assets\CreateNPC.cs" />
      <Compile Include="Assets\DonotDestoryBottomGUI.cs" />
      <Compile Include="Assets\Interaction.cs" />

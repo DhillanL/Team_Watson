@@ -9,7 +9,7 @@ public class CreateNPC : MonoBehaviour {
 
     public gameManager Gameman;   //gamemanager
 
-    public CreateMurder crime;  // ga,me object so we can make the crime at the end after all NPC's have been made 
+    public GameObject crime; 
 
     // GAMEOBJECTS OF EACH OF THE NPCS 
     public GameObject Tonald;
@@ -303,16 +303,6 @@ public class CreateNPC : MonoBehaviour {
         gameobjectlstshuffle_[9].GetComponent<NPC>().room = "Room8";
     }   
 
-    
-
-
-
-
-
-
-
-
-   
 
 
 
@@ -340,13 +330,12 @@ public class CreateNPC : MonoBehaviour {
 
         set_murderer_and_victim();      // set a murderer and a victim
 
-        crime.GetComponent<CreateMurder>().create_crime();            // create the crime 
 
-
+        crime.GetComponent<CreateCrime>().create_crime();
 
     }
 
-
+   
 
 
 
