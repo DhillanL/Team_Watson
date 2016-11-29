@@ -11,6 +11,7 @@ public class NPC : MonoBehaviour {
     public string he_she;
 
     public string room;
+    public int index_pos; 
    
     public bool is_muderer = false;
     public bool is_accused = false;

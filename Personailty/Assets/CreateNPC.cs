@@ -50,7 +50,7 @@ public class CreateNPC : MonoBehaviour {
 
     // lists for selecting a murder and a victim
     public NPC[] npc_list_ = new NPC[10];        
-    public NPC[] npc_list_vic_ = new NPC[9];
+    public NPC[] npc_list_vic_ = new NPC[9];  // list with all npcs who are not the victim
 
     // lists needed for creating the room allocation 
     public GameObject[] gameobjectlst_ = new GameObject[10];       
@@ -232,24 +232,47 @@ public class CreateNPC : MonoBehaviour {
 
 
 
-    public void set_murderer_and_victim()  //sets a NPC to be ther murder and a differnt npc to be the victim 
+    public void set_murderer_and_victim_crime()  //sets a NPC to be ther murder and a differnt npc to be the victim 
     {
-        int x = Random.Range(0, 10);       // random number between 0 and 9
-        npc_list_[x].isMurder();           // get npc at x in the array and set to muderer
-        Gameman.GetComponent<gameManager>().set_murder(npc_list_[x]);    // store data in game manager 
-        lst_no_murder();                   // create list of all other npcs who arent the murderer 
-        int y = Random.Range(0, 9);        // pick number 
-        npc_list_vic_[y].is_Victim();      // set as victim 
-        Gameman.GetComponent<gameManager>().set_victim(npc_list_vic_[y]);  // store data 
+        
+        crime.GetComponent<CreateCrime>().select_crime();   // make the crime selection 
 
+       // Debug.Log(crime.GetComponent<CreateCrime>().murder_int); // DEBUGGING PURPOSES
+
+        if (crime.GetComponent<CreateCrime>().murder_int == 1)  // drowned 
+        {
+            Debug.Log("Did we take the drowned murder path: " + true);
+            gameobjectlstshuffle_[6].GetComponent<NPC>().is_Victim();
+            Gameman.GetComponent<gameManager>().set_victim(gameobjectlstshuffle_[6].GetComponent<NPC>());  // store data 
+        }
+        else if (crime.GetComponent<CreateCrime>().murder_int == 2) // pushed off lakehouse
+        {
+            gameobjectlstshuffle_[9].GetComponent<NPC>().is_Victim();
+            Gameman.GetComponent<gameManager>().set_victim(gameobjectlstshuffle_[9].GetComponent<NPC>());  // store data 
+
+        } else
+        {
+            Debug.Log(false);
+            int x = Random.Range(0, 10);       // random number between 0 and 9
+            npc_list_[x].is_Victim();
+            Gameman.GetComponent<gameManager>().set_victim(npc_list_[x]);  // store data 
+
+        }
+
+        lst_no_victim();                   // create list of all other npcs who arent the victim 
+
+        int y = Random.Range(0, 9);       // random number between 0 and 9
+        npc_list_vic_[y].isMurder();           // get npc at x in the array and set to muderer
+        Gameman.GetComponent<gameManager>().set_murder(npc_list_vic_[y]);    // store data in game manager 
+        
     }
 
-    public void lst_no_murder()   // creates a list of all other npcs who are not the murder. --> called in fucntion set_murder_and_victim()
+    public void lst_no_victim()   // creates a list of all other npcs who are not the victim. --> called in fucntion set_murder_and_victim()
     {
         int y = 0;
         for (int x =0; x < npc_list_.Length; x++)
         {
-            if (npc_list_[x].is_muderer == false)
+            if (npc_list_[x].is_victim == false)
             { 
                 npc_list_vic_[y] = npc_list_[x];
                 y++;
@@ -283,26 +306,38 @@ public class CreateNPC : MonoBehaviour {
     {
         Gameman.GetComponent<gameManager>().setroom11(gameobjectlstshuffle_[0]);   //set the npc in room 1 pos 1 to shuffled index 0. 
         gameobjectlstshuffle_[0].GetComponent<NPC>().room = "Room1";
+        gameobjectlstshuffle_[0].GetComponent<NPC>().index_pos = 0;
         Gameman.GetComponent<gameManager>().setroom12(gameobjectlstshuffle_[1]);
         gameobjectlstshuffle_[1].GetComponent<NPC>().room = "Room1";
+        gameobjectlstshuffle_[1].GetComponent<NPC>().index_pos = 1;
         Gameman.GetComponent<gameManager>().setroom21(gameobjectlstshuffle_[2]);
         gameobjectlstshuffle_[2].GetComponent<NPC>().room = "Room2";
+        gameobjectlstshuffle_[2].GetComponent<NPC>().index_pos = 2;
         Gameman.GetComponent<gameManager>().setroom31(gameobjectlstshuffle_[3]);
         gameobjectlstshuffle_[3].GetComponent<NPC>().room = "Room3";
+        gameobjectlstshuffle_[3].GetComponent<NPC>().index_pos = 3;
         Gameman.GetComponent<gameManager>().setroom41(gameobjectlstshuffle_[4]);
         gameobjectlstshuffle_[4].GetComponent<NPC>().room = "Room4";
+        gameobjectlstshuffle_[4].GetComponent<NPC>().index_pos = 4;
         Gameman.GetComponent<gameManager>().setroom51(gameobjectlstshuffle_[5]);
         gameobjectlstshuffle_[5].GetComponent<NPC>().room = "Room5";
+        gameobjectlstshuffle_[5].GetComponent<NPC>().index_pos = 5;
         Gameman.GetComponent<gameManager>().setroom61(gameobjectlstshuffle_[6]);
         gameobjectlstshuffle_[6].GetComponent<NPC>().room = "Room6";
+        gameobjectlstshuffle_[6].GetComponent<NPC>().index_pos = 6;
         Gameman.GetComponent<gameManager>().setroom71(gameobjectlstshuffle_[7]);
         gameobjectlstshuffle_[7].GetComponent<NPC>().room = "Room7";
+        gameobjectlstshuffle_[7].GetComponent<NPC>().index_pos = 7;
         Gameman.GetComponent<gameManager>().setroom72(gameobjectlstshuffle_[8]);
+        gameobjectlstshuffle_[8].GetComponent<NPC>().index_pos = 8;
         gameobjectlstshuffle_[8].GetComponent<NPC>().room = "Room7";
         Gameman.GetComponent<gameManager>().setroom81(gameobjectlstshuffle_[9]);
         gameobjectlstshuffle_[9].GetComponent<NPC>().room = "Room8";
+        gameobjectlstshuffle_[9].GetComponent<NPC>().index_pos = 9;
     }   
 
+
+    
 
 
 
@@ -328,11 +363,12 @@ public class CreateNPC : MonoBehaviour {
 
         setroom();                      // sets the npcs to a room
 
-        set_murderer_and_victim();      // set a murderer and a victim
+        set_murderer_and_victim_crime();      // pick the crime that will take place and vicim according, also select murderer 
 
 
-        crime.GetComponent<CreateCrime>().create_crime();
+        crime.GetComponent<CreateCrime>().create_crime();  // around the crime selected set all of the............
 
+        
     }
 
    

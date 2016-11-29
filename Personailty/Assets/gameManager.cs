@@ -30,11 +30,11 @@ public class gameManager : MonoBehaviour {
     static public GameObject room21;
     static public GameObject room31;
     static public GameObject room41;
-    static public GameObject room51;
-    static public GameObject room61;
+    static public GameObject room51;  // lakehouse top floor 
+    static public GameObject room61;  // outside the Ron Cooke Hub -- the pods with the lake (Drowned victim )
     static public GameObject room71;
     static public GameObject room72;
-    static public GameObject room81;
+    static public GameObject room81; // outside the Ron Cooke hub -- bottom of the lakehouse (PUSHED victim)
 
     // CLUE ROOM LOCATIONS  
 	static public GameObject room1;
