@@ -14,21 +14,28 @@ public class PlayerSelect : MonoBehaviour {
    
     public Personality_player personality;    // personailty of the player 
     
-    public Button goodcopbutton;   // personailty type 
-    public Button badcopbutton;    // personailty type 
+    public Button goodcopbutton;   // imports all buttons from scene 
+    public Button badcopbutton;    
+    public Button smartcopbutton;  
+    public Button dumbcopbutton;
+    public Button trustycopbutton;
+    public Button suspicouscopbutton;
   
-    public Button Finish;    //buttton pressed when all selections are made
+    public Button Finish;    // button pressed when all selections are made
 
     public GameObject gameMan;       //game object of the dataholder object 
     public gameManager data;         //temp holder for data
 
     public GameObject createperson;                     // used to get the personailty wanted by the player 
-    public createPersonalitys personailtycreate;        // refernce of the script createPersonailtys 
+    public createPersonalitys personalitycreate;        // refernce of the script createPersonailtys 
 
     public GameObject characterpreview;
-    public Sprite goodcopsprite;    //looks for the personailtes 
+    public Sprite goodcopsprite;    // imports all sprites from scene
     public Sprite badcopsprite;
-    
+    public Sprite smartcopsprite;
+    public Sprite dumbcopsprite;
+    public Sprite trustycopsprite;
+    public Sprite suspiciouscopsprite;
 
 
 
@@ -36,15 +43,30 @@ public class PlayerSelect : MonoBehaviour {
 
     public void getPersonality()
     {
-        personailtycreate = createperson.GetComponent<createPersonalitys>();
+        personalitycreate = createperson.GetComponent<createPersonalitys>();
 
         if (badcopbutton.image.color.Equals(Color.red))
         {
-            personality = personailtycreate.getBadCop();              // sets personailty as bad cop
-        } else if (goodcopbutton.image.color.Equals(Color.red))
+            personality = personalitycreate.getBadCop();              // sets personality as bad cop
+        }
+        else if (goodcopbutton.image.color.Equals(Color.red))
         {
-            personality = personailtycreate.getGoodCop();             // sets personailty as good cop
-        } 
+            personality = personalitycreate.getGoodCop();             // sets personality as good cop
+        }
+        else if (smartcopbutton.image.color.Equals(Color.red))
+        {
+            personality = personalitycreate.getSmartCop();            // sets personality as smart cop
+        }
+        else if (dumbcopbutton.image.color.Equals(Color.red))
+        {
+            personality = personalitycreate.getDumbCop();             // sets personality as dumb cop
+        }
+        else if (trustycopbutton.image.color.Equals(Color.red))
+        {
+            personality = personalitycreate.getTrustyCop();           // sets personality as trusting cop
+        }
+        else if (suspicouscopbutton.image.color.Equals(Color.red))
+            personality = personalitycreate.getSuspCop();             // sets personality as suspicious cop
         
     }
 
@@ -60,6 +82,10 @@ public class PlayerSelect : MonoBehaviour {
         set_character_preview(goodcopsprite);
         badcopbutton.image.color = Color.white;
         goodcopbutton.image.color = Color.red;
+        smartcopbutton.image.color = Color.white;
+        dumbcopbutton.image.color = Color.white;
+        trustycopbutton.image.color = Color.white;
+        suspicouscopbutton.image.color = Color.white;
     }
 
     public void BadcopColor()                                        // turns badcop red
@@ -67,9 +93,57 @@ public class PlayerSelect : MonoBehaviour {
         set_character_preview(badcopsprite);
         goodcopbutton.image.color = Color.white;
         badcopbutton.image.color = Color.red;
+        smartcopbutton.image.color = Color.white;
+        dumbcopbutton.image.color = Color.white;
+        trustycopbutton.image.color = Color.white;
+        suspicouscopbutton.image.color = Color.white;
     }
 
- 
+    public void SmartcopColor()
+    {
+        set_character_preview(smartcopsprite);
+        goodcopbutton.image.color = Color.white;
+        badcopbutton.image.color = Color.white;
+        smartcopbutton.image.color = Color.red;
+        dumbcopbutton.image.color = Color.white;
+        trustycopbutton.image.color = Color.white;
+        suspicouscopbutton.image.color = Color.white;
+    }
+
+    public void DumbcopColor()
+    {
+        set_character_preview(dumbcopsprite);
+        goodcopbutton.image.color = Color.white;
+        badcopbutton.image.color = Color.white;
+        smartcopbutton.image.color = Color.white;
+        dumbcopbutton.image.color = Color.red;
+        trustycopbutton.image.color = Color.white;
+        suspicouscopbutton.image.color = Color.white;
+    }
+
+    public void TrustycopColor()
+    {
+        set_character_preview(trustycopsprite);
+        goodcopbutton.image.color = Color.white;
+        badcopbutton.image.color = Color.white;
+        smartcopbutton.image.color = Color.white;
+        dumbcopbutton.image.color = Color.white;
+        trustycopbutton.image.color = Color.red;
+        suspicouscopbutton.image.color = Color.white;
+    }
+
+    public void SuspcopColor()
+    {
+        set_character_preview(suspiciouscopsprite);
+        goodcopbutton.image.color = Color.white;
+        badcopbutton.image.color = Color.white;
+        smartcopbutton.image.color = Color.white;
+        dumbcopbutton.image.color = Color.white;
+        trustycopbutton.image.color = Color.white;
+        suspicouscopbutton.image.color = Color.red;
+    }
+
+
     public void set_character_preview(Sprite sprite)
     {
         characterpreview.GetComponent<SpriteRenderer>().sprite = sprite;
@@ -113,7 +187,7 @@ public class PlayerSelect : MonoBehaviour {
     public void setPersonality()   // get personailty and transfer data         
     {
         getPersonality();          // check which personailty is selected and set that one 
-        transfer_personality();    // transfer teh data to game manager 
+        transfer_personality();    // transfer the data to game manager 
         transfer_srite();          // also transfer the look of the detecttive
     }
 
