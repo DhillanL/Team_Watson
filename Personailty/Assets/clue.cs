@@ -30,6 +30,12 @@ public class clue: MonoBehaviour{
 	}
 	//public string getInfo(){
 	//}
+	void Awake(){
+		DontDestroyOnLoad(transform.gameObject);
 	}
+	void Update () {
+
+	}
+}
 
 

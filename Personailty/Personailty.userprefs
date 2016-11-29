@@ -1,8 +1,18 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Interaction.cs">
     <Files>
       <File FileName="Assets/Interaction.cs" Line="1" Column="1" />
+=======
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\gameManager.cs">
+    <Files>
+      <File FileName="Assets\createClue.cs" Line="95" Column="3" />
+      <File FileName="Assets\clue.cs" Line="25" Column="19" />
+      <File FileName="Assets\NPC.cs" Line="92" Column="2" NotebookId="1" />
+      <File FileName="Assets\CreateNPC.cs" Line="10" Column="31" NotebookId="1" />
+      <File FileName="Assets\gameManager.cs" Line="63" Column="6" NotebookId="1" />
+>>>>>>> d9c567052f984c00c3c726e7f99e4025f4d92076
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
