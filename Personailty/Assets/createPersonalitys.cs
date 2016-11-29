@@ -22,6 +22,7 @@ public class createPersonalitys : MonoBehaviour {
    static public Personality_player smart = new Personality_player();
    static public Personality_player dumb = new Personality_player();
    static public Personality_player trust = new Personality_player();
+   static public Personality_player susp = new Personality_player();
 
 
 
@@ -136,6 +137,29 @@ public class createPersonalitys : MonoBehaviour {
     {
         maketrustycop();
         return trust;
+    }
+
+
+
+    //      SUSPICIOUS COP PERSONALITY   //
+
+    public void makesuspcop()
+    {
+        getname();
+        susp.Name = Name;
+        susp.setintro("Hello there, my name is " + Name.ToString() + "and i am here to question you");
+        susp.settype1("Cunning");
+        susp.set1("I think you had something to do with this so tell me what you know");
+        susp.settype2("Violent");
+        susp.set2("I havent got time for this, do you know something or not?!");
+        susp.settype3("Mean");
+        susp.set3("I dont like the look of you, you must know something about this murder");
+    }
+
+    public Personality_player getSuspCop()
+    {
+        makesuspcop();
+        return susp;
     }
 
 

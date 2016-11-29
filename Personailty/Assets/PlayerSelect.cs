@@ -19,6 +19,7 @@ public class PlayerSelect : MonoBehaviour {
     public Button smartcopbutton;  
     public Button dumbcopbutton;
     public Button trustycopbutton;
+    public Button suspicouscopbutton;
   
     public Button Finish;    // button pressed when all selections are made
 
@@ -34,7 +35,7 @@ public class PlayerSelect : MonoBehaviour {
     public Sprite smartcopsprite;
     public Sprite dumbcopsprite;
     public Sprite trustycopsprite;
-    
+    public Sprite suspiciouscopsprite;
 
 
 
@@ -47,19 +48,25 @@ public class PlayerSelect : MonoBehaviour {
         if (badcopbutton.image.color.Equals(Color.red))
         {
             personality = personalitycreate.getBadCop();              // sets personality as bad cop
-        } else if (goodcopbutton.image.color.Equals(Color.red))
+        }
+        else if (goodcopbutton.image.color.Equals(Color.red))
         {
             personality = personalitycreate.getGoodCop();             // sets personality as good cop
-        } else if (smartcopbutton.image.color.Equals(Color.red))
+        }
+        else if (smartcopbutton.image.color.Equals(Color.red))
         {
             personality = personalitycreate.getSmartCop();            // sets personality as smart cop
-        } else if (dumbcopbutton.image.color.Equals(Color.red))
+        }
+        else if (dumbcopbutton.image.color.Equals(Color.red))
         {
             personality = personalitycreate.getDumbCop();             // sets personality as dumb cop
-        } else if (trustycopbutton.image.color.Equals(Color.red))
+        }
+        else if (trustycopbutton.image.color.Equals(Color.red))
         {
             personality = personalitycreate.getTrustyCop();           // sets personality as trusting cop
         }
+        else if (suspicouscopbutton.image.color.Equals(Color.red))
+            personality = personalitycreate.getSuspCop();             // sets personality as suspicious cop
         
     }
 
@@ -77,6 +84,8 @@ public class PlayerSelect : MonoBehaviour {
         goodcopbutton.image.color = Color.red;
         smartcopbutton.image.color = Color.white;
         dumbcopbutton.image.color = Color.white;
+        trustycopbutton.image.color = Color.white;
+        suspicouscopbutton.image.color = Color.white;
     }
 
     public void BadcopColor()                                        // turns badcop red
@@ -87,6 +96,7 @@ public class PlayerSelect : MonoBehaviour {
         smartcopbutton.image.color = Color.white;
         dumbcopbutton.image.color = Color.white;
         trustycopbutton.image.color = Color.white;
+        suspicouscopbutton.image.color = Color.white;
     }
 
     public void SmartcopColor()
@@ -97,6 +107,7 @@ public class PlayerSelect : MonoBehaviour {
         smartcopbutton.image.color = Color.red;
         dumbcopbutton.image.color = Color.white;
         trustycopbutton.image.color = Color.white;
+        suspicouscopbutton.image.color = Color.white;
     }
 
     public void DumbcopColor()
@@ -107,6 +118,7 @@ public class PlayerSelect : MonoBehaviour {
         smartcopbutton.image.color = Color.white;
         dumbcopbutton.image.color = Color.red;
         trustycopbutton.image.color = Color.white;
+        suspicouscopbutton.image.color = Color.white;
     }
 
     public void TrustycopColor()
@@ -117,6 +129,18 @@ public class PlayerSelect : MonoBehaviour {
         smartcopbutton.image.color = Color.white;
         dumbcopbutton.image.color = Color.white;
         trustycopbutton.image.color = Color.red;
+        suspicouscopbutton.image.color = Color.white;
+    }
+
+    public void SuspcopColor()
+    {
+        set_character_preview(suspiciouscopsprite);
+        goodcopbutton.image.color = Color.white;
+        badcopbutton.image.color = Color.white;
+        smartcopbutton.image.color = Color.white;
+        dumbcopbutton.image.color = Color.white;
+        trustycopbutton.image.color = Color.white;
+        suspicouscopbutton.image.color = Color.red;
     }
 
 
