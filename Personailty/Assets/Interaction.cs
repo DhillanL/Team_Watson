@@ -137,6 +137,7 @@ public class Interaction : MonoBehaviour {
         question_style_text = player.Personailty.questiontype2;
         speachbox.text = "Detective " + player.Name + ": " + player.Personailty.Question2();
         speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
+        check_okay_to_interact();
         npc = null;
         }
 

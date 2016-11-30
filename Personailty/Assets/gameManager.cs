@@ -37,14 +37,14 @@ public class gameManager : MonoBehaviour {
     static public GameObject room81; // outside the Ron Cooke hub -- bottom of the lakehouse (PUSHED victim)
 
     // CLUE ROOM LOCATIONS  
-	static public GameObject room1;
-	static public GameObject room2;
-	static public GameObject room3;
-	static public GameObject room4;
-	static public GameObject room5;
-	static public GameObject room6;
-	static public GameObject room7;
-	static public GameObject room8;
+	static public GameObject clue_room1;
+	static public GameObject clue_room2;
+	static public GameObject clue_room3;
+	static public GameObject clue_room4;
+	static public GameObject clue_room5;
+	static public GameObject clue_room6;
+	static public GameObject clue_room7;
+	static public GameObject clue_room8;
 
 
 
@@ -54,8 +54,8 @@ public class gameManager : MonoBehaviour {
     public GameObject create_npcs;
 
 
-    public Camera maincamera;
-    public Canvas canvas;
+    static public int found_clues; 
+
 
 
     
@@ -135,28 +135,28 @@ public class gameManager : MonoBehaviour {
 
 	//methods for setting the rooms for the clues
 	public void setClue1(GameObject clue){
-		room1 = clue;
+        ;
 	}
 	public void setClue2(GameObject clue){
-		room2 = clue;
+        ;
 	}
 	public void setClue3(GameObject clue){
-		room3 = clue;
+        ;
 	}
 	public void setClue4(GameObject clue){
-		room4 = clue;
+        ;
 	}
 	public void setClue5(GameObject clue){
-		room5 = clue;
+         ;
 	}
 	public void setClue6(GameObject clue){
-		room6 = clue;
+        ;
 	}
 	public void setClue7(GameObject clue){
-		room7 = clue;
+        ;
 	}
 	public void setClue8(GameObject clue){
-		room8 = clue;
+        ;
 	}
 
     //methods for setting the players in the room in pos
