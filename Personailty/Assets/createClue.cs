@@ -102,15 +102,10 @@ public class createClue: MonoBehaviour{
         clue_6.name = "Black foutain pen";
         clue_6.info = "A black fountain pen, looks expensive";
 
-        clue7_verbal.name = ("saw someone hanging around " + game_manager.GetComponent<gameManager>().get_whole_victim().room + "wearing a " + hat[z]
-            + ". " + game_manager.GetComponent<gameManager>().get_whole_murderer().he_she +  "looked a bit shifty.");
+        verbal_clue_7.name = ("saw someone hanging around " + game_manager.GetComponent<gameManager>().get_whole_victim().room + " wearing a " + hat[z]
+            + ". " + game_manager.GetComponent<gameManager>().get_whole_murderer().he_she +  " looked a bit shifty.");
 
-        clue8_verbal.name = "I saw " + createnpc.GetComponent<CreateNPC>().npc_list_mur_vic[z].Name + "playing with a " + throw_off_weapon[y] + "ealier";
-
-
-
-
-
+        verbal_clue_8.name = "I saw " + createnpc.GetComponent<CreateNPC>().npc_list_mur_vic[z].Name + " playing with a " + throw_off_weapon[y] + " ealier";
 
     }
 
@@ -134,7 +129,7 @@ public class createClue: MonoBehaviour{
     // depending on the murder selcted in the create crime scirpt the approiate clue will be selected. 
     public void set_clues_crime()
     {
-        if (crime.GetComponent<CreateCrime>().murder_int == 0)
+        if (crime.GetComponent<CreateCrime>().murder_int == 0)   // clues only set for if the murder is the STABBED IN THE BACK  rest need to be done still 
         {
             make_clues_crime_1();
         }
@@ -172,6 +167,12 @@ public class createClue: MonoBehaviour{
 		gameobjectlst_ [7] = clue8_verbal;
 	}
 
+    public NPC getNPC(int x)
+    {
+        return createnpc.GetComponent<CreateNPC>().npc_list_mur_vic[x];
+        
+    }
+
 	public void setCluesInGameman(){
 		game_manager.GetComponent<gameManager>().setClue1(gameobjectlst_[0]);
 		game_manager.GetComponent<gameManager>().setClue2(gameobjectlst_[1]);
@@ -179,9 +180,15 @@ public class createClue: MonoBehaviour{
 		game_manager.GetComponent<gameManager>().setClue4(gameobjectlst_[3]);
 		game_manager.GetComponent<gameManager>().setClue5(gameobjectlst_[4]);
 		game_manager.GetComponent<gameManager>().setClue6(gameobjectlst_[5]);
-		game_manager.GetComponent<gameManager>().setClue7(gameobjectlst_[6]);
-		game_manager.GetComponent<gameManager>().setClue8(gameobjectlst_[7]);
-	}
+        int x = Random.Range(0, 8);
+        int y = x;
+        while (y == x)
+        {
+            y = Random.Range(0, 8);  // ensures two different NPC's
+        }
+        game_manager.GetComponent<gameManager>().setNPCclue(getNPC(x),gameobjectlst_[6]);  // sets the verbal clues of two random npcs 
+        game_manager.GetComponent<gameManager>().setNPCclue(getNPC(y), gameobjectlst_[7]);
+    }
 
 
 
@@ -197,10 +204,7 @@ public class createClue: MonoBehaviour{
 
         set_clues_crime();    // depending on crime choosen at random make approiate clues 
 
-
-        Debug.Log(clue_1.name);  // debugging work 
-        Debug.Log(clue_1.info);
-		//setCluesInGameman();
+		setCluesInGameman();
 	}
 
 	void awake() { 

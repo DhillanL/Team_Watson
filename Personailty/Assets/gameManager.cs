@@ -53,7 +53,7 @@ public class gameManager : MonoBehaviour {
 
     public GameObject create_npcs;
 
-
+    // int to show the number of clues which have been found so far 
     static public int found_clues; 
 
 
@@ -133,31 +133,32 @@ public class gameManager : MonoBehaviour {
         return victim;
     }
 
-	//methods for setting the rooms for the clues
+	//methods for setting the rooms for the clues adn the NPC who they are attached to 
 	public void setClue1(GameObject clue){
-        ;
+        clue_room1 = clue;
 	}
 	public void setClue2(GameObject clue){
-        ;
+        clue_room2 = clue;
 	}
 	public void setClue3(GameObject clue){
-        ;
+        clue_room3 = clue;
 	}
 	public void setClue4(GameObject clue){
-        ;
+        clue_room4 = clue;
 	}
 	public void setClue5(GameObject clue){
-         ;
+        clue_room5 = clue;
 	}
 	public void setClue6(GameObject clue){
-        ;
+        clue_room6 = clue;
 	}
-	public void setClue7(GameObject clue){
-        ;
-	}
-	public void setClue8(GameObject clue){
-        ;
-	}
+
+    public void setNPCclue(NPC npc, GameObject clue)  // used to set the npc clue 
+    {
+        npc.clue = clue.GetComponent<clue>().name;
+    }
+	
+
 
     //methods for setting the players in the room in pos
 
@@ -344,16 +345,16 @@ public class gameManager : MonoBehaviour {
 
 
     void Start () {
-        Debug.Log("Room1.1 = " + room11);    // so we can see who is in the rooms for testing 
-        Debug.Log("Room1.2 = " + room12);
-        Debug.Log("Room2.1 = " + room21);
-        Debug.Log("Room3.1 = " + room31);
-        Debug.Log("Room4.1 = " + room41);
-        Debug.Log("Room5.1 = " + room51);
-        Debug.Log("Room6.1 = " + room61);
-        Debug.Log("Room7.1 = " + room71);
-        Debug.Log("Room7.2 = " + room72);
-        Debug.Log("Room8.1 = " + room81);
+        //Debug.Log("Room1.1 = " + room11);    // so we can see who is in the rooms for testing 
+        //Debug.Log("Room1.2 = " + room12);
+        //Debug.Log("Room2.1 = " + room21);
+        //Debug.Log("Room3.1 = " + room31);
+        //Debug.Log("Room4.1 = " + room41);
+        //Debug.Log("Room5.1 = " + room51);
+        //Debug.Log("Room6.1 = " + room61);
+        //Debug.Log("Room7.1 = " + room71);
+        //Debug.Log("Room7.2 = " + room72);
+       // Debug.Log("Room8.1 = " + room81);
 
     }
 	
