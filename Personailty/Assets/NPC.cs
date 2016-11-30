@@ -7,6 +7,7 @@ public class NPC : MonoBehaviour {
     public Sprite look;    //sprite used for picture
 
     public string Name;
+    public string initial;
 
     public string he_she;
 

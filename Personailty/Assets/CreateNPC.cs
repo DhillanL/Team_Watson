@@ -52,7 +52,8 @@ public class CreateNPC : MonoBehaviour {
 
     // lists for selecting a murder and a victim
     public NPC[] npc_list_ = new NPC[10];        
-    public NPC[] npc_list_vic_ = new NPC[9];  // list with all npcs who are not the victim
+    public NPC[] npc_list_vic_ = new NPC[9];      // list with all npcs who are not the victim
+    public NPC[] npc_list_mur_vic = new NPC[8];   // list without victim and murder
 
     // lists needed for creating the room allocation 
     public GameObject[] gameobjectlst_ = new GameObject[10];       
@@ -100,6 +101,7 @@ public class CreateNPC : MonoBehaviour {
         Tonald_Dump.intro = "I want to build a wall!";
         tonald_look.sprite = Tonald_Dump.look;    //look set from the sprite added to game object
         Tonald_Dump.he_she = "he";  // he or she
+        Tonald_Dump.initial = "T.D";
         // bad cop responses 
         Tonald_Dump.aggressive_response = "Dont talk to me like that!";
         Tonald_Dump.violent_response = "violent response";
@@ -125,6 +127,7 @@ public class CreateNPC : MonoBehaviour {
         Bernard_lowe.intro = "My name is bernard, I like lamps";
         bernard_look.sprite = Bernard_lowe.look;
         Bernard_lowe.he_she = "he";   // he or she
+        Bernard_lowe.initial = "B.L";
         //badcop setup
         Bernard_lowe.aggressive_response = "Dont talk to me like that you fuck I'm Bernard !";
         Bernard_lowe.violent_response = "I'm a violent bernard";
@@ -143,6 +146,7 @@ public class CreateNPC : MonoBehaviour {
     {
         George_allen.Name = "George";
         George_allen.he_she = "he";
+        George_allen.initial = "G.A";
         george_look.sprite = George_allen.look;  
     }
 
@@ -153,6 +157,7 @@ public class CreateNPC : MonoBehaviour {
         Ethan_hawk.Name = "Ethan";
         ethan_look.sprite = Ethan_hawk.look;
         Ethan_hawk.he_she = "he";
+        Ethan_hawk.initial = "E.H";
     }
 
 
@@ -162,6 +167,7 @@ public class CreateNPC : MonoBehaviour {
 		Ryan_Smith.Name = "Ryan";
 		ryan_look.sprite = Ryan_Smith.look;
         Ryan_Smith.he_she = "he";
+        Ryan_Smith.initial = "R.S";
     }
 
     public void make_Zoe()
@@ -169,12 +175,14 @@ public class CreateNPC : MonoBehaviour {
         Zoe_Williams.Name = "Zoe";
 		zoe_look.sprite = Zoe_Williams.look;
         Zoe_Williams.he_she = "she";
+        Zoe_Williams.initial = "Z.W";
     }
     public void make_Alice()
     {
 		Alice_Davis.Name = "Alice";
 		alice_look.sprite = Alice_Davis.look;
         Alice_Davis.he_she = "she";
+        Alice_Davis.initial = "A.D";
     }
 
     public void make_Sophie()
@@ -182,6 +190,7 @@ public class CreateNPC : MonoBehaviour {
         Sophie_Aaron.Name = "Sophie";
 		sophie_look.sprite = Sophie_Aaron.look;
         Sophie_Aaron.he_she = "she";
+        Sophie_Aaron.initial = "S.A";
     }
 
     public void make_Stephen()
@@ -189,6 +198,7 @@ public class CreateNPC : MonoBehaviour {
         Stephen_Brown.Name = "Stephen";
 		stephen_look.sprite = Stephen_Brown.look;
         Stephen_Brown.he_she = "he";
+        Stephen_Brown.initial = "S.B";
     }
 
     public void make_Robert()
@@ -196,6 +206,7 @@ public class CreateNPC : MonoBehaviour {
 		Robert_Henry.Name = "Robert";
 		robert_look.sprite = Robert_Henry.look;
         Robert_Henry.he_she = "he";
+        Robert_Henry.initial = "R.H";
     }
 
 
@@ -283,6 +294,24 @@ public class CreateNPC : MonoBehaviour {
         }
     }
 
+    public void list_no_vic_murder()
+    {
+        int x = 0;
+        for (int y = 0; y < npc_list_vic_.Length; y++)
+        {
+            if (npc_list_vic_[y].is_muderer == false)
+            {
+                npc_list_mur_vic[x] = npc_list_vic_[y];
+                x++;
+            } else
+            {
+                ;
+            }
+        }
+
+    }
+
+   
 
 
 
@@ -346,8 +375,9 @@ public class CreateNPC : MonoBehaviour {
         make_Stephen();
         make_Robert();
 
-        makelst();                // make the lists 
-        makegameobjectlst();                  
+        makelst();                  // make the lists 
+        makegameobjectlst();
+           
 
         shuffle_lst();                  //creates a shuffled list 
 
@@ -357,6 +387,7 @@ public class CreateNPC : MonoBehaviour {
 
 
         crime.GetComponent<CreateCrime>().create_crime();  // around the crime selected set all of the............
+        list_no_vic_murder();       // create a list of only NPC's who are not the murderer or the victim
         clues.GetComponent<createClue>().makeClues();   // make the clues for the game.... 
         
     }

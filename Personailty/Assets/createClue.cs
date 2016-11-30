@@ -6,6 +6,7 @@ public class createClue: MonoBehaviour{
 
 	public GameObject game_manager;
     public GameObject crime;
+    public GameObject createnpc;
 
 
     // the game objects which hold the clues 
@@ -25,16 +26,20 @@ public class createClue: MonoBehaviour{
 	public clue clue_4;
 	public clue clue_5;
 	public clue clue_6;
-	public clue verbal_clue_1;
-	public clue verbal_clue_2;
+	public clue verbal_clue_7;
+	public clue verbal_clue_8;
 
     // the looks of the clues 
 	public SpriteRenderer clue1_look;
 	public SpriteRenderer clue2_look;
+    public SpriteRenderer clue3_look;
+    public SpriteRenderer clue4_look;
+    public SpriteRenderer clue5_look;
+    public SpriteRenderer clue6_look;
 
 
     // list to make accessing the clue easier 
-	public GameObject[] gameobjectlst_ = new GameObject[8];  // list of all of the gamobject -- the clues 
+    public GameObject[] gameobjectlst_ = new GameObject[8];  // list of all of the gamobject -- the clues 
 
 	public clue[] physical_clue_list = new clue[6];  // hold ths clue elememtns of all the clues 
 	public clue[] verbal_clue_list = new clue[2];
@@ -48,8 +53,24 @@ public class createClue: MonoBehaviour{
 		clue1_look = clue1.GetComponent<SpriteRenderer>();
 
 		clue_2 = clue2.GetComponent<clue>();
-		clue2_look = clue1.GetComponent<SpriteRenderer>();
-	}
+		clue2_look = clue2.GetComponent<SpriteRenderer>();
+
+        clue_3 = clue3.GetComponent<clue>();
+        clue3_look = clue3.GetComponent<SpriteRenderer>();
+
+        clue_4 = clue4.GetComponent<clue>();
+        clue4_look = clue4.GetComponent<SpriteRenderer>();
+
+        clue_5 = clue5.GetComponent<clue>();
+        clue5_look = clue5.GetComponent<SpriteRenderer>();
+
+        clue_6 = clue6.GetComponent<clue>();
+        clue6_look = clue6.GetComponent<SpriteRenderer>();
+
+        verbal_clue_7 = clue7_verbal.GetComponent<clue>();
+        
+        verbal_clue_8 = clue8_verbal.GetComponent<clue>();
+    }
 
 
     // make all of the clues if the murder if STAB IN BACK CRIME 
@@ -65,6 +86,32 @@ public class createClue: MonoBehaviour{
         int y = Random.Range(0, 3);
         clue_2.name = throw_off_weapon[y];
         clue_2.info = "the blade looks clean....maybe too clean?";
+
+        clue_3.name = "Hand written not to Victim";
+        clue_3.info = ("A note addressed to " + game_manager.GetComponent<gameManager>().get_victim() + ". Saying 'Meet in " +
+            game_manager.GetComponent<gameManager>().get_whole_victim().room + "with £5000 or else' \n It is written in black handwriting");
+
+        clue_4.name = "cloth with blood on";
+        clue_4.info = "Must have been used to wipe the murder weapon";
+
+        string[] hat = new string[3] { "Black top hat", "flat cap", "beanie" };
+        int z = Random.Range(0, 3);
+        clue_5.name = hat[z];
+        clue_2.info = "Hat has two sets of initials in it, "+ game_manager.GetComponent<gameManager>().get_whole_victim().initial + " and " + createnpc.GetComponent<CreateNPC>().npc_list_mur_vic[z].initial ;
+
+        clue_6.name = "Black foutain pen";
+        clue_6.info = "A black fountain pen, looks expensive";
+
+        clue7_verbal.name = ("saw someone hanging around " + game_manager.GetComponent<gameManager>().get_whole_victim().room + "wearing a " + hat[z]
+            + ". " + game_manager.GetComponent<gameManager>().get_whole_murderer().he_she +  "looked a bit shifty.");
+
+        clue8_verbal.name = "I saw " + createnpc.GetComponent<CreateNPC>().npc_list_mur_vic[z].Name + "playing with a " + throw_off_weapon[y] + "ealier";
+
+
+
+
+
+
     }
 
     // make all clues if the crime is // DROWNING 
@@ -80,6 +127,7 @@ public class createClue: MonoBehaviour{
         int y = Random.Range(0, 3);
         clue_2.name = throw_off_weapon[y];
         clue_2.info = "the blade looks clean....maybe too clean?";
+
 
     }
 
@@ -109,8 +157,8 @@ public class createClue: MonoBehaviour{
 	}
 
 	public void make_verbal_clue_list(){ //make list of physical clues
-		verbal_clue_list [0] = verbal_clue_1;
-		verbal_clue_list [1] = verbal_clue_2;
+		verbal_clue_list [0] = verbal_clue_7;
+		verbal_clue_list [1] = verbal_clue_8;
 	}
 
 	public void make_game_object_lst(){
