@@ -9,21 +9,25 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 70f;
     private Rigidbody2D rb2D; //Rigidbody inside object
 
+
+
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>(); //get access to the Rigidbody
+
     }
 
     void Update()
     {
-       if (Input.GetKey(moveRight))
+        if (Input.GetKey(moveRight))
         {
             rb2D.velocity = new Vector2(speed, 0);
-        }
 
+        }
         else if (Input.GetKey(moveLeft))
         {
             rb2D.velocity = new Vector2(-speed, 0);
+            
         }
         else
         {

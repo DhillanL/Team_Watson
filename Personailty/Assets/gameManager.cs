@@ -341,7 +341,10 @@ public class gameManager : MonoBehaviour {
     public void mapAppear()
     {
         transform.position = new Vector3(0, 23, 0);
-        print(transform.position.x);
+    }
+    public void mapDisappear()
+    {
+        transform.position = new Vector3(0, 720, 0);
     }
     // for testing 
 

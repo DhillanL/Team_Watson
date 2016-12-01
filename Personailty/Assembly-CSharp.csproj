@@ -45,6 +45,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\ColliderScreenLeft.cs" />
+     <Compile Include="Assets\ColliderScreenRight.cs" />
      <Compile Include="Assets\CreateCrime.cs" />
      <Compile Include="Assets\CreateNPC.cs" />
      <Compile Include="Assets\DonotDestoryBottomGUI.cs" />
@@ -54,6 +56,7 @@
      <Compile Include="Assets\Personality_player.cs" />
      <Compile Include="Assets\PlayerMovement.cs" />
      <Compile Include="Assets\PlayerSelect.cs" />
+     <Compile Include="Assets\SceneBorders.cs" />
      <Compile Include="Assets\clue.cs" />
      <Compile Include="Assets\createClue.cs" />
      <Compile Include="Assets\createPersonalitys.cs" />
