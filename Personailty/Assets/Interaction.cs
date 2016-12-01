@@ -38,7 +38,7 @@ public class Interaction : MonoBehaviour {
 			
 		case "Threaten":
 			return (npc.threaten_response);
-			;
+			
 		case "Arrogant":
 			return (npc.arrogant_response);
 			
@@ -62,9 +62,6 @@ public class Interaction : MonoBehaviour {
 			
 		}
 	}
-
-
-
 
 
     public void pick_interaction()
@@ -121,10 +118,21 @@ public class Interaction : MonoBehaviour {
         questioingtype3.transform.Translate(0, -57, 0);
         question_style_text = player.Personailty.questiontype1;
         speachbox.text = "Detective " + player.Name + ": " + player.Personailty.Question1();
-        speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
-        check_okay_to_interact();
-        npc = null;
+
+        if (question_style_text == npc.clue_response)  // checks that the questioing style of the player macthes the one in which the NPC will say thier clue 
+        {
+            speachbox.text += "\n\n" + npc.Name + ": " + npc.clue;
+            check_okay_to_interact();
+            npc = null;
+        }
+        else
+        {
+            speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
+            check_okay_to_interact();
+            npc = null;
+        }
     }
+    
 
 
 
@@ -136,10 +144,20 @@ public class Interaction : MonoBehaviour {
         questioingtype3.transform.Translate(0, -57, 0);
         question_style_text = player.Personailty.questiontype2;
         speachbox.text = "Detective " + player.Name + ": " + player.Personailty.Question2();
-        speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
-        check_okay_to_interact();
-        npc = null;
+
+        if (question_style_text == npc.clue_response)  // checks that the questioing style of the player macthes the one in which the NPC will say thier clue 
+        {
+            speachbox.text += "\n\n" + npc.Name + ": " + npc.clue;
+            check_okay_to_interact();
+            npc = null;
         }
+        else
+        {
+            speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
+            check_okay_to_interact();
+            npc = null;
+        }
+    }
 
     public void questioning_style3()
     {
@@ -148,63 +166,19 @@ public class Interaction : MonoBehaviour {
         questioingtype3.transform.Translate(0, -57, 0);
         question_style_text = player.Personailty.questiontype3;
         speachbox.text = "Detective " + player.Name + ": " + player.Personailty.Question3();
-        speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
-        check_okay_to_interact();
-        npc = null;
-
-    }
-
-    /*
-         / changed now since we decided o have buttons rather then input also we need to decide how many responses per personailty. As it wants 3 in the spec. 
-        public void oldinteraction() 
+        if (question_style_text == npc.clue_response)  // checks that the questioing style of the player macthes the one in which the NPC will say thier clue 
         {
-            if (player_input.text.Equals("1")) {   // if the player chooses to perform question option 1 
-                question_style_text = player.Personailty.questiontype1;
-                speachbox.text = "Detective " + player.Name + ": " + player.Personailty.Question1();
-                speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
-                check_okay_to_interact();
-                pick_questioning_style.transform.Translate(-250, 0, 0);
-                player_input.transform.Translate(-250, 0, 0);
-                npc = null;
-
-            } else if (player_input.text.Equals("2")) {
-                question_style_text = player.Personailty.questiontype2;
-                speachbox.text = player.Personailty.Question2();
-                speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
-                check_okay_to_interact();
-                pick_questioning_style.transform.Translate(-250, 0, 0);
-                player_input.transform.Translate(-250, 0, 0);
-                npc = null;
-
-            } else if (player_input.text.Equals("3")) {
-                question_style_text = player.Personailty.questiontype3;
-                speachbox.text = player.Personailty.Question3();
-                speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
-                check_okay_to_interact();
-                pick_questioning_style.transform.Translate(-250, 0, 0);
-                player_input.transform.Translate(-250, 0, 0);
-                npc = null;
-
-
-            } else if (player_input.text.Equals("4")) {
-                question_style_text = player.Personailty.questiontype4;
-                speachbox.text = player.Personailty.Question4();
-                speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
-                check_okay_to_interact();
-                pick_questioning_style.transform.Translate(-250, 0, 0);
-                player_input.transform.Translate(-250, 0, 0);
-                npc = null;
-            }
-
-            else
-
-            {
-
-            }
+            speachbox.text += "\n\n" + npc.Name + ": " + npc.clue;
+            check_okay_to_interact();
+            npc = null;
         }
-
-
-    */
+        else
+        {
+            speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
+            check_okay_to_interact();
+            npc = null;
+        }
+    }
 
     public void check_okay_to_interact()
     {
@@ -217,6 +191,8 @@ public class Interaction : MonoBehaviour {
             npc.okay_to_interact = true;
         }
     }
+
+
              
 
     public void accuse()

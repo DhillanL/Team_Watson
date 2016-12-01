@@ -117,7 +117,9 @@ public class CreateNPC : MonoBehaviour {
         // no more interaction set up 
         Tonald_Dump.dont_interact_response = "IM not talking to you anymore";
         Tonald_Dump.dont_interact_if1 = Tonald_Dump.threaten_response;       // Tonald wont interact if he is questioned 'threaten or violent'
-        Tonald_Dump.dont_interact_if2 = Tonald_Dump.violent_response;
+        //Tonald_Dump.dont_interact_if2 = Tonald_Dump.violent_response;
+        // clue response 
+        Tonald_Dump.clue_response = "violent";
     }
 
     public void make_bernard()   // set bernards 

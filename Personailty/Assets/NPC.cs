@@ -26,23 +26,27 @@ public class NPC : MonoBehaviour {
 
     public string dont_interact_response;
 
+    public string clue_response; 
+
     public string dont_interact_if1 = "";    // string is set to empty to start 
     public string dont_interact_if2 = "";    // these are used to test against after an NPC has resposned to see if they wil talk again 
     public string dont_interact_if3 = "";    // these are set to the responses that the npc would say if they dont want to talk anymore. EG: NPC may say 'thats horrible dont talk to me again'
                                              // this may be there response if they are questioned aggresively. so we can test if they are the same and change okay_to_interact to false;
     //BadCop
-    public string aggressive_response;
-    public string violent_response;
-    public string threaten_response;
+    public string aggressive_response; //
+    public string violent_response; //
+    public string threaten_response; //
 	public string arrogant_response;
 	public string indifferent_response;
 
     //GoodCop
-    public string kind_response;
-	public string sympthetic_response;
-    public string friendly_response;
+    public string kind_response; //
+	public string sympthetic_response; //
+    public string friendly_response; //
 	public string humorous_response;
 	public string enthusiastic_response;
+
+    // cunning sympthatethic  
 
 
     Vector3 newPos = new Vector3(-300,-12,0);   // starting pos for all of the NPCS
