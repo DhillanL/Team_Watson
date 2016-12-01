@@ -338,8 +338,11 @@ public class gameManager : MonoBehaviour {
         populateroom8();
     }
 
-    
-
+    public void mapAppear()
+    {
+        transform.position = new Vector3(0, 23, 0);
+        print(transform.position.x);
+    }
     // for testing 
 
 
