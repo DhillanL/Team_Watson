@@ -37,14 +37,14 @@ public class gameManager : MonoBehaviour {
     static public GameObject room81; // outside the Ron Cooke hub -- bottom of the lakehouse (PUSHED victim)
 
     // CLUE ROOM LOCATIONS  
-	static public GameObject clue_room1;
-	static public GameObject clue_room2;
-	static public GameObject clue_room3;
-	static public GameObject clue_room4;
-	static public GameObject clue_room5;
-	static public GameObject clue_room6;
-	static public GameObject clue_room7;
-	static public GameObject clue_room8;
+	 static public GameObject clue_room1;
+    static public GameObject clue_room2;
+    static public GameObject clue_room3;
+    static public GameObject clue_room4;
+    static public GameObject clue_room5;
+    static public GameObject clue_room6;
+    static public GameObject clue_room7;
+    static public GameObject clue_room8;
 
 
 
@@ -54,9 +54,10 @@ public class gameManager : MonoBehaviour {
     public GameObject create_npcs;
 
     // int to show the number of clues which have been found so far 
-    static public int found_clues; 
+    static public int found_clues = 0; 
 
 
+    // -------------------------------------------------------------------------------------------------------------------------------------
 
     
     // Accessors and mutators for attributes for the player  
@@ -152,10 +153,27 @@ public class gameManager : MonoBehaviour {
 	public void setClue6(GameObject clue){
         clue_room6 = clue;
 	}
+    public void setClue7(GameObject clue)
+    {
+        clue_room7 = clue;
+    }
+    public void setClue8(GameObject clue)
+    {
+        clue_room8 = clue;
+    }
 
     public void setNPCclue(NPC npc, GameObject clue)  // used to set the npc clue 
     {
         npc.clue = clue.GetComponent<clue>().name;
+    }
+
+    public void increase_clue_count()
+    {
+        found_clues++;
+    }
+    public int get_clue_count()
+    {
+        return found_clues;
     }
 	
 
@@ -218,58 +236,97 @@ public class gameManager : MonoBehaviour {
         GameObject.FindWithTag(room81.GetComponent<NPC>().Name).GetComponent<NPC>().reset_pos();
     }
 
+    public void reset_clue_pos()
+    {
+        GameObject.FindWithTag("Clue1").GetComponent<clue>().reset_pos();
+        GameObject.FindWithTag("Clue2").GetComponent<clue>().reset_pos();
+        GameObject.FindWithTag("Clue3").GetComponent<clue>().reset_pos();
+        GameObject.FindWithTag("Clue4").GetComponent<clue>().reset_pos();
+        GameObject.FindWithTag("Clue5").GetComponent<clue>().reset_pos();
+        GameObject.FindWithTag("Clue6").GetComponent<clue>().reset_pos();
+    }
+
+
+    public void check_room_clue(GameObject roomclue)
+    {
+        if(roomclue == null)
+        {
+            ;
+        } else
+        {
+            GameObject.FindWithTag(roomclue.GetComponent<clue>().cluename).GetComponent<Transform>().Translate(200, 30, 0);
+        }
+    }
+
+
 
     // FUNCTIONS TO POPULATE THE ROOMS WITH THE NPCS
 
     public void populateroom1()
     {
        reset_npc_pos();
+       reset_clue_pos();
        GameObject.FindWithTag(room11.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(300,0,0);   //each npc has a tag which is their name making them easier to find 
        GameObject.FindWithTag(room12.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(400,0,0);
+       check_room_clue(clue_room1);
 
     }
 
     public void populateroom2()
     {
         reset_npc_pos();
+        reset_clue_pos();
         GameObject.FindWithTag(room21.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(400, 0, 0);
+        check_room_clue(clue_room2);
     }
 
     public void populateroom3()
     {
         reset_npc_pos();
+        reset_clue_pos();
         GameObject.FindWithTag(room31.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(400, 30, 0);
+        check_room_clue(clue_room3);
     }
 
     public void populateroom4()
     {
         reset_npc_pos();
+        reset_clue_pos();
         GameObject.FindWithTag(room41.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(400, 0, 0);
+        check_room_clue(clue_room4);
     }
 
     public void populateroom5()
     {
         reset_npc_pos();
+        reset_clue_pos();
         GameObject.FindWithTag(room51.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(400, 0, 0);
+        check_room_clue(clue_room5);
     }
 
     public void populateroom6()
     {
         reset_npc_pos();
+        reset_clue_pos();
         GameObject.FindWithTag(room61.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(400, 0, 0);
+        check_room_clue(clue_room6);
     }
 
     public void populateroom7()
     {
         reset_npc_pos();
+        reset_clue_pos();
         GameObject.FindWithTag(room71.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(400, 0, 0);
         GameObject.FindWithTag(room72.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(300, 0, 0);
+        check_room_clue(clue_room7);
     }
 
     public void populateroom8()
     {
         reset_npc_pos();
+        reset_clue_pos();
         GameObject.FindWithTag(room81.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(400, 0, 0);
+        check_room_clue(clue_room8);
     }
    
 

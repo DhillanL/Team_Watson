@@ -4,7 +4,8 @@ using UnityEngine.UI;
 
 public class NPC : MonoBehaviour {
 
-    public Sprite look;    //sprite used for picture
+    public Sprite look;    //sprite used for their avlie look 
+    public Sprite headshot; // the sprite used for the head shot 
 
     public string Name;
     public string initial;
@@ -32,6 +33,8 @@ public class NPC : MonoBehaviour {
     public string dont_interact_if2 = "";    // these are used to test against after an NPC has resposned to see if they wil talk again 
     public string dont_interact_if3 = "";    // these are set to the responses that the npc would say if they dont want to talk anymore. EG: NPC may say 'thats horrible dont talk to me again'
                                              // this may be there response if they are questioned aggresively. so we can test if they are the same and change okay_to_interact to false;
+    public string incorect_accusation;
+        
     //BadCop
     public string aggressive_response; //
     public string violent_response; //
@@ -51,7 +54,7 @@ public class NPC : MonoBehaviour {
 
     Vector3 newPos = new Vector3(-300,-12,0);   // starting pos for all of the NPCS
 
-    public GameObject Interaction;
+    public GameObject Interaction;  // used to find the interaction scirpt for each scene 
     public GameObject me;
 
 

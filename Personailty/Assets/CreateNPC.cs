@@ -97,33 +97,36 @@ public class CreateNPC : MonoBehaviour {
 	{
 		// basic setup
 		Tonald_Dump.Name = "Tonald"; // HAS TO BE THE FIRST NAME ONLY AS IT MATCHES TE TAG OF THE PLAYER 
-		Tonald_Dump.intro = "I am the manager of Ron Cooke Hub.";
+		Tonald_Dump.intro = "Hello, Im' Tonald and I am the manager of Ron Cooke Hub.";
 		tonald_look.sprite = Tonald_Dump.look;    //look set from the sprite added to game object
 		Tonald_Dump.he_she = "he";  // he or she
-		// bad cop responses 
-		Tonald_Dump.aggressive_response = "Dont talk to me like that!";
-		Tonald_Dump.violent_response = "violent response";
-		Tonald_Dump.threaten_response = "DON'T THREATEN ME! dont talk to me again!";                 // GOOD COP AND BAD COP NEED FIXING AS ONLY HAVING 
-		Tonald_Dump.arrogant_response = "I don't want to waste my time on you!";
+        Tonald_Dump.initial = "T.D";
+
+	    //Responses 
+		Tonald_Dump.aggressive_response = "How dare you take that tone with me! I've got nothing to say!";
+		Tonald_Dump.violent_response =    "Okay, Okay...I'm sorry detective but I dont know anything !";
+		Tonald_Dump.threaten_response =   "DON'T THREATEN ME! who do you think ou are?! Dont bother talking to me again!";
+        Tonald_Dump.kind_response =       "fucking nice mate";
+        Tonald_Dump.friendly_response =   "I'm afiad I don't know anything, But please ask if you have any more questions";
+        Tonald_Dump.sympthetic_response = "I fell so sorry for what has happened today.";
+
+        //
+        Tonald_Dump.arrogant_response = "I don't want to waste my time on you!";
 		Tonald_Dump.indifferent_response = "It's none of my business.";
-		//good cop responses 
-		Tonald_Dump.kind_response = "fucking nice mate";
-		Tonald_Dump.friendly_response = "I can give you all the clues I have.";
-		Tonald_Dump.enthusiastic_response = "I'm glad to help!"; // add clue
+        Tonald_Dump.enthusiastic_response = "I'm glad to help!"; 
 		Tonald_Dump.humorous_response = "It feels like a detective movie!";
-		Tonald_Dump.sympthetic_response = "I fell sorry for what has happened today.";
-
+        //
+		
         // no more interaction set up 
-        Tonald_Dump.dont_interact_response = "IM not talking to you anymore";
+        Tonald_Dump.dont_interact_response = "I'm not talking to you anymore, go away Detective";
         Tonald_Dump.dont_interact_if1 = Tonald_Dump.threaten_response;       // Tonald wont interact if he is questioned 'threaten or violent'
-        //Tonald_Dump.dont_interact_if2 = Tonald_Dump.violent_response;
-        // clue response 
-        Tonald_Dump.clue_response = "violent";
+        Tonald_Dump.dont_interact_if2 = Tonald_Dump.violent_response;
 
-		// no more interaction set up 
-		Tonald_Dump.dont_interact_response = "IM not talking to you anymore";
-		Tonald_Dump.dont_interact_if1 = Tonald_Dump.threaten_response;       // Tonald wont interact if he is questioned 'threaten or violent'
-		Tonald_Dump.dont_interact_if2 = Tonald_Dump.violent_response;
+        // clue response 
+        Tonald_Dump.clue_response = "Sympthetic";
+
+        //incorrect accusation
+        Tonald_Dump.incorect_accusation = "It wasn't me you fool! Dont talk to me anymore! ";
 	}
 
 
@@ -134,6 +137,7 @@ public class CreateNPC : MonoBehaviour {
 		Bernard_lowe.intro = "My name is bernard. You have to try my food!";
 		bernard_look.sprite = Bernard_lowe.look;
 		Bernard_lowe.he_she = "he";   // he or she
+        Bernard_lowe.initial = "B.L";
 		//badcop setup
 		Bernard_lowe.aggressive_response = "Dont talk to me like that you fuck I'm Bernard !";
 		Bernard_lowe.violent_response = "I'm a violent bernard";
@@ -159,6 +163,7 @@ public class CreateNPC : MonoBehaviour {
 		George_allen.intro = "I have lots of first-hand news from all around the world!";
 		george_look.sprite = George_allen.look;
 		George_allen.he_she = "he";
+        George_allen.initial = "G.A";
 		//badcop setup
 		George_allen.aggressive_response = "Dont talk to me like that you fuck I'm Bernard !";
 		George_allen.violent_response = "I'm a violent bernard";
@@ -184,6 +189,7 @@ public class CreateNPC : MonoBehaviour {
 		Ethan_hawk.intro = "I will have my own Ferrari someday!";
 		ethan_look.sprite = Ethan_hawk.look;
 		Ethan_hawk.he_she = "he";
+        Ethan_hawk.initial = "E.H";
 		//badcop setup
 		Ethan_hawk.aggressive_response = "Dont talk to me like that you fuck I'm Bernard !";
 		Ethan_hawk.violent_response = "I'm a violent bernard";
@@ -209,6 +215,7 @@ public class CreateNPC : MonoBehaviour {
 		Ryan_Smith.intro = "I'm Ryan_Smith, and I'm a lawyer";
 		ryan_look.sprite = Ryan_Smith.look;
 		Ryan_Smith.he_she = "he";
+        Ryan_Smith.initial = "R.S";
 		//badcop setup
 		Ryan_Smith.aggressive_response = "Dont talk to me like that you fuck I'm Bernard !";
 		Ryan_Smith.violent_response = "I'm a violent bernard";
@@ -232,6 +239,7 @@ public class CreateNPC : MonoBehaviour {
 		Zoe_Williams.intro = "Go to talk with my agent.";
 		zoe_look.sprite = Zoe_Williams.look;
 		Zoe_Williams.he_she = "she";
+        Zoe_Williams.initial = "Z.W";
 		//badcop setup
 		Zoe_Williams.aggressive_response = "Dont talk to me like that you fuck I'm Bernard !";
 		Zoe_Williams.violent_response = "I'm a violent bernard";
@@ -250,11 +258,13 @@ public class CreateNPC : MonoBehaviour {
 	}
 	public void make_Alice()
 	{
+
 		Alice_Davis.Name = "Alice";
 		Alice_Davis.intro = "I'm Zoe's agent, can I help you?";
 		alice_look.sprite = Alice_Davis.look;
 		Alice_Davis.he_she = "she";
-		//badcop setup
+        Alice_Davis.initial = "A.D";
+        //badcop setup
 		Alice_Davis.aggressive_response = "Dont talk to me like that you fuck I'm Bernard !";
 		Alice_Davis.violent_response = "I'm a violent bernard";
 		Alice_Davis.threaten_response = "I dont appreiacte being theatened! dont ask me anymore!";
@@ -277,6 +287,7 @@ public class CreateNPC : MonoBehaviour {
 		Sophie_Aaron.intro = "I'm working in the hub as a waitress.";
 		sophie_look.sprite = Sophie_Aaron.look;
 		Sophie_Aaron.he_she = "she";
+        Sophie_Aaron.initial = "S.A";
 		//badcop setup
 		Sophie_Aaron.aggressive_response = "Dont talk to me like that you fuck I'm Bernard !";
 		Sophie_Aaron.violent_response = "I'm a violent bernard";
@@ -300,6 +311,7 @@ public class CreateNPC : MonoBehaviour {
 		Stephen_Brown.intro = "I'll become a millionaire!";
 		stephen_look.sprite = Stephen_Brown.look;
 		Stephen_Brown.he_she = "he";
+        Stephen_Brown.initial = "S.B";
 		//badcop setup
 		Stephen_Brown.aggressive_response = "Dont talk to me like that you fuck I'm Bernard !";
 		Stephen_Brown.violent_response = "I'm a violent bernard";
@@ -323,6 +335,7 @@ public class CreateNPC : MonoBehaviour {
 		Robert_Henry.intro = "I can give you the best advice on your issue!";
 		robert_look.sprite = Robert_Henry.look;
 		Robert_Henry.he_she = "he";
+        Robert_Henry.initial = "R.H";
 		//badcop setup
 		Robert_Henry.aggressive_response = "Dont talk to me like that you fuck I'm Bernard !";
 		Robert_Henry.violent_response = "I'm a violent bernard";
@@ -389,7 +402,6 @@ public class CreateNPC : MonoBehaviour {
 
         if (crime.GetComponent<CreateCrime>().murder_int == 1)  // drowned 
         {
-            Debug.Log("Did we take the drowned murder path: " + true);
             gameobjectlstshuffle_[6].GetComponent<NPC>().is_Victim();
             Gameman.GetComponent<gameManager>().set_victim(gameobjectlstshuffle_[6].GetComponent<NPC>());  // store data 
         }
@@ -400,7 +412,6 @@ public class CreateNPC : MonoBehaviour {
 
         } else
         {
-            Debug.Log(false);
             int x = Random.Range(0, 10);       // random number between 0 and 9
             npc_list_[x].is_Victim();
             Gameman.GetComponent<gameManager>().set_victim(npc_list_[x]);  // store data 

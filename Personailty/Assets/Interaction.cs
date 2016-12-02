@@ -5,6 +5,8 @@ using UnityEngine.UI;
 public class Interaction : MonoBehaviour {
 
     public GameObject Player;
+    public GameObject gameman;
+    public gameManager Gamemanager;
     public player player;
     public NPC npc;
 
@@ -15,6 +17,8 @@ public class Interaction : MonoBehaviour {
     public Button questioingtype1;
     public Button questioingtype2;
     public Button questioingtype3;
+
+    public GameObject head_shot; 
 
   
     public string question_style_text;
@@ -66,6 +70,8 @@ public class Interaction : MonoBehaviour {
 
     public void pick_interaction()
     {
+        head_shot.GetComponent<SpriteRenderer>().sprite = npc.headshot;
+
         if (npc.okay_to_interact == true)
         {
             if (npc.first_interaction == true)
@@ -119,7 +125,7 @@ public class Interaction : MonoBehaviour {
         question_style_text = player.Personailty.questiontype1;
         speachbox.text = "Detective " + player.Name + ": " + player.Personailty.Question1();
 
-        if (question_style_text == npc.clue_response)  // checks that the questioing style of the player macthes the one in which the NPC will say thier clue 
+        if (question_style_text == npc.clue_response && npc.clue != "")  // checks that the questioing style of the player macthes the one in which the NPC will say thier clue 
         {
             speachbox.text += "\n\n" + npc.Name + ": " + npc.clue;
             check_okay_to_interact();
@@ -197,6 +203,26 @@ public class Interaction : MonoBehaviour {
 
     public void accuse()
     {
+        question.transform.Translate(0, -57, 0);
+        accusebutt.transform.Translate(0, -57, 0);
+        if (Gamemanager.get_clue_count() < 3)
+        {
+            speachbox.text = "You need to have found at least three clues before you can accuse soemone! \n\n You must be new to detective work";
+            npc = null;
+        } else
+        {
+            if (npc.Name == Gamemanager.get_murder())
+            {
+                Debug.Log("YOU WIN");
+                npc = null;
+            }
+            else
+            {
+                speachbox.text = npc.Name + ": "+ npc.incorect_accusation;
+                npc.okay_to_interact = false;
+                npc = null;
+            }
+        }
 
     }
 
@@ -205,6 +231,8 @@ public class Interaction : MonoBehaviour {
     void Start () {
         Player = GameObject.FindWithTag("Player");
         player = Player.GetComponent<player>();
+        gameman = GameObject.FindWithTag("gamemanager");
+        Gamemanager = gameman.GetComponent<gameManager>();
 	}
 	
 	// Update is called once per frame

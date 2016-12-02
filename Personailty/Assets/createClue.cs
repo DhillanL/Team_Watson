@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System.Linq;  // to be able to use contains in array checking 
 
 public class createClue: MonoBehaviour{
 
@@ -29,20 +29,12 @@ public class createClue: MonoBehaviour{
 	public clue verbal_clue_7;
 	public clue verbal_clue_8;
 
-    // the looks of the clues 
-	public SpriteRenderer clue1_look;
-	public SpriteRenderer clue2_look;
-    public SpriteRenderer clue3_look;
-    public SpriteRenderer clue4_look;
-    public SpriteRenderer clue5_look;
-    public SpriteRenderer clue6_look;
-
 
     // list to make accessing the clue easier 
     public GameObject[] gameobjectlst_ = new GameObject[8];  // list of all of the gamobject -- the clues 
+    public GameObject[] gameobjectlstverbal_ = new GameObject[2];
 
-	public clue[] physical_clue_list = new clue[6];  // hold ths clue elememtns of all the clues 
-	public clue[] verbal_clue_list = new clue[2];
+
 
 
     // initlaise all of the game objects to have clue attributes 
@@ -50,22 +42,28 @@ public class createClue: MonoBehaviour{
     {
         // get the components for each of the clues 
 		clue_1 = clue1.GetComponent<clue>();
-		clue1_look = clue1.GetComponent<SpriteRenderer>();
+        clue_1.cluename = "Clue1";
+        clue1.GetComponent<SpriteRenderer>().sprite = clue_1.look ;
 
 		clue_2 = clue2.GetComponent<clue>();
-		clue2_look = clue2.GetComponent<SpriteRenderer>();
+        clue_2.cluename = "Clue2";
+        clue2.GetComponent<SpriteRenderer>().sprite = clue_2.look;
 
         clue_3 = clue3.GetComponent<clue>();
-        clue3_look = clue3.GetComponent<SpriteRenderer>();
+        clue_3.cluename = "Clue3";
+        clue3.GetComponent<SpriteRenderer>().sprite = clue_3.look ;
 
         clue_4 = clue4.GetComponent<clue>();
-        clue4_look = clue4.GetComponent<SpriteRenderer>();
+        clue_4.cluename = "Clue4";
+        clue4.GetComponent<SpriteRenderer>().sprite = clue_4.look ;
 
         clue_5 = clue5.GetComponent<clue>();
-        clue5_look = clue5.GetComponent<SpriteRenderer>();
+        clue_5.cluename = "Clue5";
+        clue5.GetComponent<SpriteRenderer>().sprite = clue_5.look ;
 
         clue_6 = clue6.GetComponent<clue>();
-        clue6_look = clue6.GetComponent<SpriteRenderer>();
+        clue_6.cluename = "Clue6";
+        clue6.GetComponent<SpriteRenderer>().sprite = clue_6.look  ;
 
         verbal_clue_7 = clue7_verbal.GetComponent<clue>();
         
@@ -97,7 +95,7 @@ public class createClue: MonoBehaviour{
         string[] hat = new string[3] { "Black top hat", "flat cap", "beanie" };
         int z = Random.Range(0, 3);
         clue_5.name = hat[z];
-        clue_2.info = "Hat has two sets of initials in it, "+ game_manager.GetComponent<gameManager>().get_whole_victim().initial + " and " + createnpc.GetComponent<CreateNPC>().npc_list_mur_vic[z].initial ;
+        clue_5.info = "Hat has two sets of initials in it, "+ game_manager.GetComponent<gameManager>().get_whole_murderer().initial + " and " + createnpc.GetComponent<CreateNPC>().npc_list_mur_vic[z].initial ;
 
         clue_6.name = "Black foutain pen";
         clue_6.info = "A black fountain pen, looks expensive";
@@ -140,21 +138,9 @@ public class createClue: MonoBehaviour{
 
     }
 
+    
 
-
-	public void make_physical_clue_list(){ //make list of physical clues
-		physical_clue_list [0] = clue_1;
-		physical_clue_list [1] = clue_2;
-		physical_clue_list [2] = clue_3;
-		physical_clue_list [3] = clue_4;
-		physical_clue_list [4] = clue_5;
-		physical_clue_list [5] = clue_6;
-	}
-
-	public void make_verbal_clue_list(){ //make list of physical clues
-		verbal_clue_list [0] = verbal_clue_7;
-		verbal_clue_list [1] = verbal_clue_8;
-	}
+	
 
 	public void make_game_object_lst(){
 		gameobjectlst_ [0] = clue1;
@@ -163,9 +149,15 @@ public class createClue: MonoBehaviour{
 		gameobjectlst_ [3] = clue4;
 		gameobjectlst_ [4] = clue5;
 		gameobjectlst_ [5] = clue6;
-		gameobjectlst_ [6] = clue7_verbal;
-		gameobjectlst_ [7] = clue8_verbal;
+		
 	}
+
+    public void make_gameobj_lst_verbal()
+    {
+        gameobjectlstverbal_[0] = clue7_verbal;
+        gameobjectlstverbal_[1] = clue8_verbal;
+
+    }
 
     public NPC getNPC(int x)
     {
@@ -173,21 +165,80 @@ public class createClue: MonoBehaviour{
         
     }
 
+
+
 	public void setCluesInGameman(){
-		game_manager.GetComponent<gameManager>().setClue1(gameobjectlst_[0]);
-		game_manager.GetComponent<gameManager>().setClue2(gameobjectlst_[1]);
-		game_manager.GetComponent<gameManager>().setClue3(gameobjectlst_[2]);
-		game_manager.GetComponent<gameManager>().setClue4(gameobjectlst_[3]);
-		game_manager.GetComponent<gameManager>().setClue5(gameobjectlst_[4]);
-		game_manager.GetComponent<gameManager>().setClue6(gameobjectlst_[5]);
+
+        int[] clue_room_pos_ = new int[8] {0,1,2,3,4,5,6,7};
+        int[] random_room_pos = new int[6];
+
+
+        for ( int a = 0; a<6; a++ )  // produces a random list of 6 differnt ints from 0 to 7 
+        {
+            int b = Random.Range(0, clue_room_pos_.Length);
+            int c = clue_room_pos_[b];
+
+            while (c == 10)    // just using a radnom number to fill in he space with once its been read so it wont be selected again 
+            {
+                b = Random.Range(0, clue_room_pos_.Length);
+                c = clue_room_pos_[b];
+            }
+            random_room_pos[a] = clue_room_pos_[b];
+            clue_room_pos_[b] = 10;
+
+        }
+
+        for (int c = 0; c < 6; c++)
+        {
+            int d = random_room_pos[c];
+            
+            if (d == 0)
+            {
+                game_manager.GetComponent<gameManager>().setClue1(gameobjectlst_[c]);
+            }
+            else if (d == 1)
+            {
+                game_manager.GetComponent<gameManager>().setClue2(gameobjectlst_[c]);
+            }
+            else if (d == 2)
+            {
+                game_manager.GetComponent<gameManager>().setClue3(gameobjectlst_[c]);
+            }
+            else if (d == 3)
+            {
+                game_manager.GetComponent<gameManager>().setClue4(gameobjectlst_[c]);
+            }
+            else if (d == 4)
+            {
+                game_manager.GetComponent<gameManager>().setClue5(gameobjectlst_[c]);
+            }
+            else if (d == 5)
+            {
+                game_manager.GetComponent<gameManager>().setClue6(gameobjectlst_[c]);
+            }
+            else if (d == 6)
+            {
+                game_manager.GetComponent<gameManager>().setClue7(gameobjectlst_[c]);
+            }
+            else
+            {
+                game_manager.GetComponent<gameManager>().setClue8(gameobjectlst_[c]);
+            }
+        }
+             
+
+
+
+
+        // rnadomly assign NPC's the verbal clues 
         int x = Random.Range(0, 8);
         int y = x;
         while (y == x)
         {
             y = Random.Range(0, 8);  // ensures two different NPC's
         }
-        game_manager.GetComponent<gameManager>().setNPCclue(getNPC(x),gameobjectlst_[6]);  // sets the verbal clues of two random npcs 
-        game_manager.GetComponent<gameManager>().setNPCclue(getNPC(y), gameobjectlst_[7]);
+        game_manager.GetComponent<gameManager>().setNPCclue(getNPC(x),gameobjectlstverbal_[0]);  // sets the verbal clues of two random npcs 
+        game_manager.GetComponent<gameManager>().setNPCclue(getNPC(y), gameobjectlstverbal_[1]);
     }
 
 
@@ -199,8 +250,8 @@ public class createClue: MonoBehaviour{
         setClues();   // intialise 
 
 		make_game_object_lst();   // make lists 
-		make_physical_clue_list();
-		make_verbal_clue_list();
+        make_gameobj_lst_verbal();
+		
 
         set_clues_crime();    // depending on crime choosen at random make approiate clues 
 

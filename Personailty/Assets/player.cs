@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class player : MonoBehaviour {
 
-   
+    static public bool spwaned = false;
+
 
     public string Name;                       // name of the player 
     public Personality_player Personailty ;   //personailty of the player 
@@ -48,7 +49,15 @@ public class player : MonoBehaviour {
 
     void Start()
     {
-        setPlay();   //when the Chacrter is created set the name and personailty as seleted by user 
+        if (spwaned == false)   // still needs work not load two of them as well as the GUI background
+        {
+            setPlay();   //when the Chacrter is created set the name and personailty as seleted by user 
+            spwaned = true;
+        } else
+        {
+            ;
+        }
+        
     }
 
     

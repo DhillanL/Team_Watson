@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class Loadcasefile : MonoBehaviour {
 
     public GameObject gameman;
+    public GameObject headshot;
 
     public Text Victim_name;
     public Text Victim_age;
@@ -17,6 +18,7 @@ public class Loadcasefile : MonoBehaviour {
         Victim_name.text = "Name: " + info.get_whole_victim().Name;
         Victim_age.text = "Age: ";
         victim_known_info.text = info.get_crime();
+        headshot.GetComponent<SpriteRenderer>().sprite = info.get_whole_victim().headshot;
     }
 
 	// Use this for initialization
