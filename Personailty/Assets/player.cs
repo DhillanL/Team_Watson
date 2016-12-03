@@ -23,6 +23,9 @@ public class player : MonoBehaviour {
 
     public bool clear_interact = false;
 
+    public float speed = 70f;
+    private Rigidbody2D rb2D; 
+
 
     public void setPlay()    // sets the name personailty Aand the sprite for the player 
     {
@@ -49,23 +52,43 @@ public class player : MonoBehaviour {
 
     void Start()
     {
-        if (spwaned == false)   // still needs work not load two of them as well as the GUI background
-        {
-            setPlay();   //when the Chacrter is created set the name and personailty as seleted by user 
-            spwaned = true;
-        } else
+        if (gameMan.GetComponent<gameManager>().get_player_set())
         {
             ;
+        }
+        else
+        {
+            setPlay();
+            rb2D = GetComponent<Rigidbody2D>(); // gets the ridig body of the player 
+            gameMan.GetComponent<gameManager>().set_player_to_true();
+
         }
         
     }
 
     
-    void Update()
+    void Update()      // making the player move. A goes left, D goes right 
     {
-        
-        
-        
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            rb2D.velocity = new Vector2(-speed, 0);
+            
+        }
+        else if (Input.GetKeyUp(KeyCode.A))
+        {
+            rb2D.velocity = new Vector2(0, 0);
+        }
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            rb2D.velocity = new Vector2(speed, 0);
+
+        }
+        else if (Input.GetKeyUp(KeyCode.D))
+        {
+            rb2D.velocity = new Vector2(0, 0);
+        }
+
+
     }
 
 

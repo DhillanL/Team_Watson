@@ -54,10 +54,24 @@ public class gameManager : MonoBehaviour {
     public GameObject create_npcs;
 
     // int to show the number of clues which have been found so far 
-    static public int found_clues = 0; 
+    static public int found_clues = 0;
+
+    static bool player_set = false;
 
 
     // -------------------------------------------------------------------------------------------------------------------------------------
+    
+    public void set_player_to_true()
+    {
+        player_set = true;
+    }
+    public bool get_player_set()
+    {
+        return player_set;
+    }
+
+
+
 
     
     // Accessors and mutators for attributes for the player  
@@ -266,8 +280,8 @@ public class gameManager : MonoBehaviour {
     {
        reset_npc_pos();
        reset_clue_pos();
-       GameObject.FindWithTag(room11.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(300,0,0);   //each npc has a tag which is their name making them easier to find 
-       GameObject.FindWithTag(room12.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(400,0,0);
+       GameObject.FindWithTag(room11.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(250,0,0);   //each npc has a tag which is their name making them easier to find 
+       GameObject.FindWithTag(room12.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(350,0,0);
        check_room_clue(clue_room1);
 
     }
@@ -284,7 +298,7 @@ public class gameManager : MonoBehaviour {
     {
         reset_npc_pos();
         reset_clue_pos();
-        GameObject.FindWithTag(room31.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(400, 30, 0);
+        GameObject.FindWithTag(room31.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(400, 0, 0);
         check_room_clue(clue_room3);
     }
 
@@ -328,8 +342,16 @@ public class gameManager : MonoBehaviour {
         GameObject.FindWithTag(room81.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(400, 0, 0);
         check_room_clue(clue_room8);
     }
-   
 
+    public void set_player_pos_firsttime()
+    {
+        GameObject.FindWithTag("Player").GetComponent<Transform>().position = new Vector3(-140, -20, 0);
+    }
+
+    public void set_player_vel_0()
+    {
+        GameObject.FindWithTag("Player").GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+    }
 
     // FUNCTIONs TO MOVE BETWEEN SCENES 
 
@@ -342,57 +364,80 @@ public class gameManager : MonoBehaviour {
     public void load_case_file()  // after player select load the case file 
     {
         SceneManager.LoadScene("casefile");
+       
+    }
+
+    public void place_map_gui()
+    {
+        GameObject.FindWithTag("map_icon").transform.position = new Vector3(162,84,0);
+    }
+
+    public void load_RCH1_from_case()
+    {
+        SceneManager.LoadScene("Screen2");
+        set_player_pos_firsttime();
+        place_map_gui();
+        populateroom1();
+        set_player_vel_0();
+
     }
 
 
-
-    public void load_room1()   // load room 1 after the case file screen 
+    public void load_RCH1()   // load the first RCH
     { // loads room 1 
         SceneManager.LoadScene("Screen2");
         populateroom1();
+        set_player_vel_0();
 
     }
 
-    public void load_room2()   // 1. used in the player selection scene when the user hits the finish button 
-    {  // loads rooom 2 
+    public void load_RCH2()   // mload the second main hall of rch 
+    {  
         SceneManager.LoadScene("Screen3");
         populateroom2();
+        set_player_vel_0();
     }
 
-    public void load_room3()  //load room 3 
+    public void load_meetingroom()  //load the 2nd floor meeting room 
     {
         SceneManager.LoadScene("Room3");
         populateroom3();
+        set_player_vel_0();
     }
 
-    public void load_room4()
+    public void load_kitchen() // load the kitchen 
     {
         SceneManager.LoadScene("Room4");
         populateroom4();
+        set_player_vel_0();
     }
 
-    public void load_room5()
+    public void load_lakehousebalcony() // load the lakehouse balcony 
     {
         SceneManager.LoadScene("Room5");
         populateroom5();
+        set_player_vel_0();
     }
 
-    public void load_room6()
+    public void load_outside_lakes() // loads the pods outside 
     {
         SceneManager.LoadScene("Room6");
         populateroom6();
+        set_player_vel_0();
     }
 
-    public void load_room7()
+    public void load_upstairslecture() // loads the second floor lecture room 
     {
         SceneManager.LoadScene("Room7");
         populateroom7();
+        set_player_vel_0();
     }
 
-    public void load_room8()
+    public void load_outside_bottombalcony() // loads the bottom of the balcony 
     {
         SceneManager.LoadScene("Room8");
         populateroom8();
+        set_player_vel_0();
     }
 
     

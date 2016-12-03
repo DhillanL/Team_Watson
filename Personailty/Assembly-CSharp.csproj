@@ -45,14 +45,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\ColliderLeftScreen.cs" />
+     <Compile Include="Assets\ColliderRight.cs" />
+     <Compile Include="Assets\ColliderUpDown.cs" />
      <Compile Include="Assets\CreateCrime.cs" />
      <Compile Include="Assets\CreateNPC.cs" />
      <Compile Include="Assets\DonotDestoryBottomGUI.cs" />
      <Compile Include="Assets\Interaction.cs" />
      <Compile Include="Assets\Loadcasefile.cs" />
+     <Compile Include="Assets\MapScripts\Map.cs" />
+     <Compile Include="Assets\MapScripts\MapCall.cs" />
+     <Compile Include="Assets\MapScripts\clickX.cs" />
+     <Compile Include="Assets\MapScripts\moveRCH1.cs" />
+     <Compile Include="Assets\MapScripts\moveRCH2.cs" />
+     <Compile Include="Assets\MapScripts\movebalcony.cs" />
+     <Compile Include="Assets\MapScripts\movekitchen.cs" />
+     <Compile Include="Assets\MapScripts\movelakehouse.cs" />
+     <Compile Include="Assets\MapScripts\movelakes.cs" />
+     <Compile Include="Assets\MapScripts\movemeeting.cs" />
+     <Compile Include="Assets\MapScripts\moveoutsidebalcony.cs" />
      <Compile Include="Assets\NPC.cs" />
      <Compile Include="Assets\Personality_player.cs" />
      <Compile Include="Assets\PlayerSelect.cs" />
+     <Compile Include="Assets\SceneWalls.cs" />
      <Compile Include="Assets\clue.cs" />
      <Compile Include="Assets\createClue.cs" />
      <Compile Include="Assets\createPersonalitys.cs" />
