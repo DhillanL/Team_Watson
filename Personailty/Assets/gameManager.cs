@@ -179,6 +179,7 @@ public class gameManager : MonoBehaviour {
     public void setNPCclue(NPC npc, GameObject clue)  // used to set the npc clue 
     {
         npc.clue = clue.GetComponent<clue>().name;
+        npc.clue_object = clue.GetComponent<clue>();
     }
 
     public void increase_clue_count()

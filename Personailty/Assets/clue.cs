@@ -8,14 +8,17 @@ public class clue: MonoBehaviour{
     public string cluename;
 
 	public string name;
-	public string NPC = null;
+	//public string NPC = null;
     public string info;
-    public string Room_found; 
+   // public string Room_found; 
 
 
     public bool is_found = false;
-	public bool is_bloody = false;
-    public string NPC_text = null;
+    //public bool is_bloody = false;
+    // public string NPC_text = null;
+
+    public bool in_log = false;
+
 
 
 	public Sprite look;
@@ -41,9 +44,7 @@ public class clue: MonoBehaviour{
 	public void getInfo(){  
 	}
 
-	public string getNPC(){
-		return NPC;
-	}
+
 
     void OnMouseDown()
     {

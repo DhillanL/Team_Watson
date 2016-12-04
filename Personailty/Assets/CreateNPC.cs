@@ -39,7 +39,7 @@ public class CreateNPC : MonoBehaviour {
 	public NPC Robert_Henry;
 
     // NPC LOOKS 
-    public SpriteRenderer tonald_look;  // for the look of the NPC
+    public SpriteRenderer tonald_look; 
     public SpriteRenderer bernard_look;
     public SpriteRenderer george_look;
     public SpriteRenderer ethan_look;
@@ -96,11 +96,12 @@ public class CreateNPC : MonoBehaviour {
 	public void make_tonald()   // set of tonalds attibutes to make his personailty
 	{
 		// basic setup
-		Tonald_Dump.Name = "Tonald"; // HAS TO BE THE FIRST NAME ONLY AS IT MATCHES TE TAG OF THE PLAYER 
-		Tonald_Dump.intro = "Hello, Im' Tonald and I am the manager of Ron Cooke Hub.";
-		tonald_look.sprite = Tonald_Dump.look;    //look set from the sprite added to game object
-		Tonald_Dump.he_she = "he";  // he or she
-        Tonald_Dump.initial = "T.D";
+		Tonald_Dump.Name =      "Tonald"; // HAS TO BE THE FIRST NAME ONLY AS IT MATCHES TE TAG OF THE PLAYER 
+		Tonald_Dump.intro =     "Hello, Im' Tonald and I am the manager of Ron Cooke Hub.";
+		tonald_look.sprite =    Tonald_Dump.look;    //look set from the sprite added to game object
+		Tonald_Dump.he_she =    "he";  // he or she
+        Tonald_Dump.initial =   "T.D";
+        Tonald_Dump.man_woman = "man";
 
 	    //Responses 
 		Tonald_Dump.aggressive_response = "How dare you take that tone with me! I've got nothing to say!";
@@ -109,21 +110,17 @@ public class CreateNPC : MonoBehaviour {
         Tonald_Dump.kind_response =       "fucking nice mate";
         Tonald_Dump.friendly_response =   "I'm afiad I don't know anything, But please ask if you have any more questions";
         Tonald_Dump.sympthetic_response = "I fell so sorry for what has happened today.";
-
-        //
-        Tonald_Dump.arrogant_response = "I don't want to waste my time on you!";
-		Tonald_Dump.indifferent_response = "It's none of my business.";
-        Tonald_Dump.enthusiastic_response = "I'm glad to help!"; 
-		Tonald_Dump.humorous_response = "It feels like a detective movie!";
-        //
+        Tonald_Dump.cunning_response =    "cunning";
+        Tonald_Dump.mean_response =       "mean";
 		
         // no more interaction set up 
         Tonald_Dump.dont_interact_response = "I'm not talking to you anymore, go away Detective";
         Tonald_Dump.dont_interact_if1 = Tonald_Dump.threaten_response;       // Tonald wont interact if he is questioned 'threaten or violent'
         Tonald_Dump.dont_interact_if2 = Tonald_Dump.violent_response;
 
-        // clue response 
-        Tonald_Dump.clue_response = "Sympthetic";
+        // clue responses 
+        Tonald_Dump.clue_response1 = "Kind";  // if you are kind or cunning tonald will give away a clue if he has one 
+        Tonald_Dump.clue_response2 = "Cunning";
 
         //incorrect accusation
         Tonald_Dump.incorect_accusation = "It wasn't me you fool! Dont talk to me anymore! ";
@@ -133,28 +130,36 @@ public class CreateNPC : MonoBehaviour {
 	public void make_bernard()   // set bernards 
 	{
 		//basic setup
-		Bernard_lowe.Name = "Bernard";
-		Bernard_lowe.intro = "My name is bernard. You have to try my food!";
-		bernard_look.sprite = Bernard_lowe.look;
-		Bernard_lowe.he_she = "he";   // he or she
-        Bernard_lowe.initial = "B.L";
-		//badcop setup
-		Bernard_lowe.aggressive_response = "Dont talk to me like that you fuck I'm Bernard !";
-		Bernard_lowe.violent_response = "I'm a violent bernard";
-		Bernard_lowe.threaten_response = "I dont appreiacte being theatened! dont ask me anymore!";
-		Bernard_lowe.arrogant_response = "I don't want to waste my time on you!";
-		Bernard_lowe.indifferent_response = "It's none of my business.";
-		//goodcop setup 
-		Bernard_lowe.kind_response = "fucking nice mate";
-		Bernard_lowe.friendly_response = "I can give you all the clues I have.";
-		Bernard_lowe.enthusiastic_response = "I'm glad to help!"; // add clue
-		Bernard_lowe.humorous_response = "It feels like a detective movie!";
-		Bernard_lowe.sympthetic_response = "I fell sorry for what has happened today.";
+		Bernard_lowe.Name =      "Bernard";
+		Bernard_lowe.intro =     "My name is Bernard and I am the head chef here! You have to come and try my food!";
+		bernard_look.sprite =    Bernard_lowe.look;
+		Bernard_lowe.he_she =    "he";   // he or she
+        Bernard_lowe.initial =   "B.L";
+        Bernard_lowe.man_woman = "man";
+
+		//responses
+		Bernard_lowe.aggressive_response =  "Dont talk to me like that you fuck I'm Bernard !";
+		Bernard_lowe.violent_response =     "I'm a violent bernard";
+		Bernard_lowe.threaten_response =    "I dont appreiacte being theatened! dont ask me anymore!";
+		Bernard_lowe.kind_response =        "fucking nice mate";
+		Bernard_lowe.friendly_response =    "I can give you all the clues I have.";
+		Bernard_lowe.sympthetic_response =  "I fell sorry for what has happened today.";
+        Bernard_lowe.cunning_response =     "cunning";
+        Bernard_lowe.mean_response =        "mean";
+
 		//no more interaction setup
 		Bernard_lowe.dont_interact_response = "I no longer wish to speak to you!";
-		Bernard_lowe.dont_interact_if1 = Bernard_lowe.threaten_response;
+        Bernard_lowe.dont_interact_if1 = Bernard_lowe.violent_response;
+
+        //clue response
+        Bernard_lowe.clue_response1 = "Threaten";
+
+        // incorrect accusation 
+        Bernard_lowe.incorect_accusation = "INCORRECT ACCUSATION";
 	}
 
+
+    // ADD OF THE NPCS BELOW STILL NEED TO BE FINSIHED // 
 
 
 	public void make_George()
@@ -164,20 +169,27 @@ public class CreateNPC : MonoBehaviour {
 		george_look.sprite = George_allen.look;
 		George_allen.he_she = "he";
         George_allen.initial = "G.A";
+        George_allen.man_woman = "man";
+
 		//badcop setup
 		George_allen.aggressive_response = "Dont talk to me like that you fuck I'm Bernard !";
-		George_allen.violent_response = "I'm a violent bernard";
-		George_allen.threaten_response = "I dont appreiacte being theatened! dont ask me anymore!";
-		George_allen.arrogant_response = "I don't want to waste my time on you!";
-		George_allen.indifferent_response = "It's none of my business.";
-		//goodcop setup 
-		George_allen.kind_response = "fucking nice mate";
-		George_allen.friendly_response = "I can give you all the clues I have.";
-		George_allen.enthusiastic_response = "I'm glad to help!"; // add clue
-		George_allen.humorous_response = "It feels like a detective movie!";
+		George_allen.violent_response =    "I'm a violent bernard";
+		George_allen.threaten_response =   "I dont appreiacte being theatened! dont ask me anymore!";
+		George_allen.kind_response =       "fucking nice mate";
+		George_allen.friendly_response =   "I can give you all the clues I have.";
 		George_allen.sympthetic_response = "I fell sorry for what has happened today.";
+        George_allen.cunning_response =    "cunning";
+        George_allen.mean_response =       "mean";
+
 		//no more interaction setup
 		George_allen.dont_interact_response = "I no longer wish to speak to you!";
+        George_allen.dont_interact_if1 = George_allen.cunning_response;
+
+        //clue response 
+        George_allen.clue_response1 = "Sympthetic";
+
+        //incorrect accusation
+        George_allen.incorect_accusation = "INCORRECT ACCUSATION";
 		
 	}
 
@@ -190,17 +202,15 @@ public class CreateNPC : MonoBehaviour {
 		ethan_look.sprite = Ethan_hawk.look;
 		Ethan_hawk.he_she = "he";
         Ethan_hawk.initial = "E.H";
+        Ethan_hawk.man_woman = "man";
 		//badcop setup
 		Ethan_hawk.aggressive_response = "Dont talk to me like that you fuck I'm Bernard !";
 		Ethan_hawk.violent_response = "I'm a violent bernard";
 		Ethan_hawk.threaten_response = "I dont appreiacte being theatened! dont ask me anymore!";
-		Ethan_hawk.arrogant_response = "I don't want to waste my time on you!";
-		Ethan_hawk.indifferent_response = "It's none of my business.";
-		//goodcop setup 
+
 		Ethan_hawk.kind_response = "fucking nice mate";
 		Ethan_hawk.friendly_response = "I can give you all the clues I have.";
-		Ethan_hawk.enthusiastic_response = "I'm glad to help!"; // add clue
-		Ethan_hawk.humorous_response = "It feels like a detective movie!";
+		
 		Ethan_hawk.sympthetic_response = "I fell sorry for what has happened today.";
 		//no more interaction setup
 		Ethan_hawk.dont_interact_response = "I no longer wish to speak to you!";
@@ -216,17 +226,16 @@ public class CreateNPC : MonoBehaviour {
 		ryan_look.sprite = Ryan_Smith.look;
 		Ryan_Smith.he_she = "he";
         Ryan_Smith.initial = "R.S";
+        Ryan_Smith.man_woman = "man";
 		//badcop setup
 		Ryan_Smith.aggressive_response = "Dont talk to me like that you fuck I'm Bernard !";
 		Ryan_Smith.violent_response = "I'm a violent bernard";
 		Ryan_Smith.threaten_response = "I dont appreiacte being theatened! dont ask me anymore!";
-		Ryan_Smith.arrogant_response = "I don't want to waste my time on you!";
-		Ryan_Smith.indifferent_response = "It's none of my business.";
+		
 		//goodcop setup 
 		Ryan_Smith.kind_response = "fucking nice mate";
 		Ryan_Smith.friendly_response = "I can give you all the clues I have.";
-		Ryan_Smith.enthusiastic_response = "I'm glad to help!"; // add clue
-		Ryan_Smith.humorous_response = "It feels like a detective movie!";
+		
 		Ryan_Smith.sympthetic_response = "I fell sorry for what has happened today.";
 		//no more interaction setup
 		Ryan_Smith.dont_interact_response = "I no longer wish to speak to you!";
@@ -240,17 +249,16 @@ public class CreateNPC : MonoBehaviour {
 		zoe_look.sprite = Zoe_Williams.look;
 		Zoe_Williams.he_she = "she";
         Zoe_Williams.initial = "Z.W";
+        Zoe_Williams.man_woman = "woman";
 		//badcop setup
 		Zoe_Williams.aggressive_response = "Dont talk to me like that you fuck I'm Bernard !";
 		Zoe_Williams.violent_response = "I'm a violent bernard";
 		Zoe_Williams.threaten_response = "I dont appreiacte being theatened! dont ask me anymore!";
-		Zoe_Williams.arrogant_response = "I don't want to waste my time on you!";
-		Zoe_Williams.indifferent_response = "It's none of my business.";
+		
 		//goodcop setup 
 		Zoe_Williams.kind_response = "fucking nice mate";
 		Zoe_Williams.friendly_response = "I can give you all the clues I have.";
-		Zoe_Williams.enthusiastic_response = "I'm glad to help!"; // add clue
-		Zoe_Williams.humorous_response = "It feels like a detective movie!";
+
 		Zoe_Williams.sympthetic_response = "I fell sorry for what has happened today.";
 		//no more interaction setup
 		Zoe_Williams.dont_interact_response = "I no longer wish to speak to you!";
@@ -264,17 +272,16 @@ public class CreateNPC : MonoBehaviour {
 		alice_look.sprite = Alice_Davis.look;
 		Alice_Davis.he_she = "she";
         Alice_Davis.initial = "A.D";
+        Alice_Davis.man_woman = "woman";
         //badcop setup
 		Alice_Davis.aggressive_response = "Dont talk to me like that you fuck I'm Bernard !";
 		Alice_Davis.violent_response = "I'm a violent bernard";
 		Alice_Davis.threaten_response = "I dont appreiacte being theatened! dont ask me anymore!";
-		Alice_Davis.arrogant_response = "I don't want to waste my time on you!";
-		Alice_Davis.indifferent_response = "It's none of my business.";
+	;
 		//goodcop setup 
 		Alice_Davis.kind_response = "fucking nice mate";
 		Alice_Davis.friendly_response = "I can give you all the clues I have.";
-		Alice_Davis.enthusiastic_response = "I'm glad to help!"; // add clue
-		Alice_Davis.humorous_response = "It feels like a detective movie!";
+		
 		Alice_Davis.sympthetic_response = "I fell sorry for what has happened today.";
 		//no more interaction setup
 		Alice_Davis.dont_interact_response = "I no longer wish to speak to you!";
@@ -288,17 +295,16 @@ public class CreateNPC : MonoBehaviour {
 		sophie_look.sprite = Sophie_Aaron.look;
 		Sophie_Aaron.he_she = "she";
         Sophie_Aaron.initial = "S.A";
+        Sophie_Aaron.man_woman = "woman";
 		//badcop setup
 		Sophie_Aaron.aggressive_response = "Dont talk to me like that you fuck I'm Bernard !";
 		Sophie_Aaron.violent_response = "I'm a violent bernard";
 		Sophie_Aaron.threaten_response = "I dont appreiacte being theatened! dont ask me anymore!";
-		Sophie_Aaron.arrogant_response = "I don't want to waste my time on you!";
-		Sophie_Aaron.indifferent_response = "It's none of my business.";
+		;
 		//goodcop setup 
 		Sophie_Aaron.kind_response = "fucking nice mate";
 		Sophie_Aaron.friendly_response = "I can give you all the clues I have.";
-		Sophie_Aaron.enthusiastic_response = "I'm glad to help!"; // add clue
-		Sophie_Aaron.humorous_response = "It feels like a detective movie!";
+		
 		Sophie_Aaron.sympthetic_response = "I fell sorry for what has happened today.";
 		//no more interaction setup
 		Sophie_Aaron.dont_interact_response = "I no longer wish to speak to you!";
@@ -312,17 +318,16 @@ public class CreateNPC : MonoBehaviour {
 		stephen_look.sprite = Stephen_Brown.look;
 		Stephen_Brown.he_she = "he";
         Stephen_Brown.initial = "S.B";
+        Stephen_Brown.man_woman = "man";
 		//badcop setup
 		Stephen_Brown.aggressive_response = "Dont talk to me like that you fuck I'm Bernard !";
 		Stephen_Brown.violent_response = "I'm a violent bernard";
 		Stephen_Brown.threaten_response = "I dont appreiacte being theatened! dont ask me anymore!";
-		Stephen_Brown.arrogant_response = "I don't want to waste my time on you!";
-		Stephen_Brown.indifferent_response = "It's none of my business.";
+		
 		//goodcop setup 
 		Stephen_Brown.kind_response = "fucking nice mate";
 		Stephen_Brown.friendly_response = "I can give you all the clues I have.";
-		Stephen_Brown.enthusiastic_response = "I'm glad to help!"; // add clue
-		Stephen_Brown.humorous_response = "It feels like a detective movie!";
+		
 		Stephen_Brown.sympthetic_response = "I fell sorry for what has happened today.";
 		//no more interaction setup
 		Stephen_Brown.dont_interact_response = "I no longer wish to speak to you!";
@@ -336,17 +341,16 @@ public class CreateNPC : MonoBehaviour {
 		robert_look.sprite = Robert_Henry.look;
 		Robert_Henry.he_she = "he";
         Robert_Henry.initial = "R.H";
+        Robert_Henry.man_woman = "man";
 		//badcop setup
 		Robert_Henry.aggressive_response = "Dont talk to me like that you fuck I'm Bernard !";
 		Robert_Henry.violent_response = "I'm a violent bernard";
 		Robert_Henry.threaten_response = "I dont appreiacte being theatened! dont ask me anymore!";
-		Robert_Henry.arrogant_response = "I don't want to waste my time on you!";
-		Robert_Henry.indifferent_response = "It's none of my business.";
+		
 		//goodcop setup 
 		Robert_Henry.kind_response = "fucking nice mate";
 		Robert_Henry.friendly_response = "I can give you all the clues I have.";
-		Robert_Henry.enthusiastic_response = "I'm glad to help!"; // add clue
-		Robert_Henry.humorous_response = "It feels like a detective movie!";
+		
 		Robert_Henry.sympthetic_response = "I fell sorry for what has happened today.";
 		//no more interaction setup
 		Robert_Henry.dont_interact_response = "I no longer wish to speak to you!";

@@ -41,13 +41,7 @@ public class Interaction : MonoBehaviour {
 			return (npc.violent_response);
 			
 		case "Threaten":
-			return (npc.threaten_response);
-			
-		case "Arrogant":
-			return (npc.arrogant_response);
-			
-		case "Indifferent":
-			return (npc.indifferent_response);
+                return (npc.threaten_response);
 			
 		case "Kind":
 			return (npc.kind_response);
@@ -55,11 +49,11 @@ public class Interaction : MonoBehaviour {
 		case "Friendly":
 			return (npc.friendly_response);
 			
-		case "Humorous":
-			return (npc.humorous_response);
+		case "Cunning":
+			return (npc.cunning_response);
 			
-		case "Enthusiastic":
-			return (npc.enthusiastic_response);
+		case "Mean":
+			return (npc.mean_response);
 			
 		default:
 			return (npc.sympthetic_response);
@@ -125,10 +119,22 @@ public class Interaction : MonoBehaviour {
         question_style_text = player.Personailty.questiontype1;
         speachbox.text = "Detective " + player.Name + ": " + player.Personailty.Question1();
 
-        if (question_style_text == npc.clue_response && npc.clue != "")  // checks that the questioing style of the player macthes the one in which the NPC will say thier clue 
+        if ((question_style_text.Equals(npc.clue_response1) || question_style_text.Equals(npc.clue_response2)) && npc.clue != "")  // checks that the questioing style of the player macthes the one in which the NPC will say thier clue 
         {
             speachbox.text += "\n\n" + npc.Name + ": " + npc.clue;
             check_okay_to_interact();
+
+            if (npc.clue_object.in_log == false) // if not in log boook 
+            {
+                Debug.Log("-- add to log book -- ");
+                npc.clue_object.in_log = true;
+            }
+            else
+            {
+                Debug.Log("nothing"); // if already in log book do nothing 
+
+            }
+
             npc = null;
         }
         else
@@ -151,10 +157,22 @@ public class Interaction : MonoBehaviour {
         question_style_text = player.Personailty.questiontype2;
         speachbox.text = "Detective " + player.Name + ": " + player.Personailty.Question2();
 
-        if (question_style_text == npc.clue_response)  // checks that the questioing style of the player macthes the one in which the NPC will say thier clue 
+        if ((question_style_text.Equals(npc.clue_response1) || question_style_text.Equals(npc.clue_response2)) && npc.clue != "")  // checks that the questioing style of the player macthes the one in which the NPC will say thier clue 
         {
             speachbox.text += "\n\n" + npc.Name + ": " + npc.clue;
             check_okay_to_interact();
+
+            if (npc.clue_object.in_log == false) // if not in log boook 
+            {
+                Debug.Log("-- add to log book -- ");
+                npc.clue_object.in_log = true;
+            }
+            else
+            {
+                Debug.Log("nothing"); // if already in log book do nothing 
+
+            }
+
             npc = null;
         }
         else
@@ -172,10 +190,24 @@ public class Interaction : MonoBehaviour {
         questioingtype3.transform.Translate(0, -57, 0);
         question_style_text = player.Personailty.questiontype3;
         speachbox.text = "Detective " + player.Name + ": " + player.Personailty.Question3();
-        if (question_style_text == npc.clue_response)  // checks that the questioing style of the player macthes the one in which the NPC will say thier clue 
+
+        if ((question_style_text.Equals(npc.clue_response1) || question_style_text.Equals(npc.clue_response2)) && npc.clue != "")  // checks that the questioing style of the player macthes the one in which the NPC will say thier clue 
         {
             speachbox.text += "\n\n" + npc.Name + ": " + npc.clue;
             check_okay_to_interact();
+
+
+            if (npc.clue_object.in_log == false) // if not in log boook 
+            {
+                Debug.Log("-- add to log book -- ");
+                npc.clue_object.in_log = true;
+            }
+            else
+            {
+                Debug.Log("nothing"); // if already in log book do nothing 
+                
+            }
+
             npc = null;
         }
         else
@@ -229,7 +261,7 @@ public class Interaction : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        Player = GameObject.FindWithTag("Player");
+        Player = GameObject.FindWithTag("Player");          // sets up the player and in the interaction class for each scene 
         player = Player.GetComponent<player>();
         gameman = GameObject.FindWithTag("gamemanager");
         Gamemanager = gameman.GetComponent<gameManager>();

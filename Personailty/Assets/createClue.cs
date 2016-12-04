@@ -74,11 +74,11 @@ public class createClue: MonoBehaviour{
     // make all of the clues if the murder if STAB IN BACK CRIME 
     public void make_clues_crime_1()
     {
-        string[] weapons = new string[3]{ "Flick Knife", "Meat Clever", "Rather sharp pencil" };
+        string[] weapons = new string[3]{ "Flick Knife", "Meat Clever", "Sharpened Metal Ruler" };
         int x = Random.Range(0, 3);   // pick a random murder weapon
         clue_1.name = weapons[x];
         clue_1.info = "the blade looks smudged, maybe something was wiped off?";
-        // clue_1.look = clue1_look; need to fix look  
+        
 
         string[] throw_off_weapon = new string[3] { "swiss army knife", "dagger", "sword" };
         int y = Random.Range(0, 3);
@@ -87,7 +87,7 @@ public class createClue: MonoBehaviour{
 
         clue_3.name = "Hand written not to Victim";
         clue_3.info = ("A note addressed to " + game_manager.GetComponent<gameManager>().get_victim() + ". Saying 'Meet in " +
-            game_manager.GetComponent<gameManager>().get_whole_victim().room + "with £5000 or else' \n It is written in black handwriting");
+            game_manager.GetComponent<gameManager>().get_whole_victim().room + "with £5000 or else' \n It has been  handwritten in black ink");
 
         clue_4.name = "cloth with blood on";
         clue_4.info = "Must have been used to wipe the murder weapon";
@@ -95,7 +95,7 @@ public class createClue: MonoBehaviour{
         string[] hat = new string[3] { "Black top hat", "flat cap", "beanie" };
         int z = Random.Range(0, 3);
         clue_5.name = hat[z];
-        clue_5.info = "Hat has two sets of initials in it, "+ game_manager.GetComponent<gameManager>().get_whole_murderer().initial + " and " + createnpc.GetComponent<CreateNPC>().npc_list_mur_vic[z].initial ;
+        clue_5.info = "The hat has two sets of initials in it, "+ game_manager.GetComponent<gameManager>().get_whole_murderer().initial + " and " + createnpc.GetComponent<CreateNPC>().npc_list_mur_vic[z].initial ;
 
         clue_6.name = "Black foutain pen";
         clue_6.info = "A black fountain pen, looks expensive";
@@ -107,34 +107,99 @@ public class createClue: MonoBehaviour{
 
     }
 
-    // make all clues if the crime is // DROWNING 
-    public void make_clues_crime_2()   // testing debuggin procedure 
+    // make all clues if the crime is STAB IN THE BACK 2 
+    public void make_clues_crime_12()   
     {
-        string[] weapons = new string[3] { "club", "bat", "wood" };
+        string[] weapons = new string[3] { "Flick Knife", "Meat Clever", "Sharpened Metal Ruler" };
         int x = Random.Range(0, 3);   // pick a random murder weapon
-        clue_1.name = weapons[x];
-        clue_1.info = "the blade looks smudged, maybe something was wiped off?";
-        // clue_1.look = clue1_look; need to fix look  
+        clue_2.name = weapons[x];
+        clue_2.info = "the blade looks smudged, maybe something was wiped off?";
+       
 
-        string[] throw_off_weapon = new string[3] { "ball", "racket", "plank" };
+        string[] throw_off_weapon = new string[3] { "swiss army knife", "dagger", "sword" };
         int y = Random.Range(0, 3);
-        clue_2.name = throw_off_weapon[y];
-        clue_2.info = "the blade looks clean....maybe too clean?";
+        clue_1.name = throw_off_weapon[y];
+        clue_1.info = "the blade looks clean....maybe too clean?";
 
+        clue_3.name = "Hand written not to Victim";
+        clue_3.info = ("A note addressed to " + game_manager.GetComponent<gameManager>().get_victim() + ". Saying 'Meet in " +
+            game_manager.GetComponent<gameManager>().get_whole_victim().room + "with £5000 or else' \n It has been  handwritten in black ink");
+
+        clue_4.name = "cloth with blood on";
+        clue_4.info = "Must have been used to wipe the murder weapon";
+
+        string[] hat = new string[3] { "Black top hat", "flat cap", "beanie" };
+        int z = Random.Range(0, 3);
+        clue_5.name = hat[z];
+        clue_5.info = " The hat has a sets of initials in it, " + createnpc.GetComponent<CreateNPC>().npc_list_mur_vic[z].initial;
+
+        clue_6.name = "Black foutain pen";
+        clue_6.info = "A black fountain pen, it looks expensive";
+
+        verbal_clue_7.name = ("I saw " + game_manager.GetComponent<gameManager>().get_murder() + " throw a fountain pen on the floor, Pen looked too expensive to just throw away");
+
+        verbal_clue_8.name = "I saw " + createnpc.GetComponent<CreateNPC>().npc_list_mur_vic[z].Name + " playing with a " + throw_off_weapon[y] + " ealier";
 
     }
+
+    public void make_clues_crime_2()   // CLUES FOR DROWNED 
+    {
+        int z = Random.Range(0, 8);
+
+        clue_1.name = "A flick knife";
+        clue_1.info = "Strange to find a flick knife ou here";
+     
+        clue_2.name = "A criket bat";
+        clue_2.info = "Victim didn't have any bruise marks so I doubt they were hit";
+
+        clue_3.name = "A set of wet Ron Cooke HUB janitor gloves";
+        clue_3.info = "The only people who are janitors here are " + game_manager.GetComponent<gameManager>().get_murder() + " and " + createnpc.GetComponent<CreateNPC>().npc_list_mur_vic[z];
+
+        clue_4.name = "A note to " + game_manager.GetComponent<gameManager>().get_victim() + " saying 'Meet at the lakes at 7' ";
+        clue_4.info = " I Wonder who she was meeting? ";
+
+        clue_5.name = "A present with a tag saying 'To " + game_manager.GetComponent<gameManager>().get_victim() + " Happy Birthday! x' ";
+        clue_5.info = "Drowned on her birhday, how horrible";
+
+        clue_6.name = "A pair of shoes with damp mud over the front";
+        clue_6.info = "The shoes are a " + game_manager.GetComponent<gameManager>().get_whole_murderer().man_woman + "'s size 4 ";
+
+        verbal_clue_7.name = ("I saw " + game_manager.GetComponent<gameManager>().get_murder() + " and " + game_manager.GetComponent<gameManager>().get_victim() + " shouting at each other earlier, sounded serious" );
+
+        verbal_clue_8.name = "Normally " + game_manager.GetComponent<gameManager>().get_murder() + " and " + createnpc.GetComponent<CreateNPC>().npc_list_mur_vic[z] + " hang around outside by the lake";
+
+    }
+
+
+
+
+
+
+
+
+
 
     // depending on the murder selcted in the create crime scirpt the approiate clue will be selected. 
     public void set_clues_crime()
     {
         if (crime.GetComponent<CreateCrime>().murder_int == 0)   // clues only set for if the murder is the STABBED IN THE BACK  rest need to be done still 
         {
-            make_clues_crime_1();
+            int x = Random.Range(0, 2);
+            if (x == 0)
+            {
+                make_clues_crime_1();
+            }
+            else
+            {
+                make_clues_crime_12();
+            }
+
         }
-        else
+        else if (crime.GetComponent<CreateCrime>().murder_int == 1) // set clues for DROWNED murder 
         {
             make_clues_crime_2();
         }
+
 
     }
 
@@ -227,9 +292,6 @@ public class createClue: MonoBehaviour{
         }
              
 
-
-
-
         // rnadomly assign NPC's the verbal clues 
         int x = Random.Range(0, 8);
         int y = x;
@@ -250,16 +312,15 @@ public class createClue: MonoBehaviour{
         setClues();   // intialise 
 
 		make_game_object_lst();   // make lists 
-        make_gameobj_lst_verbal();
+        make_gameobj_lst_verbal(); // make list 
 		
 
-        set_clues_crime();    // depending on crime choosen at random make approiate clues 
+        set_clues_crime();    // depending on crime choosen at random make approiate clues to fit 
 
-		setCluesInGameman();
+		setCluesInGameman();  // randomly assign the clues to rooms 
 	}
 
-	void awake() { 
-		Debug.Log("clues made");
+	void awake() {
 
 	}
 

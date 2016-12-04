@@ -11,6 +11,7 @@ public class NPC : MonoBehaviour {
     public string initial;
 
     public string he_she;
+    public string man_woman;
 
     public string room;
    
@@ -22,12 +23,14 @@ public class NPC : MonoBehaviour {
     public bool okay_to_interact = true;
 
     public string clue;
+    public clue clue_object;
 
     public string intro;
 
     public string dont_interact_response;
 
-    public string clue_response; 
+    public string clue_response1;
+    public string clue_response2; 
 
     public string dont_interact_if1 = "";    // string is set to empty to start 
     public string dont_interact_if2 = "";    // these are used to test against after an NPC has resposned to see if they wil talk again 
@@ -35,22 +38,15 @@ public class NPC : MonoBehaviour {
                                              // this may be there response if they are questioned aggresively. so we can test if they are the same and change okay_to_interact to false;
     public string incorect_accusation;
         
-    //BadCop
+    //respsones
     public string aggressive_response; //
     public string violent_response; //
     public string threaten_response; //
-	public string arrogant_response;
-	public string indifferent_response;
-
-    //GoodCop
     public string kind_response; //
 	public string sympthetic_response; //
     public string friendly_response; //
-	public string humorous_response;
-	public string enthusiastic_response;
-
-    // cunning sympthatethic  
-
+    public string cunning_response;
+    public string mean_response;
 
     Vector3 newPos = new Vector3(-300,-12,0);   // starting pos for all of the NPCS
 

@@ -19,7 +19,7 @@ public class CreateCrime : MonoBehaviour
 
     public void select_crime()
     {
-        int y = Random.Range(0, 3);  // 0 ,1 or 2 
+        int y = Random.Range(0, 2);  // 0 ,1 or 2 
         murder_int = y;
     }
 
