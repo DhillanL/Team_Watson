@@ -72,6 +72,10 @@
      <Compile Include="Assets\createClue.cs" />
      <Compile Include="Assets\createPersonalitys.cs" />
      <Compile Include="Assets\gameManager.cs" />
+     <Compile Include="Assets\leavelogbook.cs" />
+     <Compile Include="Assets\logbookScripts\Logbook.cs" />
+     <Compile Include="Assets\logbookScripts\logbookbutton.cs" />
+     <Compile Include="Assets\logbookScripts\logbookparts.cs" />
      <Compile Include="Assets\player.cs" />
      <Compile Include="Assets\setnpcrooms.cs" />
  <Reference Include="UnityEngine.UI">

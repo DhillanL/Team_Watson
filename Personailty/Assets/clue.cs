@@ -55,8 +55,9 @@ public class clue: MonoBehaviour{
         GameManger.GetComponent<gameManager>().increase_clue_count();
         Debug.Log(GameManger.GetComponent<gameManager>().get_clue_count());  // debuging 
         Debug.Log("click");   // debugging 
-       // reset_pos(); // will be used to make it go away once it has been clicked on the screen 
-       // NEED TO ADD THE FUNCTIONS TO ADD INFORAMTION INTO THE LOG BOOK  -- call from the logbook class 
+                              // reset_pos(); // will be used to make it go away once it has been clicked on the screen 
+                              // NEED TO ADD THE FUNCTIONS TO ADD INFORAMTION INTO THE LOG BOOK  -- call from the logbook class 
+        GameObject.FindWithTag("logbook").GetComponent<Logbook>().add_clue(this);
 
 
 

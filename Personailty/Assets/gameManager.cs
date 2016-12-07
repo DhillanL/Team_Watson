@@ -284,7 +284,6 @@ public class gameManager : MonoBehaviour {
        GameObject.FindWithTag(room11.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(250,0,0);   //each npc has a tag which is their name making them easier to find 
        GameObject.FindWithTag(room12.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(350,0,0);
        check_room_clue(clue_room1);
-
     }
 
     public void populateroom2()
@@ -354,6 +353,13 @@ public class gameManager : MonoBehaviour {
         GameObject.FindWithTag("Player").GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
     }
 
+
+    public void set_log_bookbutton()
+    {
+        GameObject.FindWithTag("log_button").GetComponent<Transform>().position = new Vector3(159, -80, 0);
+    }
+
+
     // FUNCTIONs TO MOVE BETWEEN SCENES 
 
 
@@ -380,7 +386,7 @@ public class gameManager : MonoBehaviour {
         place_map_gui();
         populateroom1();
         set_player_vel_0();
-
+        set_log_bookbutton();
     }
 
 
@@ -389,6 +395,7 @@ public class gameManager : MonoBehaviour {
         SceneManager.LoadScene("Screen2");
         populateroom1();
         set_player_vel_0();
+
 
     }
 
