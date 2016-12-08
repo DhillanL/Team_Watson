@@ -8,18 +8,11 @@ public class clue: MonoBehaviour{
     public string cluename;
 
 	public string name;
-	//public string NPC = null;
+	
     public string info;
-   // public string Room_found; 
-
+ 
 
     public bool is_found = false;
-    //public bool is_bloody = false;
-    // public string NPC_text = null;
-
-    public bool in_log = false;
-
-
 
 	public Sprite look;
 
@@ -41,7 +34,9 @@ public class clue: MonoBehaviour{
 		return name;
 	}
 
-	public void getInfo(){  
+	public string getInfo()
+    {
+        return info;  
 	}
 
 
@@ -53,13 +48,9 @@ public class clue: MonoBehaviour{
 
         is_found = true;
         GameManger.GetComponent<gameManager>().increase_clue_count();
-        Debug.Log(GameManger.GetComponent<gameManager>().get_clue_count());  // debuging 
-        Debug.Log("click");   // debugging 
-                              // reset_pos(); // will be used to make it go away once it has been clicked on the screen 
-                              // NEED TO ADD THE FUNCTIONS TO ADD INFORAMTION INTO THE LOG BOOK  -- call from the logbook class 
-        GameObject.FindWithTag("logbook").GetComponent<Logbook>().add_clue(this);
-
-
+        Debug.Log("click");   
+        reset_pos(); 
+        GameObject.FindWithTag("logbookparts").GetComponent<logbookparts>().add_clue(this);
 
     }
 

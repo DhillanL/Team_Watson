@@ -7,6 +7,7 @@ public class createClue: MonoBehaviour{
 	public GameObject game_manager;
     public GameObject crime;
     public GameObject createnpc;
+    public GameObject cluesprites;
 
 
     // the game objects which hold the clues 
@@ -78,27 +79,39 @@ public class createClue: MonoBehaviour{
         int x = Random.Range(0, 3);   // pick a random murder weapon
         clue_1.name = weapons[x];
         clue_1.info = "the blade looks smudged, maybe something was wiped off?";
-        
+        clue1.GetComponent<SpriteRenderer>().sprite = cluesprites.GetComponent<cluesprites>().getsprites_murder1(clue_1.name);  
+        clue_1.look = cluesprites.GetComponent<cluesprites>().getsprites_murder1(clue_1.name); ;
+
 
         string[] throw_off_weapon = new string[3] { "swiss army knife", "dagger", "sword" };
         int y = Random.Range(0, 3);
         clue_2.name = throw_off_weapon[y];
         clue_2.info = "the blade looks clean....maybe too clean?";
+        clue2.GetComponent<SpriteRenderer>().sprite = cluesprites.GetComponent<cluesprites>().getsprites_murder1(clue_2.name);
+        clue_2.look = cluesprites.GetComponent<cluesprites>().getsprites_murder1(clue_2.name);
 
-        clue_3.name = "Hand written not to Victim";
+        clue_3.name = "Hand written note to Victim";
         clue_3.info = ("A note addressed to " + game_manager.GetComponent<gameManager>().get_victim() + ". Saying 'Meet in " +
-            game_manager.GetComponent<gameManager>().get_whole_victim().room + "with £5000 or else' \n It has been  handwritten in black ink");
+        game_manager.GetComponent<gameManager>().get_whole_victim().room + "with £5000 or else' \n It has been  handwritten in black ink");
+        clue3.GetComponent<SpriteRenderer>().sprite = cluesprites.GetComponent<cluesprites>().getsprites_murder1(clue_3.name);
+        clue_3.look = cluesprites.GetComponent<cluesprites>().getsprites_murder1(clue_3.name);
 
         clue_4.name = "cloth with blood on";
         clue_4.info = "Must have been used to wipe the murder weapon";
+        clue4.GetComponent<SpriteRenderer>().sprite = cluesprites.GetComponent<cluesprites>().getsprites_murder1(clue_4.name);
+        clue_4.look = cluesprites.GetComponent<cluesprites>().getsprites_murder1(clue_4.name);
 
-        string[] hat = new string[3] { "Black top hat", "flat cap", "beanie" };
+        string[] hat = new string[3] { "Top Hat", "flat cap", "beanie" };
         int z = Random.Range(0, 3);
         clue_5.name = hat[z];
         clue_5.info = "The hat has two sets of initials in it, "+ game_manager.GetComponent<gameManager>().get_whole_murderer().initial + " and " + createnpc.GetComponent<CreateNPC>().npc_list_mur_vic[z].initial ;
+        clue5.GetComponent<SpriteRenderer>().sprite = cluesprites.GetComponent<cluesprites>().getsprites_murder1(clue_5.name);
+        clue_5.look = cluesprites.GetComponent<cluesprites>().getsprites_murder1(clue_5.name);
 
         clue_6.name = "Black foutain pen";
         clue_6.info = "A black fountain pen, looks expensive";
+        clue6.GetComponent<SpriteRenderer>().sprite = cluesprites.GetComponent<cluesprites>().getsprites_murder1(clue_6.name);
+        clue_6.look = cluesprites.GetComponent<cluesprites>().getsprites_murder1(clue_6.name);
 
         verbal_clue_7.name = ("saw someone hanging around " + game_manager.GetComponent<gameManager>().get_whole_victim().room + " wearing a " + hat[z]
             + ". " + game_manager.GetComponent<gameManager>().get_whole_murderer().he_she +  " looked a bit shifty.");
@@ -123,7 +136,7 @@ public class createClue: MonoBehaviour{
 
         clue_3.name = "Hand written not to Victim";
         clue_3.info = ("A note addressed to " + game_manager.GetComponent<gameManager>().get_victim() + ". Saying 'Meet in " +
-            game_manager.GetComponent<gameManager>().get_whole_victim().room + "with £5000 or else' \n It has been  handwritten in black ink");
+         game_manager.GetComponent<gameManager>().get_whole_victim().room + "with £5000 or else' \n It has been  handwritten in black ink");
 
         clue_4.name = "cloth with blood on";
         clue_4.info = "Must have been used to wipe the murder weapon";
@@ -147,7 +160,7 @@ public class createClue: MonoBehaviour{
         int z = Random.Range(0, 8);
 
         clue_1.name = "A flick knife";
-        clue_1.info = "Strange to find a flick knife ou here";
+        clue_1.info = "Strange to find a flick knife out here";
      
         clue_2.name = "A criket bat";
         clue_2.info = "Victim didn't have any bruise marks so I doubt they were hit";
@@ -191,7 +204,7 @@ public class createClue: MonoBehaviour{
             }
             else
             {
-                make_clues_crime_12();
+                make_clues_crime_1();   //alwasy do set one to start with
             }
 
         }

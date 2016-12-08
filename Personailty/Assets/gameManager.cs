@@ -269,7 +269,15 @@ public class gameManager : MonoBehaviour {
             ;
         } else
         {
-            GameObject.FindWithTag(roomclue.GetComponent<clue>().cluename).GetComponent<Transform>().Translate(200, 30, 0);
+            if (roomclue.GetComponent<clue>().is_found == true)
+            {
+                ;
+            }
+            else
+            {
+                GameObject.FindWithTag(roomclue.GetComponent<clue>().cluename).GetComponent<Transform>().Translate(200, 30, 0);
+            }
+            
         }
     }
 

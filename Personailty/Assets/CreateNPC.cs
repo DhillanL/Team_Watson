@@ -488,25 +488,25 @@ public class CreateNPC : MonoBehaviour {
     public void setroom()
     {
         Gameman.GetComponent<gameManager>().setroom11(gameobjectlstshuffle_[0]);   //set the npc in room 1 pos 1 to shuffled index 0. 
-        gameobjectlstshuffle_[0].GetComponent<NPC>().room = "Room1";
+        gameobjectlstshuffle_[0].GetComponent<NPC>().room = "RCH1";
         Gameman.GetComponent<gameManager>().setroom12(gameobjectlstshuffle_[1]);
-        gameobjectlstshuffle_[1].GetComponent<NPC>().room = "Room1";
+        gameobjectlstshuffle_[1].GetComponent<NPC>().room = "RCH1";
         Gameman.GetComponent<gameManager>().setroom21(gameobjectlstshuffle_[2]);
-        gameobjectlstshuffle_[2].GetComponent<NPC>().room = "Room2";
+        gameobjectlstshuffle_[2].GetComponent<NPC>().room = "RCH2";
         Gameman.GetComponent<gameManager>().setroom31(gameobjectlstshuffle_[3]);
-        gameobjectlstshuffle_[3].GetComponent<NPC>().room = "Room3";
+        gameobjectlstshuffle_[3].GetComponent<NPC>().room = "Meeting Room";
         Gameman.GetComponent<gameManager>().setroom41(gameobjectlstshuffle_[4]);
-        gameobjectlstshuffle_[4].GetComponent<NPC>().room = "Room4";
+        gameobjectlstshuffle_[4].GetComponent<NPC>().room = "Kitchen";
         Gameman.GetComponent<gameManager>().setroom51(gameobjectlstshuffle_[5]);
-        gameobjectlstshuffle_[5].GetComponent<NPC>().room = "Room5";
+        gameobjectlstshuffle_[5].GetComponent<NPC>().room = "Balcony";
         Gameman.GetComponent<gameManager>().setroom61(gameobjectlstshuffle_[6]);
-        gameobjectlstshuffle_[6].GetComponent<NPC>().room = "Room6";
+        gameobjectlstshuffle_[6].GetComponent<NPC>().room = "Lakes";
         Gameman.GetComponent<gameManager>().setroom71(gameobjectlstshuffle_[7]);
-        gameobjectlstshuffle_[7].GetComponent<NPC>().room = "Room7";
+        gameobjectlstshuffle_[7].GetComponent<NPC>().room = "upstairs lecture hall";
         Gameman.GetComponent<gameManager>().setroom72(gameobjectlstshuffle_[8]);       
-        gameobjectlstshuffle_[8].GetComponent<NPC>().room = "Room7";
+        gameobjectlstshuffle_[8].GetComponent<NPC>().room = "upstairs lecture hall";
         Gameman.GetComponent<gameManager>().setroom81(gameobjectlstshuffle_[9]);
-        gameobjectlstshuffle_[9].GetComponent<NPC>().room = "Room8";
+        gameobjectlstshuffle_[9].GetComponent<NPC>().room = "belowe the baclony";
         
     }   
 

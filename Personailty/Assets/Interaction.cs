@@ -124,16 +124,7 @@ public class Interaction : MonoBehaviour {
             speachbox.text += "\n\n" + npc.Name + ": " + npc.clue;
             check_okay_to_interact();
 
-            if (npc.clue_object.in_log == false) // if not in log boook 
-            {
-                Debug.Log("-- add to log book -- ");
-                npc.clue_object.in_log = true;
-            }
-            else
-            {
-                Debug.Log("nothing"); // if already in log book do nothing 
-
-            }
+            
 
             npc = null;
         }
@@ -162,16 +153,7 @@ public class Interaction : MonoBehaviour {
             speachbox.text += "\n\n" + npc.Name + ": " + npc.clue;
             check_okay_to_interact();
 
-            if (npc.clue_object.in_log == false) // if not in log boook 
-            {
-                Debug.Log("-- add to log book -- ");
-                npc.clue_object.in_log = true;
-            }
-            else
-            {
-                Debug.Log("nothing"); // if already in log book do nothing 
-
-            }
+         
 
             npc = null;
         }
@@ -197,16 +179,6 @@ public class Interaction : MonoBehaviour {
             check_okay_to_interact();
 
 
-            if (npc.clue_object.in_log == false) // if not in log boook 
-            {
-                Debug.Log("-- add to log book -- ");
-                npc.clue_object.in_log = true;
-            }
-            else
-            {
-                Debug.Log("nothing"); // if already in log book do nothing 
-                
-            }
 
             npc = null;
         }
