@@ -6,6 +6,7 @@ public class Interaction : MonoBehaviour {
 
     public GameObject Player;
     public GameObject gameman;
+    public GameObject logbookpart;
     public gameManager Gamemanager;
     public player player;
     public NPC npc;
@@ -81,7 +82,6 @@ public class Interaction : MonoBehaviour {
             else
             {
                 speachbox.text = "how would you like to interact:";
-                // Add the new button for picking how to interact with the npc 
                 question.transform.Translate(0,57,0);
                 accusebutt.transform.Translate(0,57,0);
 
@@ -122,6 +122,7 @@ public class Interaction : MonoBehaviour {
         if ((question_style_text.Equals(npc.clue_response1) || question_style_text.Equals(npc.clue_response2)) && npc.clue != "")  // checks that the questioing style of the player macthes the one in which the NPC will say thier clue 
         {
             speachbox.text += "\n\n" + npc.Name + ": " + npc.clue;
+            logbookpart.GetComponent<logbookparts>().add_clue(npc.clue_object);
             check_okay_to_interact();
 
             
@@ -151,6 +152,7 @@ public class Interaction : MonoBehaviour {
         if ((question_style_text.Equals(npc.clue_response1) || question_style_text.Equals(npc.clue_response2)) && npc.clue != "")  // checks that the questioing style of the player macthes the one in which the NPC will say thier clue 
         {
             speachbox.text += "\n\n" + npc.Name + ": " + npc.clue;
+            // add clue 
             check_okay_to_interact();
 
          
@@ -176,6 +178,7 @@ public class Interaction : MonoBehaviour {
         if ((question_style_text.Equals(npc.clue_response1) || question_style_text.Equals(npc.clue_response2)) && npc.clue != "")  // checks that the questioing style of the player macthes the one in which the NPC will say thier clue 
         {
             speachbox.text += "\n\n" + npc.Name + ": " + npc.clue;
+            // add clue 
             check_okay_to_interact();
 
 

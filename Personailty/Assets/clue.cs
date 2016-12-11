@@ -13,6 +13,9 @@ public class clue: MonoBehaviour{
  
 
     public bool is_found = false;
+    public bool is_verbal = false;
+
+    public NPC npc_verbal;
 
 	public Sprite look;
 
@@ -20,6 +23,8 @@ public class clue: MonoBehaviour{
 	public GameObject me;
 
     public GameObject GameManger;
+
+
 
 
     Vector3 newPos = new Vector3(-240, -10, 0); // starting pos for all clues

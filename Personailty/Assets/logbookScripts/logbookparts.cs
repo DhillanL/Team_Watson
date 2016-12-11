@@ -31,58 +31,126 @@ public class logbookparts : MonoBehaviour {
     public void load_logbook()
     {
         text1.GetComponent<Text>().text = logbooktext1;
+        text1.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
         text2.GetComponent<Text>().text = logbooktext2;
+        text2.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
         text3.GetComponent<Text>().text = logbooktext3;
+        text3.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
         text4.GetComponent<Text>().text = logbooktext4;
+        text4.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
         text5.GetComponent<Text>().text = logbooktext5;
+        text5.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
         text6.GetComponent<Text>().text = logbooktext6;
+        text6.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
         text7.GetComponent<Text>().text = logbooktext7;
+        text7.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
         text8.GetComponent<Text>().text = logbooktext8;
+        text8.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
     }
 
     public void add_clue(clue clue)
     {
-        if (clue_count == 0)
+        if (clue.is_verbal == false)
         {
-            GameObject.FindWithTag("logpic1").GetComponent<SpriteRenderer>().sprite = clue.look;
-            logbooktext1 = clue.name;
-            logbooktext1 += "\n"+clue.getInfo();
-            increase_count();
+            if (clue_count == 0)
+            {
+                GameObject.FindWithTag("logpic1").GetComponent<SpriteRenderer>().sprite = clue.look;
+                logbooktext1 = clue.name;
+                logbooktext1 += "\n" + clue.getInfo();
+                increase_count();
 
-        } else if (clue_count == 1)
-        {
-            GameObject.FindWithTag("logpic2").GetComponent<SpriteRenderer>().sprite = clue.look;
-            logbooktext2 = clue.name;
-            logbooktext2 += "\n" + clue.getInfo();
-            increase_count();
+            }
+            else if (clue_count == 1)
+            {
+                GameObject.FindWithTag("logpic2").GetComponent<SpriteRenderer>().sprite = clue.look;
+                logbooktext2 = clue.name;
+                logbooktext2 += "\n" + clue.getInfo();
+                increase_count();
 
-        } else if (clue_count == 2 )
-        {
-            logbooktext3 = clue.name;
-            logbooktext3 += "\n" + clue.getInfo();
-            increase_count();
+            }
+            else if (clue_count == 2)
+            {
+                GameObject.FindWithTag("logpic3").GetComponent<SpriteRenderer>().sprite = clue.look;
+                logbooktext3 = clue.name;
+                logbooktext3 += "\n" + clue.getInfo();
+                increase_count();
 
-        } else if (clue_count == 3 )
-        {
-            logbooktext4 = clue.getInfo();
-            increase_count();
+            }
+            else if (clue_count == 3)
+            {
+                GameObject.FindWithTag("logpic4").GetComponent<SpriteRenderer>().sprite = clue.look;
+                logbooktext4 = clue.name;
+                logbooktext4 += "\n" + clue.getInfo();
+                increase_count();
 
-        } else if (clue_count == 4 )
-        {
-            logbooktext5 = clue.getInfo();
-            increase_count();
-        } else if (clue_count == 5)
-        {
-            logbooktext6 = clue.getInfo();
-            increase_count();
-        } else if  (clue_count == 6)
-        {
-            logbooktext7 = clue.getInfo();
-            increase_count();
+            }
+            else if (clue_count == 4)
+            {
+                GameObject.FindWithTag("logpic5").GetComponent<SpriteRenderer>().sprite = clue.look;
+                logbooktext5 = clue.name;
+                logbooktext5 += "\n" + clue.getInfo();
+                increase_count();
+            }
+            else if (clue_count == 5)
+            {
+                GameObject.FindWithTag("logpic6").GetComponent<SpriteRenderer>().sprite = clue.look;
+                logbooktext6 = clue.name;
+                logbooktext6 += "\n" + clue.getInfo();
+                increase_count();
+            }
+            else if (clue_count == 6)
+            {
+                GameObject.FindWithTag("logpic7").GetComponent<SpriteRenderer>().sprite = clue.look;
+                logbooktext7 = clue.name;
+                logbooktext7 += "\n" + clue.getInfo();
+                increase_count();
+            }
+            else
+            {
+                GameObject.FindWithTag("logpic8").GetComponent<SpriteRenderer>().sprite = clue.look;
+                logbooktext8 = clue.name;
+                logbooktext8 += "\n" + clue.getInfo();
+                increase_count();
+            }
         } else
         {
-            logbooktext8 = clue.getInfo();
-            increase_count();
+            if (clue_count == 0)
+            {
+                GameObject.FindWithTag("logpic1").GetComponent<SpriteRenderer>().sprite = clue.npc_verbal.headshot;
+                logbooktext1 = clue.name;
+                increase_count();
+            }
+            else if (clue_count == 1)
+            {
+           
+                // finish all of the clues in logbook 
+            }
+            else if (clue_count == 2)
+            {
+                
+                
+            }
+            else if (clue_count == 3)
+            {
+          
+
+            }
+            else if (clue_count == 4)
+            {
+                
+            }
+            else if (clue_count == 5)
+            {
+              
+            }
+            else if (clue_count == 6)
+            {
+            
+            }
+            else
+            {
+            
+            }
         }
     }
 

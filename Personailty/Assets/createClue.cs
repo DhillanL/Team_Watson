@@ -67,8 +67,10 @@ public class createClue: MonoBehaviour{
         clue6.GetComponent<SpriteRenderer>().sprite = clue_6.look  ;
 
         verbal_clue_7 = clue7_verbal.GetComponent<clue>();
+        verbal_clue_7.is_verbal = true;
         
         verbal_clue_8 = clue8_verbal.GetComponent<clue>();
+        verbal_clue_8.is_verbal = true;
     }
 
 
@@ -92,7 +94,7 @@ public class createClue: MonoBehaviour{
 
         clue_3.name = "Hand written note to Victim";
         clue_3.info = ("A note addressed to " + game_manager.GetComponent<gameManager>().get_victim() + ". Saying 'Meet in " +
-        game_manager.GetComponent<gameManager>().get_whole_victim().room + "with £5000 or else' \n It has been  handwritten in black ink");
+        game_manager.GetComponent<gameManager>().get_whole_victim().room + " with £5000 or else' \n It has been  handwritten in black ink");
         clue3.GetComponent<SpriteRenderer>().sprite = cluesprites.GetComponent<cluesprites>().getsprites_murder1(clue_3.name);
         clue_3.look = cluesprites.GetComponent<cluesprites>().getsprites_murder1(clue_3.name);
 
@@ -172,7 +174,7 @@ public class createClue: MonoBehaviour{
         clue_4.info = " I Wonder who she was meeting? ";
 
         clue_5.name = "A present with a tag saying 'To " + game_manager.GetComponent<gameManager>().get_victim() + " Happy Birthday! x' ";
-        clue_5.info = "Drowned on her birhday, how horrible";
+        clue_5.info = "Drowned on " + game_manager.GetComponent<gameManager>().get_whole_victim().he_she + " birhday, how horrible";
 
         clue_6.name = "A pair of shoes with damp mud over the front";
         clue_6.info = "The shoes are a " + game_manager.GetComponent<gameManager>().get_whole_murderer().man_woman + "'s size 4 ";
@@ -313,7 +315,9 @@ public class createClue: MonoBehaviour{
             y = Random.Range(0, 8);  // ensures two different NPC's
         }
         game_manager.GetComponent<gameManager>().setNPCclue(getNPC(x),gameobjectlstverbal_[0]);  // sets the verbal clues of two random npcs 
+        verbal_clue_7.npc_verbal = getNPC(x);
         game_manager.GetComponent<gameManager>().setNPCclue(getNPC(y), gameobjectlstverbal_[1]);
+        verbal_clue_8.npc_verbal = getNPC(y);
     }
 
 
