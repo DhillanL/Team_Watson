@@ -9,6 +9,7 @@ public class NPC : MonoBehaviour {
 
     public string Name;
     public string initial;
+    public int age;
 
     public string he_she;
     public string man_woman;

@@ -102,6 +102,7 @@ public class CreateNPC : MonoBehaviour {
 		Tonald_Dump.he_she =    "he";  // he or she
         Tonald_Dump.initial =   "T.D";
         Tonald_Dump.man_woman = "man";
+        Tonald_Dump.age = 52;
 
 	    //Responses 
 		Tonald_Dump.aggressive_response = "How dare you take that tone with me! I've got nothing to say!";
@@ -131,31 +132,33 @@ public class CreateNPC : MonoBehaviour {
 	{
 		//basic setup
 		Bernard_lowe.Name =      "Bernard";
-		Bernard_lowe.intro =     "My name is Bernard and I am the head chef here! You have to come and try my food!";
+		Bernard_lowe.intro =     "Hi I'm Bernard, the head chef here! You have to come and try my food!";
 		bernard_look.sprite =    Bernard_lowe.look;
 		Bernard_lowe.he_she =    "he";   // he or she
         Bernard_lowe.initial =   "B.L";
         Bernard_lowe.man_woman = "man";
+        Bernard_lowe.age = 43;
 
 		//responses
-		Bernard_lowe.aggressive_response =  "Dont talk to me like that you fuck I'm Bernard !";
-		Bernard_lowe.violent_response =     "I'm a violent bernard";
-		Bernard_lowe.threaten_response =    "I dont appreiacte being theatened! dont ask me anymore!";
-		Bernard_lowe.kind_response =        "fucking nice mate";
-		Bernard_lowe.friendly_response =    "I can give you all the clues I have.";
-		Bernard_lowe.sympthetic_response =  "I fell sorry for what has happened today.";
-        Bernard_lowe.cunning_response =     "cunning";
-        Bernard_lowe.mean_response =        "mean";
+		Bernard_lowe.aggressive_response =  "I dont like the way you talk to me detective!";
+		Bernard_lowe.violent_response =     "I'm sorry but I dont know anything! I'd tell you if I did";
+		Bernard_lowe.threaten_response =    "Please dont hurt me! I dont know anything!";
+		Bernard_lowe.kind_response =        "I'd tell you if I knew anything detective";
+		Bernard_lowe.friendly_response =    " friednly....";
+		Bernard_lowe.sympthetic_response =  "sympthetic....";
+        Bernard_lowe.cunning_response =     "cunning....";
+        Bernard_lowe.mean_response =        "mean....";
 
 		//no more interaction setup
-		Bernard_lowe.dont_interact_response = "I no longer wish to speak to you!";
+		Bernard_lowe.dont_interact_response = "Go away detective! leave me alone";
         Bernard_lowe.dont_interact_if1 = Bernard_lowe.violent_response;
 
         //clue response
         Bernard_lowe.clue_response1 = "Threaten";
+        Bernard_lowe.clue_response2 = "Cunning";
 
         // incorrect accusation 
-        Bernard_lowe.incorect_accusation = "INCORRECT ACCUSATION";
+        Bernard_lowe.incorect_accusation = "INCORRECT ACCUSATION response";
 	}
 
 
@@ -164,14 +167,16 @@ public class CreateNPC : MonoBehaviour {
 
 	public void make_George()
 	{
+        //basic setup
 		George_allen.Name = "George";
-		George_allen.intro = "I have lots of first-hand news from all around the world!";
+		George_allen.intro = "Good Evening detective, I have lots of first-hand news from all around the world!";
 		george_look.sprite = George_allen.look;
 		George_allen.he_she = "he";
         George_allen.initial = "G.A";
         George_allen.man_woman = "man";
+        George_allen.age = 28;
 
-		//badcop setup
+		//responses
 		George_allen.aggressive_response = "Dont talk to me like that you fuck I'm Bernard !";
 		George_allen.violent_response =    "I'm a violent bernard";
 		George_allen.threaten_response =   "I dont appreiacte being theatened! dont ask me anymore!";
@@ -197,164 +202,246 @@ public class CreateNPC : MonoBehaviour {
 
 	public void make_Ethan()
 	{
+        //basic setup
 		Ethan_hawk.Name = "Ethan";
 		Ethan_hawk.intro = "I will have my own Ferrari someday!";
 		ethan_look.sprite = Ethan_hawk.look;
 		Ethan_hawk.he_she = "he";
         Ethan_hawk.initial = "E.H";
         Ethan_hawk.man_woman = "man";
-		//badcop setup
+        Ethan_hawk.age = 31;
+
+		//responses
 		Ethan_hawk.aggressive_response = "Dont talk to me like that you fuck I'm Bernard !";
 		Ethan_hawk.violent_response = "I'm a violent bernard";
 		Ethan_hawk.threaten_response = "I dont appreiacte being theatened! dont ask me anymore!";
-
-		Ethan_hawk.kind_response = "fucking nice mate";
-		Ethan_hawk.friendly_response = "I can give you all the clues I have.";
-		
+		Ethan_hawk.kind_response = "KIND RESPONSE";
+		Ethan_hawk.friendly_response = "FRIENDLY RESPONSE";
 		Ethan_hawk.sympthetic_response = "I fell sorry for what has happened today.";
+        Ethan_hawk.cunning_response = "CUNNING RESPONSE";
+        Ethan_hawk.mean_response = "MEAN RESPONSE";
+
 		//no more interaction setup
 		Ethan_hawk.dont_interact_response = "I no longer wish to speak to you!";
+        Ethan_hawk.dont_interact_if1 = Ethan_hawk.aggressive_response;  // DONT TALK IF AGGRESIVE
+
+        //clue response 
+        Ethan_hawk.clue_response1 = "Kind";
+        Ethan_hawk.clue_response2 = "Friendly";
+
+        //incorrection accusation 
+        Ethan_hawk.incorect_accusation = "incorrect accusation";
 		
-	}
+
+    }
 
 
 
 	public void make_Ryan()
 	{
+        //basic setup
 		Ryan_Smith.Name = "Ryan";
 		Ryan_Smith.intro = "I'm Ryan_Smith, and I'm a lawyer";
 		ryan_look.sprite = Ryan_Smith.look;
 		Ryan_Smith.he_she = "he";
         Ryan_Smith.initial = "R.S";
         Ryan_Smith.man_woman = "man";
-		//badcop setup
+        Ryan_Smith.age = 45;
+        
+        //responses
 		Ryan_Smith.aggressive_response = "Dont talk to me like that you fuck I'm Bernard !";
 		Ryan_Smith.violent_response = "I'm a violent bernard";
 		Ryan_Smith.threaten_response = "I dont appreiacte being theatened! dont ask me anymore!";
-		
-		//goodcop setup 
 		Ryan_Smith.kind_response = "fucking nice mate";
 		Ryan_Smith.friendly_response = "I can give you all the clues I have.";
-		
 		Ryan_Smith.sympthetic_response = "I fell sorry for what has happened today.";
-		//no more interaction setup
+        Ryan_Smith.cunning_response = "cunning response";
+        Ryan_Smith.mean_response = "mean";
+
+        //no more interaction
 		Ryan_Smith.dont_interact_response = "I no longer wish to speak to you!";
-		
+        Ryan_Smith.dont_interact_if1 = Ryan_Smith.aggressive_response; // dont talk if aggresive 
+        Ryan_Smith.dont_interact_if2 = Ryan_Smith.friendly_response;
+
+        //clue response 
+        Ryan_Smith.clue_response1 = "Cunning";
+        Ryan_Smith.clue_response2 = "";
+
+        // incorrect accusation 
+        Ryan_Smith.incorect_accusation = "incorrect accuasation";		
 	}
 
 	public void make_Zoe()
 	{
+        //basic setup
 		Zoe_Williams.Name = "Zoe";
 		Zoe_Williams.intro = "Go to talk with my agent.";
 		zoe_look.sprite = Zoe_Williams.look;
 		Zoe_Williams.he_she = "she";
         Zoe_Williams.initial = "Z.W";
         Zoe_Williams.man_woman = "woman";
-		//badcop setup
+        Zoe_Williams.age = 26;
+
+		//responses
 		Zoe_Williams.aggressive_response = "Dont talk to me like that you fuck I'm Bernard !";
 		Zoe_Williams.violent_response = "I'm a violent bernard";
 		Zoe_Williams.threaten_response = "I dont appreiacte being theatened! dont ask me anymore!";
-		
-		//goodcop setup 
 		Zoe_Williams.kind_response = "fucking nice mate";
 		Zoe_Williams.friendly_response = "I can give you all the clues I have.";
-
 		Zoe_Williams.sympthetic_response = "I fell sorry for what has happened today.";
+        Zoe_Williams.cunning_response = "cunning";
+        Zoe_Williams.mean_response = "mean";
+
 		//no more interaction setup
 		Zoe_Williams.dont_interact_response = "I no longer wish to speak to you!";
+        Zoe_Williams.dont_interact_if1 = Zoe_Williams.kind_response;
+        Zoe_Williams.dont_interact_if2 = Zoe_Williams.sympthetic_response;
+
+        //clue response
+        Zoe_Williams.clue_response1 = "Mean";
+        Zoe_Williams.clue_response2 = "Cunning";
+
+        //incorrect accusation
+        Zoe_Williams.incorect_accusation = "incorrect accusation";
 		
 	}
 	public void make_Alice()
 	{
-
+        //basic setup
 		Alice_Davis.Name = "Alice";
 		Alice_Davis.intro = "I'm Zoe's agent, can I help you?";
 		alice_look.sprite = Alice_Davis.look;
 		Alice_Davis.he_she = "she";
         Alice_Davis.initial = "A.D";
         Alice_Davis.man_woman = "woman";
-        //badcop setup
+        Alice_Davis.age = 41;
+
+        //responses
 		Alice_Davis.aggressive_response = "Dont talk to me like that you fuck I'm Bernard !";
 		Alice_Davis.violent_response = "I'm a violent bernard";
 		Alice_Davis.threaten_response = "I dont appreiacte being theatened! dont ask me anymore!";
-	;
-		//goodcop setup 
 		Alice_Davis.kind_response = "fucking nice mate";
 		Alice_Davis.friendly_response = "I can give you all the clues I have.";
-		
+        Alice_Davis.cunning_response = "cunning";
+        Alice_Davis.mean_response = "mean";
 		Alice_Davis.sympthetic_response = "I fell sorry for what has happened today.";
+
 		//no more interaction setup
 		Alice_Davis.dont_interact_response = "I no longer wish to speak to you!";
+        Alice_Davis.dont_interact_if1 = Alice_Davis.kind_response;
+        Alice_Davis.dont_interact_if2 = Alice_Davis.sympthetic_response;
+
+        //clue response
+        Alice_Davis.clue_response1 = "Violent";
+        Alice_Davis.clue_response2 = "Kind";
+
+        //incorrect accusation
+        Alice_Davis.incorect_accusation = "incorrect accusation";
 		
 	}
 
 	public void make_Sophie()
 	{
+        //basic setup
 		Sophie_Aaron.Name = "Sophie";
 		Sophie_Aaron.intro = "I'm working in the hub as a waitress.";
 		sophie_look.sprite = Sophie_Aaron.look;
 		Sophie_Aaron.he_she = "she";
         Sophie_Aaron.initial = "S.A";
         Sophie_Aaron.man_woman = "woman";
-		//badcop setup
+        Sophie_Aaron.age = 32;
+
+		//responses
 		Sophie_Aaron.aggressive_response = "Dont talk to me like that you fuck I'm Bernard !";
 		Sophie_Aaron.violent_response = "I'm a violent bernard";
 		Sophie_Aaron.threaten_response = "I dont appreiacte being theatened! dont ask me anymore!";
-		;
-		//goodcop setup 
 		Sophie_Aaron.kind_response = "fucking nice mate";
 		Sophie_Aaron.friendly_response = "I can give you all the clues I have.";
-		
 		Sophie_Aaron.sympthetic_response = "I fell sorry for what has happened today.";
-		//no more interaction setup
-		Sophie_Aaron.dont_interact_response = "I no longer wish to speak to you!";
+        Sophie_Aaron.cunning_response = "cunning";
+        Sophie_Aaron.mean_response = "mean";
+
+        //no more interaction setup
+        Sophie_Aaron.dont_interact_response = "I no longer wish to speak to you!";
+        Sophie_Aaron.dont_interact_if1 = Sophie_Aaron.violent_response;
+        Sophie_Aaron.dont_interact_if2 = Sophie_Aaron.threaten_response;
+
+        //clue response
+        Sophie_Aaron.clue_response1 = "Aggressive";
+        Sophie_Aaron.clue_response2 = "kind";
+
+        //incorrect accusation
+        Sophie_Aaron.incorect_accusation = "incorrect accuasation";
 		
 	}
 
 	public void make_Stephen()
 	{
+        //basic information
 		Stephen_Brown.Name = "Stephen";
 		Stephen_Brown.intro = "I'll become a millionaire!";
 		stephen_look.sprite = Stephen_Brown.look;
 		Stephen_Brown.he_she = "he";
         Stephen_Brown.initial = "S.B";
         Stephen_Brown.man_woman = "man";
-		//badcop setup
+        Stephen_Brown.age = 61;
+
+		//responses
 		Stephen_Brown.aggressive_response = "Dont talk to me like that you fuck I'm Bernard !";
 		Stephen_Brown.violent_response = "I'm a violent bernard";
 		Stephen_Brown.threaten_response = "I dont appreiacte being theatened! dont ask me anymore!";
-		
-		//goodcop setup 
 		Stephen_Brown.kind_response = "fucking nice mate";
 		Stephen_Brown.friendly_response = "I can give you all the clues I have.";
-		
 		Stephen_Brown.sympthetic_response = "I fell sorry for what has happened today.";
+        Stephen_Brown.cunning_response = "cunning";
+        Stephen_Brown.mean_response = "mean";
+
 		//no more interaction setup
 		Stephen_Brown.dont_interact_response = "I no longer wish to speak to you!";
-		
-	}
+        Stephen_Brown.dont_interact_if1 = Stephen_Brown.kind_response;
+        Stephen_Brown.dont_interact_if2 = Stephen_Brown.cunning_response;
+
+        //clues response
+        Stephen_Brown.clue_response1 = "Mean";
+        Stephen_Brown.clue_response2 = "Aggressive";
+
+        //incorrect accusation
+        Stephen_Brown.incorect_accusation = "incorrect accusation";
+
+    }
 
 	public void make_Robert()
 	{
+        //basic setup
 		Robert_Henry.Name = "Robert";
 		Robert_Henry.intro = "I can give you the best advice on your issue!";
 		robert_look.sprite = Robert_Henry.look;
 		Robert_Henry.he_she = "he";
         Robert_Henry.initial = "R.H";
         Robert_Henry.man_woman = "man";
-		//badcop setup
+        Robert_Henry.age = 23;
+
+		//responses
 		Robert_Henry.aggressive_response = "Dont talk to me like that you fuck I'm Bernard !";
 		Robert_Henry.violent_response = "I'm a violent bernard";
 		Robert_Henry.threaten_response = "I dont appreiacte being theatened! dont ask me anymore!";
-		
-		//goodcop setup 
 		Robert_Henry.kind_response = "fucking nice mate";
-		Robert_Henry.friendly_response = "I can give you all the clues I have.";
-		
+        Robert_Henry.friendly_response = "I can give you all the clues I have.";
 		Robert_Henry.sympthetic_response = "I fell sorry for what has happened today.";
-		//no more interaction setup
-		Robert_Henry.dont_interact_response = "I no longer wish to speak to you!";
-		
+        Robert_Henry.cunning_response = "cunning";
+        Robert_Henry.mean_response = "mean";
+
+        //no more interaction setup
+        Robert_Henry.dont_interact_response = "I no longer wish to speak to you!";
+        Robert_Henry.dont_interact_if2 = Robert_Henry.violent_response;
+        Robert_Henry.dont_interact_if2 = Robert_Henry.cunning_response;
+
+        //clues response 
+        Robert_Henry.clue_response1 = "violent";
+        Robert_Henry.clue_response2 = "Mean";
+
+        //incorrect accusation
+        Robert_Henry.incorect_accusation = "incorrect accusation"; 
 	}
 
 

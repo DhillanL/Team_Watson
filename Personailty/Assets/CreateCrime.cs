@@ -19,7 +19,7 @@ public class CreateCrime : MonoBehaviour
 
     public void select_crime()
     {
-        int y = Random.Range(0, 2);  // 0 ,1 or 2 
+        int y = Random.Range(0, 2);  // 0 ,1 or 2    SET THIS TO THE RIGHT RANGE WHEN ALL OF THE CRIMES HAVE BEEN CREATED 
         murder_int = y;
     }
 
@@ -74,6 +74,11 @@ public class CreateCrime : MonoBehaviour
         // pushed over the lakehouse 
         murder3 = ("The height of the lake house balcony is around 30 feet tall and " + gamemanob.GetComponent<gameManager>().get_victim()  + " feel all 30...head first. \n\n" +
             gamemanob.GetComponent<gameManager>().get_victim() + " can be found at " + gamemanob.GetComponent<gameManager>().get_whole_victim().room) ;
+
+        //murder 4 needs to be created 
+        //murder 5 
+        //murder 6 
+        //murder 7 
 
     }
 

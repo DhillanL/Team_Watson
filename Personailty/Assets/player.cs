@@ -7,6 +7,7 @@ public class player : MonoBehaviour {
 
     static public bool spwaned = false;
 
+    public Text speach_box;
 
     public string Name;                       // name of the player 
     public Personality_player Personailty ;   //personailty of the player 
@@ -52,14 +53,14 @@ public class player : MonoBehaviour {
 
     void Start()
     {
-        if (gameMan.GetComponent<gameManager>().get_player_set())
+        if (gameMan.GetComponent<gameManager>().get_player_set()) // if the player is alright set dont create another one 
         {
             ;
         }
         else
         {
             setPlay();
-            rb2D = GetComponent<Rigidbody2D>(); // gets the ridig body of the player 
+            rb2D = GetComponent<Rigidbody2D>(); // gets the ridig body of the player sets the rigid body 
             gameMan.GetComponent<gameManager>().set_player_to_true();
 
         }
@@ -72,7 +73,7 @@ public class player : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.A))
         {
             rb2D.velocity = new Vector2(-speed, 0);
-            
+           
         }
         else if (Input.GetKeyUp(KeyCode.A))
         {
@@ -81,6 +82,7 @@ public class player : MonoBehaviour {
         else if (Input.GetKeyDown(KeyCode.D))
         {
             rb2D.velocity = new Vector2(speed, 0);
+            
 
         }
         else if (Input.GetKeyUp(KeyCode.D))

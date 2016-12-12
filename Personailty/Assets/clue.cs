@@ -48,9 +48,7 @@ public class clue: MonoBehaviour{
 
     void OnMouseDown()
     {
-
         GameManger = GameObject.FindWithTag("gamemanager");
-
         is_found = true;
         GameManger.GetComponent<gameManager>().increase_clue_count();
         Debug.Log("click");   
