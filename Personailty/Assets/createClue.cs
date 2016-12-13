@@ -177,7 +177,7 @@ public class createClue: MonoBehaviour{
         clue_5.info = "Drowned on " + game_manager.GetComponent<gameManager>().get_whole_victim().he_she + " birhday, how horrible";
 
         clue_6.name = "A pair of shoes with damp mud over the front";
-        clue_6.info = "The shoes are a " + game_manager.GetComponent<gameManager>().get_whole_murderer().man_woman + "'s size 4 ";
+        clue_6.info = "The shoes are a " + game_manager.GetComponent<gameManager>().get_whole_murderer().man_woman + "'s size 4. The only mud around is outside by the lakes ";
 
         verbal_clue_7.name = ("I saw " + game_manager.GetComponent<gameManager>().get_murder() + " and " + game_manager.GetComponent<gameManager>().get_victim() + " shouting at each other earlier, sounded serious" );
 

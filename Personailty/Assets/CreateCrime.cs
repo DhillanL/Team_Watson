@@ -19,7 +19,7 @@ public class CreateCrime : MonoBehaviour
 
     public void select_crime()
     {
-        int y = Random.Range(0, 2);  // 0 ,1 or 2    SET THIS TO THE RIGHT RANGE WHEN ALL OF THE CRIMES HAVE BEEN CREATED 
+        int y = Random.Range(0, 4);  // 0 ,1,2,3 and 4    SET THIS TO THE RIGHT RANGE WHEN ALL OF THE CRIMES HAVE BEEN CREATED 
         murder_int = y;
     }
 
@@ -46,12 +46,14 @@ public class CreateCrime : MonoBehaviour
         }
         else if (x == 3)
         {
-            ;
+            crime = murder4;
+            check_murder = "strangled";
 
         }
         else
         {
-            ;
+            crime = murder5;
+            check_murder = "";
 
         }
 
@@ -69,14 +71,19 @@ public class CreateCrime : MonoBehaviour
 
         // pushed into the freeing lake 
         murder2 = ("The lake outside of the Ron Cooke Hub is cold at the best of times. Last night the lake wasnt far off being frozen.\n\n  " + gamemanob.GetComponent<gameManager>().get_victim() +
-            "\'s body was found at the bottom, cold as ice \n\n It looks like " + gamemanob.GetComponent<gameManager>().get_whole_victim().he_she + " was pushed.");
+            "\n's body was found at the bottom, cold as ice \n\nIt looks like " + gamemanob.GetComponent<gameManager>().get_whole_victim().he_she + " was pushed.");
 
         // pushed over the lakehouse 
         murder3 = ("The height of the lake house balcony is around 30 feet tall and " + gamemanob.GetComponent<gameManager>().get_victim()  + " feel all 30...head first. \n\n" +
             gamemanob.GetComponent<gameManager>().get_victim() + " can be found at " + gamemanob.GetComponent<gameManager>().get_whole_victim().room) ;
 
-        //murder 4 needs to be created 
+        // strangled by a scraf
+        murder4 = (gamemanob.GetComponent<gameManager>().get_victim() + "'s body was found in " + gamemanob.GetComponent<gameManager>().get_whole_victim().room
+            + "\n " + gamemanob.GetComponent<gameManager>().get_whole_victim().he_she + " was found strangled by a scraf");
+
         //murder 5 
+        murder5 = ("murder 5");
+
         //murder 6 
         //murder 7 
 

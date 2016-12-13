@@ -456,9 +456,7 @@ public class gameManager : MonoBehaviour {
         set_player_vel_0();
     }
 
-    
 
-    // for testing 
 
 
 

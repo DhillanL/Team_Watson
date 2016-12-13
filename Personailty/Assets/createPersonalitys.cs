@@ -86,7 +86,7 @@ public class createPersonalitys : MonoBehaviour {
         smart.set1("Please tell me what happened friend, it is important");
         smart.settype2("Cunning");
         smart.set2("We will both get along better if you tell me what happened");
-        smart.settype3("Threaten");
+        smart.settype3("Aggresive");
         smart.set3("Tell me what you know or there will be consequences.");
     }
 
@@ -126,7 +126,7 @@ public class createPersonalitys : MonoBehaviour {
         trust.setintro("Hello there, my name is " + Name.ToString() + "and i am here to help you");
         trust.settype1("Sympathetic");
         trust.set1("Im sorry to hear what happened here but i need to know any information you have");
-        trust.settype2("Violent");
+        trust.settype2("Mean");
         trust.set2("I know you are trying to help but im getting impatient so tell me what you know");
         trust.settype3("Kind");
         trust.set3("Im here to help, so please if you know something, tell me");
@@ -135,6 +135,7 @@ public class createPersonalitys : MonoBehaviour {
     public Personality_player getTrustyCop()
     {
         maketrustycop();
+        
         return trust;
     }
 

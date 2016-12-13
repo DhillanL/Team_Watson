@@ -97,7 +97,7 @@ public class CreateNPC : MonoBehaviour {
 	{
 		// basic setup
 		Tonald_Dump.Name =      "Tonald"; // HAS TO BE THE FIRST NAME ONLY AS IT MATCHES TE TAG OF THE PLAYER 
-		Tonald_Dump.intro =     "Hello, Im' Tonald and I am the manager of Ron Cooke Hub.";
+		Tonald_Dump.intro =     "Hello, Im' Tonald the manager of Ron Cooke Hub. I'll be happy to help in any way I can";
 		tonald_look.sprite =    Tonald_Dump.look;    //look set from the sprite added to game object
 		Tonald_Dump.he_she =    "he";  // he or she
         Tonald_Dump.initial =   "T.D";
@@ -108,14 +108,14 @@ public class CreateNPC : MonoBehaviour {
 		Tonald_Dump.aggressive_response = "How dare you take that tone with me! I've got nothing to say!";
 		Tonald_Dump.violent_response =    "Okay, Okay...I'm sorry detective but I dont know anything !";
 		Tonald_Dump.threaten_response =   "DON'T THREATEN ME! who do you think ou are?! Dont bother talking to me again!";
-        Tonald_Dump.kind_response =       "fucking nice mate";
+        Tonald_Dump.kind_response =       "Well I haven't seen anything out of the ordinary";
         Tonald_Dump.friendly_response =   "I'm afiad I don't know anything, But please ask if you have any more questions";
-        Tonald_Dump.sympthetic_response = "I fell so sorry for what has happened today.";
-        Tonald_Dump.cunning_response =    "cunning";
-        Tonald_Dump.mean_response =       "mean";
+        Tonald_Dump.sympthetic_response = "I fell so sorry for what has happened today";
+        Tonald_Dump.cunning_response =    "I've seen nothing detective. If I find out anything I'll be sure to let you know";
+        Tonald_Dump.mean_response =       "I dont like the Look of you either! Go away";
 		
         // no more interaction set up 
-        Tonald_Dump.dont_interact_response = "I'm not talking to you anymore, go away Detective";
+        Tonald_Dump.dont_interact_response = "I have nothing else to say detective";
         Tonald_Dump.dont_interact_if1 = Tonald_Dump.threaten_response;       // Tonald wont interact if he is questioned 'threaten or violent'
         Tonald_Dump.dont_interact_if2 = Tonald_Dump.violent_response;
 
@@ -132,7 +132,7 @@ public class CreateNPC : MonoBehaviour {
 	{
 		//basic setup
 		Bernard_lowe.Name =      "Bernard";
-		Bernard_lowe.intro =     "Hi I'm Bernard, the head chef here! You have to come and try my food!";
+		Bernard_lowe.intro =     "Hi I'm Bernard, the head chef here, If you need something to eat or drink pop by";
 		bernard_look.sprite =    Bernard_lowe.look;
 		Bernard_lowe.he_she =    "he";   // he or she
         Bernard_lowe.initial =   "B.L";
@@ -142,7 +142,7 @@ public class CreateNPC : MonoBehaviour {
 		//responses
 		Bernard_lowe.aggressive_response =  "I dont like the way you talk to me detective!";
 		Bernard_lowe.violent_response =     "I'm sorry but I dont know anything! I'd tell you if I did";
-		Bernard_lowe.threaten_response =    "Please dont hurt me! I dont know anything!";
+		Bernard_lowe.threaten_response =    "Please dont hurt me! I dont know anything! I am but a simple chef!";
 		Bernard_lowe.kind_response =        "I'd tell you if I knew anything detective";
 		Bernard_lowe.friendly_response =    " friednly....";
 		Bernard_lowe.sympthetic_response =  "sympthetic....";
@@ -152,6 +152,7 @@ public class CreateNPC : MonoBehaviour {
 		//no more interaction setup
 		Bernard_lowe.dont_interact_response = "Go away detective! leave me alone";
         Bernard_lowe.dont_interact_if1 = Bernard_lowe.violent_response;
+        Bernard_lowe.dont_interact_if2 = Bernard_lowe.aggressive_response;
 
         //clue response
         Bernard_lowe.clue_response1 = "Threaten";
@@ -187,11 +188,13 @@ public class CreateNPC : MonoBehaviour {
         George_allen.mean_response =       "mean";
 
 		//no more interaction setup
-		George_allen.dont_interact_response = "I no longer wish to speak to you!";
+		George_allen.dont_interact_response = "*mumbles from crying*";
         George_allen.dont_interact_if1 = George_allen.cunning_response;
+        George_allen.dont_interact_if2 = George_allen.sympthetic_response;
 
         //clue response 
         George_allen.clue_response1 = "Sympthetic";
+        George_allen.clue_response2 = "Friendly";
 
         //incorrect accusation
         George_allen.incorect_accusation = "INCORRECT ACCUSATION";
@@ -224,10 +227,11 @@ public class CreateNPC : MonoBehaviour {
 		//no more interaction setup
 		Ethan_hawk.dont_interact_response = "I no longer wish to speak to you!";
         Ethan_hawk.dont_interact_if1 = Ethan_hawk.aggressive_response;  // DONT TALK IF AGGRESIVE
+        Ethan_hawk.dont_interact_if2 = Ethan_hawk.mean_response;
 
         //clue response 
-        Ethan_hawk.clue_response1 = "Kind";
-        Ethan_hawk.clue_response2 = "Friendly";
+        Ethan_hawk.clue_response1 = "Violent";
+        Ethan_hawk.clue_response2 = "Aggresive";
 
         //incorrection accusation 
         Ethan_hawk.incorect_accusation = "incorrect accusation";
@@ -260,12 +264,12 @@ public class CreateNPC : MonoBehaviour {
 
         //no more interaction
 		Ryan_Smith.dont_interact_response = "I no longer wish to speak to you!";
-        Ryan_Smith.dont_interact_if1 = Ryan_Smith.aggressive_response; // dont talk if aggresive 
+        Ryan_Smith.dont_interact_if1 = Ryan_Smith.cunning_response;
         Ryan_Smith.dont_interact_if2 = Ryan_Smith.friendly_response;
 
         //clue response 
-        Ryan_Smith.clue_response1 = "Cunning";
-        Ryan_Smith.clue_response2 = "";
+        Ryan_Smith.clue_response1 = "Kind";
+        Ryan_Smith.clue_response2 = "Aggresive";
 
         // incorrect accusation 
         Ryan_Smith.incorect_accusation = "incorrect accuasation";		
@@ -293,7 +297,7 @@ public class CreateNPC : MonoBehaviour {
         Zoe_Williams.mean_response = "mean";
 
 		//no more interaction setup
-		Zoe_Williams.dont_interact_response = "I no longer wish to speak to you!";
+		Zoe_Williams.dont_interact_response = "I no longer wish to speak to you!"; // need a way to make her be okay with not resposing if the player is kind 
         Zoe_Williams.dont_interact_if1 = Zoe_Williams.kind_response;
         Zoe_Williams.dont_interact_if2 = Zoe_Williams.sympthetic_response;
 
@@ -328,12 +332,12 @@ public class CreateNPC : MonoBehaviour {
 
 		//no more interaction setup
 		Alice_Davis.dont_interact_response = "I no longer wish to speak to you!";
-        Alice_Davis.dont_interact_if1 = Alice_Davis.kind_response;
-        Alice_Davis.dont_interact_if2 = Alice_Davis.sympthetic_response;
+        Alice_Davis.dont_interact_if1 = Alice_Davis.mean_response;
+        Alice_Davis.dont_interact_if2 = Alice_Davis.violent_response;
 
         //clue response
-        Alice_Davis.clue_response1 = "Violent";
-        Alice_Davis.clue_response2 = "Kind";
+        Alice_Davis.clue_response1 = "Threaten";
+        Alice_Davis.clue_response2 = "Mean";
 
         //incorrect accusation
         Alice_Davis.incorect_accusation = "incorrect accusation";
@@ -363,12 +367,12 @@ public class CreateNPC : MonoBehaviour {
 
         //no more interaction setup
         Sophie_Aaron.dont_interact_response = "I no longer wish to speak to you!";
-        Sophie_Aaron.dont_interact_if1 = Sophie_Aaron.violent_response;
-        Sophie_Aaron.dont_interact_if2 = Sophie_Aaron.threaten_response;
+        Sophie_Aaron.dont_interact_if1 = Sophie_Aaron.threaten_response;
+        Sophie_Aaron.dont_interact_if2 = Sophie_Aaron.aggressive_response; ;
 
         //clue response
-        Sophie_Aaron.clue_response1 = "Aggressive";
-        Sophie_Aaron.clue_response2 = "kind";
+        Sophie_Aaron.clue_response1 = "Violent";
+        Sophie_Aaron.clue_response2 = "Sympthetic";
 
         //incorrect accusation
         Sophie_Aaron.incorect_accusation = "incorrect accuasation";
@@ -402,7 +406,7 @@ public class CreateNPC : MonoBehaviour {
         Stephen_Brown.dont_interact_if2 = Stephen_Brown.cunning_response;
 
         //clues response
-        Stephen_Brown.clue_response1 = "Mean";
+        Stephen_Brown.clue_response1 = "Friendly";
         Stephen_Brown.clue_response2 = "Aggressive";
 
         //incorrect accusation
@@ -433,8 +437,8 @@ public class CreateNPC : MonoBehaviour {
 
         //no more interaction setup
         Robert_Henry.dont_interact_response = "I no longer wish to speak to you!";
-        Robert_Henry.dont_interact_if2 = Robert_Henry.violent_response;
-        Robert_Henry.dont_interact_if2 = Robert_Henry.cunning_response;
+        Robert_Henry.dont_interact_if2 = Robert_Henry.friendly_response;
+        Robert_Henry.dont_interact_if2 = Robert_Henry.threaten_response;
 
         //clues response 
         Robert_Henry.clue_response1 = "violent";
