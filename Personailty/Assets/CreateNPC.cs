@@ -58,7 +58,8 @@ public class CreateNPC : MonoBehaviour {
     // lists needed for creating the room allocation 
     public GameObject[] gameobjectlst_ = new GameObject[10];       
     public GameObject[] gameobjectlstshuffle_ = new GameObject[10];
-   
+
+    public Sprite dead; // sprite used to give the sprite for a dead chaarter to the selected npc
 
     public void setNCPS() // method to access the NPC script of each game object of the NPC so it can be modifed to make each one unique 
     {
@@ -498,19 +499,21 @@ public class CreateNPC : MonoBehaviour {
         if (crime.GetComponent<CreateCrime>().murder_int == 1)  // drowned 
         {
             gameobjectlstshuffle_[6].GetComponent<NPC>().is_Victim();
+            gameobjectlstshuffle_[6].GetComponent<SpriteRenderer>().sprite = dead;
             Gameman.GetComponent<gameManager>().set_victim(gameobjectlstshuffle_[6].GetComponent<NPC>());  // store data 
         }
         else if (crime.GetComponent<CreateCrime>().murder_int == 2) // pushed off lakehouse
         {
             gameobjectlstshuffle_[9].GetComponent<NPC>().is_Victim();
+            gameobjectlstshuffle_[9].GetComponent<SpriteRenderer>().sprite = dead;
             Gameman.GetComponent<gameManager>().set_victim(gameobjectlstshuffle_[9].GetComponent<NPC>());  // store data 
 
         } else
         {
             int x = Random.Range(0, 10);       // random number between 0 and 9
             npc_list_[x].is_Victim();
+            GameObject.FindWithTag(npc_list_[x].Name).GetComponent<SpriteRenderer>().sprite = dead;
             Gameman.GetComponent<gameManager>().set_victim(npc_list_[x]);  // store data 
-
         }
 
         lst_no_victim();                   // create list of all other npcs who arent the victim 

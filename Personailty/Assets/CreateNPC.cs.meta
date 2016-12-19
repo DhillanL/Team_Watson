@@ -1,10 +1,44 @@
 fileFormatVersion: 2
 guid: 5c0c76d9183aba347985b67df65950f4
-timeCreated: 1479413239
+timeCreated: 1482180307
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Gameman: {instanceID: 0}
+  - crime: {instanceID: 0}
+  - clues: {instanceID: 0}
+  - Tonald: {instanceID: 0}
+  - Bernard: {instanceID: 0}
+  - George: {instanceID: 0}
+  - Ethan: {instanceID: 0}
+  - Ryan: {instanceID: 0}
+  - Zoe: {instanceID: 0}
+  - Alice: {instanceID: 0}
+  - Sophie: {instanceID: 0}
+  - Stephen: {instanceID: 0}
+  - Robert: {instanceID: 0}
+  - Tonald_Dump: {instanceID: 0}
+  - Bernard_lowe: {instanceID: 0}
+  - George_allen: {instanceID: 0}
+  - Ethan_hawk: {instanceID: 0}
+  - Ryan_Smith: {instanceID: 0}
+  - Zoe_Williams: {instanceID: 0}
+  - Alice_Davis: {instanceID: 0}
+  - Sophie_Aaron: {instanceID: 0}
+  - Stephen_Brown: {instanceID: 0}
+  - Robert_Henry: {instanceID: 0}
+  - tonald_look: {instanceID: 0}
+  - bernard_look: {instanceID: 0}
+  - george_look: {instanceID: 0}
+  - ethan_look: {instanceID: 0}
+  - ryan_look: {instanceID: 0}
+  - zoe_look: {instanceID: 0}
+  - alice_look: {instanceID: 0}
+  - sophie_look: {instanceID: 0}
+  - stephen_look: {instanceID: 0}
+  - robert_look: {instanceID: 0}
+  - dead: {fileID: 21300000, guid: b2083f8ae736f484fb5b7bd17638548c, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

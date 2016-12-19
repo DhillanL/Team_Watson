@@ -65,36 +65,51 @@ public class Interaction : MonoBehaviour {
 
     public void pick_interaction()
     {
-        head_shot.GetComponent<SpriteRenderer>().sprite = npc.headshot;
+       
 
-        if (npc.okay_to_interact == true)
+        if (npc.is_victim == true)
         {
-            if (npc.first_interaction == true)
-            {
-                speachbox.text = "detective " + player.Name + " :  " + player.Personailty.intro;
 
-                speachbox.text = speachbox.text + "\n\n" + npc.Name + ": " + npc.intro;
-
-                npc.first_interaction = false;
-
-                npc = null;
-            }
-            else
-            {
-                speachbox.text = "how would you like to interact:";
-                question.transform.Translate(0,57,0);
-                accusebutt.transform.Translate(0,57,0);
-
-            }
+            speachbox.text = "the Body has been placed in a bag and taped off - probably best";
 
         }
         else
         {
-            speachbox.text = npc.name + ": " + npc.dont_interact_response;
-            npc = null;
-        }
+
+            head_shot.GetComponent<SpriteRenderer>().sprite = npc.headshot;
+
+            if (npc.okay_to_interact == true)
+                {
+                    if (npc.first_interaction == true)
+                    {
+                        speachbox.text = "detective " + player.Name + " :  " + player.Personailty.intro;
+
+                        speachbox.text = speachbox.text + "\n\n" + npc.Name + ": " + npc.intro;
+
+                        npc.first_interaction = false;
+
+                        npc = null;
+                    }
+                    else
+                    {
+                        speachbox.text = "how would you like to interact:";
+                        question.transform.Translate(0, 57, 0);
+                        accusebutt.transform.Translate(0, 57, 0);
+
+                    }
+
+                }
+                else
+                {
+                    speachbox.text = npc.name + ": " + npc.dont_interact_response;
+                    npc = null;
+                }
+
+            }
+
+        } 
         
-    }
+    
 
 
     public void pick_question()
