@@ -14,6 +14,7 @@ public class gameManager : MonoBehaviour {
     // PLAYER attributes
     static public string Name;                         // players name 
     static public Personality_player personailty;      // players pesonailty 
+    static public int person_int;                      // int to represent the personailty choice 
     static public Sprite Sprite;                       // players look 
 
     static public NPC murderer;      // murderer
@@ -80,7 +81,14 @@ public class gameManager : MonoBehaviour {
     {
         Name = namein;
     }
-
+    public void loadpersonint(int number)
+    {
+        person_int = number;
+    }
+    public int getpersonint()
+    {
+        return person_int;
+    }
 
     public void loadPersonailty(Personality_player personal) //FUNCTION TO CHANGE THE VALUE OF PESONAILTY
     {
@@ -108,6 +116,8 @@ public class gameManager : MonoBehaviour {
         return personailty;
     }
 
+
+    // ----------------------------------------------------------------------------------------------------------------------------------
 
     // FUNCTIONS TO SET THE MURDERER FOR THE GAME AND THE VICTIM AND THE MURDER 
 
@@ -148,7 +158,10 @@ public class gameManager : MonoBehaviour {
         return victim;
     }
 
+    // ------------------------------------------------------------------------------------------------------------------------------------------------
+
 	//methods for setting the rooms for the clues adn the NPC who they are attached to 
+
 	public void setClue1(GameObject clue){
         clue_room1 = clue;
 	}
@@ -192,8 +205,9 @@ public class gameManager : MonoBehaviour {
     }
 	
 
-
-    //methods for setting the players in the room in pos
+    // --------------------------------------------------------------------------------------------------------------------------------------------
+    
+        //methods for setting the players in the room in pos
 
     public void setroom11(GameObject npc)
     {

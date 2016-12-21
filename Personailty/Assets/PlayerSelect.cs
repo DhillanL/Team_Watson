@@ -13,6 +13,7 @@ public class PlayerSelect : MonoBehaviour {
     public InputField Namein;   //name inputed of the player 
    
     public Personality_player personality;    // personailty of the player 
+    public int person_int = 0;
     
     public Button goodcopbutton;   // imports all buttons from scene 
     public Button badcopbutton;    
@@ -30,7 +31,7 @@ public class PlayerSelect : MonoBehaviour {
     public createPersonalitys personalitycreate;        // refernce of the script createPersonailtys 
 
     public GameObject characterpreview;
-    public Sprite goodcopsprite;    // imports all sprites from scene
+    public Sprite goodcopsprite;    // sprites to be displayed!
     public Sprite badcopsprite;
     public Sprite smartcopsprite;
     public Sprite dumbcopsprite;
@@ -48,25 +49,31 @@ public class PlayerSelect : MonoBehaviour {
         if (badcopbutton.image.color.Equals(Color.red))
         {
             personality = personalitycreate.getBadCop();              // sets personality as bad cop
+            
         }
         else if (goodcopbutton.image.color.Equals(Color.red))
         {
             personality = personalitycreate.getGoodCop();             // sets personality as good cop
+            
         }
         else if (smartcopbutton.image.color.Equals(Color.red))
         {
             personality = personalitycreate.getSmartCop();            // sets personality as smart cop
+            
         }
         else if (dumbcopbutton.image.color.Equals(Color.red))
         {
             personality = personalitycreate.getDumbCop();             // sets personality as dumb cop
+            
         }
         else if (trustycopbutton.image.color.Equals(Color.red))
         {
             personality = personalitycreate.getTrustyCop();           // sets personality as trusting cop
+            
         }
         else if (suspicouscopbutton.image.color.Equals(Color.red))
             personality = personalitycreate.getSuspCop();             // sets personality as suspicious cop
+            
         
     }
 
@@ -86,6 +93,7 @@ public class PlayerSelect : MonoBehaviour {
         dumbcopbutton.image.color = Color.white;
         trustycopbutton.image.color = Color.white;
         suspicouscopbutton.image.color = Color.white;
+        person_int = 2;
     }
 
     public void BadcopColor()                                        // turns badcop red
@@ -97,6 +105,7 @@ public class PlayerSelect : MonoBehaviour {
         dumbcopbutton.image.color = Color.white;
         trustycopbutton.image.color = Color.white;
         suspicouscopbutton.image.color = Color.white;
+        person_int = 1;
     }
 
     public void SmartcopColor()
@@ -108,6 +117,7 @@ public class PlayerSelect : MonoBehaviour {
         dumbcopbutton.image.color = Color.white;
         trustycopbutton.image.color = Color.white;
         suspicouscopbutton.image.color = Color.white;
+        person_int = 3;
     }
 
     public void DumbcopColor()
@@ -119,6 +129,7 @@ public class PlayerSelect : MonoBehaviour {
         dumbcopbutton.image.color = Color.red;
         trustycopbutton.image.color = Color.white;
         suspicouscopbutton.image.color = Color.white;
+        person_int = 4;
     }
 
     public void TrustycopColor()
@@ -130,6 +141,7 @@ public class PlayerSelect : MonoBehaviour {
         dumbcopbutton.image.color = Color.white;
         trustycopbutton.image.color = Color.red;
         suspicouscopbutton.image.color = Color.white;
+        person_int = 5;
     }
 
     public void SuspcopColor()
@@ -141,6 +153,7 @@ public class PlayerSelect : MonoBehaviour {
         dumbcopbutton.image.color = Color.white;
         trustycopbutton.image.color = Color.white;
         suspicouscopbutton.image.color = Color.red;
+        person_int = 6;
     }
 
 
@@ -162,6 +175,7 @@ public class PlayerSelect : MonoBehaviour {
     {
         data = gameMan.GetComponent<gameManager>();
         data.loadPersonailty(personality); // load personality into the gameManager
+        data.loadpersonint(person_int);
     }
     public void transfer_srite()  // transfers the sprite   
     {

@@ -80,6 +80,7 @@
      <Compile Include="Assets\logbookScripts\logbookparts.cs" />
      <Compile Include="Assets\player.cs" />
      <Compile Include="Assets\setnpcrooms.cs" />
+     <Compile Include="Assets\setplayer.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
