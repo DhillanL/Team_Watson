@@ -8,12 +8,12 @@ public class ColliderLeftScreen : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D Col)
     {
-        Vector3 starting_pos_left = new Vector3(155, -20, 0);
+        Vector3 starting_pos_left = new Vector3(155, -21, 0);
 
         string col_tag = Col.gameObject.tag;
         string room = SceneManager.GetActiveScene().name;
-        Debug.Log("touch");
-        Debug.Log(col_tag);
+        //Debug.Log("touch");
+        //Debug.Log(col_tag);
 
         if (col_tag.Equals("Player"))
         {

@@ -367,7 +367,7 @@ public class gameManager : MonoBehaviour {
 
     public void set_player_pos_firsttime()
     {
-        GameObject.FindWithTag("Player").GetComponent<Transform>().position = new Vector3(-140, -20, 0);
+        GameObject.FindWithTag("Player").GetComponent<Transform>().position = new Vector3(-140, -21, 0);
     }
 
     public void set_player_vel_0()

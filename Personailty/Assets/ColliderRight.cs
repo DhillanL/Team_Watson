@@ -9,7 +9,7 @@ public class ColliderRight : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D Coll)
     {
 
-        Vector3 starting_pos_right = new Vector3(-155, -20, 0);
+        Vector3 starting_pos_right = new Vector3(-155, -21, 0);
 
         string col_tag = Coll.gameObject.tag;
         string room = SceneManager.GetActiveScene().name;

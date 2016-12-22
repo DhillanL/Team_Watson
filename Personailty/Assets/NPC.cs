@@ -38,6 +38,8 @@ public class NPC : MonoBehaviour {
     public string dont_interact_if3 = "";    // these are set to the responses that the npc would say if they dont want to talk anymore. EG: NPC may say 'thats horrible dont talk to me again'
                                              // this may be there response if they are questioned aggresively. so we can test if they are the same and change okay_to_interact to false;
     public string incorect_accusation;
+
+    public int orintation = 1;
         
     //respsones
     public string aggressive_response; //
@@ -49,7 +51,7 @@ public class NPC : MonoBehaviour {
     public string cunning_response;
     public string mean_response;
 
-    Vector3 newPos = new Vector3(-300,-12,0);   // starting pos for all of the NPCS
+    Vector3 newPos = new Vector3(-300,-21,0);   // starting pos for all of the NPCS
 
     public GameObject Interaction;  // used to find the interaction scirpt for each scene 
     public GameObject me;
@@ -88,6 +90,7 @@ public class NPC : MonoBehaviour {
         if (Interaction.GetComponent<Interaction>().npc == null)
         {
             Interaction.GetComponent<Interaction>().setNPC(me.GetComponent<NPC>());   // sets the npc who is being comuncated with in the gameman
+            Interaction.GetComponent<Interaction>().setNPCobj(me); // set the game object
                                                                 
             Interaction.GetComponent<Interaction>().pick_interaction();               // starts the interaction
         }

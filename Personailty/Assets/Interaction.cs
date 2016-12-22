@@ -7,6 +7,7 @@ public class Interaction : MonoBehaviour {
     public GameObject Player;
     public GameObject gameman;
     public GameObject logbookpart;
+    public GameObject npcobj;
     public gameManager Gamemanager;
     public player player;
     public NPC npc;
@@ -29,8 +30,14 @@ public class Interaction : MonoBehaviour {
     public void setNPC(NPC npcin)
     {
         npc = npcin;
+
     }
 
+    public void setNPCobj(GameObject npcob)
+    {
+        npcobj = npcob;
+    }
+ 
 	public string npc_response()
 	{
 		switch(question_style_text)
@@ -62,6 +69,23 @@ public class Interaction : MonoBehaviour {
 		}
 	}
 
+    public void set_orintation()
+    {
+        if (player.orintation == npc.orintation)
+        {
+            if (npc.orintation == 1 )
+            {
+                npcobj.GetComponent<SpriteRenderer>().flipX = true;
+                npc.orintation = 0;
+            } else
+            {
+                npc.orintation = 1;
+                npcobj.GetComponent<SpriteRenderer>().flipX = false;
+            }
+        }
+
+    }
+
 
     public void pick_interaction()
     {
@@ -78,8 +102,13 @@ public class Interaction : MonoBehaviour {
 
             head_shot.GetComponent<SpriteRenderer>().sprite = npc.headshot;
 
+            set_orintation();
+
             if (npc.okay_to_interact == true)
+
                 {
+
+                
                     if (npc.first_interaction == true)
                     {
                         speachbox.text = "detective " + player.Name + " :  " + player.Personailty.intro;
@@ -92,6 +121,7 @@ public class Interaction : MonoBehaviour {
                     }
                     else
                     {
+                    
                         speachbox.text = "how would you like to interact:";
                         question.transform.Translate(0, 57, 0);
                         accusebutt.transform.Translate(0, 57, 0);
