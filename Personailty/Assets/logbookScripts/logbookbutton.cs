@@ -12,7 +12,8 @@ public class logbookbutton : MonoBehaviour {
     }
 
     void OnMouseDown()
-    {
+    { 
+        // implement faster for loop way
         GameObject.FindWithTag("logbookparts").GetComponent<logbookparts>().load_logbook();
         GameObject.FindWithTag("logbook").GetComponent<Transform>().position = finish_pos;
         GameObject.FindWithTag("logtext1").GetComponent<Transform>().Translate(-290,0,0);
