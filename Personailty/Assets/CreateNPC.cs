@@ -111,12 +111,12 @@ public class CreateNPC : MonoBehaviour {
 		Tonald_Dump.threaten_response =   "DON'T THREATEN ME! who do you think ou are?! Dont bother talking to me again!";
         Tonald_Dump.kind_response =       "Well I haven't seen anything out of the ordinary";
         Tonald_Dump.friendly_response =   "I'm afiad I don't know anything, But please ask if you have any more questions";
-        Tonald_Dump.sympthetic_response = "I fell so sorry for what has happened today";
+        Tonald_Dump.sympthetic_response = "I cant belive whats happened, maybe we should build a wall to keep out criminals?";
         Tonald_Dump.cunning_response =    "I've seen nothing detective. If I find out anything I'll be sure to let you know";
         Tonald_Dump.mean_response =       "I dont like the Look of you either! Go away";
 		
         // no more interaction set up 
-        Tonald_Dump.dont_interact_response = "I have nothing else to say detective";
+        Tonald_Dump.dont_interact_response = "I have nothing else to say detective, Leave me alone";
         Tonald_Dump.dont_interact_if1 = Tonald_Dump.threaten_response;       // Tonald wont interact if he is questioned 'threaten or violent'
         Tonald_Dump.dont_interact_if2 = Tonald_Dump.violent_response;
 
@@ -127,6 +127,7 @@ public class CreateNPC : MonoBehaviour {
         //incorrect accusation
         Tonald_Dump.incorect_accusation = "It wasn't me you fool! Dont talk to me anymore! ";
 	}
+
 
 
 	public void make_bernard()   // set bernards 
@@ -143,9 +144,9 @@ public class CreateNPC : MonoBehaviour {
 		//responses
 		Bernard_lowe.aggressive_response =  "I dont like the way you talk to me detective!";
 		Bernard_lowe.violent_response =     "I'm sorry but I dont know anything! I'd tell you if I did";
-		Bernard_lowe.threaten_response =    "Please dont hurt me! I dont know anything! I am but a simple chef!";
-		Bernard_lowe.kind_response =        "I'd tell you if I knew anything detective";
-		Bernard_lowe.friendly_response =    " friednly....";
+		Bernard_lowe.threaten_response =    "Please dont hurt me! I dont know anything! ";
+		Bernard_lowe.kind_response =        "I'd tell you if I knew anything detective! I swear";
+		Bernard_lowe.friendly_response =    "Sorry mate I've got nothing";
 		Bernard_lowe.sympthetic_response =  "sympthetic....";
         Bernard_lowe.cunning_response =     "cunning....";
         Bernard_lowe.mean_response =        "mean....";
@@ -608,6 +609,9 @@ public class CreateNPC : MonoBehaviour {
 
     public void Make_NPC() // called when initilased so to create all of the NPC's 
     {
+
+        // STAGE 1 
+         
         setNCPS();         // set the gameobjects to the corect npc
 
         make_tonald();     // make all of the npcs and sets them to the objects. 
@@ -629,10 +633,11 @@ public class CreateNPC : MonoBehaviour {
 
         setroom();                      // sets the npcs to a room
 
+        // STAGE 2 
+
         set_murderer_and_victim_crime();      // pick the crime that will take place and vicim according, also select murderer 
 
-
-        crime.GetComponent<CreateCrime>().create_crime();  // around the crime selected set all of the............
+        crime.GetComponent<CreateCrime>().create_crime();  //create teh crime with all of the paramater sets in the previous function 
         list_no_vic_murder();       // create a list of only NPC's who are not the murderer or the victim
         clues.GetComponent<createClue>().makeClues();   // make the clues for the game.... 
         

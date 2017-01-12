@@ -6,10 +6,12 @@ public class Loadcasefile : MonoBehaviour {
 
     public GameObject gameman;
     public GameObject headshot;
+    
 
     public Text Victim_name;
     public Text Victim_age;
     public Text victim_known_info;
+   
 
 
     public void setcasefile()

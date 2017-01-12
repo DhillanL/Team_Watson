@@ -53,7 +53,7 @@ public class CreateCrime : MonoBehaviour
         else
         {
             crime = murder5;
-            check_murder = "";
+            check_murder = "posion";
 
         }
 
@@ -82,10 +82,20 @@ public class CreateCrime : MonoBehaviour
             + "\n " + gamemanob.GetComponent<gameManager>().get_whole_victim().he_she + " was found strangled by a scraf");
 
         //murder 5 
-        murder5 = ("murder 5");
+        murder5 = (gamemanob.GetComponent<gameManager>().get_victim() + "s teeth were black their tounge swollen. They were poisoned \n\n The body is in " + gamemanob.GetComponent<gameManager>().get_whole_victim().room);
 
         //murder 6 
+
+
         //murder 7 
+
+
+        // murder8 
+
+        // murder 9 
+
+        // murder 10 
+
 
     }
 
