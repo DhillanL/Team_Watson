@@ -35,9 +35,9 @@ public class createPersonalitys : MonoBehaviour {
         badCop.Name = Name;
         badCop.setintro("My name is dective " + Name.ToString());
         badCop.settype1("Aggressive"); 
-        badCop.set1("Tell me were you at the time of the murder?");  
+        badCop.set1("Tell me where you were att he time of the murder or else...");  
         badCop.settype2("Violent");
-        badCop.set2("Im losing my patience, tell me what you know");
+        badCop.set2("Im losing my patience with this place, tell me what you know");
         badCop.settype3("Threaten");
         badCop.set3("Tell me what you know or else...");
 		
@@ -63,7 +63,7 @@ public class createPersonalitys : MonoBehaviour {
         goodCop.settype2("Sympthetic");
         goodCop.set2("Im sorry to hear what happened, do you know aything that could help?");
         goodCop.settype3("Friendly");
-        goodCop.set3("We're both on the same side so please, tell me what you know");
+        goodCop.set3("We're both on the same side so please, tell me what you know mate");
     }
 
 
@@ -87,7 +87,7 @@ public class createPersonalitys : MonoBehaviour {
         smart.settype2("Cunning");
         smart.set2("We will both get along better if you tell me what happened");
         smart.settype3("Aggresive");
-        smart.set3("Tell me what you know or there will be consequences.");
+        smart.set3("Tell me where you were att he time of the murder or else...");
     }
 
     public Personality_player getSmartCop()
@@ -104,7 +104,7 @@ public class createPersonalitys : MonoBehaviour {
         dumb.Name = Name;
         dumb.setintro("Hi there, my name detective " + Name.ToString());
         dumb.settype1("Kind");
-        dumb.set1("Hi friend, what happened?");
+        dumb.set1("Hi friend, any idea what happened?");
         dumb.settype2("Violent");
         dumb.set2("TELL ME WHAT YOU KNOW");
         dumb.settype3("Threaten");

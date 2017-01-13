@@ -197,7 +197,7 @@ public class Interaction : MonoBehaviour {
         if ((question_style_text.Equals(npc.clue_response1) || question_style_text.Equals(npc.clue_response2)) && npc.clue != "")  // checks that the questioing style of the player macthes the one in which the NPC will say thier clue 
         {
             speachbox.text += "\n\n" + npc.Name + ": " + npc.clue;
-            // add clue 
+            logbookpart.GetComponent<logbookparts>().add_clue(npc.clue_object);
             check_okay_to_interact();
 
          
@@ -223,7 +223,7 @@ public class Interaction : MonoBehaviour {
         if ((question_style_text.Equals(npc.clue_response1) || question_style_text.Equals(npc.clue_response2)) && npc.clue != "")  // checks that the questioing style of the player macthes the one in which the NPC will say thier clue 
         {
             speachbox.text += "\n\n" + npc.Name + ": " + npc.clue;
-            // add clue 
+            logbookpart.GetComponent<logbookparts>().add_clue(npc.clue_object);
             check_okay_to_interact();
 
 

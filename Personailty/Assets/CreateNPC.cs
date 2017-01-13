@@ -106,8 +106,8 @@ public class CreateNPC : MonoBehaviour {
         Tonald_Dump.age = 52;
 
 	    //Responses 
-		Tonald_Dump.aggressive_response = "How dare you take that tone with me! I've got nothing to say!";
-		Tonald_Dump.violent_response =    "Okay, Okay...I'm sorry detective but I dont know anything !";
+		Tonald_Dump.aggressive_response = "Or else what? go away detective";
+		Tonald_Dump.violent_response =    "Okay, Okay calm down...I'm sorry detective but I dont know anything !";
 		Tonald_Dump.threaten_response =   "DON'T THREATEN ME! who do you think ou are?! Dont bother talking to me again!";
         Tonald_Dump.kind_response =       "Well I haven't seen anything out of the ordinary";
         Tonald_Dump.friendly_response =   "I'm afiad I don't know anything, But please ask if you have any more questions";
@@ -142,14 +142,14 @@ public class CreateNPC : MonoBehaviour {
         Bernard_lowe.age = 43;
 
 		//responses
-		Bernard_lowe.aggressive_response =  "I dont like the way you talk to me detective!";
+		Bernard_lowe.aggressive_response =  "I was in kitchen preparing dinner! I promoise, dont hurt me";
 		Bernard_lowe.violent_response =     "I'm sorry but I dont know anything! I'd tell you if I did";
 		Bernard_lowe.threaten_response =    "Please dont hurt me! I dont know anything! ";
 		Bernard_lowe.kind_response =        "I'd tell you if I knew anything detective! I swear";
 		Bernard_lowe.friendly_response =    "Sorry mate I've got nothing";
-		Bernard_lowe.sympthetic_response =  "sympthetic....";
-        Bernard_lowe.cunning_response =     "cunning....";
-        Bernard_lowe.mean_response =        "mean....";
+		Bernard_lowe.sympthetic_response =  "Its terrible what happened, theres a killer around here somewhere";
+        Bernard_lowe.cunning_response =     "I dont know anything, nor have I seen anything ";
+        Bernard_lowe.mean_response =        "No need to be rude to me detective";
 
 		//no more interaction setup
 		Bernard_lowe.dont_interact_response = "Go away detective! leave me alone";
@@ -180,12 +180,12 @@ public class CreateNPC : MonoBehaviour {
         George_allen.age = 28;
 
 		//responses
-		George_allen.aggressive_response = "Dont talk to me like that you fuck I'm Bernard !";
-		George_allen.violent_response =    "I'm a violent bernard";
+		George_allen.aggressive_response = "I was getting ready for the ball tonight, alone";
+		George_allen.violent_response =    "Not heard or seen a thing, well apart from that someone was murdered";
 		George_allen.threaten_response =   "I dont appreiacte being theatened! dont ask me anymore!";
 		George_allen.kind_response =       "fucking nice mate";
-		George_allen.friendly_response =   "I can give you all the clues I have.";
-		George_allen.sympthetic_response = "I fell sorry for what has happened today.";
+		George_allen.friendly_response =   "I'm not your mate, I've not seen anything odd";
+		George_allen.sympthetic_response = "I'm scared someone round heres a killer";
         George_allen.cunning_response =    "cunning";
         George_allen.mean_response =       "mean";
 
@@ -195,7 +195,7 @@ public class CreateNPC : MonoBehaviour {
         George_allen.dont_interact_if2 = George_allen.sympthetic_response;
 
         //clue response 
-        George_allen.clue_response1 = "Sympthetic";
+        George_allen.clue_response1 = "Violent";
         George_allen.clue_response2 = "Friendly";
 
         //incorrect accusation
@@ -217,8 +217,8 @@ public class CreateNPC : MonoBehaviour {
         Ethan_hawk.age = 31;
 
 		//responses
-		Ethan_hawk.aggressive_response = "Dont talk to me like that you fuck I'm Bernard !";
-		Ethan_hawk.violent_response = "I'm a violent bernard";
+		Ethan_hawk.aggressive_response = "I was upstairs in the lecture hall";
+		Ethan_hawk.violent_response = "Don't take that tone with me, don't you think if I knew something I would say?";
 		Ethan_hawk.threaten_response = "I dont appreiacte being theatened! dont ask me anymore!";
 		Ethan_hawk.kind_response = "KIND RESPONSE";
 		Ethan_hawk.friendly_response = "FRIENDLY RESPONSE";
@@ -233,7 +233,7 @@ public class CreateNPC : MonoBehaviour {
 
         //clue response 
         Ethan_hawk.clue_response1 = "Violent";
-        Ethan_hawk.clue_response2 = "Aggresive";
+        Ethan_hawk.clue_response2 = "Mean";
 
         //incorrection accusation 
         Ethan_hawk.incorect_accusation = "incorrect accusation";
@@ -255,8 +255,8 @@ public class CreateNPC : MonoBehaviour {
         Ryan_Smith.age = 45;
         
         //responses
-		Ryan_Smith.aggressive_response = "Dont talk to me like that you fuck I'm Bernard !";
-		Ryan_Smith.violent_response = "I'm a violent bernard";
+		Ryan_Smith.aggressive_response = "I was in the kitchen, was just having a walk around";
+		Ryan_Smith.violent_response = "*burts into tears* - a faint mumble can be heard";
 		Ryan_Smith.threaten_response = "I dont appreiacte being theatened! dont ask me anymore!";
 		Ryan_Smith.kind_response = "fucking nice mate";
 		Ryan_Smith.friendly_response = "I can give you all the clues I have.";
@@ -289,7 +289,7 @@ public class CreateNPC : MonoBehaviour {
         Zoe_Williams.age = 26;
 
 		//responses
-		Zoe_Williams.aggressive_response = "Dont talk to me like that you fuck I'm Bernard !";
+		Zoe_Williams.aggressive_response = "Why does it matter to you? I know I'm not guilty ";
 		Zoe_Williams.violent_response = "I'm a violent bernard";
 		Zoe_Williams.threaten_response = "I dont appreiacte being theatened! dont ask me anymore!";
 		Zoe_Williams.kind_response = "fucking nice mate";
@@ -323,7 +323,7 @@ public class CreateNPC : MonoBehaviour {
         Alice_Davis.age = 41;
 
         //responses
-		Alice_Davis.aggressive_response = "Dont talk to me like that you fuck I'm Bernard !";
+		Alice_Davis.aggressive_response = "I can't remember, I know that makes me sound bad";
 		Alice_Davis.violent_response = "I'm a violent bernard";
 		Alice_Davis.threaten_response = "I dont appreiacte being theatened! dont ask me anymore!";
 		Alice_Davis.kind_response = "fucking nice mate";
@@ -339,7 +339,7 @@ public class CreateNPC : MonoBehaviour {
 
         //clue response
         Alice_Davis.clue_response1 = "Threaten";
-        Alice_Davis.clue_response2 = "Mean";
+        Alice_Davis.clue_response2 = "Sympthetic";
 
         //incorrect accusation
         Alice_Davis.incorect_accusation = "incorrect accusation";
@@ -358,7 +358,7 @@ public class CreateNPC : MonoBehaviour {
         Sophie_Aaron.age = 32;
 
 		//responses
-		Sophie_Aaron.aggressive_response = "Dont talk to me like that you fuck I'm Bernard !";
+		Sophie_Aaron.aggressive_response = "I think i was by the fire in the main hall, but I cant be sure";
 		Sophie_Aaron.violent_response = "I'm a violent bernard";
 		Sophie_Aaron.threaten_response = "I dont appreiacte being theatened! dont ask me anymore!";
 		Sophie_Aaron.kind_response = "fucking nice mate";
@@ -393,7 +393,7 @@ public class CreateNPC : MonoBehaviour {
         Stephen_Brown.age = 61;
 
 		//responses
-		Stephen_Brown.aggressive_response = "Dont talk to me like that you fuck I'm Bernard !";
+		Stephen_Brown.aggressive_response = "Under the balcony outside having a smoke";
 		Stephen_Brown.violent_response = "I'm a violent bernard";
 		Stephen_Brown.threaten_response = "I dont appreiacte being theatened! dont ask me anymore!";
 		Stephen_Brown.kind_response = "fucking nice mate";
@@ -428,7 +428,7 @@ public class CreateNPC : MonoBehaviour {
         Robert_Henry.age = 23;
 
 		//responses
-		Robert_Henry.aggressive_response = "Dont talk to me like that you fuck I'm Bernard !";
+		Robert_Henry.aggressive_response = "i was in the meeting room upstairs, all alone...probably forever";
 		Robert_Henry.violent_response = "I'm a violent bernard";
 		Robert_Henry.threaten_response = "I dont appreiacte being theatened! dont ask me anymore!";
 		Robert_Henry.kind_response = "fucking nice mate";

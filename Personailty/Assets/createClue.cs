@@ -122,7 +122,7 @@ public class createClue: MonoBehaviour{
 
     }
 
-    // make all clues if the crime is STAB IN THE BACK 2 
+    // make all clues if the crime is STAB IN THE BACK 2   // maybe get rid of this later
     public void make_clues_crime_12()   
     {
         string[] weapons = new string[3] { "Flick Knife", "Meat Clever", "Sharpened Metal Ruler" };
@@ -214,13 +214,10 @@ public class createClue: MonoBehaviour{
         {
             make_clues_crime_2();
         }
-
-
     }
 
-    
 
-	
+
 
 	public void make_game_object_lst(){
 		gameobjectlst_ [0] = clue1;
@@ -229,8 +226,8 @@ public class createClue: MonoBehaviour{
 		gameobjectlst_ [3] = clue4;
 		gameobjectlst_ [4] = clue5;
 		gameobjectlst_ [5] = clue6;
-		
 	}
+
 
     public void make_gameobj_lst_verbal()
     {
