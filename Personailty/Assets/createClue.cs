@@ -190,10 +190,6 @@ public class createClue: MonoBehaviour{
 
 
 
-
-
-
-
     // depending on the murder selcted in the create crime scirpt the approiate clue will be selected. 
     public void set_clues_crime()
     {

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class MapCall : MonoBehaviour {
 
-    private Vector3 finish_pos = new Vector3(-1,22,-1);
+    private Vector3 finish_pos = new Vector3(-1,22,1);
 
     void Awake() // will not destroy the player on each new scene 
     {

@@ -25,6 +25,7 @@ public class Interaction : MonoBehaviour {
   
     public string question_style_text;
 
+    public int incorrect_aac_num = 0;   // the number of inncorrect gusses. if 2 or more you lose 
 
 
     public void setNPC(NPC npcin)
@@ -111,7 +112,7 @@ public class Interaction : MonoBehaviour {
                 
                     if (npc.first_interaction == true)
                     {
-                        speachbox.text = "detective " + player.Name + " :  " + player.Personailty.intro;
+                        speachbox.text = "Detective " + player.Name + " :  " + player.Personailty.intro;
 
                         speachbox.text = speachbox.text + "\n\n" + npc.Name + ": " + npc.intro;
 
@@ -122,7 +123,7 @@ public class Interaction : MonoBehaviour {
                     else
                     {
                     
-                        speachbox.text = "how would you like to interact:";
+                        speachbox.text = "How would you like to interact:";
                         question.transform.Translate(0, 57, 0);
                         accusebutt.transform.Translate(0, 57, 0);
 
@@ -169,9 +170,6 @@ public class Interaction : MonoBehaviour {
             speachbox.text += "\n\n" + npc.Name + ": " + npc.clue;
             logbookpart.GetComponent<logbookparts>().add_clue(npc.clue_object);
             check_okay_to_interact();
-
-            
-
             npc = null;
         }
         else
@@ -271,8 +269,13 @@ public class Interaction : MonoBehaviour {
             else
             {
                 speachbox.text = npc.Name + ": "+ npc.incorect_accusation;
+                incorrect_aac_num++;
                 npc.okay_to_interact = false;
                 npc = null;
+                if (incorrect_aac_num > 1)
+                {
+                    Debug.Log("GAME OVER");
+                }
             }
         }
 

@@ -59,11 +59,11 @@ public class createPersonalitys : MonoBehaviour {
         goodCop.Name = Name;
         goodCop.setintro("Hi there my name is detective " + Name.ToString() + "how are you today?");
         goodCop.settype1("Kind");
-        goodCop.set1("I'm here to help you catch who did this, did you see or hear anything?");  //aggresive
+        goodCop.set1("I'm here to help you catch who did this, did you see or hear anything friend?");  //aggresive
         goodCop.settype2("Sympthetic");
         goodCop.set2("Im sorry to hear what happened, do you know aything that could help?");
         goodCop.settype3("Friendly");
-        goodCop.set3("We're both on the same side so please, tell me what you know mate");
+        goodCop.set3("We're both on the same side so please, how well did you know the victim?");
     }
 
 
@@ -83,9 +83,9 @@ public class createPersonalitys : MonoBehaviour {
         smart.Name = Name;
         smart.setintro("Why hello there I am very smart, call me Detective " + Name.ToString());
         smart.settype1("Friendly");
-        smart.set1("Please tell me what happened friend, it is important");
+        smart.set1("How well did you know the victim? Great shoes by the way");
         smart.settype2("Cunning");
-        smart.set2("We will both get along better if you tell me what happened");
+        smart.set2("I heard from someone else they think it was you");
         smart.settype3("Aggresive");
         smart.set3("Tell me where you were att he time of the murder or else...");
     }
@@ -108,7 +108,7 @@ public class createPersonalitys : MonoBehaviour {
         dumb.settype2("Violent");
         dumb.set2("TELL ME WHAT YOU KNOW");
         dumb.settype3("Threaten");
-        dumb.set3("Tell me what happened here or i will hurt you...");
+        dumb.set3("Tell me what happened here or I will hurt you...");
     }
 
     public Personality_player getDumbCop()
@@ -125,11 +125,11 @@ public class createPersonalitys : MonoBehaviour {
         trust.Name = Name;
         trust.setintro("Hello there, my name is " + Name.ToString() + "and i am here to help you");
         trust.settype1("Sympathetic");
-        trust.set1("Im sorry to hear what happened here but i need to know any information you have");
+        trust.set1("Im sorry to hear what happened, I can offer you any help if you can give me any info?");
         trust.settype2("Mean");
-        trust.set2("I know you are trying to help but im getting impatient so tell me what you know");
+        trust.set2("I know you are trying to help but im getting impatient so tell me what you know, you loko shifty");
         trust.settype3("Kind");
-        trust.set3("Im here to help, so please if you know something, tell me");
+        trust.set3("Im here to help, so please if you know something, tell me friend");
     }
 
     public Personality_player getTrustyCop()
@@ -149,11 +149,11 @@ public class createPersonalitys : MonoBehaviour {
         susp.Name = Name;
         susp.setintro("Hello there, my name is " + Name.ToString() + "and i am here to question you");
         susp.settype1("Cunning");
-        susp.set1("I think you had something to do with this so tell me what you know");
+        susp.set1("i heard that you have something to do with this, anything to say?");
         susp.settype2("Violent");
         susp.set2("I havent got time for this, do you know something or not?!");
         susp.settype3("Mean");
-        susp.set3("I dont like the look of you, you must know something about this murder");
+        susp.set3("I dont like the look of you, I've been doing this a while so i pick out the criminals");
     }
 
     public Personality_player getSuspCop()

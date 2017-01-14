@@ -16,6 +16,7 @@ public class CreateCrime : MonoBehaviour
     public string murder3;
     public string murder4;
     public string murder5;
+    public string murder6;
 
     public void select_crime()
     {
@@ -63,7 +64,7 @@ public class CreateCrime : MonoBehaviour
 
     public void set_murders()
     {
-        // stabbed in the back murder
+        // stabbed in the back murder - extored
         murder1 = ("So we've heard from " + gamemanob.GetComponent<gameManager>().get_victim() + "'s family "
             + gamemanob.GetComponent<gameManager>().get_whole_victim().he_she + " was being extored for money by someone. \n\n " +
             gamemanob.GetComponent<gameManager>().get_whole_victim().he_she + " was apparently meeting this individual at the Ron Cooke Hub today. \n\n"
@@ -81,16 +82,16 @@ public class CreateCrime : MonoBehaviour
         murder4 = (gamemanob.GetComponent<gameManager>().get_victim() + "'s body was found in " + gamemanob.GetComponent<gameManager>().get_whole_victim().room
             + "\n " + gamemanob.GetComponent<gameManager>().get_whole_victim().he_she + " was found strangled by a scraf");
 
-        //murder 5 
+        //posioned
         murder5 = (gamemanob.GetComponent<gameManager>().get_victim() + "s teeth were black their tounge swollen. They were poisoned \n\n The body is in " + gamemanob.GetComponent<gameManager>().get_whole_victim().room);
 
-        //murder 6 
+        // shot in the neck with an arrow  
+        
+
+        // throat was cut - rumor is that he/she was having an affair
 
 
-        //murder 7 
-
-
-        // murder8 
+        // murder 8 
 
         // murder 9 
 

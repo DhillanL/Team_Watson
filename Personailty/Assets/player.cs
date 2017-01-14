@@ -27,7 +27,9 @@ public class player : MonoBehaviour {
     public bool clear_interact = false;
 
     public float speed = 70f;
-    private Rigidbody2D rb2D; 
+    private Rigidbody2D rb2D;
+
+    public AudioClip walking;
 
 
     public void setPlay()    // sets the name personailty Aand the sprite for the player 
@@ -50,8 +52,7 @@ public class player : MonoBehaviour {
         DontDestroyOnLoad(transform.gameObject);
     }
 
-
-
+  
 
 
     void Start()
@@ -72,6 +73,7 @@ public class player : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.A))
         {
             rb2D.velocity = new Vector2(-speed, 0);
+            
             if (orintation == 1)
             {
                 GetComponent<SpriteRenderer>().flipX = true;
@@ -91,6 +93,8 @@ public class player : MonoBehaviour {
         else if (Input.GetKeyDown(KeyCode.D))
         {
             rb2D.velocity = new Vector2(speed, 0);
+            
+            
             
             if (orintation == 0)
             {
