@@ -26,6 +26,7 @@ public class logbookparts : MonoBehaviour {
     public GameObject text6;
     public GameObject text7;
     public GameObject text8;
+    
 
 
     public void load_logbook()

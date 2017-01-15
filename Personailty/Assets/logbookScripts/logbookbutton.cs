@@ -24,6 +24,7 @@ public class logbookbutton : MonoBehaviour {
         GameObject.FindWithTag("logtext6").GetComponent<Transform>().Translate(-290, 0, 0);
         GameObject.FindWithTag("logtext7").GetComponent<Transform>().Translate(-290, 0, 0);
         GameObject.FindWithTag("logtext8").GetComponent<Transform>().Translate(-290, 0, 0);
+        GameObject.FindWithTag("logbookcluetitle").GetComponent<Transform>().Translate(-310, 0, 0);
 
         GameObject.FindWithTag("logbookparts").GetComponent<logbookparts>().load_logbook();
         

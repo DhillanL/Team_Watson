@@ -83,6 +83,7 @@
      <Compile Include="Assets\player.cs" />
      <Compile Include="Assets\setnpcrooms.cs" />
      <Compile Include="Assets\setplayer.cs" />
+     <Compile Include="Assets\timer.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

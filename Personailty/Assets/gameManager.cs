@@ -24,6 +24,9 @@ public class gameManager : MonoBehaviour {
 
     public NPC current_interaction;
 
+    static public float time_seconds;    // holds the timer's seconds and the mins
+    static public float time_mins;
+
 
     // NPC GAMEOBJECTS AND LOCATIONS
     static public GameObject room11;
@@ -470,6 +473,12 @@ public class gameManager : MonoBehaviour {
         set_player_vel_0();
     }
 
+    public void updatetime(float seconds, float mins)  // updates the values of the time so can be used in the end 
+    {
+        time_seconds = seconds;
+        time_mins = mins;
+    }
+
 
 
 
@@ -490,6 +499,7 @@ public class gameManager : MonoBehaviour {
 	
 	
 	void Update () {
-	
+
+  
 	}
 }

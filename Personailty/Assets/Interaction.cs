@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Interaction : MonoBehaviour {
 
@@ -264,6 +265,9 @@ public class Interaction : MonoBehaviour {
             if (npc.Name == Gamemanager.get_murder())
             {
                 Debug.Log("YOU WIN");
+                GameObject.FindWithTag("GUI").GetComponent<timer>().testFalse();   // set the timer to false so it stops
+                GameObject.FindWithTag("GUI").GetComponent<Renderer>().enabled = false;  // hide the GUI for the winning page
+                SceneManager.LoadScene("win");
                 npc = null;
             }
             else

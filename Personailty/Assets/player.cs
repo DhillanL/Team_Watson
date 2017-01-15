@@ -31,6 +31,8 @@ public class player : MonoBehaviour {
 
     public AudioClip walking;
 
+    private bool test = true;
+
 
     public void setPlay()    // sets the name personailty Aand the sprite for the player 
     {
@@ -42,17 +44,21 @@ public class player : MonoBehaviour {
         //Player.GetComponent<SpriteRenderer>().sprite = Sprite;
     }
 
-    
+    public void testT()
+    {
+        test = true;
+    }
 
-
+    public void testF()
+    {
+        test = false ;
+    }
 
 
     void Awake() // will not destroy the player on each new scene 
     {
         DontDestroyOnLoad(transform.gameObject);
     }
-
-  
 
 
     void Start()
@@ -67,51 +73,56 @@ public class player : MonoBehaviour {
     }
 
     public int orintation = 1; // right - 1 left - 0
-    
+
     void Update()      // making the player move. A goes left, D goes right 
     {
-        if (Input.GetKeyDown(KeyCode.A))
+
+        if (test)
         {
-            rb2D.velocity = new Vector2(-speed, 0);
-            
-            if (orintation == 1)
+
+            if (Input.GetKeyDown(KeyCode.A))
             {
-                GetComponent<SpriteRenderer>().flipX = true;
+                rb2D.velocity = new Vector2(-speed, 0);
+
+                if (orintation == 1)
+                {
+                    GetComponent<SpriteRenderer>().flipX = true;
+                }
+
+                anim.SetInteger("state", 1);
+                orintation = 0;
+
             }
-            
-            anim.SetInteger("state", 1);
-            orintation = 0;
-
-        }
-        else if (Input.GetKeyUp(KeyCode.A))
-        {
-            rb2D.velocity = new Vector2(0, 0);
-            anim.SetInteger("state", 0);
-
-        }
-
-        else if (Input.GetKeyDown(KeyCode.D))
-        {
-            rb2D.velocity = new Vector2(speed, 0);
-            
-            
-            
-            if (orintation == 0)
+            else if (Input.GetKeyUp(KeyCode.A))
             {
-                GetComponent<SpriteRenderer>().flipX = false;
+                rb2D.velocity = new Vector2(0, 0);
+                anim.SetInteger("state", 0);
+
             }
-            anim.SetInteger("state",1);
-            orintation = 1;
+
+            else if (Input.GetKeyDown(KeyCode.D))
+            {
+                rb2D.velocity = new Vector2(speed, 0);
+
+
+
+                if (orintation == 0)
+                {
+                    GetComponent<SpriteRenderer>().flipX = false;
+                }
+                anim.SetInteger("state", 1);
+                orintation = 1;
+
+
+            }
+            else if (Input.GetKeyUp(KeyCode.D))
+            {
+                rb2D.velocity = new Vector2(0, 0);
+                anim.SetInteger("state", 0);
+            }
 
 
         }
-        else if (Input.GetKeyUp(KeyCode.D))
-        {
-            rb2D.velocity = new Vector2(0, 0);
-            anim.SetInteger("state", 0);
-        }
-
-
     }
 
 

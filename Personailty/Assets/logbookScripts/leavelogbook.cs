@@ -22,6 +22,7 @@ public class leavelogbook : MonoBehaviour {
             GameObject.FindWithTag("logtext6").GetComponent<Transform>().Translate(290, 0, 0);
             GameObject.FindWithTag("logtext7").GetComponent<Transform>().Translate(290, 0, 0);
             GameObject.FindWithTag("logtext8").GetComponent<Transform>().Translate(290, 0, 0);
+            GameObject.FindWithTag("logbookcluetitle").GetComponent<Transform>().Translate(310, 0, 0);
 
         } else if (x == 0) // close the crime page 
         {
