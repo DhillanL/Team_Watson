@@ -266,7 +266,7 @@ public class Interaction : MonoBehaviour {
             {
                 Debug.Log("YOU WIN");
                 GameObject.FindWithTag("GUI").GetComponent<timer>().testFalse();   // set the timer to false so it stops
-                GameObject.FindWithTag("GUI").GetComponent<Renderer>().enabled = false;  // hide the GUI for the winning page
+                destory_objects();
                 SceneManager.LoadScene("win");
                 npc = null;
             }
@@ -279,9 +279,25 @@ public class Interaction : MonoBehaviour {
                 if (incorrect_aac_num > 1)
                 {
                     Debug.Log("GAME OVER");
+                    // load scene lose 
                 }
             }
         }
+
+    }
+
+
+
+    public void destory_objects()
+    {
+        string[] objects = {"Player","GUI", "Bernard", "Tonald", "George", "Ethan", "Ryan", "Zoe", "Alice", "Stephen",
+        "Robert", "Sophie", "Clue1", "Clue2", "Clue3", "Clue4", "Clue5", "Clue6", "Clue7", "Clue8", "map", "map_icon",
+        "log_button","logbook","logbookcrime"};
+        for (int i = 0; i < 25; i++)
+        {
+            Destroy(GameObject.FindWithTag(objects[i]));
+        }
+
 
     }
 

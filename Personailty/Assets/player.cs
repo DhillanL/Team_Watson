@@ -67,7 +67,7 @@ public class player : MonoBehaviour {
             setPlay();
             rb2D = GetComponent<Rigidbody2D>(); // gets the ridig body of the player sets the rigid body 
             gameMan.GetComponent<gameManager>().set_player_to_true();
-        anim = GetComponent<Animator>();
+            anim = GetComponent<Animator>();
 
         
     }

@@ -73,6 +73,7 @@
      <Compile Include="Assets\createClue.cs" />
      <Compile Include="Assets\createPersonalitys.cs" />
      <Compile Include="Assets\fade.cs" />
+     <Compile Include="Assets\fillstats.cs" />
      <Compile Include="Assets\gameManager.cs" />
      <Compile Include="Assets\logbookScripts\Logbook.cs" />
      <Compile Include="Assets\logbookScripts\leavelogbook.cs" />

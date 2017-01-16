@@ -78,7 +78,7 @@ public class CreateCrime : MonoBehaviour
         murder3 = ("The height of the lake house balcony is around 30 feet tall and " + gamemanob.GetComponent<gameManager>().get_victim()  + " feel all 30...head first. \n\n" +
             gamemanob.GetComponent<gameManager>().get_victim() + " can be found at " + gamemanob.GetComponent<gameManager>().get_whole_victim().room) ;
 
-        // strangled by a scraf
+        // strangled by a scarf
         murder4 = (gamemanob.GetComponent<gameManager>().get_victim() + "'s body was found in " + gamemanob.GetComponent<gameManager>().get_whole_victim().room
             + "\n " + gamemanob.GetComponent<gameManager>().get_whole_victim().he_she + " was found strangled by a scraf");
 

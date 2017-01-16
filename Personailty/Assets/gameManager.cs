@@ -473,12 +473,26 @@ public class gameManager : MonoBehaviour {
         set_player_vel_0();
     }
 
+    public void load_main_menu()
+    {
+        SceneManager.LoadScene("HomeScreen");
+    }
+
     public void updatetime(float seconds, float mins)  // updates the values of the time so can be used in the end 
     {
         time_seconds = seconds;
         time_mins = mins;
     }
 
+    public float get_seconds()
+    {
+        return time_seconds;
+    }
+
+    public float get_mins()
+    {
+        return time_mins;
+    }
 
 
 

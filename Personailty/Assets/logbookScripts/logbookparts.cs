@@ -26,11 +26,25 @@ public class logbookparts : MonoBehaviour {
     public GameObject text6;
     public GameObject text7;
     public GameObject text8;
+
+    public bool first_load = true;
     
 
 
     public void load_logbook()
     {
+        if (first_load)
+        {
+            string[] logbooktexts = {"logbooktext1", "logbooktext2" , "logbooktext3" , "logbooktext4" , "logbooktext5",
+            "logbooktext6","logbooktext7","logbooktext8"};
+            for (int i =0; i < 8; i++)
+            {
+                logbooktexts[i] = "";
+            }
+
+            first_load = false;
+        }
+
         text1.GetComponent<Text>().text = logbooktext1;
         text1.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
         text2.GetComponent<Text>().text = logbooktext2;
