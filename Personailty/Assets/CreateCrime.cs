@@ -8,7 +8,7 @@ public class CreateCrime : MonoBehaviour
 
 
     public string crime;
-    public string check_murder;
+    //public string check_murder;
     public int murder_int; 
 
     public string murder1;
@@ -17,10 +17,15 @@ public class CreateCrime : MonoBehaviour
     public string murder4;
     public string murder5;
     public string murder6;
+    public string murder7;
+    public string murder8;
+    public string murder9;
+    public string murder10;
+
 
     public void select_crime()
     {
-        int y = Random.Range(0, 4);  // 0 ,1,2,3 and 4    SET THIS TO THE RIGHT RANGE WHEN ALL OF THE CRIMES HAVE BEEN CREATED 
+        int y = Random.Range(0, 6);  // 0 ,1,2,3,4    SET THIS TO THE RIGHT RANGE WHEN ALL OF THE CRIMES HAVE BEEN CREATED 
         murder_int = y;
     }
 
@@ -31,31 +36,34 @@ public class CreateCrime : MonoBehaviour
         if (x == 0)
         {
             crime = murder1;
-            check_murder = "stab_back";
+            //check_murder = "stab_back";
 
         }
         else if (x == 1)
         {
             crime = murder2;
-            check_murder = "drowned";
+            //check_murder = "drowned";
 
         }
         else if (x == 2)
         {
             crime = murder3;
-            check_murder = "pushed_lakehouse";
+           // check_murder = "pushed_lakehouse";
         }
         else if (x == 3)
         {
             crime = murder4;
-            check_murder = "strangled";
+            //check_murder = "strangled";
 
         }
-        else
+        else if (x == 4)
         {
             crime = murder5;
-            check_murder = "posion";
-
+            //check_murder = "posion";
+        }
+        else if (x ==5)
+        {
+            crime = murder6;
         }
 
     }
@@ -86,7 +94,8 @@ public class CreateCrime : MonoBehaviour
         murder5 = (gamemanob.GetComponent<gameManager>().get_victim() + "s teeth were black their tounge swollen. They were poisoned \n\n The body is in " + gamemanob.GetComponent<gameManager>().get_whole_victim().room);
 
         // shot in the neck with an arrow  
-        
+
+        murder6 = "victim shot in the back of the neck with an arrow";
 
         // throat was cut - rumor is that he/she was having an affair
 
