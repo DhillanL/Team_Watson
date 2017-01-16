@@ -9,7 +9,8 @@ public class fillstats : MonoBehaviour {
 
     private void fill_stats()
     {
-        time.text ="Time: " + Gamemanager.GetComponent<gameManager>().get_mins() + ":" + Gamemanager.GetComponent<gameManager>().get_seconds();
+        time.text ="Time: " + Gamemanager.GetComponent<gameManager>().get_mins().ToString() + ":" + Gamemanager.GetComponent<gameManager>().get_seconds().ToString("00");
+        Debug.Log(Gamemanager.GetComponent<gameManager>().get_seconds());
     }
 
 

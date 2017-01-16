@@ -38,6 +38,7 @@ public class timer : MonoBehaviour {
             {
                 gameman = GameObject.FindWithTag("gamemanager");
             }
+
             gameman.GetComponent<gameManager>().updatetime(timer_seconds, timer_mins);    // updates the time in the gameman
 
         }

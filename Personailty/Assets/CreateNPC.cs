@@ -637,9 +637,9 @@ public class CreateNPC : MonoBehaviour {
 
         set_murderer_and_victim_crime();      // pick the crime that will take place and vicim according, also select murderer 
 
-        crime.GetComponent<CreateCrime>().create_crime();  //create teh crime with all of the paramater sets in the previous function 
-        list_no_vic_murder();       // create a list of only NPC's who are not the murderer or the victim
-        clues.GetComponent<createClue>().makeClues();   // make the clues for the game.... 
+        crime.GetComponent<CreateCrime>().create_crime();  // create the crime with all of the paramater sets in the previous function 
+        list_no_vic_murder();                              // create a list of only NPC's who are not the murderer or the victim
+        clues.GetComponent<createClue>().makeClues();      // make the clues for the game.... 
         
     }
 
