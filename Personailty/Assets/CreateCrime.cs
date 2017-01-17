@@ -25,7 +25,7 @@ public class CreateCrime : MonoBehaviour
 
     public void select_crime()
     {
-        int y = Random.Range(0, 8);  // 0 ,1,2,3,4,5,6,7,8    SET THIS TO THE RIGHT RANGE WHEN ALL OF THE CRIMES HAVE BEEN CREATED 
+        int y = Random.Range(0, 9);  // 0 ,1,2,3,4,5,6,7,8    SET THIS TO THE RIGHT RANGE WHEN ALL OF THE CRIMES HAVE BEEN CREATED 
         murder_int = y;
     }
 
@@ -118,7 +118,7 @@ public class CreateCrime : MonoBehaviour
         murder8 = "the victim was crushed under the weight of the chandelier.\n The chandelier has since been removed \n worth noting there were a lot of people witness to the death";
 
         // murder 9 
-        murder9 = "The victims body was found in the fire ";
+        murder9 = "The victims body was found in the fire, but they had already been stabbed a few times it seems ";
 
         // murder 10 
 

@@ -450,39 +450,40 @@ public class createClue: MonoBehaviour{
     {
         clue_1.name = "Burnt scrap of clothing";
         clue_1.info = "must have come off od the victims clothing";
-        clue1.GetComponent<SpriteRenderer>().sprite = addsprites7(clue_1.name);
-        clue_1.look = addsprites7(clue_1.name);
+        clue1.GetComponent<SpriteRenderer>().sprite = addsprites9(clue_1.name);
+        clue_1.look = addsprites9(clue_1.name);
 
-        clue_2.name = "";
-        clue_2.info = "";
-        clue2.GetComponent<SpriteRenderer>().sprite = addsprites7(clue_2.name);
-        clue_2.look = addsprites7(clue_2.name);
+        string[] weapon = { "Dagger", "meat clever", "pen" };
+        clue_2.name = weapon[Random.Range(0,2)];
+        clue_2.info = "Weapon is sharp and smudged, could it be the murder weapon";
+        clue2.GetComponent<SpriteRenderer>().sprite = addsprites9(clue_2.name);
+        clue_2.look = addsprites9(clue_2.name);
 
+        clue_3.name = "Shirt";
+        clue_3.info = "white shirt covered in blood. Its a " + game_manager.GetComponent<gameManager>().get_whole_murderer().man_woman + "'s shirt";
+        clue3.GetComponent<SpriteRenderer>().sprite = addsprites9(clue_3.name);
+        clue_3.look = addsprites9(clue_3.name);
 
-        clue_3.name = "";
-        clue_3.info = "";
-        clue3.GetComponent<SpriteRenderer>().sprite = addsprites7(clue_3.name);
-        clue_3.look = addsprites7(clue_3.name);
+        string[] weapons2 = { "sword", "metal ruler" };
+        clue_4.name = weapons2[Random.Range(0,1)];
+        clue_4.info = "Weapon has the name " + random_murder_or_NPC_name() + "scribbed onto the side. Blade looks clean however";
+        clue4.GetComponent<SpriteRenderer>().sprite = addsprites9(clue_4.name);
+        clue_4.look = addsprites9(clue_4.name);
 
+        clue_5.name = "Note" ;
+        clue_5.info = "Found in a envelope, its a letter from the victim to here mum saying she was worried about her safety here, she must have known who did this";
+        clue5.GetComponent<SpriteRenderer>().sprite = addsprites9(clue_5.name);
+        clue_5.look = addsprites9(clue_5.name);
 
-        clue_4.name = "";
-        clue_4.info = "";
-        clue4.GetComponent<SpriteRenderer>().sprite = addsprites7(clue_4.name);
-        clue_4.look = addsprites7(clue_4.name);
+        clue_6.name = "gloves";
+        clue_6.info = "A pair of gloves with the name " + random_murder_or_NPC_name() + " insde";
+        clue6.GetComponent<SpriteRenderer>().sprite = addsprites9(clue_6.name);
+        clue_6.look = addsprites9(clue_6.name);
 
-        clue_5.name = "" ;
-        clue_5.info = "";
-        clue5.GetComponent<SpriteRenderer>().sprite = addsprites7(clue_5.name);
-        clue_5.look = addsprites7(clue_5.name);
+        verbal_clue_7.name = "I've heard " + game_manager.GetComponent<gameManager>().get_whole_victim().Name + " and " + getNPC(Random.Range(0,7)).Name + "shouting at each other a lot lately";
 
-        clue_6.name = "";
-        clue_6.info = "";
-        clue6.GetComponent<SpriteRenderer>().sprite = addsprites7(clue_6.name);
-        clue_6.look = addsprites7(clue_6.name);
-
-        verbal_clue_7.name = "";
-
-        verbal_clue_8.name = "";
+        verbal_clue_8.name = (game_manager.GetComponent<gameManager>().get_whole_victim().Name + "told me that " + game_manager.GetComponent<gameManager>().get_whole_murderer().he_she + " has been worried about " 
+            + game_manager.GetComponent<gameManager>().get_whole_murderer().Name + " recently but didn't say why");
     }
 
     // -------------------------------------------------------------------------------------------------------
@@ -538,7 +539,7 @@ public class createClue: MonoBehaviour{
     }
     private Sprite addsprites9(string name)
     {
-        return cluesprites.GetComponent<cluesprites>().getsprites_murder8(name);  // CHANGE
+        return cluesprites.GetComponent<cluesprites>().getsprites_murder9(name); 
     }
 
 
