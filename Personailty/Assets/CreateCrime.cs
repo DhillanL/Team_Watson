@@ -25,13 +25,13 @@ public class CreateCrime : MonoBehaviour
 
     public void select_crime()
     {
-        int y = Random.Range(0, 6);  // 0 ,1,2,3,4,5    SET THIS TO THE RIGHT RANGE WHEN ALL OF THE CRIMES HAVE BEEN CREATED 
+        int y = Random.Range(0, 8);  // 0 ,1,2,3,4,5,6,7,8    SET THIS TO THE RIGHT RANGE WHEN ALL OF THE CRIMES HAVE BEEN CREATED 
         murder_int = y;
     }
 
 
 
-    public void Set_Murder(int x ) // needs to be finished 
+    public void Set_Murder(int x ) 
     {
         if (x == 0)
         {
@@ -61,9 +61,21 @@ public class CreateCrime : MonoBehaviour
             crime = murder5;
             //check_murder = "posion";
         }
-        else if (x ==5)
+        else if (x == 5)
         {
             crime = murder6;
+        }
+        else if (x == 6)
+        {
+            crime = murder7;
+        }
+        else if (x == 7)
+        {
+            crime = murder8;
+        }
+        else if (x ==8)
+        {
+            crime = murder9;
         }
 
     }
@@ -99,10 +111,14 @@ public class CreateCrime : MonoBehaviour
 
         // throat was cut - rumor is that he/she was having an affair
 
+        murder7 = "The victim has had their throat slit, so the kill was silent \n Nobdy even found the body for quite a while";
 
-        // murder 8 
+        // crushed by chandelier
+
+        murder8 = "the victim was crushed under the weight of the chandelier.\n The chandelier has since been removed \n worth noting there were a lot of people witness to the death";
 
         // murder 9 
+        murder9 = "The victims body was found in the fire ";
 
         // murder 10 
 

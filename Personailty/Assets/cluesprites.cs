@@ -37,6 +37,13 @@ public class cluesprites : MonoBehaviour {
     public Sprite arrow;
     public Sprite bow;
 
+    public Sprite brokenglass;
+    public Sprite bigshard;
+
+    public Sprite rope;
+    public Sprite dustfootprint;
+    public Sprite keys;
+
 
     public Sprite getsprites_murder1(string clue)
     {
@@ -176,6 +183,57 @@ public class cluesprites : MonoBehaviour {
                 return bow;
             case ("beanie"):
                 return beanie;
+            default:
+                return pen;
+        }
+    }
+
+    public Sprite getsprites_murder7(string clue)
+    {
+        switch (clue)
+        {
+            case ("Meat clever"):
+                return meatclever;
+            case ("Sword"):
+                return sword;
+            case ("Dagger"):
+                return Dagger;
+            case ("Sharp ruler"):
+                return ruler;
+            case ("Cloth"):
+                return cloth;
+            case ("Broken glass shards"):
+                return brokenglass;
+            case ("Big shard of glass"):
+                return bigshard;
+            case ("Note"):
+                return note;
+            case ("Pocket watch"):
+                return pocketwatch;
+            default:
+                return pen;
+
+        }
+    }
+
+    public Sprite getsprites_murder8(string clue)
+    {
+        switch(clue)
+        {
+            case ("frayed rope"):
+                return rope;
+            case ("metal ruler"):
+                return ruler;
+            case ("dagger"):
+                return Dagger;
+            case ("footprint"):
+                return dustfootprint;
+            case ("Note"):
+                return note;
+            case ("broken glass"):
+                return brokenglass;
+            case ("Set of keys"):
+                return keys;
             default:
                 return pen;
         }

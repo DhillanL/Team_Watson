@@ -358,10 +358,136 @@ public class createClue: MonoBehaviour{
 
     public void make_clues_crime_7()  // THROAT CUT 
     {
+        string[] weapon = { "Meat clever", "Sword", "Dagger", "Sharp ruler" };
+        clue_1.name = weapon[Random.Range(0,4)];
+        clue_1.info = "Sharp enough to perform the murder but rusted in some parts";
+        clue1.GetComponent<SpriteRenderer>().sprite = addsprites7(clue_1.name);
+        clue_1.look = addsprites7(clue_1.name);
+
+        clue_2.name = "Cloth";
+        clue_2.info = "The cloth has blood all over it, must have been used to wipe up blood";
+        clue2.GetComponent<SpriteRenderer>().sprite = addsprites7(clue_2.name);
+        clue_2.look = addsprites7(clue_2.name);
+
+
+        clue_3.name = "Broken glass shards";
+        clue_3.info = "No broken windows so maybe from a wine glass? A big shard looks missing";
+        clue3.GetComponent<SpriteRenderer>().sprite = addsprites7(clue_3.name);
+        clue_3.look = addsprites7(clue_3.name);
+
+
+        clue_4.name = "Big shard of glass";
+        clue_4.info = "Its smugged along one edge and was hidden under a chair - why where they hidding it?";
+        clue4.GetComponent<SpriteRenderer>().sprite = addsprites7(clue_4.name);
+        clue_4.look = addsprites7(clue_4.name);
+
+        clue_5.name = "Note";
+        clue_5.info = "Has a picture of " + game_manager.GetComponent<gameManager>().get_whole_victim().Name + " and with a red circle around and £200 beneath - Maybe it was a hit?";
+        clue5.GetComponent<SpriteRenderer>().sprite = addsprites7(clue_5.name);
+        clue_5.look = addsprites7(clue_5.name);
+
+        clue_6.name = "Pocket watch";
+        clue_6.info = "Has the initials " + game_manager.GetComponent<gameManager>().get_whole_victim().initial + " on the back, must have been the victims ";
+        clue6.GetComponent<SpriteRenderer>().sprite = addsprites7(clue_6.name);
+        clue_6.look = addsprites7(clue_6.name);
+
+        int x = Random.Range(0, 8);
+        string[] order = {"I saw " + game_manager.GetComponent<gameManager>().get_whole_murderer().Name + " and " + getNPC(x).Name + "exchange a large money sack earlier outside", "I saw " + getNPC(x).Name + " and " + game_manager.GetComponent<gameManager>().get_whole_murderer().Name + "exchange a large money sack earlier outside" };
+        verbal_clue_7.name = order[Random.Range(0, 1)];
+
+        verbal_clue_8.name = "Heard a glass smash earlier and not long after screams as the body was found";
 
     }
 
     // -------------------------------------------------------------------------------------------------------
+
+    public void make_clues_crime_8() // crushed by chandelier
+    {
+        clue_1.name = "frayed rope";
+        clue_1.info = "A frayed peice of rope, It use to hold the chandelier in place, someone cut through cut - explains how it fell";
+        clue1.GetComponent<SpriteRenderer>().sprite = addsprites8(clue_1.name);
+        clue_1.look = addsprites8(clue_1.name);
+
+        string[] weapon = { "metal ruler", "dagger" };
+        clue_2.name = weapon[Random.Range(0, 1)];
+        clue_2.info = "Both sharp tools, can be used for cutting";
+        clue2.GetComponent<SpriteRenderer>().sprite = addsprites8(clue_2.name);
+        clue_2.look = addsprites8(clue_2.name);
+
+
+        clue_3.name = "footprint";
+        clue_3.info = "A dusty Foot print must be a " + game_manager.GetComponent<gameManager>().get_whole_murderer().man_woman + "'s size 4 - lot of dust upstairs in the attic";
+        clue3.GetComponent<SpriteRenderer>().sprite = addsprites8(clue_3.name);
+        clue_3.look = addsprites8(clue_3.name);
+
+
+        clue_4.name = "Note";
+        clue_4.info = "Its a plan for the Ron Cooke hub - showing the attic is where all lights are fixed through";
+        clue4.GetComponent<SpriteRenderer>().sprite = addsprites8(clue_4.name);
+        clue_4.look = addsprites8(clue_4.name);
+
+        clue_5.name = "broken glass";
+        clue_5.info = "Must be some glass from the chandelier when it smashed";
+        clue5.GetComponent<SpriteRenderer>().sprite = addsprites8(clue_5.name);
+        clue_5.look = addsprites8(clue_5.name);
+
+        clue_6.name = "Set of keys";
+        clue_6.info = "keys for all rooms in the Ron cooke hub except for the attic";
+        clue6.GetComponent<SpriteRenderer>().sprite = addsprites8(clue_6.name);
+        clue_6.look = addsprites8(clue_6.name);
+
+        verbal_clue_7.name = game_manager.GetComponent<gameManager>().get_whole_murderer().Name + " asked to borrow my keys ealier but returned them quickly. unsual for anyone to ask for my keys";
+
+        int x = Random.Range(0, 8);
+        string[] order = { game_manager.GetComponent<gameManager>().get_whole_murderer().Name + " and " + getNPC(x), getNPC(x) + " and " + game_manager.GetComponent<gameManager>().get_whole_murderer().Name };
+        verbal_clue_8.name = "We were all there when it fell, the only two not around where " + order[Random.Range(0,2)];
+
+    }
+
+    // -------------------------------------------------------------------------------------------------------
+
+    public void make_clues_crime_9()
+    {
+        clue_1.name = "Burnt scrap of clothing";
+        clue_1.info = "must have come off od the victims clothing";
+        clue1.GetComponent<SpriteRenderer>().sprite = addsprites7(clue_1.name);
+        clue_1.look = addsprites7(clue_1.name);
+
+        clue_2.name = "";
+        clue_2.info = "";
+        clue2.GetComponent<SpriteRenderer>().sprite = addsprites7(clue_2.name);
+        clue_2.look = addsprites7(clue_2.name);
+
+
+        clue_3.name = "";
+        clue_3.info = "";
+        clue3.GetComponent<SpriteRenderer>().sprite = addsprites7(clue_3.name);
+        clue_3.look = addsprites7(clue_3.name);
+
+
+        clue_4.name = "";
+        clue_4.info = "";
+        clue4.GetComponent<SpriteRenderer>().sprite = addsprites7(clue_4.name);
+        clue_4.look = addsprites7(clue_4.name);
+
+        clue_5.name = "" ;
+        clue_5.info = "";
+        clue5.GetComponent<SpriteRenderer>().sprite = addsprites7(clue_5.name);
+        clue_5.look = addsprites7(clue_5.name);
+
+        clue_6.name = "";
+        clue_6.info = "";
+        clue6.GetComponent<SpriteRenderer>().sprite = addsprites7(clue_6.name);
+        clue_6.look = addsprites7(clue_6.name);
+
+        verbal_clue_7.name = "";
+
+        verbal_clue_8.name = "";
+    }
+
+    // -------------------------------------------------------------------------------------------------------
+
+
 
 
     private string random_murder_or_NPC_name()  // returns a random name of NPC or of the Murder - used to help create teh clues for the crime
@@ -402,7 +528,18 @@ public class createClue: MonoBehaviour{
     {
         return cluesprites.GetComponent<cluesprites>().getsprites_murder6(name);
     }
-
+    private Sprite addsprites7(string name)
+    {
+        return cluesprites.GetComponent<cluesprites>().getsprites_murder7(name);
+    }
+    private Sprite addsprites8(string name)
+    {
+        return cluesprites.GetComponent<cluesprites>().getsprites_murder8(name);
+    }
+    private Sprite addsprites9(string name)
+    {
+        return cluesprites.GetComponent<cluesprites>().getsprites_murder8(name);  // CHANGE
+    }
 
 
 
@@ -433,7 +570,18 @@ public class createClue: MonoBehaviour{
         {
             make_clues_crime_6();
         }
-   
+        if (crime.GetComponent<CreateCrime>().murder_int == 6) //set clues for a throat slitting
+        {
+            make_clues_crime_7();
+        }
+        if (crime.GetComponent<CreateCrime>().murder_int == 7) //set clues for falling chandelier
+        {
+            make_clues_crime_8();
+        }
+        if (crime.GetComponent<CreateCrime>().murder_int == 8) //set clues for falling chandelier
+        {
+            make_clues_crime_9();
+        }
 
     }
 
