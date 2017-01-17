@@ -309,7 +309,7 @@ public class createClue: MonoBehaviour{
 
     // -------------------------------------------------------------------------------------------------------
 
-    public void make_clues_crime_6()  // SHOW WITH ARROW
+    public void make_clues_crime_6()  // SHOT WITH ARROW
     {
         clue_1.name = "Arrow";
         clue_1.info = "This must be the murder weapon, blood all over the head, stupid to try and hide it ";
@@ -328,25 +328,29 @@ public class createClue: MonoBehaviour{
         clue3.GetComponent<SpriteRenderer>().sprite = addsprites6(clue_3.name);
         clue_3.look = addsprites6(clue_3.name);
 
+        int y = Random.Range(0, 8);
+        int z = Random.Range(0, 8);
+        int a = Random.Range(0, 1);
+        string[] initials = { game_manager.GetComponent<gameManager>().get_whole_murderer().initial + " and " + getNPC(z).initial, getNPC(z).initial + " and " + game_manager.GetComponent<gameManager>().get_whole_murderer().initial };
         clue_4.name = "Bow";
-        clue_4.info = "de";
+        clue_4.info = "odd bow, has the name " + getNPC(y).name + "and two sets of initials: " + initials[a] + " inside of it";
         clue4.GetComponent<SpriteRenderer>().sprite = addsprites6(clue_4.name);
         clue_4.look = addsprites6(clue_4.name);
 
-        clue_5.name = "a";
-        clue_5.info = "b";
+        clue_5.name = "Note";
+        clue_5.info = "The Note is Adressed to " + getNPC(y).name + " and suggests they were having an affair, maybe the wrong person found out";
         clue5.GetComponent<SpriteRenderer>().sprite = addsprites6(clue_5.name);
         clue_5.look = addsprites6(clue_5.name);
 
-        clue_6.name = "a";
-        clue_6.info = "b";
+        clue_6.name = "Beanie";
+        clue_6.info = "might wear a hat when shooting - dont want long hair getting in the way";
         clue6.GetComponent<SpriteRenderer>().sprite = addsprites6(clue_6.name);
         clue_6.look = addsprites6(clue_6.name);
 
 
-        verbal_clue_7.name = "a";
+        verbal_clue_7.name = "Only two people can shoot an arrow straight around here " + game_manager.GetComponent<gameManager>().get_whole_murderer().name + " and " + getNPC(y).Name ;
 
-        verbal_clue_8.name = "a";
+        verbal_clue_8.name = "I saw " + game_manager.GetComponent<gameManager>().get_whole_murderer().Name + "sweating today, but it was freezing, maybehe was nervous?";
 
     }
 
@@ -424,6 +428,10 @@ public class createClue: MonoBehaviour{
         if (crime.GetComponent<CreateCrime>().murder_int == 4) // set clues for the posioned
         { 
             make_clues_crime_5();
+        }
+        if (crime.GetComponent<CreateCrime>().murder_int == 5) // set clues for shot with arrow
+        {
+            make_clues_crime_6();
         }
    
 

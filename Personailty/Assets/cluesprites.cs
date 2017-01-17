@@ -34,6 +34,9 @@ public class cluesprites : MonoBehaviour {
     public Sprite sword;
     public Sprite lid;
 
+    public Sprite arrow;
+    public Sprite bow;
+
 
     public Sprite getsprites_murder1(string clue)
     {
@@ -159,7 +162,23 @@ public class cluesprites : MonoBehaviour {
 
     public Sprite getsprites_murder6(string clue)
     {
-        return pen;
+        switch (clue)
+        {
+            case ("Arrow"):
+                return arrow;
+            case ("coin sack"):
+                return coin;
+            case ("dagger"):
+                return Dagger;
+            case ("Note"):
+                return note;
+            case ("Bow"):
+                return bow;
+            case ("beanie"):
+                return beanie;
+            default:
+                return pen;
+        }
     }
 
     
