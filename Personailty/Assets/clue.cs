@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class clue: MonoBehaviour{
 
+    // Defining values to each clue, name, info, is found and is a verbal clue
+
     public string cluename;
 
 	public string name;
@@ -21,6 +23,8 @@ public class clue: MonoBehaviour{
 
 	public GameObject Interaction;
 	public GameObject me;
+
+    // Initialises the clue object in the game manager
 
     public GameObject GameManger;
 

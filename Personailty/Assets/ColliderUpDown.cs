@@ -7,12 +7,12 @@ public class ColliderUpDown : MonoBehaviour {
     public GameObject gameman;
 
 
-    void OnTriggerStay2D(Collider2D col)
+    void OnTriggerStay2D(Collider2D col) // When up is pressed near a door, the player is moved to a new room
     {
         string room = SceneManager.GetActiveScene().name;
 
 
-        Vector3 starting_pos_left = new Vector3(-155, -20, 0);
+        Vector3 starting_pos_left = new Vector3(-155, -20, 0); // Player position reset
 
         if (Input.GetKeyDown(KeyCode.W))
         {

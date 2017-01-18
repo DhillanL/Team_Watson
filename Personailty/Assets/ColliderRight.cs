@@ -6,10 +6,10 @@ public class ColliderRight : MonoBehaviour {
 
     public GameObject gamemanager;
 
-    void OnTriggerEnter2D(Collider2D Coll)
+    void OnTriggerEnter2D(Collider2D Coll) // Triggered when the player goes to the far right collision box
     {
 
-        Vector3 starting_pos_right = new Vector3(-155, -21, 0);
+        Vector3 starting_pos_right = new Vector3(-155, -21, 0); // Resets the position of the player if a new room has been entered;
 
         string col_tag = Coll.gameObject.tag;
         string room = SceneManager.GetActiveScene().name;

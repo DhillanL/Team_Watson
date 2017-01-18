@@ -3,6 +3,8 @@ using System.Collections;
 
 public class cluesprites : MonoBehaviour {
 
+    // Initialise sprites for every clue across all scenarios
+
     public Sprite Dagger;
     public Sprite meatclever;
     public Sprite ruler;
@@ -47,6 +49,8 @@ public class cluesprites : MonoBehaviour {
     public Sprite whiteshirt;
 
 
+    // Each function defines which clues are assigned to which murder scenarios
+    
     public Sprite getsprites_murder1(string clue)
     {
         switch (clue)
