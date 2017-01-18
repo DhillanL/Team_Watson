@@ -3,8 +3,10 @@ using System.Collections;
 
 public class cluesprites : MonoBehaviour {
 
-    // Initialise sprites for every clue across all scenarios
-
+    /* pictures of all of the clues that could be used when making the crime. All of the pictures are saved in one place the script so its easier to find them adn set the clue to the right look 
+     */ 
+    
+    // pictures of all of the clues 
     public Sprite Dagger;
     public Sprite meatclever;
     public Sprite ruler;
@@ -48,8 +50,12 @@ public class cluesprites : MonoBehaviour {
 
     public Sprite whiteshirt;
 
+    public Sprite statue;
+    public Sprite heart;
+    public Sprite book;
+    public Sprite sandles;
 
-    // Each function defines which clues are assigned to which murder scenarios
+    // Each function defines which clues are assigned to which murder scenarios when it is called during the crime creation 
     
     public Sprite getsprites_murder1(string clue)
     {
@@ -273,15 +279,28 @@ public class cluesprites : MonoBehaviour {
         }
     }
 
-    
+    public Sprite getsprites_murder10(string clue)
+    {
+        switch(clue)
+        {
+            case ("Statue"):
+                return statue;
+            case ("Book"):
+                return book;
+            case ("Dagger"):
+                return Dagger;
+            case ("Sword"):
+                return sword;
+            case ("Heart"):
+                return heart;
+            case ("Sandles"):
+                return sandles;
+            case ("Coin Sack"):
+                return coin;
+            default:
+                return pen;
+        }
+    }
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+   
 }

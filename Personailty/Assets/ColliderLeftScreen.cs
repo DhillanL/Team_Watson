@@ -4,16 +4,17 @@ using UnityEngine.SceneManagement;
 
 public class ColliderLeftScreen : MonoBehaviour {
 
+    /* ColiderLeftScreen is a script added to all of the scenes in the game so that when the player walks to the left hand side of the screen he/she will  move into the next room according to the map
+     */
+
     public GameObject gamemanager;
 
     void OnTriggerEnter2D(Collider2D Col) // Triggered when the player goes to the far left collision box
     {
-        Vector3 starting_pos_left = new Vector3(155, -21, 0) // Resets the position of the player if a new room has been entered;
+        Vector3 starting_pos_left = new Vector3(155, -21, 0); // Resets the position of the player if a new room has been entered;
 
         string col_tag = Col.gameObject.tag;
         string room = SceneManager.GetActiveScene().name;
-        //Debug.Log("touch");
-        //Debug.Log(col_tag);
 
         if (col_tag.Equals("Player"))
         {
@@ -55,16 +56,4 @@ public class ColliderLeftScreen : MonoBehaviour {
 
         }
     }
-
-
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }

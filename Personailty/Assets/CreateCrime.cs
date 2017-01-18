@@ -3,12 +3,15 @@ using System.Collections;
 
 public class CreateCrime : MonoBehaviour
 {
+    /*
+     * CreateCrime  is used to create the crime for the game randomy. it is called by createNPC during the setup for the game
+     */
 
     public GameObject gamemanob;
 
 
+    // variables used for the CreateCrime
     public string crime;
-    //public string check_murder;
     public int murder_int; 
 
     public string murder1;
@@ -23,43 +26,42 @@ public class CreateCrime : MonoBehaviour
     public string murder10;
 
 
-    public void select_crime()
+    public void select_crime() // random number to select which murder will take place 
     {
-        int y = Random.Range(0, 9);  // 0 ,1,2,3,4,5,6,7,8    SET THIS TO THE RIGHT RANGE WHEN ALL OF THE CRIMES HAVE BEEN CREATED 
+        int y = Random.Range(0, 10); 
         murder_int = y;
     }
 
 
 
-    public void Set_Murder(int x ) 
+    public void Set_Murder(int x ) // using the random number selected set the murder  
     {
         if (x == 0)
         {
             crime = murder1;
-            //check_murder = "stab_back";
+            
 
         }
         else if (x == 1)
         {
             crime = murder2;
-            //check_murder = "drowned";
+            
 
         }
         else if (x == 2)
         {
             crime = murder3;
-           // check_murder = "pushed_lakehouse";
+           
         }
         else if (x == 3)
         {
             crime = murder4;
-            //check_murder = "strangled";
-
+           
         }
         else if (x == 4)
         {
             crime = murder5;
-            //check_murder = "posion";
+            
         }
         else if (x == 5)
         {
@@ -76,6 +78,10 @@ public class CreateCrime : MonoBehaviour
         else if (x ==8)
         {
             crime = murder9;
+        }
+        else if (x == 9)
+        {
+            crime = murder10;
         }
 
     }
@@ -122,20 +128,22 @@ public class CreateCrime : MonoBehaviour
 
         // murder 10 
 
+        murder10 = "The victim has been found wihtout a heart in the middle of the floor looking like a tricky one";
+
 
     }
 
-    public string get_murder()
+    public string get_murder() // accessor to return the crime type
     {
         return crime;
     }
 
-    public void load_crime()
+    public void load_crime()  //loads crime into the gamemanager 
     {
         gamemanob.GetComponent<gameManager>().set_crime(crime);
     }
 
-    public void create_crime()
+    public void create_crime() //function to create the crime and set the murderer
     {
         set_murders();
         Set_Murder(murder_int);
@@ -144,18 +152,4 @@ public class CreateCrime : MonoBehaviour
 
     }
 
-
-
-
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }

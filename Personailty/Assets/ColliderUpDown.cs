@@ -4,6 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class ColliderUpDown : MonoBehaviour {
 
+    /* ColiderLeftScreen is a script added to all of the doors in the game. this way if the player wants to go upstairs they will be transported
+     */
+
     public GameObject gameman;
 
 
@@ -12,7 +15,7 @@ public class ColliderUpDown : MonoBehaviour {
         string room = SceneManager.GetActiveScene().name;
 
 
-        Vector3 starting_pos_left = new Vector3(-155, -20, 0); // Player position reset
+        Vector3 starting_pos_left = new Vector3(120, -20, 0); // Player position reset
 
         if (Input.GetKeyDown(KeyCode.W))
         {
@@ -38,14 +41,4 @@ public class ColliderUpDown : MonoBehaviour {
             }            
         }
     }
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }

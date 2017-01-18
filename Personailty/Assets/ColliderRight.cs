@@ -4,6 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class ColliderRight : MonoBehaviour {
 
+    /* ColiderLeftScreen is a script added to all of the scenes in the game so that when the player walks to the right hand side of the screen he/she will  move into the next room according to the map
+     */
+
     public GameObject gamemanager;
 
     void OnTriggerEnter2D(Collider2D Coll) // Triggered when the player goes to the far right collision box
@@ -12,6 +15,7 @@ public class ColliderRight : MonoBehaviour {
         Vector3 starting_pos_right = new Vector3(-155, -21, 0); // Resets the position of the player if a new room has been entered;
 
         string col_tag = Coll.gameObject.tag;
+
         string room = SceneManager.GetActiveScene().name;
         
         if (col_tag.Equals("Player"))
@@ -50,25 +54,7 @@ public class ColliderRight : MonoBehaviour {
                 ;
             }
 
-            
-
-
         }
     }
 
-
-
-
-
-
-    // Use this for initialization
-    void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-       
-	
-	}
 }

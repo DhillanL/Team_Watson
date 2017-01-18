@@ -265,25 +265,37 @@ public class Interaction : MonoBehaviour {
             if (npc.Name == Gamemanager.get_murder())
             {
                 Debug.Log("YOU WIN");
-                GameObject.FindWithTag("GUI").GetComponent<timer>().testFalse();   // set the timer to false so it stops
+                //GameObject.FindWithTag("GUI").GetComponent<timer>().testFalse();   // set the timer to false so it stops
                 destory_objects();
+                reset_newgame(); 
                 SceneManager.LoadScene("win");
                 npc = null;
             }
             else
             {
                 speachbox.text = npc.Name + ": "+ npc.incorect_accusation;
-                incorrect_aac_num++;
+                incorrect_aac_num = incorrect_aac_num +1;
+                Debug.Log(incorrect_aac_num);
                 npc.okay_to_interact = false;
                 npc = null;
-                if (incorrect_aac_num > 1)
+                if (incorrect_aac_num > 0)
                 {
                     Debug.Log("GAME OVER");
-                    // load scene lose 
+                    //GameObject.FindWithTag("GUI").GetComponent<timer>().testFalse();   // set the timer to false so it stops
+                    destory_objects();
+                    reset_newgame();
+                    SceneManager.LoadScene("lose");
+                    npc = null;
                 }
             }
         }
 
+    }
+
+    public void reset_newgame() // called when starting a new game 
+    {
+        incorrect_aac_num = 0;
+        GameObject.FindWithTag("logbookparts").GetComponent<logbookparts>().reset_clues();
     }
 
 

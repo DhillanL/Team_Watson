@@ -4,6 +4,10 @@ using System.Linq;  // to be able to use contains in array checking
 
 public class createClue: MonoBehaviour{
 
+    /*
+     * createClue is called by createNPC and after createCrime. Once the crime has been craeted the relevant clues will be selcted at random to fit the murder 
+     */
+
 	public GameObject game_manager;
     public GameObject crime;
     public GameObject createnpc;
@@ -488,8 +492,48 @@ public class createClue: MonoBehaviour{
 
     // -------------------------------------------------------------------------------------------------------
 
+    public void make_clues_crime_10()
+    {
+        clue_1.name = "Statue";
+        clue_1.info = "A small statue of an idol - some sort of ritual maybe?";
+        clue1.GetComponent<SpriteRenderer>().sprite = addsprites10(clue_1.name);
+        clue_1.look = addsprites10(clue_1.name);
+
+        int x = Random.Range(0, 7);
+        string[] initals = { game_manager.GetComponent<gameManager>().get_whole_murderer().initial + " and " + getNPC(x).initial, getNPC(x).initial + " and " + game_manager.GetComponent<gameManager>().get_whole_murderer().initial };
+        clue_2.name = "Book";
+        clue_2.info = "A small book with burns and covered in blood. Inside of the cover are the initals " + initals[Random.Range(0,2)];
+        clue2.GetComponent<SpriteRenderer>().sprite = addsprites10(clue_2.name);
+        clue_2.look = addsprites10(clue_2.name);
+
+        string[] weapon = { "Dagger", "Sword" };
+        clue_3.name = weapon[Random.Range(0,2)];
+        clue_3.info = "Also covered in blood with the initials " +  random_murder_or_NPC_name() + " on the bottom of the blade";
+        clue3.GetComponent<SpriteRenderer>().sprite = addsprites10(clue_3.name);
+        clue_3.look = addsprites10(clue_3.name);
 
 
+        clue_4.name = "Heart";
+        clue_4.info = "It must be the victims heart and has a bite taken out of it - Strange";
+        clue4.GetComponent<SpriteRenderer>().sprite = addsprites10(clue_4.name);
+        clue_4.look = addsprites10(clue_4.name);
+
+        clue_5.name = "Sandles";
+        clue_5.info = "A pair of " + game_manager.GetComponent<gameManager>().get_whole_murderer().man_woman + "'s sandles. The underneath has drops of blood over";
+        clue5.GetComponent<SpriteRenderer>().sprite = addsprites10(clue_5.name);
+        clue_5.look = addsprites10(clue_5.name);
+
+        clue_6.name = "Coin Sack";
+        clue_6.info = "coin sack is full - no one would leave this behind unless they were in a rush";
+        clue6.GetComponent<SpriteRenderer>().sprite = addsprites10(clue_6.name);
+        clue_6.look = addsprites10(clue_6.name);
+
+        verbal_clue_7.name = "I saw " + game_manager.GetComponent<gameManager>().get_whole_murderer().name + " run out of hte on cooke hub cluthing at a tattered book. looked like there was blood on it";
+
+        verbal_clue_8.name = game_manager.GetComponent<gameManager>().get_whole_murderer().name +" has been looking for his coin sack for a while ";
+    }
+
+    // ---------------------------------------------------------------------------------------------
 
     private string random_murder_or_NPC_name()  // returns a random name of NPC or of the Murder - used to help create teh clues for the crime
     {
@@ -541,6 +585,10 @@ public class createClue: MonoBehaviour{
     {
         return cluesprites.GetComponent<cluesprites>().getsprites_murder9(name); 
     }
+    private Sprite addsprites10(string name)
+    {
+        return cluesprites.GetComponent<cluesprites>().getsprites_murder10(name);
+    }
 
 
 
@@ -582,6 +630,10 @@ public class createClue: MonoBehaviour{
         if (crime.GetComponent<CreateCrime>().murder_int == 8) //set clues for falling chandelier
         {
             make_clues_crime_9();
+        }
+        if (crime.GetComponent<CreateCrime>().murder_int == 9) //set clues for heart ritual
+        {
+            make_clues_crime_10();
         }
 
     }
@@ -706,12 +758,4 @@ public class createClue: MonoBehaviour{
 
 
 
-
-	void awake() {
-
-	}
-
-	void Update () {
-
-	}
 }

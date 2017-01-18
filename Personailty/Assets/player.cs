@@ -31,7 +31,7 @@ public class player : MonoBehaviour {
 
     public AudioClip walking;
 
-    private bool test = true;
+    public bool walk = true;
 
 
     public void setPlay()    // sets the name personailty Aand the sprite for the player 
@@ -44,14 +44,14 @@ public class player : MonoBehaviour {
         //Player.GetComponent<SpriteRenderer>().sprite = Sprite;
     }
 
-    public void testT()
+    public void walkT()
     {
-        test = true;
+        walk = true;
     }
 
-    public void testF()
+    public void walkF()
     {
-        test = false ;
+        walk = false ;
     }
 
 
@@ -77,7 +77,7 @@ public class player : MonoBehaviour {
     void Update()      // making the player move. A goes left, D goes right 
     {
 
-        if (test)
+        if (walk == true)
         {
 
             if (Input.GetKeyDown(KeyCode.A))

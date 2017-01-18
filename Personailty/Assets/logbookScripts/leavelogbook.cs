@@ -28,6 +28,8 @@ public class leavelogbook : MonoBehaviour {
         {
             GameObject.FindWithTag("logbookcrime").GetComponent<Transform>().position = new Vector3(185, 350, 0);
         }
+
+        GameObject.FindWithTag("Player").GetComponent<player>().walkT(); // set it so the player can walk again
     }
 
     // Use this for initialization

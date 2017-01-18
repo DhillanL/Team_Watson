@@ -607,7 +607,7 @@ public class CreateNPC : MonoBehaviour {
 
 
 
-    public void Make_NPC() // called when initilased so to create all of the NPC's 
+    public void Make_NPC() // called when initilased so to create all of the NPC's, create the crime and set the clues 
     {
 
         // STAGE 1 
@@ -627,7 +627,6 @@ public class CreateNPC : MonoBehaviour {
 
         makelst();                  // make the lists 
         makegameobjectlst();
-           
 
         shuffle_lst();                  //creates a shuffled list 
 

@@ -10,6 +10,7 @@ public class clickX : MonoBehaviour {
     {
         
         GameObject.FindWithTag("map").GetComponent<Map>().transform.position = finish_pos;
+        GameObject.FindWithTag("Player").GetComponent<player>().walkT();
     }
 
     // Use this for initialization

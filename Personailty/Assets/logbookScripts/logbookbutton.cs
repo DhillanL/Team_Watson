@@ -27,6 +27,7 @@ public class logbookbutton : MonoBehaviour {
         GameObject.FindWithTag("logbookcluetitle").GetComponent<Transform>().Translate(-310, 0, 0);
 
         GameObject.FindWithTag("logbookparts").GetComponent<logbookparts>().load_logbook();
+        GameObject.FindWithTag("Player").GetComponent<player>().walkF(); // set it so the player cant move when the map is up
         
 
     }
