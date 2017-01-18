@@ -8,7 +8,7 @@ public class ColliderLeftScreen : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D Col) // Triggered when the player goes to the far left collision box
     {
-        Vector3 starting_pos_left = new Vector3(155, -21, 0) // Resets the position of the player if a new room has been entered;
+        Vector3 starting_pos_left = new Vector3(155, -21, 0); // Resets the position of the player if a new room has been entered;
 
         string col_tag = Col.gameObject.tag;
         string room = SceneManager.GetActiveScene().name;
