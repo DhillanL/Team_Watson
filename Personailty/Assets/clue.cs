@@ -50,7 +50,7 @@ public class clue: MonoBehaviour{
 
 
 
-    void OnMouseDown()
+    void OnMouseDown() // When the clue is clicked on it is removed and added to the logbook
     {
         GameManger = GameObject.FindWithTag("gamemanager");
         is_found = true;
