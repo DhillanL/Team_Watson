@@ -27,10 +27,10 @@ public class CreateNPC : MonoBehaviour {
 
 
     // NPCS PF NPC TYPE WITH THEIR NAMES 
-    public NPC Tonald_Dump ;    //TEST NAME 
-    public NPC Bernard_lowe ;  // test name 
-    public NPC George_allen;   // test name 
-    public NPC Ethan_hawk ;    // test name 
+    public NPC Tonald_Dump ;    
+    public NPC Bernard_lowe ;   
+    public NPC George_allen;    
+    public NPC Ethan_hawk ;    
 	public NPC Ryan_Smith;
 	public NPC Zoe_Williams;
 	public NPC Alice_Davis;
