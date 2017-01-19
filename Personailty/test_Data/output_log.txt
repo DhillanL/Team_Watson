@@ -2,253 +2,111 @@ Initialize engine version: 5.4.2f2 (b7e030c65c9b)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
-    Renderer: NVIDIA GeForce GTX 1080 (ID=0x1b80)
+    Renderer: NVIDIA GeForce GTX 960 (ID=0x1401)
     Vendor:   NVIDIA
-    VRAM:     3072 MB
+    VRAM:     2016 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: E:\Documents-HDD\Team_Watson\Personailty\test_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading E:\Documents-HDD\Team_Watson\Personailty\test_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: E:\Documents-HDD\Team_Watson\Personailty\test_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading E:\Documents-HDD\Team_Watson\Personailty\test_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: E:\Documents-HDD\Team_Watson\Personailty\test_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading E:\Documents-HDD\Team_Watson\Personailty\test_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: E:\Documents-HDD\Team_Watson\Personailty\test_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading E:\Documents-HDD\Team_Watson\Personailty\test_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-- Completed reload, in  0.109 seconds
-Platform assembly: E:\Documents-HDD\Team_Watson\Personailty\test_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: E:\Documents-HDD\Team_Watson\Personailty\test_Data\Managed\System.dll (this message is harmless)
-desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+Platform assembly: D:\Documents\Uni\Year 2\SEPRunity\Murder RCH\Personailty\test_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\Documents\Uni\Year 2\SEPRunity\Murder RCH\Personailty\test_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\Documents\Uni\Year 2\SEPRunity\Murder RCH\Personailty\test_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\Documents\Uni\Year 2\SEPRunity\Murder RCH\Personailty\test_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\Documents\Uni\Year 2\SEPRunity\Murder RCH\Personailty\test_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\Documents\Uni\Year 2\SEPRunity\Murder RCH\Personailty\test_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\Documents\Uni\Year 2\SEPRunity\Murder RCH\Personailty\test_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading D:\Documents\Uni\Year 2\SEPRunity\Murder RCH\Personailty\test_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.158 seconds
+Platform assembly: D:\Documents\Uni\Year 2\SEPRunity\Murder RCH\Personailty\test_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: D:\Documents\Uni\Year 2\SEPRunity\Murder RCH\Personailty\test_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 30Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 0.522218 ms
-Room1.1 = 
+UnloadTime: 0.583480 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.712556 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 521.
+Total: 0.239099 ms (FindLiveObjects: 0.024935 ms CreateObjectMapping: 0.012190 ms MarkObjects: 0.190337 ms  DeleteObjects: 0.006372 ms)
+
+the victim was crushed under the weight of the chandelier.
+ The chandelier has since been removed 
+ worth noting there were a lot of people witness to the death
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
 
-Room1.2 = 
+the murderer is: Alice
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
 
-Room2.1 = 
+the victim is: Robert
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
 
-Room3.1 = 
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.640000 ms
 
-Room4.1 = 
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-Room5.1 = 
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-Room6.1 = 
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-Room7.1 = 
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-Room7.2 = 
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-Room8.1 = 
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+Unloading 57 unused Assets to reduce memory usage. Loaded Objects now: 680.
+Total: 0.252398 ms (FindLiveObjects: 0.028536 ms CreateObjectMapping: 0.019393 ms MarkObjects: 0.180086 ms  DeleteObjects: 0.023826 ms)
 
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 9.687601 ms
+UnloadTime: 0.295065 ms
 
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 239.
-Total: 0.319971 ms (FindLiveObjects: 0.016904 ms CreateObjectMapping: 0.022941 ms MarkObjects: 0.269259 ms  DeleteObjects: 0.010565 ms)
+Unloading 122 unused Assets to reduce memory usage. Loaded Objects now: 648.
+Total: 0.555498 ms (FindLiveObjects: 0.030476 ms CreateObjectMapping: 0.019393 ms MarkObjects: 0.220259 ms  DeleteObjects: 0.284814 ms)
 
-Room1.1 = 
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.423896 ms
 
-Room1.2 = 
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 704.
+Total: 0.265697 ms (FindLiveObjects: 0.028259 ms CreateObjectMapping: 0.022164 ms MarkObjects: 0.197264 ms  DeleteObjects: 0.004709 ms)
 
-Room2.1 = 
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.434424 ms
 
-Room3.1 = 
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+Unloading 78 unused Assets to reduce memory usage. Loaded Objects now: 602.
+Total: 0.345212 ms (FindLiveObjects: 0.028813 ms CreateObjectMapping: 0.018562 ms MarkObjects: 0.216935 ms  DeleteObjects: 0.080623 ms)
 
-Room4.1 = 
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.355740 ms
 
-Room5.1 = 
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-Room6.1 = 
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-Room7.1 = 
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-Room7.2 = 
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-Room8.1 = 
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 704.
+Total: 0.274285 ms (FindLiveObjects: 0.030476 ms CreateObjectMapping: 0.018562 ms MarkObjects: 0.218597 ms  DeleteObjects: 0.006095 ms)
 
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-NullReferenceException: Object reference not set to an instance of an object
-  at gameManager.reset_npc_pos () [0x00000] in <filename unknown>:0 
-  at gameManager.populateroom1 () [0x00000] in <filename unknown>:0 
-  at gameManager.player_select_finish () [0x00000] in <filename unknown>:0 
-  at UnityEngine.Events.InvokableCall.Invoke (System.Object[] args) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Events.InvokableCallList.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Events.UnityEventBase.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
-  at UnityEngine.Events.UnityEvent.Invoke () [0x00000] in <filename unknown>:0 
-  at UnityEngine.UI.Button.Press () [0x00000] in <filename unknown>:0 
-  at UnityEngine.UI.Button.OnPointerClick (UnityEngine.EventSystems.PointerEventData eventData) [0x00000] in <filename unknown>:0 
-  at UnityEngine.EventSystems.ExecuteEvents.Execute (IPointerClickHandler handler, UnityEngine.EventSystems.BaseEventData eventData) [0x00000] in <filename unknown>:0 
-  at UnityEngine.EventSystems.ExecuteEvents.Execute[IPointerClickHandler] (UnityEngine.GameObject target, UnityEngine.EventSystems.BaseEventData eventData, UnityEngine.EventSystems.EventFunction`1 functor) [0x00000] in <filename unknown>:0 
-UnityEngine.DebugLogHandler:Internal_LogException(Exception, Object)
-UnityEngine.DebugLogHandler:LogException(Exception, Object)
-UnityEngine.Logger:LogException(Exception, Object)
-UnityEngine.Debug:LogException(Exception)
-UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1)
-UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData)
-UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32)
-UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent()
-UnityEngine.EventSystems.StandaloneInputModule:Process()
-UnityEngine.EventSystems.EventSystem:Update()
- 
-(Filename:  Line: -1)
+UnloadTime: 0.425558 ms
 
-UnloadTime: 0.697599 ms
-DontDestroyOnLoad only work for root GameObjects or components on root GameObjects.
- 
-(Filename:  Line: 386)
+Unloading 78 unused Assets to reduce memory usage. Loaded Objects now: 596.
+Total: 0.345766 ms (FindLiveObjects: 0.029922 ms CreateObjectMapping: 0.018562 ms MarkObjects: 0.216935 ms  DeleteObjects: 0.079792 ms)
 
-DontDestroyOnLoad only work for root GameObjects or components on root GameObjects.
- 
-(Filename:  Line: 386)
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.359619 ms
 
-DontDestroyOnLoad only work for root GameObjects or components on root GameObjects.
- 
-(Filename:  Line: 386)
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 704.
+Total: 0.273177 ms (FindLiveObjects: 0.028813 ms CreateObjectMapping: 0.018008 ms MarkObjects: 0.222753 ms  DeleteObjects: 0.003324 ms)
 
-DontDestroyOnLoad only work for root GameObjects or components on root GameObjects.
- 
-(Filename:  Line: 386)
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.438026 ms
 
+Unloading 52 unused Assets to reduce memory usage. Loaded Objects now: 652.
+Total: 0.317506 ms (FindLiveObjects: 0.029367 ms CreateObjectMapping: 0.018285 ms MarkObjects: 0.220536 ms  DeleteObjects: 0.049038 ms)
 
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 304.
-Total: 0.308803 ms (FindLiveObjects: 0.023846 ms CreateObjectMapping: 0.025054 ms MarkObjects: 0.254166 ms  DeleteObjects: 0.004829 ms)
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.419740 ms
 
-the murderer is: George
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 597.
+Total: 0.306701 ms (FindLiveObjects: 0.031030 ms CreateObjectMapping: 0.012467 ms MarkObjects: 0.220259 ms  DeleteObjects: 0.042389 ms)
 
-the victim is: NPC6
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.339117 ms
 
-Room1.1 = Ethan (UnityEngine.GameObject)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 600.
+Total: 0.287307 ms (FindLiveObjects: 0.040727 ms CreateObjectMapping: 0.011636 ms MarkObjects: 0.231065 ms  DeleteObjects: 0.003324 ms)
 
-Room1.2 = NPC6 (UnityEngine.GameObject)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.365160 ms
 
-Room2.1 = NPC5 (UnityEngine.GameObject)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 597.
+Total: 0.266528 ms (FindLiveObjects: 0.027151 ms CreateObjectMapping: 0.011913 ms MarkObjects: 0.223584 ms  DeleteObjects: 0.003047 ms)
 
-Room3.1 = NPC9 (UnityEngine.GameObject)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-Room4.1 = Tonald (UnityEngine.GameObject)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-Room5.1 = NPC10 (UnityEngine.GameObject)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-Room6.1 = NPC7 (UnityEngine.GameObject)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-Room7.1 = NPC8 (UnityEngine.GameObject)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-Room7.2 = NPC8 (UnityEngine.GameObject)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-Room8.1 = bernard (UnityEngine.GameObject)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.332951 ms
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 295.
-Total: 0.273183 ms (FindLiveObjects: 0.026563 ms CreateObjectMapping: 0.019922 ms MarkObjects: 0.217037 ms  DeleteObjects: 0.009055 ms)
-
-Room1.1 = Ethan (UnityEngine.GameObject)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-Room1.2 = NPC6 (UnityEngine.GameObject)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-Room2.1 = NPC5 (UnityEngine.GameObject)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-Room3.1 = NPC9 (UnityEngine.GameObject)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-Room4.1 = Tonald (UnityEngine.GameObject)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-Room5.1 = NPC10 (UnityEngine.GameObject)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-Room6.1 = NPC7 (UnityEngine.GameObject)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-Room7.1 = NPC8 (UnityEngine.GameObject)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-Room7.2 = NPC8 (UnityEngine.GameObject)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-Room8.1 = bernard (UnityEngine.GameObject)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-Setting up 2 worker threads for Enlighten.
-  Thread -> id: 17a0 -> priority: 1 
-  Thread -> id: 3190 -> priority: 1 
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 2d9c -> priority: 1 
