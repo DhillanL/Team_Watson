@@ -276,9 +276,10 @@ public class Interaction : MonoBehaviour {
                 Debug.Log("YOU WIN");
                 //GameObject.FindWithTag("GUI").GetComponent<timer>().testFalse();   // USED TO IMPLEMENT THE TIMER 
                 destory_objects();
-                reset_newgame(); 
-                SceneManager.LoadScene("win");
+                reset_newgame();
                 npc = null;
+                SceneManager.LoadScene("win");
+                
             }
             else   // IF THE PLAYER DOES NOT ACCUSE THE CORRECT NPC
             {
@@ -293,8 +294,9 @@ public class Interaction : MonoBehaviour {
                     //GameObject.FindWithTag("GUI").GetComponent<timer>().testFalse();   // set the timer to false so it stops
                     destory_objects();
                     reset_newgame();
-                    SceneManager.LoadScene("lose");  // load the losign screen 
                     npc = null;
+                    SceneManager.LoadScene("lose");  // load the losing screen 
+                    
                 }
             }
         }
@@ -311,9 +313,9 @@ public class Interaction : MonoBehaviour {
 
     public void destory_objects()  // desoty all the objects when loaded the final screen 
     {
-        string[] objects = {"Player","GUI", "Bernard", "Tonald", "George", "Ethan", "Ryan", "Zoe", "Alice", "Stephen",
+        string[] objects = {"Player", "Bernard", "Tonald", "George", "Ethan", "Ryan", "Zoe", "Alice", "Stephen",
         "Robert", "Sophie", "Clue1", "Clue2", "Clue3", "Clue4", "Clue5", "Clue6", "Clue7", "Clue8", "map", "map_icon",
-        "log_button","logbook","logbookcrime"};
+        "log_button","logbook","logbookcrime","GUI"};
         for (int i = 0; i < 25; i++)
         {
             Destroy(GameObject.FindWithTag(objects[i]));

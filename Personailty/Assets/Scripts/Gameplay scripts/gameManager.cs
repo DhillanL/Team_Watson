@@ -412,6 +412,8 @@ public class gameManager : MonoBehaviour {
         set_player_vel_0();
         set_log_bookbutton();
         GameObject.FindWithTag("Player").GetComponent<player>().walkT(); // set it so the player can walk again
+        GameObject.FindWithTag("GUI").GetComponent<Transform>().Translate(400,0,1); // bring the GUI into the game 
+      
     }
 
 
@@ -500,6 +502,11 @@ public class gameManager : MonoBehaviour {
     public float get_mins()
     {
         return time_mins;
+    }
+
+    public int get_clues_no()
+    {
+        return found_clues;
     }
 
 }

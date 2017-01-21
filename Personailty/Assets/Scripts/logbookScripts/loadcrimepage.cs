@@ -8,14 +8,18 @@ public class loadcrimepage : MonoBehaviour {
     void OnMouseDown()
     {
         GameObject.FindWithTag("logbookcrime").GetComponent<Transform>().position = new Vector3(9,24,-1);
-        GameObject.FindWithTag("logbook").GetComponent<Transform>().position = new Vector3(185, 188, 0);
+        GameObject.FindWithTag("logbook").GetComponent<Transform>().position = new Vector3(185, 188, 0);  // move out of the way
 
 
-        for (int i =0; i < 7; i++) // way to iterate through all of the logbooktext places 
+        for (int i =0; i < 7; i++) // way to iterate through all of the logbooktext places and move them out of the way 
         {
             string logbooktext = logbookplaces[i];
             GameObject.FindWithTag(logbooktext).GetComponent<Transform>().Translate(290, 0, 0);
         }
+
+        GameObject.FindWithTag("logbookcluetitle").GetComponent<Transform>().Translate(310,0,0);  // move away old title 
+        GameObject.FindWithTag("logbookcasetitle").GetComponent<Transform>().Translate(-600,0,0);
+        GameObject.FindWithTag("logbookcasetext").GetComponent<Transform>().Translate(-600,0,0);
 
     }
 

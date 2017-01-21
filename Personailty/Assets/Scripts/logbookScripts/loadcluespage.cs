@@ -8,8 +8,8 @@ public class loadcluespage : MonoBehaviour {
 
     void OnMouseDown()
     {
-        GameObject.FindWithTag("logbook").GetComponent<Transform>().position = new Vector3(9, 24, -1);
-        GameObject.FindWithTag("logbookcrime").GetComponent<Transform>().position = new Vector3(185, 350, 0);
+        GameObject.FindWithTag("logbook").GetComponent<Transform>().position = new Vector3(9, 24, -1);   // load to screen 
+        GameObject.FindWithTag("logbookcrime").GetComponent<Transform>().position = new Vector3(185, 350, 0);  // moce off screen 
 
 
         for (int i = 0; i < 7; i++) // way to iterate through all of the logbooktext places 
@@ -17,6 +17,11 @@ public class loadcluespage : MonoBehaviour {
             string logbooktext = logbookplaces[i];
             GameObject.FindWithTag(logbooktext).GetComponent<Transform>().Translate(-290, 0, 0);
         }
+
+        GameObject.FindWithTag("logbookcluetitle").GetComponent<Transform>().Translate(-310, 0, 0);
+        GameObject.FindWithTag("logbookcasetitle").GetComponent<Transform>().Translate(600, 0, 0);
+        GameObject.FindWithTag("logbookcasetext").GetComponent<Transform>().Translate(600, 0, 0);
+
 
     }
 

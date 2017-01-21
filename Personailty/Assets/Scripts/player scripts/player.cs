@@ -72,6 +72,11 @@ public class player : MonoBehaviour {
         
     }
 
+    public void set_vel_0()
+    {
+        rb2D.velocity = new Vector2(0, 0);
+    }
+
     public int orintation = 1; // right - 1 left - 0
 
     void Update()      // making the player move. A goes left, D goes right 

@@ -23,6 +23,8 @@ public class Loadcasefile : MonoBehaviour {
         Victim_age.text = "Age: " + info.get_whole_victim().age;
         victim_known_info.text = info.get_crime();
         headshot.GetComponent<SpriteRenderer>().sprite = info.get_whole_victim().headshot;
+        GameObject.FindWithTag("logbookparts").GetComponent<logbookparts>().load_log_book_crime("Victim Name: " + Victim_name.text + "\n\nVictim Age: " + Victim_age.text + "\n\nKnown Info:\n " + victim_known_info.text);
+
     }
 
 	// Use this for initialization

@@ -98,7 +98,7 @@ public class CreateCrime : MonoBehaviour
 
         // pushed into the freeing lake 
         murder2 = ("The lake outside of the Ron Cooke Hub is cold at the best of times. Last night the lake wasnt far off being frozen.\n\n  " + gamemanob.GetComponent<gameManager>().get_victim() +
-            "\n's body was found at the bottom, cold as ice \n\nIt looks like " + gamemanob.GetComponent<gameManager>().get_whole_victim().he_she + " was pushed.");
+            "'s body was found at the bottom, cold as ice \n\nIt looks like " + gamemanob.GetComponent<gameManager>().get_whole_victim().he_she + " was pushed.");
 
         // pushed over the lakehouse 
         murder3 = ("The height of the lake house balcony is around 30 feet tall and " + gamemanob.GetComponent<gameManager>().get_victim()  + " feel all 30...head first. \n\n" +

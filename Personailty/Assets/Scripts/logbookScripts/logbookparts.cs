@@ -13,6 +13,7 @@ public class logbookparts : MonoBehaviour {
     public static string logbooktext6;
     public static string logbooktext7;
     public static string logbooktext8;
+    public static string casefiletext;
 
     // number of clues found so far 
     public static int clue_count = 0;
@@ -26,6 +27,7 @@ public class logbookparts : MonoBehaviour {
     public GameObject text6;
     public GameObject text7;
     public GameObject text8;
+    public GameObject casefiletextobj;
 
     public bool first_load = true;
     
@@ -36,8 +38,8 @@ public class logbookparts : MonoBehaviour {
         if (first_load)
         {
             string[] logbooktexts = {"logbooktext1", "logbooktext2" , "logbooktext3" , "logbooktext4" , "logbooktext5",
-            "logbooktext6","logbooktext7","logbooktext8"};
-            for (int i =0; i < 8; i++)
+            "logbooktext6","logbooktext7","logbooktext8","logbookcasetext"};
+            for (int i =0; i < 9; i++)
             {
                 logbooktexts[i] = "";
             }
@@ -61,6 +63,9 @@ public class logbookparts : MonoBehaviour {
         text7.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
         text8.GetComponent<Text>().text = logbooktext8;
         text8.GetComponent<Text>().alignment = TextAnchor.MiddleCenter;
+        casefiletextobj.GetComponent<Text>().text = casefiletext;
+       
+
     }
 
     public void add_clue(clue clue)
@@ -206,6 +211,11 @@ public class logbookparts : MonoBehaviour {
         return logbooktext1;
     }
 
+
+    public void load_log_book_crime(string text)
+    {
+        casefiletext = text;
+    }
   
 
 

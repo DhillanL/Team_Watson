@@ -3,7 +3,7 @@ using System.Collections;
 
 public class leavelogbook : MonoBehaviour {
     
-    // script to close the logbooks 
+    // script to close the logbook pages depening on which on you are on = clues or crime 
     // if x = 1 close the clues page
     // if x = 0 close the crime page 
 
@@ -24,9 +24,15 @@ public class leavelogbook : MonoBehaviour {
             GameObject.FindWithTag("logtext8").GetComponent<Transform>().Translate(290, 0, 0);
             GameObject.FindWithTag("logbookcluetitle").GetComponent<Transform>().Translate(310, 0, 0);
 
+            GameObject.FindWithTag("log_button").GetComponent<logbookbutton>().already_open = false;
+
         } else if (x == 0) // close the crime page 
         {
             GameObject.FindWithTag("logbookcrime").GetComponent<Transform>().position = new Vector3(185, 350, 0);
+            GameObject.FindWithTag("log_button").GetComponent<logbookbutton>().already_open = false;
+            GameObject.FindWithTag("logbookcasetitle").GetComponent<Transform>().Translate(600, 0, 0);
+            GameObject.FindWithTag("logbookcasetext").GetComponent<Transform>().Translate(600, 0, 0);
+
         }
 
         GameObject.FindWithTag("Player").GetComponent<player>().walkT(); // set it so the player can walk again
