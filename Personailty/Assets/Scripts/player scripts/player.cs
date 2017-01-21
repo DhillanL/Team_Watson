@@ -31,7 +31,6 @@ public class player : MonoBehaviour {
     public float speed = 70f;   //speed that the player moves at across the screen 
     private Rigidbody2D rb2D; // the rigid body for the player 
 
-    public AudioClip walking;  // walking sound clip 
 
     public bool walk = true;
 
@@ -42,8 +41,7 @@ public class player : MonoBehaviour {
         Name = data.getName();
         Personailty = data.getPersonality();
         personint = data.getpersonint();
-        //Sprite = data.getSprite();
-        //Player.GetComponent<SpriteRenderer>().sprite = Sprite;
+      
     }
 
     public void walkT() // player is allowed to walk 

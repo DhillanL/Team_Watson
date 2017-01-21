@@ -15,7 +15,7 @@ public class Interaction : MonoBehaviour {
     public GameObject npcobj;
     public gameManager Gamemanager;
     public player player;
-    public NPC npc;
+    public NPC npc;         // who the playe is currently interacting with
 
     public Text speachbox ;                // The speach box 
 
@@ -109,11 +109,6 @@ public class Interaction : MonoBehaviour {
             head_shot.GetComponent<SpriteRenderer>().sprite = npc.headshot;  // get teh headshot to put into the GUI
 
             set_orintation();  // set the NPC to face the player 
-
-            if (npc.okay_to_interact == true)  // check there isnt already a interaction taking place 
-
-                {
-
                 
                     if (npc.first_interaction == true)   /// if its the players first interaction wiht the NPC
                     {
@@ -132,14 +127,7 @@ public class Interaction : MonoBehaviour {
                         question.transform.Translate(0, 57, 0);   // bring up the two buttons to the screen so the player can pick to QUESTION or ACCUSE
                         accusebutt.transform.Translate(0, 57, 0);
 
-                    }
-
-                }
-                else
-                {
-                    speachbox.text = npc.name + ": " + npc.dont_interact_response;  // dont interact response 
-                    npc = null;
-                }
+                    }      
 
             }
 
@@ -150,39 +138,48 @@ public class Interaction : MonoBehaviour {
 
     public void pick_question()  // if the player slectes the question button 
     {
-        question.transform.Translate(0, -57, 0);
-        accusebutt.transform.Translate(0, -57, 0);
-        questioingtype1.transform.Translate(0, 57, 0);  // bring up the three buttons so they can pick which interaction type they want to select 
-        questioingtype2.transform.Translate(0, 57, 0);
-        questioingtype3.transform.Translate(0, 57, 0);
-        questioingtype1.GetComponentInChildren<Text>().text = player.Personailty.type1();
-        questioingtype2.GetComponentInChildren<Text>().text = player.Personailty.type2();
-        questioingtype3.GetComponentInChildren<Text>().text = player.Personailty.type3();
+        if (npc.okay_to_interact == true) // test that its okay to interact with the NPC EG: they have told you to go away 
+        {
+            question.transform.Translate(0, -57, 0);
+            accusebutt.transform.Translate(0, -57, 0);
+            questioingtype1.transform.Translate(0, 57, 0);  // bring up the three buttons so they can pick which interaction type they want to select 
+            questioingtype2.transform.Translate(0, 57, 0);
+            questioingtype3.transform.Translate(0, 57, 0);
+            questioingtype1.GetComponentInChildren<Text>().text = player.Personailty.type1();
+            questioingtype2.GetComponentInChildren<Text>().text = player.Personailty.type2();
+            questioingtype3.GetComponentInChildren<Text>().text = player.Personailty.type3();
+        } else
+        {
+            question.transform.Translate(0, -57, 0);
+            accusebutt.transform.Translate(0, -57, 0);
+            speachbox.text = npc.name + ": " + npc.dont_interact_response;  // dont interact response 
+            npc = null;
+        }
+
     }
 
 
     public void questioing_style1()  // if the user picks their first interaction style
     {
+        
+            move_boxes();
+            question_style_text = player.Personailty.questiontype1;
+            speachbox.text = "Detective " + player.Name + ": " + player.Personailty.Question1();
 
-        questioingtype1.transform.Translate(0, -57, 0);
-        questioingtype2.transform.Translate(0, -57, 0);
-        questioingtype3.transform.Translate(0, -57, 0);
-        question_style_text = player.Personailty.questiontype1;
-        speachbox.text = "Detective " + player.Name + ": " + player.Personailty.Question1();
-
-        if ((question_style_text.Equals(npc.clue_response1) || question_style_text.Equals(npc.clue_response2)) && npc.clue != "")  // checks that the questioing style of the player macthes the one in which the NPC will say thier clue 
-        {
-            speachbox.text += "\n\n" + npc.Name + ": " + npc.clue;
-            logbookpart.GetComponent<logbookparts>().add_clue(npc.clue_object);  // add the clue to the log book if they give a clue 
-            check_okay_to_interact();
-            npc = null;  // set interactin to clear after it is finished
-        }
-        else
-        {
-            speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
-            check_okay_to_interact();
-            npc = null;
-        }
+            if ((question_style_text.Equals(npc.clue_response1) || question_style_text.Equals(npc.clue_response2)) && npc.clue != "")  // checks that the questioing style of the player macthes the one in which the NPC will say thier clue 
+            {
+                speachbox.text += "\n\n" + npc.Name + ": " + npc.clue;
+                logbookpart.GetComponent<logbookparts>().add_clue(npc.clue_object);  // add the clue to the log book if they give a clue 
+                check_okay_to_interact(npc);
+                npc = null;  // set interactin to clear after it is finished
+            }
+            else
+            {
+                speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
+                check_okay_to_interact(npc);
+                npc = null;
+            }
+        
     }
     
 
@@ -191,57 +188,65 @@ public class Interaction : MonoBehaviour {
     public void questioing_style2()  // if the user selects the second interaction method
         {
 
-        questioingtype1.transform.Translate(0, -57, 0);
-        questioingtype2.transform.Translate(0, -57, 0);
-        questioingtype3.transform.Translate(0, -57, 0);
-        question_style_text = player.Personailty.questiontype2;
-        speachbox.text = "Detective " + player.Name + ": " + player.Personailty.Question2();
+            move_boxes();
+            question_style_text = player.Personailty.questiontype2;
+            speachbox.text = "Detective " + player.Name + ": " + player.Personailty.Question2();
 
-        if ((question_style_text.Equals(npc.clue_response1) || question_style_text.Equals(npc.clue_response2)) && npc.clue != "")  // checks that the questioing style of the player macthes the one in which the NPC will say thier clue 
-        {
-            speachbox.text += "\n\n" + npc.Name + ": " + npc.clue;
-            logbookpart.GetComponent<logbookparts>().add_clue(npc.clue_object);
-            check_okay_to_interact();
+            if ((question_style_text.Equals(npc.clue_response1) || question_style_text.Equals(npc.clue_response2)) && npc.clue != "")  // checks that the questioing style of the player macthes the one in which the NPC will say thier clue 
+            {
+                speachbox.text += "\n\n" + npc.Name + ": " + npc.clue;
+                logbookpart.GetComponent<logbookparts>().add_clue(npc.clue_object);
+                check_okay_to_interact(npc);
 
-         
 
-            npc = null;
-        }
-        else
-        {
-            speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
-            check_okay_to_interact();
-            npc = null;
-        }
+
+                npc = null;
+            }
+            else
+            {
+                speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
+                check_okay_to_interact(npc);
+                npc = null;
+            }
+       
     }
 
     public void questioning_style3()  // if the player selects the third interaction type 
     {
+        
+            move_boxes();
+            question_style_text = player.Personailty.questiontype3;
+            speachbox.text = "Detective " + player.Name + ": " + player.Personailty.Question3();
+
+            if ((question_style_text.Equals(npc.clue_response1) || question_style_text.Equals(npc.clue_response2)) && npc.clue != "")  // checks that the questioing style of the player macthes the one in which the NPC will say thier clue 
+            {
+                speachbox.text += "\n\n" + npc.Name + ": " + npc.clue;
+                logbookpart.GetComponent<logbookparts>().add_clue(npc.clue_object);
+                check_okay_to_interact(npc);
+
+
+
+                npc = null;
+            }
+            else
+            {
+                speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
+                check_okay_to_interact(npc);
+                npc = null;
+            }
+        
+
+    }
+
+    public void move_boxes()
+    {
         questioingtype1.transform.Translate(0, -57, 0);
         questioingtype2.transform.Translate(0, -57, 0);
         questioingtype3.transform.Translate(0, -57, 0);
-        question_style_text = player.Personailty.questiontype3;
-        speachbox.text = "Detective " + player.Name + ": " + player.Personailty.Question3();
-
-        if ((question_style_text.Equals(npc.clue_response1) || question_style_text.Equals(npc.clue_response2)) && npc.clue != "")  // checks that the questioing style of the player macthes the one in which the NPC will say thier clue 
-        {
-            speachbox.text += "\n\n" + npc.Name + ": " + npc.clue;
-            logbookpart.GetComponent<logbookparts>().add_clue(npc.clue_object);
-            check_okay_to_interact();
-
-
-
-            npc = null;
-        }
-        else
-        {
-            speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
-            check_okay_to_interact();
-            npc = null;
-        }
     }
 
-    public void check_okay_to_interact()  // check that the player is okay to interact with the NPC - will not be if tey npc has told them to go away 
+
+    public void check_okay_to_interact(NPC npc)  // check that the player is okay to interact with the NPC - will not be if tey npc has told them to go away 
     {
         if (npc_response().Equals(npc.dont_interact_if1) || npc_response().Equals(npc.dont_interact_if2) || npc_response().Equals(npc.dont_interact_if3))
         {

@@ -138,44 +138,44 @@ public class logbookparts : MonoBehaviour {
             else if (clue_count == 1)
             {
                 GameObject.FindWithTag("logpic2").GetComponent<SpriteRenderer>().sprite = clue.npc_verbal.headshot;
-                logbooktext1 = clue.name;
+                logbooktext2 = clue.name;
                 increase_count();
 
             }
             else if (clue_count == 2)
             {
                 GameObject.FindWithTag("logpic3").GetComponent<SpriteRenderer>().sprite = clue.npc_verbal.headshot;
-                logbooktext1 = clue.name;
+                logbooktext3 = clue.name;
                 increase_count();
             }
             else if (clue_count == 3)
             {
                 GameObject.FindWithTag("logpic4").GetComponent<SpriteRenderer>().sprite = clue.npc_verbal.headshot;
-                logbooktext1 = clue.name;
+                logbooktext4 = clue.name;
                 increase_count();
             }
             else if (clue_count == 4)
             {
                 GameObject.FindWithTag("logpic5").GetComponent<SpriteRenderer>().sprite = clue.npc_verbal.headshot;
-                logbooktext1 = clue.name;
+                logbooktext5 = clue.name;
                 increase_count();
             }
             else if (clue_count == 5)
             {
                 GameObject.FindWithTag("logpic6").GetComponent<SpriteRenderer>().sprite = clue.npc_verbal.headshot;
-                logbooktext1 = clue.name;
+                logbooktext6 = clue.name;
                 increase_count();
             }
             else if (clue_count == 6)
             {
                 GameObject.FindWithTag("logpic7").GetComponent<SpriteRenderer>().sprite = clue.npc_verbal.headshot;
-                logbooktext1 = clue.name;
+                logbooktext7 = clue.name;
                 increase_count();
             }
             else
             {
                 GameObject.FindWithTag("logpic8").GetComponent<SpriteRenderer>().sprite = clue.npc_verbal.headshot;
-                logbooktext1 = clue.name;
+                logbooktext8 = clue.name;
                 increase_count();
             }
         }
@@ -199,6 +199,11 @@ public class logbookparts : MonoBehaviour {
         clue_count = 0;
         
 
+    }
+
+    public string getlogbooktext1()
+    {
+        return logbooktext1;
     }
 
   

@@ -6,6 +6,7 @@ using UnityEditor;
 public class Engine_Test
 {
 
+
     [Test]
     public void Crime_Test()
     {
@@ -19,7 +20,22 @@ public class Engine_Test
 
         Debug.Log(value);
 
-        Assert.AreEqual(value,Crime1.murder7);
-    }	// Use this for initialization
+        Assert.AreEqual(value, Crime1.murder7);
+    }
 
 }
+
+
+
+ 
+
+    // other tests :
+    //            check_okay_to_interact - Interaction? requires npc/player and interaction class 
+    //            shuffle list - CreateNPC
+    //            set Room based on shuffle list - CreateNPC
+    //            setCluesInGame - createClues
+    //            addCLue -Logbok
+    //            any set personailty - Personailty_player 
+
+
+

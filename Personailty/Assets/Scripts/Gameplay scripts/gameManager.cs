@@ -278,7 +278,7 @@ public class gameManager : MonoBehaviour {
     }
 
 
-    public void check_room_clue(GameObject roomclue)
+    public void check_room_clue(GameObject roomclue, int xpos)
     {
         if(roomclue == null)
         {
@@ -291,7 +291,7 @@ public class gameManager : MonoBehaviour {
             }
             else
             {
-                GameObject.FindWithTag(roomclue.GetComponent<clue>().cluename).GetComponent<Transform>().Translate(200, 30, 0);
+                GameObject.FindWithTag(roomclue.GetComponent<clue>().cluename).GetComponent<Transform>().Translate(xpos, -28, 0);
             }
             
         }
@@ -307,7 +307,7 @@ public class gameManager : MonoBehaviour {
        reset_clue_pos();
        GameObject.FindWithTag(room11.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(250,0,0);   //each npc has a tag which is their name making them easier to find 
        GameObject.FindWithTag(room12.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(350,0,0);
-       check_room_clue(clue_room1);
+       check_room_clue(clue_room1, Random.Range(80, 331));
     }
 
     public void populateroom2()
@@ -315,7 +315,7 @@ public class gameManager : MonoBehaviour {
         reset_npc_pos();
         reset_clue_pos();
         GameObject.FindWithTag(room21.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(400, 0, 0);
-        check_room_clue(clue_room2);
+        check_room_clue(clue_room2, Random.Range(80, 331));
     }
 
     public void populateroom3()
@@ -323,7 +323,7 @@ public class gameManager : MonoBehaviour {
         reset_npc_pos();
         reset_clue_pos();
         GameObject.FindWithTag(room31.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(400, 0, 0);
-        check_room_clue(clue_room3);
+        check_room_clue(clue_room3, Random.Range(80, 331));
     }
 
     public void populateroom4()
@@ -331,7 +331,7 @@ public class gameManager : MonoBehaviour {
         reset_npc_pos();
         reset_clue_pos();
         GameObject.FindWithTag(room41.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(400, 0, 0);
-        check_room_clue(clue_room4);
+        check_room_clue(clue_room4, Random.Range(80, 331));
     }
 
     public void populateroom5()
@@ -339,7 +339,7 @@ public class gameManager : MonoBehaviour {
         reset_npc_pos();
         reset_clue_pos();
         GameObject.FindWithTag(room51.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(400, 0, 0);
-        check_room_clue(clue_room5);
+        check_room_clue(clue_room5, Random.Range(80, 331));
     }
 
     public void populateroom6()
@@ -347,7 +347,7 @@ public class gameManager : MonoBehaviour {
         reset_npc_pos();
         reset_clue_pos();
         GameObject.FindWithTag(room61.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(400, 0, 0);
-        check_room_clue(clue_room6);
+        check_room_clue(clue_room6, Random.Range(80, 331));
     }
 
     public void populateroom7()
@@ -356,7 +356,7 @@ public class gameManager : MonoBehaviour {
         reset_clue_pos();
         GameObject.FindWithTag(room71.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(400, 0, 0);
         GameObject.FindWithTag(room72.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(300, 0, 0);
-        check_room_clue(clue_room7);
+        check_room_clue(clue_room7, Random.Range(80, 331));
     }
 
     public void populateroom8()
@@ -364,7 +364,7 @@ public class gameManager : MonoBehaviour {
         reset_npc_pos();
         reset_clue_pos();
         GameObject.FindWithTag(room81.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(400, 0, 0);
-        check_room_clue(clue_room8);
+        check_room_clue(clue_room8, Random.Range(80, 331));
     }
 
     public void set_player_pos_firsttime()
@@ -502,26 +502,4 @@ public class gameManager : MonoBehaviour {
         return time_mins;
     }
 
-
-
-
-    void Start () {
-        //Debug.Log("Room1.1 = " + room11);    // so we can see who is in the rooms for testing 
-        //Debug.Log("Room1.2 = " + room12);
-        //Debug.Log("Room2.1 = " + room21);
-        //Debug.Log("Room3.1 = " + room31);
-        //Debug.Log("Room4.1 = " + room41);
-        //Debug.Log("Room5.1 = " + room51);
-        //Debug.Log("Room6.1 = " + room61);
-        //Debug.Log("Room7.1 = " + room71);
-        //Debug.Log("Room7.2 = " + room72);
-       // Debug.Log("Room8.1 = " + room81);
-
-    }
-	
-	
-	void Update () {
-
-  
-	}
 }
