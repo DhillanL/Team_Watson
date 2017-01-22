@@ -271,33 +271,39 @@ public class Interaction : MonoBehaviour {
             npc = null;
         } else
         {
-            if (npc.Name == Gamemanager.get_murder())  // IF THE PLAYER ACCUSES THE RIGHT NPC 
+            if (npc.okay_to_interact == true)
             {
-                Debug.Log("YOU WIN");
-                //GameObject.FindWithTag("GUI").GetComponent<timer>().testFalse();   // USED TO IMPLEMENT THE TIMER 
-                destory_objects();
-                reset_newgame();
-                npc = null;
-                SceneManager.LoadScene("win");
-                
-            }
-            else   // IF THE PLAYER DOES NOT ACCUSE THE CORRECT NPC
-            {
-                speachbox.text = npc.Name + ": "+ npc.incorect_accusation;
-                incorrect_aac_num = incorrect_aac_num +1;
-                Debug.Log(incorrect_aac_num);
-                npc.okay_to_interact = false;
-                npc = null;
-                if (incorrect_aac_num > 0)
+                if (npc.Name == Gamemanager.get_murder())  // IF THE PLAYER ACCUSES THE RIGHT NPC 
                 {
-                    Debug.Log("GAME OVER");
-                    //GameObject.FindWithTag("GUI").GetComponent<timer>().testFalse();   // set the timer to false so it stops
+                    Debug.Log("YOU WIN");
+                    //GameObject.FindWithTag("GUI").GetComponent<timer>().testFalse();   // USED TO IMPLEMENT THE TIMER 
                     destory_objects();
                     reset_newgame();
                     npc = null;
-                    SceneManager.LoadScene("lose");  // load the losing screen 
-                    
+                    SceneManager.LoadScene("win");
+
                 }
+                else   // IF THE PLAYER DOES NOT ACCUSE THE CORRECT NPC
+                {
+                    speachbox.text = npc.Name + ": " + npc.incorect_accusation;
+                    incorrect_aac_num = incorrect_aac_num + 1;
+                    Debug.Log(incorrect_aac_num);
+                    npc.okay_to_interact = false;
+                    npc = null;
+                    if (incorrect_aac_num > 1)
+                    {
+                        Debug.Log("GAME OVER");
+                        //GameObject.FindWithTag("GUI").GetComponent<timer>().testFalse();   // set the timer to false so it stops
+                        destory_objects();
+                        reset_newgame();
+                        npc = null;
+                        SceneManager.LoadScene("lose");  // load the losing screen 
+
+                    }
+                }
+            } else
+            {
+                speachbox.text = "You have already accussed this person! You can not accuse them again";
             }
         }
 

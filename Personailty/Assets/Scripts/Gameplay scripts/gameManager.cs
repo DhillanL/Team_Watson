@@ -40,7 +40,7 @@ public class gameManager : MonoBehaviour {
     static public GameObject room81; // outside the Ron Cooke hub -- bottom of the lakehouse (PUSHED victim)
 
     // CLUE ROOM LOCATIONS  
-	 static public GameObject clue_room1;
+	static public GameObject clue_room1;
     static public GameObject clue_room2;
     static public GameObject clue_room3;
     static public GameObject clue_room4;

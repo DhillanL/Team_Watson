@@ -36,6 +36,36 @@ public class Interaction_test
 
     }
 
+    [Test]
+    public void NPC_answer()
+    {
+        NPC npc = new NPC();
+        Interaction inter = new Interaction();
+        string response;
+        string testresponse;
+        string[] question_style = { "Aggressive", "Violent" };
+        int x = Random.Range(0, 2);
+
+        npc.aggressive_response = "agg_res";
+        npc.violent_response = "vio_res";
+
+        if (x==0)
+        {
+            testresponse = npc.aggressive_response;
+        } else
+        {
+            testresponse = npc.violent_response;
+        }
+        
+        inter.question_style_text = question_style[x];
+       
+        inter.setNPC(npc);
+        response = inter.npc_response();
+
+        Assert.AreEqual(response,testresponse);
+
+    }
+
     
 
 
