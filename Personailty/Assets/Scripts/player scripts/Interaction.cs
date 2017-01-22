@@ -21,6 +21,7 @@ public class Interaction : MonoBehaviour {
 
     public Button question;          // Where the player can input their choices
     public Button accusebutt;      // accuse button 
+   // public button ignorebutton   // THIS IS THE BUTTON FOR THE IGNORE OPTION. wILL NEED TO ATTACH A BUTTON TO IT IN THE UNITY SCENE EDITOR, BY MAKING ONE FROM THE UI ELEMENTS 
     public Button questioingtype1;
     public Button questioingtype2;
     public Button questioingtype3;
@@ -101,6 +102,7 @@ public class Interaction : MonoBehaviour {
         {
 
             speachbox.text = "the Body has been placed in a bag and taped off - probably best";
+            npc = null;
 
         }
         else
@@ -126,6 +128,7 @@ public class Interaction : MonoBehaviour {
                         speachbox.text = "How would you like to interact:";
                         question.transform.Translate(0, 57, 0);   // bring up the two buttons to the screen so the player can pick to QUESTION or ACCUSE
                         accusebutt.transform.Translate(0, 57, 0);
+                        // need to create a new button for the ignore option and make it translate onto the screen here 
 
                     }      
 
@@ -157,6 +160,11 @@ public class Interaction : MonoBehaviour {
         }
 
     }
+
+    // public void ignore()   // function to be called when teh ignore button is pressed can be used to implement the ignore functionality 
+    // {
+
+    // }
 
 
     public void questioing_style1()  // if the user picks their first interaction style
@@ -238,7 +246,7 @@ public class Interaction : MonoBehaviour {
 
     }
 
-    public void move_boxes()
+    public void move_boxes()  // used to move the three question type boxes off the screen 
     {
         questioingtype1.transform.Translate(0, -57, 0);
         questioingtype2.transform.Translate(0, -57, 0);
@@ -271,12 +279,12 @@ public class Interaction : MonoBehaviour {
             npc = null;
         } else
         {
-            if (npc.okay_to_interact == true)
+            if (npc.acuuse_wrong == false)
             {
-                if (npc.Name == Gamemanager.get_murder())  // IF THE PLAYER ACCUSES THE RIGHT NPC 
+                if (npc.Name == Gamemanager.get_murder())  // IF THE PLAYER ACCUSES THE MURDERER
                 {
                     Debug.Log("YOU WIN");
-                    //GameObject.FindWithTag("GUI").GetComponent<timer>().testFalse();   // USED TO IMPLEMENT THE TIMER 
+                    //GameObject.FindWithTag("GUI").GetComponent<timer>().testFalse();   // USED TO IMPLEMENT THE TIMER BY SETTING THE TIME TO FALSE SO THAT THE TIME THE GAME IS WON IS STORED IN THE GAMEMANAGER CLASS 
                     destory_objects();
                     reset_newgame();
                     npc = null;
@@ -285,15 +293,15 @@ public class Interaction : MonoBehaviour {
                 }
                 else   // IF THE PLAYER DOES NOT ACCUSE THE CORRECT NPC
                 {
-                    speachbox.text = npc.Name + ": " + npc.incorect_accusation;
+                    speachbox.text = npc.incorect_accusation;
                     incorrect_aac_num = incorrect_aac_num + 1;
                     Debug.Log(incorrect_aac_num);
-                    npc.okay_to_interact = false;
+                    npc.acuuse_wrong = true;
                     npc = null;
                     if (incorrect_aac_num > 1)
                     {
                         Debug.Log("GAME OVER");
-                        //GameObject.FindWithTag("GUI").GetComponent<timer>().testFalse();   // set the timer to false so it stops
+                        //GameObject.FindWithTag("GUI").GetComponent<timer>().testFalse();   // set the timer to false so it stops - same as befor
                         destory_objects();
                         reset_newgame();
                         npc = null;
@@ -304,6 +312,7 @@ public class Interaction : MonoBehaviour {
             } else
             {
                 speachbox.text = "You have already accussed this person! You can not accuse them again";
+                npc = null;
             }
         }
 
@@ -334,14 +343,10 @@ public class Interaction : MonoBehaviour {
     // Use this for initialization
     void Start () {
         Player = GameObject.FindWithTag("Player");          // sets up the player and in the interaction class for each scene 
-        player = Player.GetComponent<player>();
-        gameman = GameObject.FindWithTag("gamemanager");
+        player = Player.GetComponent<player>();            
+        gameman = GameObject.FindWithTag("gamemanager");   // sets the game manger to be used for interaction when each scene is loadede
         Gamemanager = gameman.GetComponent<gameManager>();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-        
 	
-	}
 }

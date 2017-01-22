@@ -7,6 +7,7 @@ public class NPC : MonoBehaviour {
     // Abstract class which is used to create all of the NPC's in the game. They will all be created from this class. 
     // The details are also used in the crime creation so that the details are correct for he victim EG: he/she  
 
+    // below are all attributes for the NPC class
     public Sprite look;    //sprite used for their avlie look 
     public Sprite headshot; // the sprite used for the head shot 
 
@@ -32,6 +33,7 @@ public class NPC : MonoBehaviour {
     public string intro;
 
     public string dont_interact_response;
+    public bool acuuse_wrong = false;
 
     public string clue_response1;
     public string clue_response2; 
@@ -45,12 +47,12 @@ public class NPC : MonoBehaviour {
     public int orintation = 1;
         
     //respsones
-    public string aggressive_response; //
-    public string violent_response; //
-    public string threaten_response; //
-    public string kind_response; //
-	public string sympthetic_response; //
-    public string friendly_response; //
+    public string aggressive_response; 
+    public string violent_response; 
+    public string threaten_response; 
+    public string kind_response; 
+	public string sympthetic_response; 
+    public string friendly_response; 
     public string cunning_response;
     public string mean_response;
 
@@ -90,16 +92,16 @@ public class NPC : MonoBehaviour {
     void OnMouseDown()  // when the NPC is clicked on 
     {
         Interaction = GameObject.FindWithTag("interaction"); 
-        if (Interaction.GetComponent<Interaction>().npc == null)  // make sure there is no other interaction currently underway
+        if (Interaction.GetComponent<Interaction>().npc == null)                      // make sure there is no other interaction currently underway
         {
             Interaction.GetComponent<Interaction>().setNPC(me.GetComponent<NPC>());   // sets the npc who is being comuncated with in the gameman
-            Interaction.GetComponent<Interaction>().setNPCobj(me);              // set the game object
+            Interaction.GetComponent<Interaction>().setNPCobj(me);                    // set the game object
                                                                 
             Interaction.GetComponent<Interaction>().pick_interaction();               // starts the interaction - call the interaction class 
         }
         else
         {
-            Debug.Log("finish current interaction");
+            Debug.Log("finish current interaction");   // apperars if you are already in a conversation with someone.  
         }
     }
 
