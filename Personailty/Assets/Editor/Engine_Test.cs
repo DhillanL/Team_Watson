@@ -42,32 +42,10 @@ public class Engine_Test
     	CreateNPC npc1 = new CreateNPC();
 
     	NPC Tonald = new NPC();
-    	NPC Bernard = new NPC();
-    	NPC George = new NPC();
-    	NPC Ethan = new NPC();
-    	NPC Ryan = new NPC();
-    	NPC Zoe = new NPC();
-    	NPC Alice = new NPC();
-    	NPC Sophie = new NPC();
-    	NPC Stephen = new NPC();
-    	NPC Robert = new NPC();
 
-    	npc1.Tonald_Dump = Tonald;
-    	npc1.Bernard_lowe = Bernard;
-    	npc1.George_allen = George;
-    	npc1.Ethan_hawk = Ethan;
-    	npc1.Ryan_Smith = Ryan;
-    	npc1.Zoe_Williams = Zoe;
-    	npc1.Alice_Davis = Alice;
-    	npc1.Sophie_Aaron = Sophie;
-    	npc1.Stephen_Brown = Stephen;
-    	npc1.Robert_Henry = Robert;
+    	Tonald.is_Victim();
 
-    	npc1.makelst();
-
-    	Debug.Log(npc1.npc_list_);
-
-    	Assert.AreEqual(Tonald.room,"Yes");
+    	Assert.IsTrue(Tonald.is_victim);
 
     }
     [Test]
@@ -101,7 +79,7 @@ public class Engine_Test
 
     	Debug.Log(value2);
 
-    	Assert.AreEqual(Tonald.aggressive_response,value2); // Check that when you aggressively talk to an NPC, they give you the aggressive response
+    	Assert.AreEqual(Tonald.aggressive_response,value2); // Check that when you aggressively talk to an NPC, they gives you the aggressive response
 
     }
 
