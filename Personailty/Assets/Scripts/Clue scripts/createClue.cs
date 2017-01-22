@@ -87,8 +87,8 @@ public class createClue: MonoBehaviour{
         int x = Random.Range(0, 3);   // pick a random murder weapon
         clue_1.name = weapons[x];
         clue_1.info = "the blade looks smudged, maybe something was wiped off?";
-        //clue1.GetComponent<SpriteRenderer>().sprite = addsprites1(clue_1.name); 
-        //clue_1.look = addsprites1(clue_1.name); 
+        clue1.GetComponent<SpriteRenderer>().sprite = addsprites1(clue_1.name); 
+        clue_1.look = addsprites1(clue_1.name); 
 
 
         string[] throw_off_weapon = new string[3] { "swiss army knife", "dagger", "sword" };
