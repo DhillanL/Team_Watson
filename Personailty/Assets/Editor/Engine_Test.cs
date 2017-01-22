@@ -23,6 +23,22 @@ public class Engine_Test
         Assert.AreEqual(value, Crime1.murder7);
     }
 
+    [Test]
+    public void Character_Test()
+    {
+    	createPersonalitys person1 = new createPersonalitys();
+
+    	Personality_player pp1 = new Personality_player();
+
+    	var values = person1.getGoodCop();
+
+    	var cop_name = values.type1();
+
+    	Debug.Log(cop_name);
+
+    	Assert.AreEqual(cop_name,"Kind");
+    }
+
 }
 
 
