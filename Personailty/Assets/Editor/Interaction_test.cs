@@ -7,7 +7,7 @@ public class Interaction_test
 {
 
     [Test]
-    public void clues()
+    public void clues() // Create a list of clues and check that the clues are assigned to a value
     {
         clue clue1 = new clue();
         clue clue2 = new clue(); 
@@ -32,12 +32,12 @@ public class Interaction_test
         createclues.make_clues_crime_1();
 
        
-        Assert.AreNotEqual(clue1.getName(), null);
+        Assert.AreNotEqual(clue1.getName(), null); // Test fails if a clue is empty
 
     }
 
     [Test]
-    public void NPC_answer()
+    public void NPC_answer() // Check NPC responses to certain accusations
     {
         NPC npc = new NPC();
         Interaction inter = new Interaction();

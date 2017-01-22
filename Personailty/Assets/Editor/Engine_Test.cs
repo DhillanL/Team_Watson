@@ -8,7 +8,7 @@ public class Engine_Test
 
 
     [Test]
-    public void Crime_Test()
+    public void Crime_Test() // A simple test for the create crime class
     {
         CreateCrime Crime1 = new CreateCrime();
 
@@ -20,11 +20,11 @@ public class Engine_Test
 
         Debug.Log(value);
 
-        Assert.AreEqual(value, Crime1.murder7);
+        Assert.AreEqual(value, Crime1.murder7); // Create an instance of a crime and make sure it is set to the correct murder scenario when set_murder is called
     }
 
     [Test]
-    public void Character_Test()
+    public void Character_Test() // Set the cop type to good cop and check that you interact as a good cop
     {
     	createPersonalitys person1 = new createPersonalitys();
 
@@ -34,7 +34,7 @@ public class Engine_Test
 
     	Debug.Log(cop_name);
 
-    	Assert.AreEqual(cop_name,"Kind");
+    	Assert.AreEqual(cop_name,"Kind"); // The first question option should always be kind when good cop
     }
     [Test]
     public void NPC_Test()
@@ -71,7 +71,7 @@ public class Engine_Test
 
     }
     [Test]
-    public void NPC_Death_Test()
+    public void NPC_Death_Test() // Check that an NPC can be assigned to be the murderer
     {
     	CreateNPC npc1 = new CreateNPC();
 
@@ -81,11 +81,11 @@ public class Engine_Test
 
     	Tonald.isMurder();
 
-    	Assert.IsTrue(Tonald.is_muderer);
+    	Assert.IsTrue(Tonald.is_muderer); // Assign tonald to be the murderer and check if he is
 
     }
     [Test]
-    public void interactions_Test()
+    public void interactions_Test() // Test interactions when talking to an NPC
     {
     	NPC Tonald = new NPC();
 
@@ -101,23 +101,12 @@ public class Engine_Test
 
     	Debug.Log(value2);
 
-    	Assert.AreEqual(Tonald.aggressive_response,value2); 
+    	Assert.AreEqual(Tonald.aggressive_response,value2); // Check that when you aggressively talk to an NPC, they give you the aggressive response
 
     }
 
 }
 
-
-
- 
-
-    // other tests :
-    //            check_okay_to_interact - Interaction? requires npc/player and interaction class 
-    //            shuffle list - CreateNPC
-    //            set Room based on shuffle list - CreateNPC
-    //            setCluesInGame - createClues
-    //            addCLue -Logbok
-    //            any set personailty - Personailty_player 
 
 
 
