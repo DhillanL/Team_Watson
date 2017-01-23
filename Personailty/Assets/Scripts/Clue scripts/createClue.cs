@@ -396,7 +396,7 @@ public class createClue: MonoBehaviour{
         clue_6.look = addsprites7(clue_6.name);
 
         int x = Random.Range(0, 8);
-        string[] order = {"I saw " + game_manager.GetComponent<gameManager>().get_whole_murderer().Name + " and " + getNPC(x).Name + "exchange a large money sack earlier outside", "I saw " + getNPC(x).Name + " and " + game_manager.GetComponent<gameManager>().get_whole_murderer().Name + "exchange a large money sack earlier outside" };
+        string[] order = {"I saw " + game_manager.GetComponent<gameManager>().get_whole_murderer().Name + " and " + getNPC(x).Name + " exchange a large money sack earlier outside", "I saw " + getNPC(x).Name + " and " + game_manager.GetComponent<gameManager>().get_whole_murderer().Name + "exchange a large money sack earlier outside" };
         verbal_clue_7.name = order[Random.Range(0, 1)];
 
         verbal_clue_8.name = "Heard a glass smash earlier and not long after screams as the body was found";
