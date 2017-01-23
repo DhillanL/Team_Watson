@@ -98,7 +98,7 @@ public class CreateNPC : MonoBehaviour {
 	{
 		// basic setup
 		Tonald_Dump.Name =      "Tonald"; // HAS TO BE THE FIRST NAME ONLY AS IT MATCHES TE TAG OF THE PLAYER 
-		Tonald_Dump.intro =     "Hello, Im' Tonald the manager of Ron Cooke Hub. I'll be happy to help in any way I can";
+		Tonald_Dump.intro =     "Hello, I'm Tonald, the manager of Ron Cooke Hub. I'll be happy to help in any way I can!";
 		tonald_look.sprite =    Tonald_Dump.look;    //look set from the sprite added to game object
 		Tonald_Dump.he_she =    "he";  // he or she
         Tonald_Dump.initial =   "T.D";
@@ -106,17 +106,17 @@ public class CreateNPC : MonoBehaviour {
         Tonald_Dump.age = 52;
 
 	    //Responses 
-		Tonald_Dump.aggressive_response = "Or else what? go away detective";
-		Tonald_Dump.violent_response =    "Okay, Okay calm down...I'm sorry detective but I dont know anything !";
-		Tonald_Dump.threaten_response =   "DON'T THREATEN ME! who do you think ou are?! Dont bother talking to me again!";
-        Tonald_Dump.kind_response =       "Well I haven't seen anything out of the ordinary";
-        Tonald_Dump.friendly_response =   "I'm afiad I don't know anything, But please ask if you have any more questions";
-        Tonald_Dump.sympthetic_response = "I cant belive whats happened, maybe we should build a wall to keep out criminals?";
-        Tonald_Dump.cunning_response =    "Oooh yeah from who? I don't belive you I've done nothing";
-        Tonald_Dump.mean_response =       "I dont like the Look of you either! Go away";
+		Tonald_Dump.aggressive_response = "Or else what? Go away detective!";
+		Tonald_Dump.violent_response =    "Okay, Okay, calm down... I'm sorry detective but I dont know anything!";
+		Tonald_Dump.threaten_response =   "DON'T THREATEN ME! Who do you think you are?! Don't bother talking to me again!";
+        Tonald_Dump.kind_response =       "Well, I haven't seen anything out of the ordinary.";
+        Tonald_Dump.friendly_response =   "I'm afraid I don't know anything, but please ask if you have any more questions.";
+        Tonald_Dump.sympthetic_response = "I can't belive what happened, maybe we should build a wall to keep out criminals?";
+        Tonald_Dump.cunning_response =    "Oooh yeah, from who? I don't belive you! I've done nothing!";
+        Tonald_Dump.mean_response =       "I don't like the look of you either! Go away!";
 		
         // no more interaction set up 
-        Tonald_Dump.dont_interact_response = "I have nothing else to say detective, Leave me alone";
+        Tonald_Dump.dont_interact_response = "I have nothing else to say detective, leave me alone!";
         Tonald_Dump.dont_interact_if1 = Tonald_Dump.threaten_response;       // Tonald wont interact if he is questioned 'threaten or violent'
         Tonald_Dump.dont_interact_if2 = Tonald_Dump.violent_response;
 
@@ -125,7 +125,7 @@ public class CreateNPC : MonoBehaviour {
         Tonald_Dump.clue_response2 = "Cunning";
 
         //incorrect accusation
-        Tonald_Dump.incorect_accusation = "It wasn't me you fool! Dont talk to me anymore! ";
+        Tonald_Dump.incorect_accusation = "It wasn't me, you fool! Don't talk to me anymore!";
 	}
 
 
@@ -134,7 +134,7 @@ public class CreateNPC : MonoBehaviour {
 	{
 		//basic setup
 		Bernard_lowe.Name =      "Bernard";
-		Bernard_lowe.intro =     "Hi I'm Bernard, the head chef here, If you need something to eat or drink pop by";
+		Bernard_lowe.intro =     "Hi, I'm Bernard, the head chef here. If you need something to eat or drink pop by!";
 		bernard_look.sprite =    Bernard_lowe.look;
 		Bernard_lowe.he_she =    "he";   // he or she
         Bernard_lowe.initial =   "B.L";
@@ -142,17 +142,17 @@ public class CreateNPC : MonoBehaviour {
         Bernard_lowe.age = 43;
 
 		//responses
-		Bernard_lowe.aggressive_response =  "I was in kitchen preparing dinner! I promoise, dont hurt me, Dont come back to me!";
-		Bernard_lowe.violent_response =     "I'm sorry but I dont know anything! I'd tell you if I did. No point asking me anything else";
-		Bernard_lowe.threaten_response =    "Please dont hurt me! I dont know anything! ";
-		Bernard_lowe.kind_response =        "I'd tell you if I knew anything detective! I swear";
-		Bernard_lowe.friendly_response =    "Sorry mate I've got nothing, didn't really speak to them";
-		Bernard_lowe.sympthetic_response =  "Its terrible what happened, theres a killer around here somewhere";
-        Bernard_lowe.cunning_response =     "What they are lying! I've done nothing wrong! ";
-        Bernard_lowe.mean_response =        "No need to be rude to me detective";
+		Bernard_lowe.aggressive_response =  "I was in the kitchen preparing dinner! I promise, don't hurt me! Don't come back to me!";
+		Bernard_lowe.violent_response =     "I'm sorry but I don't know anything! I'd tell you if I did. No point asking me anything else.";
+		Bernard_lowe.threaten_response =    "Please don't hurt me! I don't know anything! ";
+		Bernard_lowe.kind_response =        "I'd tell you if I knew anything detective, I swear!";
+		Bernard_lowe.friendly_response =    "Sorry, mate, I've got nothing, didn't really speak to them.";
+		Bernard_lowe.sympthetic_response =  "It's terrible what happened, there's a killer around here somewhere!";
+        Bernard_lowe.cunning_response =     "What?! They're lying! I've done nothing wrong!";
+        Bernard_lowe.mean_response =        "No need to be rude to me, detective.";
 
 		//no more interaction setup
-		Bernard_lowe.dont_interact_response = "Go away detective! leave me alone";
+		Bernard_lowe.dont_interact_response = "Go away, detective! Leave me alone!";
         Bernard_lowe.dont_interact_if1 = Bernard_lowe.violent_response;
         Bernard_lowe.dont_interact_if2 = Bernard_lowe.aggressive_response;
 
@@ -161,7 +161,7 @@ public class CreateNPC : MonoBehaviour {
         Bernard_lowe.clue_response2 = "Cunning";
 
         // incorrect accusation 
-        Bernard_lowe.incorect_accusation = "INCORRECT ACCUSATION ";
+        Bernard_lowe.incorect_accusation = "How dare you accuse me of such thing?! Leave me be!";
 	}
 
 
@@ -172,7 +172,7 @@ public class CreateNPC : MonoBehaviour {
 	{
         //basic setup
 		George_allen.Name = "George";
-		George_allen.intro = "Good Evening detective, I have lots of first-hand news from all around the world!";
+		George_allen.intro = "Good evening, detective. I have lots of first-hand news from all around the world!";
 		george_look.sprite = George_allen.look;
 		George_allen.he_she = "he";
         George_allen.initial = "G.A";
@@ -180,17 +180,17 @@ public class CreateNPC : MonoBehaviour {
         George_allen.age = 28;
 
 		//responses
-		George_allen.aggressive_response = "I was getting ready for the ball tonight, alone";
-		George_allen.violent_response =    "Not heard or seen a thing, well apart from that someone was murdered";
-		George_allen.threaten_response =   "You don't scare me detective, I see through you";
-		George_allen.kind_response =       "I'm not your friend, I've got nothing";
-		George_allen.friendly_response =   "I heard they liked to drink a lot but thats it, not sure if thats useful or not?";
-		George_allen.sympthetic_response = "I agree but im sorry i've got nothing, Don't come and talk to me again";
-        George_allen.cunning_response =    "You're clearly hearing things! Ive got nothing else to say to you dont bother asking";
-        George_allen.mean_response =       "I think i look quite good thanks, And i haven't seen anything";
+		George_allen.aggressive_response = "I was getting ready for the ball tonight... Alone.";
+		George_allen.violent_response =    "Not heard or seen a thing... Well, apart from the fact that someone was murdered.";
+		George_allen.threaten_response =   "You don't scare me detective! I see through you!";
+		George_allen.kind_response =       "I'm not your friend. I've got nothing.";
+		George_allen.friendly_response =   "I heard they liked to drink a lot but that's it. Not sure if that's useful or not.";
+		George_allen.sympthetic_response = "I agree, but I'm sorry. I've got nothing. Don't come talk to me again!";
+        George_allen.cunning_response =    "You're clearly hearing things! I've got nothing else to say to you. Don't bother asking.";
+        George_allen.mean_response =       "I think I look quite good, thanks. And I haven't seen anything.";
 
 		//no more interaction setup
-		George_allen.dont_interact_response = "thought I told you to go away";
+		George_allen.dont_interact_response = "Thought I told you to go away!";
         George_allen.dont_interact_if1 = George_allen.cunning_response;
         George_allen.dont_interact_if2 = George_allen.sympthetic_response;
 
@@ -199,7 +199,7 @@ public class CreateNPC : MonoBehaviour {
         George_allen.clue_response2 = "Friendly";
 
         //incorrect accusation
-        George_allen.incorect_accusation = "INCORRECT ACCUSATION";
+        George_allen.incorect_accusation = "You are definitely wrong about that! I refuse to talk to you any longer!";
 		
 	}
 
@@ -217,17 +217,17 @@ public class CreateNPC : MonoBehaviour {
         Ethan_hawk.age = 31;
 
 		//responses
-		Ethan_hawk.aggressive_response = "I was upstairs in the lecture hall, Look im sorry but im not in the mood for questions. Don't come back";
-		Ethan_hawk.violent_response = "Don't take that tone with me, don't you think if I knew something I would say?";
-		Ethan_hawk.threaten_response = "Calm down this doesn't need to get out of control, I haven't a clue about whats happened";
-		Ethan_hawk.kind_response = "Sorry 'friend' I've got nothing";
-		Ethan_hawk.friendly_response = "Saw them around but thats about it, nothing out of the ordinary";
-		Ethan_hawk.sympthetic_response = "thanks i appreiacte it but i cant say ive seen anything detective";
-        Ethan_hawk.cunning_response = "I don't know whos telling you this but its not true";
-        Ethan_hawk.mean_response = "Dont appreaicte you being mean to me, theres too much going on. Dont ask me anything else";
+		Ethan_hawk.aggressive_response = "I was upstairs in the lecture hall. Look, I'm sorry but I'm not in the mood for questions. Don't come back!";
+		Ethan_hawk.violent_response = "Don't take that tone with me! Don't you think if I knew something I would say?!";
+		Ethan_hawk.threaten_response = "Calm down, this doesn't need to get out of control! I don't have a clue about what's happened!";
+		Ethan_hawk.kind_response = "Sorry, 'friend'. I've got nothing!";
+		Ethan_hawk.friendly_response = "Saw them around but that's about it. Nothing out of the ordinary.";
+		Ethan_hawk.sympthetic_response = "Thanks, I appreiacte it but I can't say I've seen anything detective";
+        Ethan_hawk.cunning_response = "I don't know who has told you this but it's not true!";
+        Ethan_hawk.mean_response = "Don't appreaicte you being mean to me! There's too much going on. Don't ask me anything else!";
 
 		//no more interaction setup
-		Ethan_hawk.dont_interact_response = "I no longer wish to speak to you!";
+		Ethan_hawk.dont_interact_response = "I no longer wish to speak with you!";
         Ethan_hawk.dont_interact_if1 = Ethan_hawk.aggressive_response;  // DONT TALK IF AGGRESIVE
         Ethan_hawk.dont_interact_if2 = Ethan_hawk.mean_response;
 
@@ -236,7 +236,7 @@ public class CreateNPC : MonoBehaviour {
         Ethan_hawk.clue_response2 = "Kind";
 
         //incorrection accusation 
-        Ethan_hawk.incorect_accusation = "incorrect accusation";
+        Ethan_hawk.incorect_accusation = "I don't have time for your nonsense! Don't talk to me anymore!";
 		
 
     }
@@ -247,7 +247,7 @@ public class CreateNPC : MonoBehaviour {
 	{
         //basic setup
 		Ryan_Smith.Name = "Ryan";
-		Ryan_Smith.intro = "I'm Ryan Smith, and I'm a lawyer";
+		Ryan_Smith.intro = "I'm Ryan Smith and I'm a lawyer.";
 		ryan_look.sprite = Ryan_Smith.look;
 		Ryan_Smith.he_she = "he";
         Ryan_Smith.initial = "R.S";
@@ -255,14 +255,14 @@ public class CreateNPC : MonoBehaviour {
         Ryan_Smith.age = 45;
         
         //responses
-		Ryan_Smith.aggressive_response = "I was in the kitchen, was just having a walk around";
+		Ryan_Smith.aggressive_response = "I was just having a walk around the kitchen.";
 		Ryan_Smith.violent_response = "*burts into tears* - a faint mumble can be heard";
-		Ryan_Smith.threaten_response = "yeah sure, I know my rights. im going to report you detective!";
-		Ryan_Smith.kind_response = "Only heard that the killer is here somewhere! please catch them before theres another";
-		Ryan_Smith.friendly_response = "Not much to say, probably could hit the gym! I'm not in the modd to talk to you, go away ";
-		Ryan_Smith.sympthetic_response = "Cheers and nothing, wrong place wrong time I guess";
-        Ryan_Smith.cunning_response = "If you believe that you can't be a good detective, so dont talk to me again.";
-        Ryan_Smith.mean_response = "Look go away if youre going to be mean, I thouht you were here to help";
+		Ryan_Smith.threaten_response = "Yeah sure, I know my rights. I'm going to report you, detective!";
+		Ryan_Smith.kind_response = "Only heard that the killer is here somewhere! Please catch them before there's another murder!";
+		Ryan_Smith.friendly_response = "Not much to say, probably could hit the gym! I'm not in the mood to talk to you, go away!";
+		Ryan_Smith.sympthetic_response = "Cheers, and nothing, wrong place wrong time I guess!";
+        Ryan_Smith.cunning_response = "If you believe that you can't be a good detective, so don't talk to me again.";
+        Ryan_Smith.mean_response = "Look, go away if you're going to be mean, I thouht you were here to help!";
 
         //no more interaction
 		Ryan_Smith.dont_interact_response = "I no longer wish to speak to you!";
@@ -274,14 +274,14 @@ public class CreateNPC : MonoBehaviour {
         Ryan_Smith.clue_response2 = "Aggresive";
 
         // incorrect accusation 
-        Ryan_Smith.incorect_accusation = "incorrect accuasation";		
+        Ryan_Smith.incorect_accusation = "Objection! You can't accuse me without proper evidence! I won't speak to you again!";		
 	}
 
 	public void make_Zoe()
 	{
         //basic setup
 		Zoe_Williams.Name = "Zoe";
-		Zoe_Williams.intro = "Go to talk with my agent.";
+		Zoe_Williams.intro = "Go talk with my agent!";
 		zoe_look.sprite = Zoe_Williams.look;
 		Zoe_Williams.he_she = "she";
         Zoe_Williams.initial = "Z.W";
@@ -289,14 +289,14 @@ public class CreateNPC : MonoBehaviour {
         Zoe_Williams.age = 26;
 
 		//responses
-		Zoe_Williams.aggressive_response = "Why does it matter to you? I know I'm not guilty ";
-        Zoe_Williams.violent_response = "Look I haven't seen anything okay"; 
-		Zoe_Williams.threaten_response = "nothing! I know nothing!";
-		Zoe_Williams.kind_response = "I think youre doing a terrible job! stop talking to me i'm innocent and go get the killer!";
-		Zoe_Williams.friendly_response = "never seen them before, never spoke to them";
-		Zoe_Williams.sympthetic_response = "Yeah I suppose, just happy it wasn't me, I'm too sad to speak you anymore. Please leave me alone";
-        Zoe_Williams.cunning_response = "yeah sure, good effort to try and get me mad";
-        Zoe_Williams.mean_response = "Youre not looking great. Ive not no information, go away and learn some manners";
+		Zoe_Williams.aggressive_response = "Why does it matter to you? I know I'm not guilty.";
+        Zoe_Williams.violent_response = "Look I haven't seen anything, okay?!"; 
+		Zoe_Williams.threaten_response = "Nothing! I know nothing!";
+		Zoe_Williams.kind_response = "I think you're doing a terrible job! Stop talking to me, I'm innocent! Go get the killer!";
+		Zoe_Williams.friendly_response = "Never seen them before, never spoke to them.";
+		Zoe_Williams.sympthetic_response = "Yeah I suppose, just happy it wasn't me. I'm too sad to speak you anymore. Please leave me alone.";
+        Zoe_Williams.cunning_response = "Yeah sure. Good effort to try and get me mad!";
+        Zoe_Williams.mean_response = "You're not looking great. I don't have any information, go away and learn some manners!";
 
 		//no more interaction setup
 		Zoe_Williams.dont_interact_response = "I no longer wish to speak to you!"; // need a way to make her be okay with not resposing if the player is kind 
@@ -308,14 +308,14 @@ public class CreateNPC : MonoBehaviour {
         Zoe_Williams.clue_response2 = "Cunning";
 
         //incorrect accusation
-        Zoe_Williams.incorect_accusation = "incorrect accusation";
+        Zoe_Williams.incorect_accusation = "How dare you think so low of me?! Go away!";
 		
 	}
 	public void make_Alice()
 	{
         //basic setup
 		Alice_Davis.Name = "Alice";
-		Alice_Davis.intro = "I'm Zoe's agent, can I help you?";
+		Alice_Davis.intro = "I'm Zoe's agent. Can I help you?";
 		alice_look.sprite = Alice_Davis.look;
 		Alice_Davis.he_she = "she";
         Alice_Davis.initial = "A.D";
@@ -323,17 +323,17 @@ public class CreateNPC : MonoBehaviour {
         Alice_Davis.age = 41;
 
         //responses
-		Alice_Davis.aggressive_response = "I can't remember, I know that makes me sound bad";
-		Alice_Davis.violent_response = "Iv'e only just heard theres been a murder, I've been working today! And i've got to get back to work so sorry cant talk anymore";
-		Alice_Davis.threaten_response = "No need to threaten me, I know your kind ";
-		Alice_Davis.kind_response = "Sorry mate, heard nothing. If ou have anymore questions I'll be happy to help";
-		Alice_Davis.friendly_response = "First time being here so I've never met them before";
-        Alice_Davis.cunning_response = "What, No, I would never, Its not, please";
-        Alice_Davis.mean_response = "You're a horrible person, Go away and dont bother coming back!";
-		Alice_Davis.sympthetic_response = "Me to, Its a reminder there are some horrible people out there";
+		Alice_Davis.aggressive_response = "I can't remember... I know that makes me sound bad.";
+		Alice_Davis.violent_response = "I've only just heard there's been a murder. I've been working today and I've got to get back to work. Sorry I can't talk anymore.";
+		Alice_Davis.threaten_response = "No need to threaten me, I know your kind! ";
+		Alice_Davis.kind_response = "Sorry mate, heard nothing. If you have anymore questions, I'll be happy to help.";
+		Alice_Davis.friendly_response = "First time being here so I've never met them before.";
+        Alice_Davis.cunning_response = "What?! No! I would never! It's not, please!";
+        Alice_Davis.mean_response = "You're a horrible person! Go away and don't bother coming back!";
+		Alice_Davis.sympthetic_response = "Me too. It's a reminder that there are some horrible people out there.";
 
 		//no more interaction setup
-		Alice_Davis.dont_interact_response = "I'm too busy sorry Detective!";
+		Alice_Davis.dont_interact_response = "I'm too busy. Sorry, Detective!";
         Alice_Davis.dont_interact_if1 = Alice_Davis.mean_response;
         Alice_Davis.dont_interact_if2 = Alice_Davis.violent_response;
 
@@ -342,7 +342,7 @@ public class CreateNPC : MonoBehaviour {
         Alice_Davis.clue_response2 = "Sympthetic";
 
         //incorrect accusation
-        Alice_Davis.incorect_accusation = "incorrect accusation";
+        Alice_Davis.incorect_accusation = "It wasn't me, I swear! Please don't talk to me anymore!";
 		
 	}
 
@@ -358,14 +358,14 @@ public class CreateNPC : MonoBehaviour {
         Sophie_Aaron.age = 32;
 
 		//responses
-		Sophie_Aaron.aggressive_response = "I think i was by the fire in the main hall, but I cant be sure";
-		Sophie_Aaron.violent_response = "Don't speak to me like that, I dont have to talk to you, you know";
-		Sophie_Aaron.threaten_response = "Walk away detective and we'll imagine you never said that to me";
-		Sophie_Aaron.kind_response = "I see your game, trying to be nice to get info. Might might work for some but not me";
-		Sophie_Aaron.friendly_response = "Not much, heard they gamble quite a lot ";
-		Sophie_Aaron.sympthetic_response = "Im scared, plese find who did this, please" ;
-        Sophie_Aaron.cunning_response = "I Don't belive you give me to proof";
-        Sophie_Aaron.mean_response = "Alright well i dont know anything";
+		Sophie_Aaron.aggressive_response = "I think I was by the fire in the main hall... But I can't be sure";
+		Sophie_Aaron.violent_response = "Don't speak to me like that! I don't have to talk to you, you know!";
+		Sophie_Aaron.threaten_response = "Walk away detective and we'll imagine you never said that to me!";
+		Sophie_Aaron.kind_response = "I see your game, trying to be nice to get information. Might work for some but not me!";
+		Sophie_Aaron.friendly_response = "Not much, heard they gamble quite a lot. ";
+		Sophie_Aaron.sympthetic_response = "I'm scared, plese find who did this, please!" ;
+        Sophie_Aaron.cunning_response = "I don't believe you! Give me to proof!";
+        Sophie_Aaron.mean_response = "Alright, well, I don't know anything.";
 
         //no more interaction setup
         Sophie_Aaron.dont_interact_response = "I no longer wish to speak to you!";
@@ -377,7 +377,7 @@ public class CreateNPC : MonoBehaviour {
         Sophie_Aaron.clue_response2 = "Sympthetic";
 
         //incorrect accusation
-        Sophie_Aaron.incorect_accusation = "incorrect accuasation";
+        Sophie_Aaron.incorect_accusation = "You are very wrong, detective! Leave me be!";
 		
 	}
 
@@ -385,7 +385,7 @@ public class CreateNPC : MonoBehaviour {
 	{
         //basic information
 		Stephen_Brown.Name = "Stephen";
-		Stephen_Brown.intro = "Hi, Im stephen the best thing to happen to this world! ";
+		Stephen_Brown.intro = "Hi, I'm Stephen, the best thing to happen to this world! ";
 		stephen_look.sprite = Stephen_Brown.look;
 		Stephen_Brown.he_she = "he";
         Stephen_Brown.initial = "S.B";
@@ -393,14 +393,14 @@ public class CreateNPC : MonoBehaviour {
         Stephen_Brown.age = 61;
 
 		//responses
-		Stephen_Brown.aggressive_response = "Under the balcony outside having a smoke";
-		Stephen_Brown.violent_response = "nothing, Nothing I swear!";
-		Stephen_Brown.threaten_response = "I've got no idea what happened, just leave me alone please";
-		Stephen_Brown.kind_response = "Don't you think I would have said ealier if I knew anything, Dont bother talking to me again";
-		Stephen_Brown.friendly_response = "Always use to hang around by the lakes smoking";
-		Stephen_Brown.sympthetic_response = "I'm still shocked, I'm not thinking straight ";
-        Stephen_Brown.cunning_response = "You're lying, I dont appreciate that go away";
-        Stephen_Brown.mean_response = "i dont like your attitude, no ive got nothing to say";
+		Stephen_Brown.aggressive_response = "Under the balcony, outside, having a smoke.";
+		Stephen_Brown.violent_response = "Nothing, nothing. I swear!";
+		Stephen_Brown.threaten_response = "I've got no idea what happened. Just leave me alone, please!";
+		Stephen_Brown.kind_response = "Don't you think I would have said ealier if I knew anything? Don't bother talking to me again!";
+		Stephen_Brown.friendly_response = "Always used to hang around by the lakes smoking.";
+		Stephen_Brown.sympthetic_response = "I'm still shocked! I'm not thinking straight. ";
+        Stephen_Brown.cunning_response = "You're lying! I don't appreciate that. Go away!";
+        Stephen_Brown.mean_response = "I don't like your attitude! No, I've got nothing to say!";
 
 		//no more interaction setup
 		Stephen_Brown.dont_interact_response = "I no longer wish to speak to you!";
@@ -412,7 +412,7 @@ public class CreateNPC : MonoBehaviour {
         Stephen_Brown.clue_response2 = "Aggressive";
 
         //incorrect accusation
-        Stephen_Brown.incorect_accusation = "incorrect accusation";
+        Stephen_Brown.incorect_accusation = "As if you would wrongly accuse me! Out of my sight!";
 
     }
 
@@ -420,7 +420,7 @@ public class CreateNPC : MonoBehaviour {
 	{
         //basic setup
 		Robert_Henry.Name = "Robert";
-		Robert_Henry.intro = "Hello Detective, i think i'm going to be alone forever ";
+		Robert_Henry.intro = "Hello, Detective, I think I'm going to be alone forever. ";
 		robert_look.sprite = Robert_Henry.look;
 		Robert_Henry.he_she = "he";
         Robert_Henry.initial = "R.H";
@@ -428,14 +428,14 @@ public class CreateNPC : MonoBehaviour {
         Robert_Henry.age = 23;
 
 		//responses
-		Robert_Henry.aggressive_response = "I was in the meeting room upstairs, all alone...probably forever";
-		Robert_Henry.violent_response = "I don't know anything, no tells me anything...so alone, please dont talk to me again";
-		Robert_Henry.threaten_response ="Do it no one will care, so alone";
-		Robert_Henry.kind_response = "did you say friend? Will you be my friend?! please, I've never had a friend";
-        Robert_Henry.friendly_response = "Not much wasn't my friend, I dont have any friends you see";
-		Robert_Henry.sympthetic_response = "I Will never forget this, thanks for all your help but i've got nothing to give";
-        Robert_Henry.cunning_response = "No one would say that, no one knows me I have no friends";
-        Robert_Henry.mean_response = "I agree, its probably why I have no friends, please dont talk to me again";
+		Robert_Henry.aggressive_response = "I was in the meeting room upstairs, all alone... Probably forever.";
+		Robert_Henry.violent_response = "I don't know anything, no one tells me anything... So alone, please don't talk to me again.";
+		Robert_Henry.threaten_response ="Do it. No one will care, so alone.";
+		Robert_Henry.kind_response = "Did you say friend? Will you be my friend?! Please, I've never had a friend!";
+        Robert_Henry.friendly_response = "Not much, wasn't my friend. I don't have any friends, you see.";
+		Robert_Henry.sympthetic_response = "I will never forget this! Thanks for all your help but I've got nothing to give.";
+        Robert_Henry.cunning_response = "No one would say that, no one knows me. I have no friends.";
+        Robert_Henry.mean_response = "I agree, it's probably why I have no friends. Please don't talk to me again.";
 
         //no more interaction setup
         Robert_Henry.dont_interact_response = "I said I don't want to talk anymore";
@@ -447,7 +447,7 @@ public class CreateNPC : MonoBehaviour {
         Robert_Henry.clue_response2 = "Mean";
 
         //incorrect accusation
-        Robert_Henry.incorect_accusation = "incorrect accusation"; 
+        Robert_Henry.incorect_accusation = "I thought you were my friend! Don't talk to me again!"; 
 	}
 
 
