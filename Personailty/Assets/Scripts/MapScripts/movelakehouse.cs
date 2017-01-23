@@ -3,6 +3,8 @@ using System.Collections;
 
 public class movelakehouse : MonoBehaviour {
 
+    // load lakehouse scene
+
     void OnMouseDown()
     {
 

@@ -3,6 +3,8 @@ using System.Collections;
 
 public class moveoutsidebalcony : MonoBehaviour {
 
+    //load outside balcony scene
+
     void OnMouseDown()
     {
 
