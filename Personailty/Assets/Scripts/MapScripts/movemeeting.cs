@@ -3,6 +3,8 @@ using System.Collections;
 
 public class movemeeting : MonoBehaviour {
 
+    //load meeting room scene
+
     void OnMouseDown()
     {
 

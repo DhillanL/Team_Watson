@@ -3,6 +3,7 @@ using System.Collections;
 
 public class movekitchen : MonoBehaviour {
 
+    // load kitchen scene
 
     void OnMouseDown()
     {

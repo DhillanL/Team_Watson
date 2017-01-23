@@ -3,6 +3,8 @@ using System.Collections;
 
 public class moveRCH1 : MonoBehaviour {
 
+    //load RCH1 scene
+
     void OnMouseDown()
     {
         Debug.Log("click");
