@@ -31,7 +31,12 @@ public class Interaction : MonoBehaviour {
   
     public string question_style_text;
 
-    public int incorrect_aac_num = 0;   // the number of inncorrect gusses. only get one attempt to guess (could be replaced with a boolen) 
+    static public int incorrect_aac_num = 0;   // the number of inncorrect gusses. only get one attempt to guess (could be replaced with a boolen) 
+
+    public void increase_acc_num()
+    {
+        incorrect_aac_num++;
+    }
 
 
     public void setNPC(NPC npcin)  // set the current interaction to the NPC the player is talking to.
@@ -275,7 +280,7 @@ public class Interaction : MonoBehaviour {
         accusebutt.transform.Translate(0, -57, 0);
         if (Gamemanager.get_clue_count() < 3)
         {
-            speachbox.text = "You need to have found at least three clues before you can accuse soemone! \n\n You must be new to detective work";
+            speachbox.text = "You need to have found at least three physical clues before you can accuse soemone! \n\n You must be new to detective work";
             npc = null;
         } else
         {
@@ -294,7 +299,7 @@ public class Interaction : MonoBehaviour {
                 else   // IF THE PLAYER DOES NOT ACCUSE THE CORRECT NPC
                 {
                     speachbox.text = npc.incorect_accusation;
-                    incorrect_aac_num = incorrect_aac_num + 1;
+                    increase_acc_num();
                     Debug.Log(incorrect_aac_num);
                     npc.acuuse_wrong = true;
                     npc = null;
@@ -306,7 +311,6 @@ public class Interaction : MonoBehaviour {
                         reset_newgame();
                         npc = null;
                         SceneManager.LoadScene("lose");  // load the losing screen 
-
                     }
                 }
             } else

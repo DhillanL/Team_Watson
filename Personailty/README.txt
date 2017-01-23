@@ -11,7 +11,7 @@ Backgounds can be found in Assets/backgrounds
 NPC looks can be found in Assets/NPC looks
 
 
---------------------  HOW TO PLAY -----------------------
+
 
 
 
