@@ -205,7 +205,7 @@ public class Interaction : MonoBehaviour {
             question_style_text = player.Personailty.questiontype2;
             speachbox.text = "Detective " + player.Name + ": " + player.Personailty.Question2();
 
-            if ((question_style_text.Equals(npc.clue_response1) || question_style_text.Equals(npc.clue_response2)) && npc.clue != "")  // checks that the questioing style of the player macthes the one in which the NPC will say thier clue 
+            if ((question_style_text.Equals(npc.clue_response1) || question_style_text.Equals(npc.clue_response2)) && npc.clue != "")  // checks that the questioning style of the player macthes the one in which the NPC will say thier clue 
             {
                 speachbox.text += "\n\n" + npc.Name + ": " + npc.clue;
                 logbookpart.GetComponent<logbookparts>().add_clue(npc.clue_object);
