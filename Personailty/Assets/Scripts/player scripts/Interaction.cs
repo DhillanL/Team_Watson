@@ -278,7 +278,7 @@ public class Interaction : MonoBehaviour {
     {
         question.transform.Translate(0, -57, 0);
         accusebutt.transform.Translate(0, -57, 0);
-        if (Gamemanager.get_clue_count() < 3)
+        if (gameManager.clues_found < 3)
         {
             speachbox.text = "You need to have found at least three physical clues before you can accuse soemone! \n\n You must be new to detective work";
             npc = null;
