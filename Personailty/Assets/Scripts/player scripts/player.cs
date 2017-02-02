@@ -79,57 +79,63 @@ public class player : MonoBehaviour {
 
     public int orintation = 1; // right - 1 left - 0
 
+
+	bool Apressed = false;
+	bool Dpressed = false;
+
     void Update()      // making the player move. A goes left, D goes right 
     {
 
-        if (walk == true)  // if hte player is allowed to move 
+
+		if (Input.GetKeyDown (KeyCode.A) == true) {
+			Apressed = true;
+			GetComponent<SpriteRenderer>().flipX = true; 
+		}
+
+		if (Input.GetKeyUp (KeyCode.A) == true) {
+			Apressed = false;
+		}
+
+		if (Input.GetKeyDown (KeyCode.D) == true) {
+			Dpressed = true;
+			GetComponent<SpriteRenderer> ().flipX = false;
+		}
+
+		if (Input.GetKeyUp (KeyCode.D) == true) {
+			Dpressed = false;
+		}
+			
+
+        if (walk == true)  // if the player is allowed to move 
         {
 
-            if (Input.GetKeyDown(KeyCode.A))   // if the player presses a 
+			if (Apressed == true)   // if the player presses a 
             {
                 rb2D.velocity = new Vector2(-speed, 0);
-
-                if (orintation == 1)
-                {
-                    GetComponent<SpriteRenderer>().flipX = true;   // move in the correct direction 
-                }
-
-                anim.SetInteger("state", 1);
-                orintation = 0;
+				anim.SetInteger ("state", 1);
 
             }
-            else if (Input.GetKeyUp(KeyCode.A))   // when A is raised set velocity to 0 so he doesnt move
-            {
-                rb2D.velocity = new Vector2(0, 0);
-                anim.SetInteger("state", 0);
+			else { // when A is raised set velocity to 0 so he doesnt move
+
+				if (Dpressed == true) {
+					rb2D.velocity = new Vector2 (speed, 0);
+					anim.SetInteger ("state", 1);
+				} else {
+
+					rb2D.velocity = new Vector2 (0, 0);
+
+				}
 
             }
+				
+				
+		}
 
-            else if (Input.GetKeyDown(KeyCode.D))   // same as moving for A 
-            {
-                rb2D.velocity = new Vector2(speed, 0);
-
-
-
-                if (orintation == 0)
-                {
-                    GetComponent<SpriteRenderer>().flipX = false;
-                }
-                anim.SetInteger("state", 1);
-                orintation = 1;
+		if ((Dpressed || Apressed) != true) {
+			anim.SetInteger ("state", 0);
+		}
 
 
-            }
-            else if (Input.GetKeyUp(KeyCode.D))
-            {
-                rb2D.velocity = new Vector2(0, 0);
-                anim.SetInteger("state", 0);
-            }
-
-
-        }
-    }
-
-
-
+			
+	}
 }
