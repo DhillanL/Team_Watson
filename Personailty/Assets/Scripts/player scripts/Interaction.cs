@@ -21,7 +21,7 @@ public class Interaction : MonoBehaviour {
 
     public Button question;          // Where the player can input their choices
     public Button accusebutt;      // accuse button 
-   // public button ignorebutton   // THIS IS THE BUTTON FOR THE IGNORE OPTION. wILL NEED TO ATTACH A BUTTON TO IT IN THE UNITY SCENE EDITOR, BY MAKING ONE FROM THE UI ELEMENTS 
+	public Button ignorebutt;   		//Ignore Button  
     public Button questioingtype1;
     public Button questioingtype2;
     public Button questioingtype3;
@@ -133,7 +133,7 @@ public class Interaction : MonoBehaviour {
                         speachbox.text = "How would you like to interact:";
                         question.transform.Translate(0, 57, 0);   // bring up the two buttons to the screen so the player can pick to QUESTION or ACCUSE
                         accusebutt.transform.Translate(0, 57, 0);
-                        // need to create a new button for the ignore option and make it translate onto the screen here 
+						ignorebutt.transform.Translate (0, 57, 0);// need to create a new button for the ignore option and make it translate onto the screen here 
 
                     }      
 
@@ -150,6 +150,7 @@ public class Interaction : MonoBehaviour {
         {
             question.transform.Translate(0, -57, 0);
             accusebutt.transform.Translate(0, -57, 0);
+			ignorebutt.transform.Translate (0, -57, 0);
             questioingtype1.transform.Translate(0, 57, 0);  // bring up the three buttons so they can pick which interaction type they want to select 
             questioingtype2.transform.Translate(0, 57, 0);
             questioingtype3.transform.Translate(0, 57, 0);
@@ -160,16 +161,23 @@ public class Interaction : MonoBehaviour {
         {
             question.transform.Translate(0, -57, 0);
             accusebutt.transform.Translate(0, -57, 0);
+			ignorebutt.transform.Translate (0, -57, 0);
             speachbox.text = npc.name + ": " + npc.dont_interact_response;  // dont interact response 
             npc = null;
         }
 
     }
 
-    // public void ignore()   // function to be called when teh ignore button is pressed can be used to implement the ignore functionality 
-    // {
-
-    // }
+    public void ignore()   // function to be called when teh ignore button is pressed
+	{
+		//Move UI Elements out of scene view
+		question.transform.Translate(0, -57, 0);
+		accusebutt.transform.Translate(0, -57, 0);
+		ignorebutt.transform.Translate (0, -57, 0);
+		speachbox.text = ""; 									//Show no text in speech box
+		head_shot.GetComponent<SpriteRenderer>().sprite = null; //Replace headshot image with no image
+		npc = null;												//Update npc to reflect that there is no npc selected
+	}
 
 
     public void questioing_style1()  // if the user picks their first interaction style
