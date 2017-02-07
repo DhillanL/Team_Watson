@@ -282,10 +282,12 @@ public class Interaction : MonoBehaviour {
         {
             speachbox.text = "You need to have found at least three physical clues before you can accuse soemone! \n\n You must be new to detective work";
             npc = null;
+			gameManager.failed_accusations++;
         } else
         {
             if (npc.acuuse_wrong == false)
             {
+				gameManager.failed_accusations++;
                 if (npc.Name == Gamemanager.get_murder())  // IF THE PLAYER ACCUSES THE MURDERER
                 {
                     Debug.Log("YOU WIN");

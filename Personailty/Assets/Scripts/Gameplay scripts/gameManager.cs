@@ -56,6 +56,8 @@ public class gameManager : MonoBehaviour {
     // int to show the number of clues which have been found so far 
     static public int clues_found = 0;
 
+	static public int failed_accusations = 0;
+
     static bool player_set = false;
 
 
@@ -131,11 +133,6 @@ public class gameManager : MonoBehaviour {
     public NPC get_whole_murderer()  // get all atributes of the murder
     {
         return murderer;
-    }
-
-    public void set_crime(string crimein)
-    {
-       crime = crimein;
     }
 
     public string get_crime()

@@ -1,20 +1,32 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class timer : MonoBehaviour {
 
-    public GameObject gameman;
+	public static timer instance = null;
 
-    public static float timer_seconds = 0;
+	void Awake () {  //Makes this a singleton class on awake
+		if (instance == null) { //Does an instance already exist?
+			instance = this;	//If not set instance to this
+		} else if (instance != this) { //If it already exists and is not this then destroy this
+			Destroy (gameObject);
+		}
+		DontDestroyOnLoad (gameObject); //Set this to not be destroyed when reloading scene
+	}
+
+    public float timer_seconds = 0;
+
+	public float getTime() {
+		return timer_seconds;
+	}
 
     void Update()
 	{
-		timer_seconds += Time.deltaTime;
+		if (SceneManager.GetActiveScene().name == "casefile") {
+			timer_seconds = 0;
+		}  else {
+			timer_seconds += Time.deltaTime;
+		}
 	}
-
-    void OnGUI()
-    {
-        GUI.Box(new Rect(1000, 595, 80, 30), timer_seconds.ToString("00"));
-    }
-
 }

@@ -140,7 +140,7 @@ public class CreateCrime : MonoBehaviour
 
     public void load_crime()  //loads crime into the gamemanager 
     {
-        gamemanob.GetComponent<gameManager>().set_crime(crime);
+		gameManager.crime = crime; 
     }
 
     public void create_crime() //function to create the crime and set the murderer

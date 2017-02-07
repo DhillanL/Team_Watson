@@ -35,8 +35,8 @@ public class createClue: MonoBehaviour{
 	public clue verbal_clue_8;
 
 
-    // list to make accessing the clue easier 
-    public GameObject[] gameobjectlst_ = new GameObject[8];  // list of all of the gamobject -- the clues 
+    // Arrays to make accessing the clue easier 
+    public GameObject[] gameobjectlst_ = new GameObject[8];  // Array of all of the gamobject -- the clues 
     public GameObject[] gameobjectlstverbal_ = new GameObject[2];
 
 
