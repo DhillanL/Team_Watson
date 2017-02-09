@@ -166,11 +166,6 @@ public class PlayerSelect : MonoBehaviour {
 
     // transfering data to gamemanager 
 
-    public void transfer_name()  // transfers the name into the gameManger script holding the static variables used in all scenes.   
-    {
-        data = gameMan.GetComponent<gameManager>();
-        data.loadName(Name); // load name into the gameManager
-    }
     public void transfer_personality()  // transfers the personailty into the gameManger script holding the static variables used in all scenes.   
     {
         data = gameMan.GetComponent<gameManager>();
@@ -193,8 +188,10 @@ public class PlayerSelect : MonoBehaviour {
 
     public void uploadname()     //set the name to what the user typed in and transfer it to gamManager 
     {
-        Name = Namein.text;   // set name to what the user inputs 
-        transfer_name();      // transfer the name into game manager 
+
+		// set name to what the user inputs
+		gameManager.Name = Name; 
+      // transfer the name into game manager 
     }
 
 
@@ -221,6 +218,14 @@ public class PlayerSelect : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		Name = Namein.text;
+
+		if (Name != "") {
+			Finish.interactable = true;
+		} else {
+			Finish.interactable = false; 
+		}
 	
 	}
 }
