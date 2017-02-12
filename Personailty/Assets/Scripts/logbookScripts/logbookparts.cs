@@ -188,6 +188,7 @@ public class logbookparts : MonoBehaviour {
 
     public void increase_count()
     {
+		clue_obtained = true;
         clue_count++;
     }
 
@@ -217,15 +218,4 @@ public class logbookparts : MonoBehaviour {
         casefiletext = text;
     }
   
-
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }

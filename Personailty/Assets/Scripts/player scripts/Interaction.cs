@@ -101,8 +101,6 @@ public class Interaction : MonoBehaviour {
 
     public void pick_interaction()   // function whihc runs all of interaction 
     {
-       
-
         if (npc.is_victim == true)    // if the victim's body - give descitption 
         {
 
@@ -126,15 +124,12 @@ public class Interaction : MonoBehaviour {
                         npc.first_interaction = false;   // set first interaction to false 
 
                         npc = null;
-                    }
-                    else
-                    {
+                    } else {
                     
                         speachbox.text = "How would you like to interact:";
-                        question.transform.Translate(0, 57, 0);   // bring up the two buttons to the screen so the player can pick to QUESTION or ACCUSE
+                        question.transform.Translate(0, 57, 0);   // bring up the three buttons to the screen so the player can pick to QUESTION, ACCUSE or IGNORE
                         accusebutt.transform.Translate(0, 57, 0);
-						ignorebutt.transform.Translate (0, 57, 0);// need to create a new button for the ignore option and make it translate onto the screen here 
-
+						ignorebutt.transform.Translate (0, 57, 0);
                     }      
 
             }
@@ -146,7 +141,9 @@ public class Interaction : MonoBehaviour {
 
     public void pick_question()  // if the player slectes the question button 
     {
-        if (npc.okay_to_interact == true) // test that its okay to interact with the NPC EG: they have told you to go away 
+		
+		NewClueObtainedCheck ();
+		if ((npc.okay_to_interact == true)) // test that its okay to interact with the NPC EG: they have told you to go away second tests if you have got a new clue since speaking to them 
         {
             question.transform.Translate(0, -57, 0);
             accusebutt.transform.Translate(0, -57, 0);
@@ -168,6 +165,14 @@ public class Interaction : MonoBehaviour {
 
     }
 
+	private void NewClueObtainedCheck(){
+		if ((logbookparts.clue_count - npc.GetNumOfClues ()) > 0) { //Check number of clues obtained since last speaking to this character is at least one
+			npc.okay_to_interact = true;
+		} else {
+			npc.okay_to_interact = false;
+		}
+	}
+
     public void ignore()   // function to be called when teh ignore button is pressed
 	{
 		//Move UI Elements out of scene view
@@ -175,7 +180,9 @@ public class Interaction : MonoBehaviour {
 		accusebutt.transform.Translate(0, -57, 0);
 		ignorebutt.transform.Translate (0, -57, 0);
 		speachbox.text = ""; 									//Show no text in speech box
-		head_shot.GetComponent<SpriteRenderer>().sprite = null; //Replace headshot image with no image
+		head_shot.GetComponent<SpriteRenderer>().sprite = null; //Replace headshot image with no image 							
+		npc.StoreNumOfClues(logbookparts.clue_count);
+		//npc.okay_to_interact = false;
 		npc = null;												//Update npc to reflect that there is no npc selected
 	}
 
@@ -286,6 +293,7 @@ public class Interaction : MonoBehaviour {
     {
         question.transform.Translate(0, -57, 0);
         accusebutt.transform.Translate(0, -57, 0);
+		ignorebutt.transform.Translate (0, -57, 0);
         if (gameManager.clues_found < 3)
         {
             speachbox.text = "You need to have found at least three physical clues before you can accuse soemone! \n\n You must be new to detective work";
@@ -299,32 +307,26 @@ public class Interaction : MonoBehaviour {
                 if (npc.Name == Gamemanager.get_murder())  // IF THE PLAYER ACCUSES THE MURDERER
                 {
                     Debug.Log("YOU WIN");
-                    //GameObject.FindWithTag("GUI").GetComponent<timer>().testFalse();   // USED TO IMPLEMENT THE TIMER BY SETTING THE TIME TO FALSE SO THAT THE TIME THE GAME IS WON IS STORED IN THE GAMEMANAGER CLASS 
                     destory_objects();
                     reset_newgame();
                     npc = null;
                     SceneManager.LoadScene("win");
 
-                }
-                else   // IF THE PLAYER DOES NOT ACCUSE THE CORRECT NPC
-                {
+				} else {  // IF THE PLAYER DOES NOT ACCUSE THE CORRECT NPC
                     speachbox.text = npc.incorect_accusation;
                     increase_acc_num();
                     Debug.Log(incorrect_aac_num);
                     npc.acuuse_wrong = true;
                     npc = null;
-                    if (incorrect_aac_num > 1)
-                    {
+					if (incorrect_aac_num > 1) {
                         Debug.Log("GAME OVER");
-                        //GameObject.FindWithTag("GUI").GetComponent<timer>().testFalse();   // set the timer to false so it stops - same as befor
                         destory_objects();
                         reset_newgame();
                         npc = null;
                         SceneManager.LoadScene("lose");  // load the losing screen 
                     }
                 }
-            } else
-            {
+            } else {
                 speachbox.text = "You have already accussed this person! You can not accuse them again";
                 npc = null;
             }

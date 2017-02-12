@@ -21,6 +21,8 @@ public class PlayerSelect : MonoBehaviour {
     public Button dumbcopbutton;
     public Button trustycopbutton;
     public Button suspicouscopbutton;
+
+	private bool personality_selected = false;
   
     public Button Finish;    // button pressed when all selections are made
 
@@ -204,24 +206,17 @@ public class PlayerSelect : MonoBehaviour {
 
 
 
-
-
-
-
-
-
-
-	// Use this for initialization
-	void Start () {
-	
+	public void SetPersonalitySelected(){
+		personality_selected = true;
 	}
+		
 	
 	// Update is called once per frame
 	void Update () {
 
 		Name = Namein.text;
 
-		if (Name != "") {
+		if (Name != "" && personality_selected) {
 			Finish.interactable = true;
 		} else {
 			Finish.interactable = false; 

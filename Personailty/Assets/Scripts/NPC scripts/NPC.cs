@@ -14,6 +14,7 @@ public class NPC : MonoBehaviour {
     public string Name;
     public string initial;
     public int age;
+	private int num_of_clues;
 
     public string he_she;
     public string man_woman;
@@ -85,8 +86,15 @@ public class NPC : MonoBehaviour {
         DontDestroyOnLoad(transform.gameObject);
     }
 
+	public void StoreNumOfClues(int num)
+	{
+		num_of_clues = num;
+	}
 
-
+	public int GetNumOfClues()
+	{
+		return num_of_clues;
+	}
 
 
     void OnMouseDown()  // when the NPC is clicked on 
