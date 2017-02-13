@@ -188,7 +188,7 @@ public class logbookparts : MonoBehaviour {
 
     public void increase_count()
     {
-		clue_obtained = true;
+		// clue_obtained = true; Does this need to be here?
         clue_count++;
     }
 
