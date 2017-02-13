@@ -36,7 +36,8 @@ public class createClue: MonoBehaviour{
 
 
     // Arrays to make accessing the clue easier 
-    public GameObject[] gameobjectlst_ = new GameObject[8];  // Array of all of the gamobject -- the clues 
+    public GameObject[] gameobjectlst_ = new GameObject[8];  // Array of all of the gamobject -- the clues
+	public clue[] clues = new clue[5];
     public GameObject[] gameobjectlstverbal_ = new GameObject[2];
 
 
@@ -644,11 +645,17 @@ public class createClue: MonoBehaviour{
 	public void make_game_object_lst()  // creates list of the clues 
     {
 		gameobjectlst_ [0] = clue1;
+		clues [0] = clue_1;
 		gameobjectlst_ [1] = clue2;
+		clues [1] = clue_2;
 		gameobjectlst_ [2] = clue3;
+		clues[2] = clue_3;
 		gameobjectlst_ [3] = clue4;
+		clues[3] = clue_4;
 		gameobjectlst_ [4] = clue5;
+		clues[4] = clue_5;
 		gameobjectlst_ [5] = clue6;
+		clues[4] = clue_6;
 	}
 
 
@@ -747,9 +754,12 @@ public class createClue: MonoBehaviour{
 
         setClues();   // intialise all parts to clues to be empty
 
-		make_game_object_lst();   // make lists of clues 
+		int index = Random.Range (0, 5);
+		make_game_object_lst();
+
+
+
         make_gameobj_lst_verbal(); // make list of verbal clues 
-		
 
         set_clues_crime();    // depending on crime choosen at random make approiate clues to fit and set clues to have appropriate sprites 
 

@@ -16,6 +16,8 @@ public class clue: MonoBehaviour{
     public bool is_found = false;
     public bool is_verbal = false;
 
+	private bool isHidden = false;
+
     public NPC npc_verbal;
 	public Sprite look;
 	public GameObject Interaction;
@@ -40,7 +42,13 @@ public class clue: MonoBehaviour{
         return info;  
 	}
 
-
+	public bool getHidden() {
+		return isHidden;
+	}
+		
+	public void setHidden() {
+		isHidden = true;
+	}
 
     void OnMouseDown() // When the clue is clicked on it is removed and added to the logbook
     {
