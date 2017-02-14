@@ -142,7 +142,7 @@ public class Interaction : MonoBehaviour {
     public void pick_question()  // if the player slectes the question button 
     {
 		
-		NewClueObtainedCheck ();
+		NewClueObtainedCheck (); //Checks that is the character has been ignored, and if player has collected a new clue since last ignoring them or not. 
 		if ((npc.okay_to_interact == true)) // test that its okay to interact with the NPC EG: they have told you to go away second tests if you have got a new clue since speaking to them 
         {
             question.transform.Translate(0, -57, 0);
@@ -168,9 +168,7 @@ public class Interaction : MonoBehaviour {
 	private void NewClueObtainedCheck(){
 		if ((logbookparts.clue_count - npc.GetNumOfClues ()) > 0) { //Check number of clues obtained since last speaking to this character is at least one
 			npc.okay_to_interact = true;
-		} else {
-			npc.okay_to_interact = false;
-		}
+		} 
 	}
 
     public void ignore()   // function to be called when teh ignore button is pressed
@@ -182,7 +180,7 @@ public class Interaction : MonoBehaviour {
 		speachbox.text = ""; 									//Show no text in speech box
 		head_shot.GetComponent<SpriteRenderer>().sprite = null; //Replace headshot image with no image 							
 		npc.StoreNumOfClues(logbookparts.clue_count);
-		//npc.okay_to_interact = false;
+		npc.okay_to_interact = false;							//Can't interact with npc again
 		npc = null;												//Update npc to reflect that there is no npc selected
 	}
 
