@@ -16,6 +16,8 @@ public class NPC : MonoBehaviour {
     public int age;
 	private int num_of_clues;
 
+	public bool hasVerbalClue = false;
+
     public string he_she;
     public string man_woman;
 

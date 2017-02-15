@@ -14,6 +14,7 @@ public class createClue: MonoBehaviour{
     public GameObject cluesprites;
 
 
+
     // the game objects which hold the clues 
 	public GameObject clue1;
 	public GameObject clue2;
@@ -23,6 +24,7 @@ public class createClue: MonoBehaviour{
 	public GameObject clue6;
 	public GameObject clue7_verbal;
 	public GameObject clue8_verbal;
+	public GameObject motiveClueObj;
 
     // the attributes for the clue which are attached to the game objects 
 	public clue clue_1;
@@ -33,15 +35,12 @@ public class createClue: MonoBehaviour{
 	public clue clue_6;
 	public clue verbal_clue_7;
 	public clue verbal_clue_8;
+	public clue motiveClue;
 
 
     // Arrays to make accessing the clue easier 
     public GameObject[] gameobjectlst_ = new GameObject[8];  // Array of all of the gamobject -- the clues
-	public clue[] clues = new clue[5];
-    public GameObject[] gameobjectlstverbal_ = new GameObject[2];
-
-
-
+    public GameObject[] gameobjectlstverbal_ = new GameObject[3];
 
     // initlaise all of the game objects to have clue attributes 
 	public void setClues()
@@ -76,9 +75,15 @@ public class createClue: MonoBehaviour{
         
         verbal_clue_8 = clue8_verbal.GetComponent<clue>();
         verbal_clue_8.is_verbal = true;
+
+		motiveClue = motiveClueObj.GetComponent<clue> ();
+		motiveClue.is_verbal = true;
     }
 
 // ---------------------------------------------------------------------------------------------------------
+
+	string murdererName = gameManager.murderer.name;
+	string victimName = gameManager.victim.name;
 
     // make all of the clues if the murder if STAB IN BACK CRIME 
 
@@ -89,7 +94,7 @@ public class createClue: MonoBehaviour{
         clue_1.name = weapons[x];
         clue_1.info = "the blade looks smudged, maybe something was wiped off?";
         clue1.GetComponent<SpriteRenderer>().sprite = addsprites1(clue_1.name); 
-        clue_1.look = addsprites1(clue_1.name); 
+		clue_1.look = addsprites1 (clue_1.name);
 
 
         string[] throw_off_weapon = new string[3] { "swiss army knife", "dagger", "sword" };
@@ -127,6 +132,7 @@ public class createClue: MonoBehaviour{
 
         verbal_clue_8.name = "I saw " + createnpc.GetComponent<CreateNPC>().npc_list_mur_vic[z].Name + " playing with a " + throw_off_weapon[y] + " ealier";
 
+		motiveClue.name = victimName + " stole " + murdererName + "'s new car.";
     }
 
     // --------------------------------------------------------------------------------------------------------
@@ -170,6 +176,7 @@ public class createClue: MonoBehaviour{
 
         verbal_clue_8.name = "Normally " + game_manager.GetComponent<gameManager>().get_murder() + " and " + createnpc.GetComponent<CreateNPC>().npc_list_mur_vic[z].Name + " hang around outside by the lake";
 
+		motiveClue.name = murdererName + " is a professional assassin, who was contracted to kill " + victimName + ".";
     }
 
     // --------------------------------------------------------------------------------------------------------
@@ -218,7 +225,7 @@ public class createClue: MonoBehaviour{
 
         verbal_clue_8.name = random_murder_or_NPC_name() + " was wearing a scarf earlier, but haven't seen it for a while";
 
-
+		motiveClue.name = victimName + " was planning to murder " + murdererName + ".";
     }
 
     // --------------------------------------------------------------------------------------------------------
@@ -265,6 +272,7 @@ public class createClue: MonoBehaviour{
 
         verbal_clue_8.name = "Well, " + game_manager.GetComponent<gameManager>().get_whole_murderer().Name + " has been asking everyone if they ave seen his coin sack if that of any relevance ";
 
+		//motiveClue =
     }
 
     // -------------------------------------------------------------------------------------------------------
@@ -309,7 +317,9 @@ public class createClue: MonoBehaviour{
         string[] order = { game_manager.GetComponent<gameManager>().get_whole_murderer().Name + " and " + getNPC(y).Name, getNPC(y).Name + " and " + game_manager.GetComponent<gameManager>().get_whole_murderer().Name };
         verbal_clue_7.name = "First time I've seen " + order[x] + "using flasks, maybe they are big drinkers" ;
 
-        verbal_clue_8.name = "apparently " + game_manager.GetComponent<gameManager>().get_whole_murderer().Name + "stole a bottle of wine ";
+        verbal_clue_8.name = "apparently " + murdererName + "stole a bottle of wine.";
+
+		//motiveClue =
     }
 
     // -------------------------------------------------------------------------------------------------------
@@ -357,6 +367,7 @@ public class createClue: MonoBehaviour{
 
         verbal_clue_8.name = "I saw " + game_manager.GetComponent<gameManager>().get_whole_murderer().Name + "sweating today, but it was freezing, maybehe was nervous?";
 
+		//motiveClue =
     }
 
     // -------------------------------------------------------------------------------------------------------
@@ -402,6 +413,7 @@ public class createClue: MonoBehaviour{
 
         verbal_clue_8.name = "Heard a glass smash earlier and not long after screams as the body was found";
 
+		//motiveClue =
     }
 
     // -------------------------------------------------------------------------------------------------------
@@ -447,6 +459,7 @@ public class createClue: MonoBehaviour{
         string[] order = { game_manager.GetComponent<gameManager>().get_whole_murderer().Name + " and " + getNPC(x), getNPC(x) + " and " + game_manager.GetComponent<gameManager>().get_whole_murderer().Name };
         verbal_clue_8.name = "We were all there when it fell, the only two not around where " + order[Random.Range(0,2)];
 
+		//motiveClue =
     }
 
     // -------------------------------------------------------------------------------------------------------
@@ -489,6 +502,8 @@ public class createClue: MonoBehaviour{
 
         verbal_clue_8.name = (game_manager.GetComponent<gameManager>().get_whole_victim().Name + "told me that " + game_manager.GetComponent<gameManager>().get_whole_murderer().he_she + " has been worried about " 
             + game_manager.GetComponent<gameManager>().get_whole_murderer().Name + " recently but didn't say why");
+
+		//motiveClue =
     }
 
     // -------------------------------------------------------------------------------------------------------
@@ -532,11 +547,13 @@ public class createClue: MonoBehaviour{
         verbal_clue_7.name = "I saw " + game_manager.GetComponent<gameManager>().get_whole_murderer().name + " run out of hte on cooke hub cluthing at a tattered book. looked like there was blood on it";
 
         verbal_clue_8.name = game_manager.GetComponent<gameManager>().get_whole_murderer().name +" has been looking for his coin sack for a while ";
+
+		//motiveClue =
     }
 
     // ---------------------------------------------------------------------------------------------
 
-    private string random_murder_or_NPC_name()  // returns a random name of NPC or of the Murder - used to help create teh clues for the crime
+    private string random_murder_or_NPC_name()  // returns a random name of NPC or of the Murder - used to help create the clues for the crime
     {
         int z = Random.Range(0, 1);
         if (z == 0)
@@ -639,31 +656,22 @@ public class createClue: MonoBehaviour{
 
     }
 
-
-
-
 	public void make_game_object_lst()  // creates list of the clues 
     {
 		gameobjectlst_ [0] = clue1;
-		clues [0] = clue_1;
 		gameobjectlst_ [1] = clue2;
-		clues [1] = clue_2;
 		gameobjectlst_ [2] = clue3;
-		clues[2] = clue_3;
 		gameobjectlst_ [3] = clue4;
-		clues[3] = clue_4;
 		gameobjectlst_ [4] = clue5;
-		clues[4] = clue_5;
 		gameobjectlst_ [5] = clue6;
-		clues[4] = clue_6;
 	}
 
 
     public void make_gameobj_lst_verbal()  // craetes a list of the verbal clues 
     {
-        gameobjectlstverbal_[0] = clue7_verbal;
-        gameobjectlstverbal_[1] = clue8_verbal;
-
+        gameobjectlstverbal_ [0] = clue7_verbal;
+        gameobjectlstverbal_ [1] = clue8_verbal;
+		gameobjectlstverbal_ [2] = motiveClueObj;  
     }
 
     public NPC getNPC(int x)  // helps to get a NPC ranadomly quickly for creating clues
@@ -671,9 +679,7 @@ public class createClue: MonoBehaviour{
         return createnpc.GetComponent<CreateNPC>().npc_list_mur_vic[x];
         
     }
-
-
-
+		
 	public void setCluesInGameman(){
 
         int[] clue_room_pos_ = new int[8] {0,1,2,3,4,5,6,7};
@@ -734,17 +740,23 @@ public class createClue: MonoBehaviour{
         }
              
 
-        // rnadomly assign NPC's the verbal clues 
+        // randomly assign NPC's the verbal clues 
         int x = Random.Range(0, 8);
-        int y = x;
-        while (y == x)
-        {
-            y = Random.Range(0, 8);  // ensures two different NPC's
-        }
         game_manager.GetComponent<gameManager>().setNPCclue(getNPC(x),gameobjectlstverbal_[0]);  // sets the verbal clues of two random npcs 
         verbal_clue_7.npc_verbal = getNPC(x);
-        game_manager.GetComponent<gameManager>().setNPCclue(getNPC(y), gameobjectlstverbal_[1]);
-        verbal_clue_8.npc_verbal = getNPC(y);
+
+		int y = Random.Range (0, 8);
+		if (y != x) {
+			game_manager.GetComponent<gameManager>().setNPCclue(getNPC(y), gameobjectlstverbal_[1]);
+			verbal_clue_8.npc_verbal = getNPC(y);
+		}
+
+		int z = Random.Range (0, 8);
+		if ((z != x) && (z!= y)) {
+			game_manager.GetComponent<gameManager> ().setNPCclue (getNPC (z), gameobjectlstverbal_ [2]);
+			motiveClue.npc_verbal = getNPC (z);
+		}
+
     }
 
 
@@ -754,11 +766,7 @@ public class createClue: MonoBehaviour{
 
         setClues();   // intialise all parts to clues to be empty
 
-		int index = Random.Range (0, 5);
 		make_game_object_lst();
-
-
-
         make_gameobj_lst_verbal(); // make list of verbal clues 
 
         set_clues_crime();    // depending on crime choosen at random make approiate clues to fit and set clues to have appropriate sprites 
