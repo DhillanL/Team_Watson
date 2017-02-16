@@ -88,11 +88,13 @@ public class NPC : MonoBehaviour {
         DontDestroyOnLoad(transform.gameObject);
     }
 
+	// no of clues found at last interaction. -- faceless drones additon
 	public void StoreNumOfClues(int num)
 	{
 		num_of_clues = num;
 	}
 
+	// no of clues found at last interaction. -- faceless drones additon
 	public int GetNumOfClues()
 	{
 		return num_of_clues;

@@ -186,27 +186,29 @@ public class Interaction : MonoBehaviour {
 
 
     public void questioing_style1()  // if the user picks their first interaction style
-    {
+	{
         
-            move_boxes();
-            question_style_text = player.Personailty.questiontype1;
-            speachbox.text = "Detective " + player.Name + ": " + player.Personailty.Question1();
+		move_boxes ();
+		question_style_text = player.Personailty.questiontype1;
+		speachbox.text = "Detective " + player.Name + ": " + player.Personailty.Question1 ();
 
-            if ((question_style_text.Equals(npc.clue_response1) || question_style_text.Equals(npc.clue_response2)) && npc.clue != "")  // checks that the questioing style of the player macthes the one in which the NPC will say thier clue 
-            {
-                speachbox.text += "\n\n" + npc.Name + ": " + npc.clue;
-                logbookpart.GetComponent<logbookparts>().add_clue(npc.clue_object);  // add the clue to the log book if they give a clue 
-                check_okay_to_interact(npc);
-                npc = null;  // set interactin to clear after it is finished
-            }
-            else
-            {
-                speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
-                check_okay_to_interact(npc);
-                npc = null;
-            }
-        
-    }
+		if (npc.clue != "") {
+			if (((npc.clue_object.is_motive == true)&&(gameManager.clues_found > 1)) || (question_style_text.Equals (npc.clue_response1) || question_style_text.Equals (npc.clue_response2))) {
+				speachbox.text += "\n\n" + npc.Name + ": " + npc.clue;
+				logbookpart.GetComponent<logbookparts> ().add_clue (npc.clue_object);  // add the clue to the log book if they give a clue 
+				check_okay_to_interact (npc);
+				npc = null;  // set interactin to clear after it is finished
+			} else {
+				speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
+				check_okay_to_interact(npc);
+				npc = null;
+			}
+		} else {
+			speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
+			check_okay_to_interact(npc);
+			npc = null;
+		}
+	}
     
 
 
@@ -218,51 +220,47 @@ public class Interaction : MonoBehaviour {
             question_style_text = player.Personailty.questiontype2;
             speachbox.text = "Detective " + player.Name + ": " + player.Personailty.Question2();
 
-            if ((question_style_text.Equals(npc.clue_response1) || question_style_text.Equals(npc.clue_response2)) && npc.clue != "")  // checks that the questioning style of the player macthes the one in which the NPC will say thier clue 
-            {
-                speachbox.text += "\n\n" + npc.Name + ": " + npc.clue;
-                logbookpart.GetComponent<logbookparts>().add_clue(npc.clue_object);
-                check_okay_to_interact(npc);
-
-
-
-                npc = null;
-            }
-            else
-            {
-                speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
-                check_okay_to_interact(npc);
-                npc = null;
-            }
-       
-    }
+		if (npc.clue != "") {
+			if (((npc.clue_object.is_motive == true)&&(gameManager.clues_found > 1)) || (question_style_text.Equals (npc.clue_response1) || question_style_text.Equals (npc.clue_response2))) {
+				speachbox.text += "\n\n" + npc.Name + ": " + npc.clue;
+				logbookpart.GetComponent<logbookparts> ().add_clue (npc.clue_object);  // add the clue to the log book if they give a clue 
+				check_okay_to_interact (npc);
+				npc = null;  // set interactin to clear after it is finished
+			} else {
+				speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
+				check_okay_to_interact(npc);
+				npc = null;
+			}
+		} else {
+			speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
+			check_okay_to_interact(npc);
+			npc = null;
+		}
+	}
 
     public void questioning_style3()  // if the player selects the third interaction type 
     {
-        
             move_boxes();
             question_style_text = player.Personailty.questiontype3;
             speachbox.text = "Detective " + player.Name + ": " + player.Personailty.Question3();
 
-            if ((question_style_text.Equals(npc.clue_response1) || question_style_text.Equals(npc.clue_response2)) && npc.clue != "")  // checks that the questioing style of the player macthes the one in which the NPC will say thier clue 
-            {
-                speachbox.text += "\n\n" + npc.Name + ": " + npc.clue;
-                logbookpart.GetComponent<logbookparts>().add_clue(npc.clue_object);
-                check_okay_to_interact(npc);
-
-
-
-                npc = null;
-            }
-            else
-            {
-                speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
-                check_okay_to_interact(npc);
-                npc = null;
-            }
-        
-
-    }
+		if (npc.clue != "") {
+			if (((npc.clue_object.is_motive == true)&&(gameManager.clues_found > 1)) || (question_style_text.Equals (npc.clue_response1) || question_style_text.Equals (npc.clue_response2))) {
+				speachbox.text += "\n\n" + npc.Name + ": " + npc.clue;
+				logbookpart.GetComponent<logbookparts> ().add_clue (npc.clue_object);  // add the clue to the log book if they give a clue 
+				check_okay_to_interact (npc);
+				npc = null;  // set interactin to clear after it is finished
+			} else {
+				speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
+				check_okay_to_interact(npc);
+				npc = null;
+			}
+		} else {
+			speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
+			check_okay_to_interact(npc);
+			npc = null;
+		}
+	}
 
     public void move_boxes()  // used to move the three question type boxes off the screen 
     {
