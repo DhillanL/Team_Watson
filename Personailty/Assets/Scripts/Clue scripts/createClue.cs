@@ -13,8 +13,6 @@ public class createClue: MonoBehaviour{
     public GameObject createnpc;
     public GameObject cluesprites;
 
-
-
     // the game objects which hold the clues 
 	public GameObject clue1;
 	public GameObject clue2;
@@ -24,7 +22,7 @@ public class createClue: MonoBehaviour{
 	public GameObject clue6;
 	public GameObject clue7_verbal;
 	public GameObject clue8_verbal;
-	public GameObject motiveClueObj;
+	public GameObject motiveClueObj;	//__NEW__ADDITION__
 
     // the attributes for the clue which are attached to the game objects 
 	public clue clue_1;
@@ -35,7 +33,7 @@ public class createClue: MonoBehaviour{
 	public clue clue_6;
 	public clue verbal_clue_7;
 	public clue verbal_clue_8;
-	public clue motiveClue;
+	public clue motiveClue; //__NEW__ADDITION__
 
 
     // Arrays to make accessing the clue easier 
@@ -76,6 +74,7 @@ public class createClue: MonoBehaviour{
         verbal_clue_8 = clue8_verbal.GetComponent<clue>();
         verbal_clue_8.is_verbal = true;
 
+		//___NEW___ADDITON___
 		motiveClue = motiveClueObj.GetComponent<clue> ();
 		motiveClue.is_verbal = true;
     }
@@ -132,6 +131,7 @@ public class createClue: MonoBehaviour{
 
         verbal_clue_8.name = "I saw " + createnpc.GetComponent<CreateNPC>().npc_list_mur_vic[z].Name + " playing with a " + throw_off_weapon[y] + " ealier";
 
+		//___NEW__ADDITION__
 		motiveClue.name = game_manager.GetComponent<gameManager>().get_victim() + " stole " + game_manager.GetComponent<gameManager>().get_murder() + "'s new car.";
 		motiveClue.is_motive = true;
     }

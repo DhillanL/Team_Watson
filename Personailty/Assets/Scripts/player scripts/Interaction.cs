@@ -165,12 +165,14 @@ public class Interaction : MonoBehaviour {
 
     }
 
-	private void NewClueObtainedCheck(){
+	//____NEW___ADDITION_____
+	public void NewClueObtainedCheck(){		//Made public for testing periods
 		if ((logbookparts.clue_count - npc.GetNumOfClues ()) > 0) { //Check number of clues obtained since last speaking to this character is at least one
 			npc.okay_to_interact = true;
 		} 
 	}
 
+	//____NEW___ADDITION_____
     public void ignore()   // function to be called when teh ignore button is pressed
 	{
 		//Move UI Elements out of scene view
