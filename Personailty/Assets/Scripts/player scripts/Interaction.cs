@@ -143,7 +143,7 @@ public class Interaction : MonoBehaviour {
     {
 		
 		NewClueObtainedCheck (); //Checks that is the character has been ignored, and if player has collected a new clue since last ignoring them or not. 
-		if ((npc.okay_to_interact == true)) // test that its okay to interact with the NPC EG: they have told you to go away second tests if you have got a new clue since speaking to them 
+		if (npc.okay_to_interact == true) // test that its okay to interact with the NPC EG: they have told you to go away second tests if you have got a new clue since speaking to them 
         {
             question.transform.Translate(0, -57, 0);
             accusebutt.transform.Translate(0, -57, 0);
@@ -301,7 +301,7 @@ public class Interaction : MonoBehaviour {
         {
             if (npc.acuuse_wrong == false)
             {
-				gameManager.failed_accusations++;
+				
                 if (npc.Name == Gamemanager.get_murder())  // IF THE PLAYER ACCUSES THE MURDERER
                 {
                     Debug.Log("YOU WIN");
@@ -311,6 +311,7 @@ public class Interaction : MonoBehaviour {
                     SceneManager.LoadScene("win");
 
 				} else {  // IF THE PLAYER DOES NOT ACCUSE THE CORRECT NPC
+					gameManager.failed_accusations++;
                     speachbox.text = npc.incorect_accusation;
                     increase_acc_num();
                     Debug.Log(incorrect_aac_num);

@@ -9,14 +9,16 @@ public class fillstats : MonoBehaviour {
     public Text time;  // the text objects which will show the score and other required attributes to implement the score 
     public Text clues;
     public Text score;
+	public Text failed_accusations;
     public GameObject Gamemanager;
 
     private void fill_stats()
     {
 		int seconds = Mathf.RoundToInt (timer.instance.getTime());
-		time.text = "Time: " + seconds; // text time set to string repr of current timer value
+		time.text = "Time: " + seconds +" seconds"; // text time set to string repr of current timer value
 		clues.text ="Clues: " + gameManager.clues_found + " / 8"; // GATHER THE AMOUNT OF CLUES GATHER OUT OF 8 
-        score.text = "Score:" + make_score() ;    // WILL SHOW THE SCORE AFTER YOU HAVE CALCULATED IT , USING MAKE_SCORE
+		failed_accusations.text = "Failed Accusations: " +gameManager.failed_accusations;
+        score.text = "Overall Score: " + make_score() ;    // WILL SHOW THE SCORE AFTER YOU HAVE CALCULATED IT , USING MAKE_SCORE
     }
 
     private int make_score()
