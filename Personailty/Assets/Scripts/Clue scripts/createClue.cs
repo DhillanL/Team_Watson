@@ -5,7 +5,7 @@ using System.Linq;  // to be able to use contains in array checking
 public class createClue: MonoBehaviour{
 
     /*
-     * createClue is called by createNPC and after createCrime. Once the crime has been craeted the relevant clues will be selcted at random to fit the murder 
+     * createClue is called by createNPC and after createCrime. Once the crime has been created the relevant clues will be selected to fit the murder 
      */
 
 	public GameObject game_manager;
@@ -37,10 +37,10 @@ public class createClue: MonoBehaviour{
 
 
     // Arrays to make accessing the clue easier 
-    public GameObject[] gameobjectlst_ = new GameObject[6];  // Array of all of the gamobject -- the clues
-    public GameObject[] gameobjectlstverbal_ = new GameObject[3];
+    public GameObject[] gameobjectlst_ = new GameObject[6];  // Array of all of the GameObject -- the item clues
+    public GameObject[] gameobjectlstverbal_ = new GameObject[3]; 
 
-    // initlaise all of the game objects to have clue attributes 
+    // initialise all of the game objects to have clue attributes 
 	public void setClues()
     {
         // get the components for each of the clues 
@@ -81,10 +81,7 @@ public class createClue: MonoBehaviour{
 
 // ---------------------------------------------------------------------------------------------------------
 
-	//string murdererName = game_manager.GetComponent <gameManager >().get_whole_murderer().name ;
-	//string victimName = game_manager.GetComponent<gameManager>().get_victim() ;
-
-    // make all of the clues if the murder if STAB IN BACK CRIME 
+    // make all of the clues if the murder is STAB IN BACK CRIME 
 
     public void make_clues_crime_1()   // COMPLETE 
     {
@@ -752,7 +749,7 @@ public class createClue: MonoBehaviour{
 
         // randomly assign NPC's the verbal clues 
         int x = Random.Range(0, 8);
-        game_manager.GetComponent<gameManager>().setNPCclue(getNPC(x),gameobjectlstverbal_[0]);  // sets the verbal clues of two random npcs 
+        game_manager.GetComponent<gameManager>().setNPCclue(getNPC(x),gameobjectlstverbal_[0]); // give the 1st verbal clue to an NPC
         verbal_clue_7.npc_verbal = getNPC(x);
 
 		int y = Random.Range (0, 8);

@@ -4,9 +4,9 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 // gameManager is a script that will be atatched to an object called GameManager that should be created on every scene 
-// it wil hold relevant data needed throughout the game through the use of static variables 
+// it will hold relevant data needed throughout the game through the use of static variables 
 // can only be changed through accessors and mutators 
-//used to load scences as well correctly
+// also used to load scenes
 
 public class gameManager : MonoBehaviour {
 

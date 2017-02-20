@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-// scirpt addded to the player selection screen which allows all of the button pressing to happen for selecting the personialtes 
+// script addded to the player selection screen which allows all of the button pressing to happen for selecting the personialtes 
 // will chnage the name and personality as selcted by the player 
 // once the finish button is pressed it will call transfer_info()
 

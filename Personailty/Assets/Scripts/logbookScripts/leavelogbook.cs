@@ -3,7 +3,7 @@ using System.Collections;
 
 public class leavelogbook : MonoBehaviour {
     
-    // script to close the logbook pages depening on which on you are on = clues or crime 
+    // script to close the logbook pages depending on which on you are on = clues or crime 
     // if x = 1 close the clues page
     // if x = 0 close the crime page 
 

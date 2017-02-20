@@ -3,7 +3,7 @@ using System.Collections;
 
 public class cluesprites : MonoBehaviour {
 
-    /* pictures of all of the clues that could be used when making the crime. All of the pictures are saved in one place the script so its easier to find them adn set the clue to the right look 
+    /* pictures of all of the clues that could be used when making the crime. All of the pictures are saved in one place the script so its easier to find them and set the clue to the right look 
      */ 
     
     // pictures of all of the clues 

@@ -15,7 +15,7 @@ public class timer : MonoBehaviour {
 		DontDestroyOnLoad (gameObject); //Set this to not be destroyed when reloading scene
 	}
 
-    public float timer_seconds = 0;
+	public float timer_seconds = 0;
 
 	public float getTime() {
 		return timer_seconds;
@@ -26,7 +26,7 @@ public class timer : MonoBehaviour {
 		if (SceneManager.GetActiveScene().name == "casefile") {
 			timer_seconds = 0;
 		}  else {
-			timer_seconds += Time.deltaTime;
+			timer_seconds += Time.deltaTime; // add the time time spent on previous frame in seconds
 		}
 	}
 }

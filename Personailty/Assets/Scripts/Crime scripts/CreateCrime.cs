@@ -4,7 +4,7 @@ using System.Collections;
 public class CreateCrime : MonoBehaviour
 {
     /*
-     * CreateCrime  is used to create the crime for the game randomy. it is called by createNPC during the setup for the game
+     * CreateCrime is used to create the crime for the game randomly. it is called by createNPC during the setup for the game.
      */
 
     public GameObject gamemanob;

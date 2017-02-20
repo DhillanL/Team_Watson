@@ -27,9 +27,9 @@ public class fillstats : MonoBehaviour {
 		float time = timer.instance.getTime() ;
 		int clues_not_found = 8 - gameManager.clues_found;
 		int score = 100;
-		score -= clues_not_found * 5;
+		score -= clues_not_found * 5; // five points lost for each failed accusation, and clue not yet found
 		score -= accusations * 5;
-		score -= Mathf.RoundToInt (time / 20);
+		score -= Mathf.RoundToInt (time / 20); // one point lost for every 20 seconds of playtime
 
         return score;
     }

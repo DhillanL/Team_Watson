@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class NPC : MonoBehaviour {
 
-    // Abstract class which is used to create all of the NPC's in the game. They will all be created from this class. 
+    // Class which is used to create all of the NPC's in the game. They will all be created from this class. 
     // The details are also used in the crime creation so that the details are correct for he victim EG: he/she  
 
     // below are all attributes for the NPC class

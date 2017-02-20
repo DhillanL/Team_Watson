@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CreateNPC : MonoBehaviour {
 
-    /* script used to create all of the NPC's that will be used in the game, all of their responses to all of the posiible personailtes that the playe could be 
+    /* script used to create all of the NPC's that will be used in the game, all of their responses to all of the posiible personalities that the player could be 
      * also will have the types of questioning that the npcs will not like and so will ignore the player from 
      * will also hold the look of the npc's */
 
@@ -490,7 +490,7 @@ public class CreateNPC : MonoBehaviour {
 
 
 
-    public void set_murderer_and_victim_crime()  //sets a NPC to be ther murder and a differnt npc to be the victim 
+    public void set_murderer_and_victim_crime()  //sets one NPC as the murderer and another as the victim 
     {
         
         crime.GetComponent<CreateCrime>().select_crime();   // make the crime selection 
@@ -525,7 +525,7 @@ public class CreateNPC : MonoBehaviour {
         
     }
 
-    public void lst_no_victim()   // creates a list of all other npcs who are not the victim. --> called in fucntion set_murder_and_victim()
+    public void lst_no_victim()   // creates a list of all other npcs who are not the victim. --> called in function set_murder_and_victim()
     {
         int y = 0;
         for (int x =0; x < npc_list_.Length; x++)
@@ -607,7 +607,7 @@ public class CreateNPC : MonoBehaviour {
 
 
 
-    public void Make_NPC() // called when initilased so to create all of the NPC's, create the crime and set the clues 
+    public void Make_NPC() // called when initialised so to create all of the NPC's, create the crime and set the clues 
     {
 
         // STAGE 1 
