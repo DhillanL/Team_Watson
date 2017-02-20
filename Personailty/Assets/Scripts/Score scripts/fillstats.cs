@@ -4,9 +4,9 @@ using UnityEngine.UI;
 
 public class fillstats : MonoBehaviour {
 
-    // can be used on the final screen WIN and LOSE to load all of the stats onto the screen so that it can be seen by the player, how well they did 
+	// calculates the score using information from gameManager and timer
 
-    public Text time;  // the text objects which will show the score and other required attributes to implement the score 
+    public Text time;  // the contents of these Text objects will be shown on the win screen
     public Text clues;
     public Text score;
 	public Text failed_accusations;
@@ -23,6 +23,8 @@ public class fillstats : MonoBehaviour {
 
     private int make_score()
     {
+
+		// Calculates the score -- faceless drones addition
 		int accusations = gameManager.failed_accusations;
 		float time = timer.instance.getTime() ;
 		int clues_not_found = 8 - gameManager.clues_found;

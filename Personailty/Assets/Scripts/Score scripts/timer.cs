@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class timer : MonoBehaviour {
 
+	// times the playthough -- used to calculate the score
+
 	public static timer instance = null;
 
 	void Awake () {  //Makes this a singleton class on awake
@@ -17,13 +19,14 @@ public class timer : MonoBehaviour {
 
 	public float timer_seconds = 0;
 
-	public float getTime() {
+	public float getTime() { // returns the seconds elapsed since starting the game
 		return timer_seconds;
 	}
 
+	// __NEW__ADDITION__
     void Update()
 	{
-		if (SceneManager.GetActiveScene().name == "casefile") {
+		if (SceneManager.GetActiveScene().name == "casefile") { // so that timer_seconds is reset at the start of each playthough
 			timer_seconds = 0;
 		}  else {
 			timer_seconds += Time.deltaTime; // add the time time spent on previous frame in seconds
