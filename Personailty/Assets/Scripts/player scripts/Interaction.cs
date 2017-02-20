@@ -143,7 +143,7 @@ public class Interaction : MonoBehaviour {
     {
 		
 		NewClueObtainedCheck (); //Checks that is the character has been ignored, and if player has collected a new clue since last ignoring them or not. 
-		if (npc.okay_to_interact == true) // test that its okay to interact with the NPC EG: they have told you to go away second tests if you have got a new clue since speaking to them 
+		if ((npc.okay_to_interact == true) && (npc.acuuse_wrong == false)) // test that its okay to interact with the NPC EG: they have told you to go away second tests if you have got a new clue since speaking to them 
         {
             question.transform.Translate(0, -57, 0);
             accusebutt.transform.Translate(0, -57, 0);
