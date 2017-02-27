@@ -4,9 +4,9 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 // gameManager is a script that will be atatched to an object called GameManager that should be created on every scene 
-// it wil hold relevant data needed throughout the game through the use of static variables 
+// it will hold relevant data needed throughout the game through the use of static variables 
 // can only be changed through accessors and mutators 
-//used to load scences as well correctly
+// also used to load scenes
 
 public class gameManager : MonoBehaviour {
 
@@ -22,9 +22,6 @@ public class gameManager : MonoBehaviour {
     static public string crime;    // the crime that took place EG: stabbed, drowned 
 
     public NPC current_interaction;
-
-    static public float time_seconds;    // holds the timer's seconds and the mins
-    static public float time_mins;
 
 
     // NPC GAMEOBJECTS AND LOCATIONS
@@ -57,7 +54,9 @@ public class gameManager : MonoBehaviour {
     public GameObject create_npcs;
 
     // int to show the number of clues which have been found so far 
-    static public int found_clues = 0;
+    static public int clues_found = 0;
+
+	static public int failed_accusations = 0;
 
     static bool player_set = false;
 
@@ -136,11 +135,6 @@ public class gameManager : MonoBehaviour {
         return murderer;
     }
 
-    public void set_crime(string crimein)
-    {
-       crime = crimein;
-    }
-
     public string get_crime()
     {
         return crime;
@@ -199,11 +193,7 @@ public class gameManager : MonoBehaviour {
 
     public void increase_clue_count()
     {
-        found_clues++;
-    }
-    public int get_clue_count()
-    {
-        return found_clues;
+        clues_found++;
     }
 	
 
@@ -487,26 +477,4 @@ public class gameManager : MonoBehaviour {
     {
         SceneManager.LoadScene("HomeScreen");
     }
-
-    public void updatetime(float seconds, float mins)  // updates the values of the time so can be used in the end 
-    {
-        time_seconds = seconds;
-        time_mins = mins;
-    }
-
-    public float get_seconds()
-    {
-        return time_seconds;
-    }
-
-    public float get_mins()
-    {
-        return time_mins;
-    }
-
-    public int get_clues_no()
-    {
-        return found_clues;
-    }
-
 }

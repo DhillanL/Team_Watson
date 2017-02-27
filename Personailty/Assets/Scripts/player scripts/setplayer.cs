@@ -3,7 +3,7 @@ using System.Collections;
 
 public class setplayer : MonoBehaviour {
 
-    // sets the player to what personailty that they select on the selections screen
+    // sets the player to what personality that they select on the selections screen
 
     public GameObject gamemanager;
     gameManager gameman;

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using NUnit.Framework;
+using UnityEngine.UI;
 
 [TestFixture]
 public class Interaction_test
@@ -9,6 +10,7 @@ public class Interaction_test
     [Test]
     public void clues() // Create a list of clues and check that the clues are assigned to a value
     {
+		//In the createclues.make_clues_crime_1() function commment out anything to do with sprites
         clue clue1 = new clue();
         clue clue2 = new clue(); 
         clue clue3 = new clue();
@@ -17,6 +19,7 @@ public class Interaction_test
         clue clue6 = new clue();
         clue clue7 = new clue();
         clue clue8 = new clue();
+		clue motive_clue = new clue ();	//Motive clue added to test
 
         createClue createclues = new createClue();
         createclues.clue_1 = clue1;
@@ -28,9 +31,9 @@ public class Interaction_test
         createclues.clue_6 = clue6;
         createclues.verbal_clue_7 = clue7;
         createclues.verbal_clue_8 = clue8;
+		createclues.motiveClue = motive_clue;
 
         createclues.make_clues_crime_1();
-
        
         Assert.AreNotEqual(clue1.getName(), null); // Test fails if a clue is empty
 
@@ -66,10 +69,58 @@ public class Interaction_test
 
     }
 
-    
+	//___NEW__ADDITION___
+	[Test]
+	public void NewClueObtainedCheckPositive(){
+		//Checks that okay_to_interact is set to true if clue_count > stored clues
+		Interaction inter = new Interaction();
+		logbookparts.clue_count = 3;
 
+		inter.npc = new NPC ();
 
+		inter.npc.okay_to_interact = false;
+		inter.npc.StoreNumOfClues (2);
 
+		inter.NewClueObtainedCheck ();
 
+		Assert.IsTrue (inter.npc.okay_to_interact);
 
+	}
+
+	//___NEW__ADDITION___
+	[Test]
+	public void NewClueObtainedCheckNegative(){
+		//Should never occur unless code changed 
+		//Checks that if okay_to_interact stays false if stored clues > clue_count
+		Interaction inter = new Interaction();
+		logbookparts.clue_count = 0;
+
+		inter.npc = new NPC ();
+
+		inter.npc.okay_to_interact = false;
+		inter.npc.StoreNumOfClues (3);
+
+		inter.NewClueObtainedCheck ();
+
+		Assert.IsFalse (inter.npc.okay_to_interact);
+
+	}
+
+	//___NEW__ADDITION___
+	[Test]
+	public void NewClueObtainedCheckEqual(){ 
+		//Tests that if clue_count == stored clues, okay_to_interact stays false
+		Interaction inter = new Interaction();
+		logbookparts.clue_count = 0;
+
+		inter.npc = new NPC ();
+
+		inter.npc.okay_to_interact = false;
+		inter.npc.StoreNumOfClues (0);
+
+		inter.NewClueObtainedCheck ();
+
+		Assert.IsFalse(inter.npc.okay_to_interact);
+
+	}
 }

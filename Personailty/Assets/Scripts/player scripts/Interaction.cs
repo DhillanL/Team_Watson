@@ -21,7 +21,7 @@ public class Interaction : MonoBehaviour {
 
     public Button question;          // Where the player can input their choices
     public Button accusebutt;      // accuse button 
-   // public button ignorebutton   // THIS IS THE BUTTON FOR THE IGNORE OPTION. wILL NEED TO ATTACH A BUTTON TO IT IN THE UNITY SCENE EDITOR, BY MAKING ONE FROM THE UI ELEMENTS 
+	public Button ignorebutt;   		//Ignore Button  
     public Button questioingtype1;
     public Button questioingtype2;
     public Button questioingtype3;
@@ -101,8 +101,6 @@ public class Interaction : MonoBehaviour {
 
     public void pick_interaction()   // function whihc runs all of interaction 
     {
-       
-
         if (npc.is_victim == true)    // if the victim's body - give descitption 
         {
 
@@ -126,15 +124,12 @@ public class Interaction : MonoBehaviour {
                         npc.first_interaction = false;   // set first interaction to false 
 
                         npc = null;
-                    }
-                    else
-                    {
+                    } else {
                     
                         speachbox.text = "How would you like to interact:";
-                        question.transform.Translate(0, 57, 0);   // bring up the two buttons to the screen so the player can pick to QUESTION or ACCUSE
+                        question.transform.Translate(0, 57, 0);   // bring up the three buttons to the screen so the player can pick to QUESTION, ACCUSE or IGNORE
                         accusebutt.transform.Translate(0, 57, 0);
-                        // need to create a new button for the ignore option and make it translate onto the screen here 
-
+						ignorebutt.transform.Translate (0, 57, 0);
                     }      
 
             }
@@ -146,10 +141,13 @@ public class Interaction : MonoBehaviour {
 
     public void pick_question()  // if the player slectes the question button 
     {
-        if (npc.okay_to_interact == true) // test that its okay to interact with the NPC EG: they have told you to go away 
+		
+		NewClueObtainedCheck (); //Checks that is the character has been ignored, and if player has collected a new clue since last ignoring them or not. 
+		if ((npc.okay_to_interact == true) && (npc.acuuse_wrong == false)) // test that its okay to interact with the NPC EG: they have told you to go away second tests if you have got a new clue since speaking to them 
         {
             question.transform.Translate(0, -57, 0);
             accusebutt.transform.Translate(0, -57, 0);
+			ignorebutt.transform.Translate (0, -57, 0);
             questioingtype1.transform.Translate(0, 57, 0);  // bring up the three buttons so they can pick which interaction type they want to select 
             questioingtype2.transform.Translate(0, 57, 0);
             questioingtype3.transform.Translate(0, 57, 0);
@@ -160,40 +158,59 @@ public class Interaction : MonoBehaviour {
         {
             question.transform.Translate(0, -57, 0);
             accusebutt.transform.Translate(0, -57, 0);
+			ignorebutt.transform.Translate (0, -57, 0);
             speachbox.text = npc.name + ": " + npc.dont_interact_response;  // dont interact response 
             npc = null;
         }
 
     }
 
-    // public void ignore()   // function to be called when teh ignore button is pressed can be used to implement the ignore functionality 
-    // {
+	//____NEW___ADDITION_____
+	public void NewClueObtainedCheck(){		//Made public for testing periods
+		if ((logbookparts.clue_count - npc.GetNumOfClues ()) > 0) { //Check number of clues obtained since last speaking to this character is at least one
+			npc.okay_to_interact = true;
+		} 
+	}
 
-    // }
+	//____NEW___ADDITION_____
+    public void ignore()   // function to be called when teh ignore button is pressed
+	{
+		//Move UI Elements out of scene view
+		question.transform.Translate(0, -57, 0);
+		accusebutt.transform.Translate(0, -57, 0);
+		ignorebutt.transform.Translate (0, -57, 0);
+		speachbox.text = ""; 									//Show no text in speech box
+		head_shot.GetComponent<SpriteRenderer>().sprite = null; //Replace headshot image with no image 							
+		npc.StoreNumOfClues(logbookparts.clue_count);
+		npc.okay_to_interact = false;							//Can't interact with npc again
+		npc = null;												//Update npc to reflect that there is no npc selected
+	}
 
 
     public void questioing_style1()  // if the user picks their first interaction style
-    {
+	{
         
-            move_boxes();
-            question_style_text = player.Personailty.questiontype1;
-            speachbox.text = "Detective " + player.Name + ": " + player.Personailty.Question1();
+		move_boxes ();
+		question_style_text = player.Personailty.questiontype1;
+		speachbox.text = "Detective " + player.Name + ": " + player.Personailty.Question1 ();
 
-            if ((question_style_text.Equals(npc.clue_response1) || question_style_text.Equals(npc.clue_response2)) && npc.clue != "")  // checks that the questioing style of the player macthes the one in which the NPC will say thier clue 
-            {
-                speachbox.text += "\n\n" + npc.Name + ": " + npc.clue;
-                logbookpart.GetComponent<logbookparts>().add_clue(npc.clue_object);  // add the clue to the log book if they give a clue 
-                check_okay_to_interact(npc);
-                npc = null;  // set interactin to clear after it is finished
-            }
-            else
-            {
-                speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
-                check_okay_to_interact(npc);
-                npc = null;
-            }
-        
-    }
+		if (npc.clue != "") {
+			if (((npc.clue_object.is_motive == true)&&(gameManager.clues_found > 1)) || (question_style_text.Equals (npc.clue_response1) || question_style_text.Equals (npc.clue_response2))) {
+				speachbox.text += "\n\n" + npc.Name + ": " + npc.clue;
+				logbookpart.GetComponent<logbookparts> ().add_clue (npc.clue_object);  // add the clue to the log book if they give a clue 
+				check_okay_to_interact (npc);
+				npc = null;  // set interactin to clear after it is finished
+			} else {
+				speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
+				check_okay_to_interact(npc);
+				npc = null;
+			}
+		} else {
+			speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
+			check_okay_to_interact(npc);
+			npc = null;
+		}
+	}
     
 
 
@@ -205,51 +222,47 @@ public class Interaction : MonoBehaviour {
             question_style_text = player.Personailty.questiontype2;
             speachbox.text = "Detective " + player.Name + ": " + player.Personailty.Question2();
 
-            if ((question_style_text.Equals(npc.clue_response1) || question_style_text.Equals(npc.clue_response2)) && npc.clue != "")  // checks that the questioing style of the player macthes the one in which the NPC will say thier clue 
-            {
-                speachbox.text += "\n\n" + npc.Name + ": " + npc.clue;
-                logbookpart.GetComponent<logbookparts>().add_clue(npc.clue_object);
-                check_okay_to_interact(npc);
-
-
-
-                npc = null;
-            }
-            else
-            {
-                speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
-                check_okay_to_interact(npc);
-                npc = null;
-            }
-       
-    }
+		if (npc.clue != "") {
+			if (((npc.clue_object.is_motive == true)&&(gameManager.clues_found > 1)) || (question_style_text.Equals (npc.clue_response1) || question_style_text.Equals (npc.clue_response2))) {
+				speachbox.text += "\n\n" + npc.Name + ": " + npc.clue;
+				logbookpart.GetComponent<logbookparts> ().add_clue (npc.clue_object);  // add the clue to the log book if they give a clue 
+				check_okay_to_interact (npc);
+				npc = null;  // set interactin to clear after it is finished
+			} else {
+				speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
+				check_okay_to_interact(npc);
+				npc = null;
+			}
+		} else {
+			speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
+			check_okay_to_interact(npc);
+			npc = null;
+		}
+	}
 
     public void questioning_style3()  // if the player selects the third interaction type 
     {
-        
             move_boxes();
             question_style_text = player.Personailty.questiontype3;
             speachbox.text = "Detective " + player.Name + ": " + player.Personailty.Question3();
 
-            if ((question_style_text.Equals(npc.clue_response1) || question_style_text.Equals(npc.clue_response2)) && npc.clue != "")  // checks that the questioing style of the player macthes the one in which the NPC will say thier clue 
-            {
-                speachbox.text += "\n\n" + npc.Name + ": " + npc.clue;
-                logbookpart.GetComponent<logbookparts>().add_clue(npc.clue_object);
-                check_okay_to_interact(npc);
-
-
-
-                npc = null;
-            }
-            else
-            {
-                speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
-                check_okay_to_interact(npc);
-                npc = null;
-            }
-        
-
-    }
+		if (npc.clue != "") {
+			if (((npc.clue_object.is_motive == true)&&(gameManager.clues_found > 1)) || (question_style_text.Equals (npc.clue_response1) || question_style_text.Equals (npc.clue_response2))) {
+				speachbox.text += "\n\n" + npc.Name + ": " + npc.clue;
+				logbookpart.GetComponent<logbookparts> ().add_clue (npc.clue_object);  // add the clue to the log book if they give a clue 
+				check_okay_to_interact (npc);
+				npc = null;  // set interactin to clear after it is finished
+			} else {
+				speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
+				check_okay_to_interact(npc);
+				npc = null;
+			}
+		} else {
+			speachbox.text += "\n\n" + npc.Name + ": " + npc_response();
+			check_okay_to_interact(npc);
+			npc = null;
+		}
+	}
 
     public void move_boxes()  // used to move the three question type boxes off the screen 
     {
@@ -278,43 +291,41 @@ public class Interaction : MonoBehaviour {
     {
         question.transform.Translate(0, -57, 0);
         accusebutt.transform.Translate(0, -57, 0);
-        if (Gamemanager.get_clue_count() < 3)
+		ignorebutt.transform.Translate (0, -57, 0);
+        if (gameManager.clues_found < 3)
         {
             speachbox.text = "You need to have found at least three physical clues before you can accuse soemone! \n\n You must be new to detective work";
             npc = null;
+			gameManager.failed_accusations++;
         } else
         {
             if (npc.acuuse_wrong == false)
             {
+				
                 if (npc.Name == Gamemanager.get_murder())  // IF THE PLAYER ACCUSES THE MURDERER
                 {
                     Debug.Log("YOU WIN");
-                    //GameObject.FindWithTag("GUI").GetComponent<timer>().testFalse();   // USED TO IMPLEMENT THE TIMER BY SETTING THE TIME TO FALSE SO THAT THE TIME THE GAME IS WON IS STORED IN THE GAMEMANAGER CLASS 
                     destory_objects();
                     reset_newgame();
                     npc = null;
                     SceneManager.LoadScene("win");
 
-                }
-                else   // IF THE PLAYER DOES NOT ACCUSE THE CORRECT NPC
-                {
+				} else {  // IF THE PLAYER DOES NOT ACCUSE THE CORRECT NPC
+					gameManager.failed_accusations++;
                     speachbox.text = npc.incorect_accusation;
                     increase_acc_num();
                     Debug.Log(incorrect_aac_num);
                     npc.acuuse_wrong = true;
                     npc = null;
-                    if (incorrect_aac_num > 1)
-                    {
+					if (incorrect_aac_num > 1) {
                         Debug.Log("GAME OVER");
-                        //GameObject.FindWithTag("GUI").GetComponent<timer>().testFalse();   // set the timer to false so it stops - same as befor
                         destory_objects();
                         reset_newgame();
                         npc = null;
                         SceneManager.LoadScene("lose");  // load the losing screen 
                     }
                 }
-            } else
-            {
+            } else {
                 speachbox.text = "You have already accussed this person! You can not accuse them again";
                 npc = null;
             }

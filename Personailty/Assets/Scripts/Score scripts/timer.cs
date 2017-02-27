@@ -1,58 +1,35 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class timer : MonoBehaviour {
 
-    public GameObject gameman;
+	// times the playthough -- used to calculate the score
 
-    float timer_seconds = 0;
-    float timer_mins = 0;
-    bool test = true;
+	public static timer instance = null;
 
+	void Awake () {  //Makes this a singleton class on awake
+		if (instance == null) { //Does an instance already exist?
+			instance = this;	//If not set instance to this
+		} else if (instance != this) { //If it already exists and is not this then destroy this
+			Destroy (gameObject);
+		}
+		DontDestroyOnLoad (gameObject); //Set this to not be destroyed when reloading scene
+	}
 
-    public void testFalse()
-    {
-        test = false;
-    }
+	public float timer_seconds = 0;
 
-    public void testTrue()
-    {
-        test = true;
-    }
+	public float getTime() { // returns the seconds elapsed since starting the game
+		return timer_seconds;
+	}
 
-
+	// __NEW__ADDITION__
     void Update()
-    {
-        if (test)
-        {
-            timer_seconds += Time.deltaTime;
-
-            if (timer_seconds > 59)
-            {
-                timer_mins++;
-                timer_seconds = 0;
-
-            }
-
-            if (gameman == null)
-            {
-                gameman = GameObject.FindWithTag("gamemanager");
-            }
-
-            gameman.GetComponent<gameManager>().updatetime(timer_seconds, timer_mins);    // updates the time in the gameman
-
-        }
-
-    }
-
-
-    void OnGUI()
-    {
-        GUI.Box(new Rect(1000, 595, 80, 30), ""  + timer_mins.ToString() +" : "  + "" + timer_seconds.ToString("00"));
-    }
-
-
-
-
-
+	{
+		if (SceneManager.GetActiveScene().name == "casefile") { // so that timer_seconds is reset at the start of each playthough
+			timer_seconds = 0;
+		}  else {
+			timer_seconds += Time.deltaTime; // add the time time spent on previous frame in seconds
+		}
+	}
 }

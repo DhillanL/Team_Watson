@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class NPC : MonoBehaviour {
 
-    // Abstract class which is used to create all of the NPC's in the game. They will all be created from this class. 
+    // Class which is used to create all of the NPC's in the game. They will all be created from this class. 
     // The details are also used in the crime creation so that the details are correct for he victim EG: he/she  
 
     // below are all attributes for the NPC class
@@ -14,6 +14,9 @@ public class NPC : MonoBehaviour {
     public string Name;
     public string initial;
     public int age;
+	private int num_of_clues;
+
+	public bool hasVerbalClue = false;
 
     public string he_she;
     public string man_woman;
@@ -85,8 +88,17 @@ public class NPC : MonoBehaviour {
         DontDestroyOnLoad(transform.gameObject);
     }
 
+	// no of clues found at last interaction. -- faceless drones additon
+	public void StoreNumOfClues(int num)
+	{
+		num_of_clues = num;
+	}
 
-
+	// no of clues found at last interaction. -- faceless drones additon
+	public int GetNumOfClues()
+	{
+		return num_of_clues;
+	}
 
 
     void OnMouseDown()  // when the NPC is clicked on 

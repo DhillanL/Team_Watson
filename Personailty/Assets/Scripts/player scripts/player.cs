@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class player : MonoBehaviour {
 
-    // The playe class 
+    // The player class 
 
     static public bool spwaned = false;
 
@@ -63,13 +63,10 @@ public class player : MonoBehaviour {
 
     void Start()
     {
-    
-            setPlay();
-            rb2D = GetComponent<Rigidbody2D>(); // gets the ridig body of the player sets the rigid body 
-            gameMan.GetComponent<gameManager>().set_player_to_true();
-            anim = GetComponent<Animator>();
-
-        
+        setPlay();
+        rb2D = GetComponent<Rigidbody2D>(); // gets the ridig body of the player sets the rigid body 
+        gameMan.GetComponent<gameManager>().set_player_to_true();
+        anim = GetComponent<Animator>();
     }
 
     public void set_vel_0()
@@ -79,57 +76,55 @@ public class player : MonoBehaviour {
 
     public int orintation = 1; // right - 1 left - 0
 
+	public bool Apressed = false;
+	public bool Dpressed = false;
+	public string lastScene = "";
+
     void Update()      // making the player move. A goes left, D goes right 
     {
 
-        if (walk == true)  // if hte player is allowed to move 
+		if (lastScene != SceneManager.GetActiveScene().name) {
+			Apressed = false;
+			Dpressed = false;
+		}
+		lastScene = SceneManager.GetActiveScene().name;
+
+		if (Input.GetKeyDown (KeyCode.A) == true) {
+			Apressed = true;
+		}
+
+		if (Input.GetKeyUp (KeyCode.A) == true) {
+			Apressed = false;
+		}
+
+		if (Input.GetKeyDown (KeyCode.D) == true) {
+			Dpressed = true;
+		}
+
+		if (Input.GetKeyUp (KeyCode.D) == true) {
+			Dpressed = false;
+		}
+			
+
+        if (walk == true)  // if the player is allowed to move 
         {
 
-            if (Input.GetKeyDown(KeyCode.A))   // if the player presses a 
-            {
-                rb2D.velocity = new Vector2(-speed, 0);
+			if (Apressed == true) {
+				rb2D.velocity = new Vector2 (-speed, 0);
+				GetComponent<SpriteRenderer> ().flipX = true; 
+				anim.SetInteger ("state", 1);
 
-                if (orintation == 1)
-                {
-                    GetComponent<SpriteRenderer>().flipX = true;   // move in the correct direction 
-                }
-
-                anim.SetInteger("state", 1);
-                orintation = 0;
-
-            }
-            else if (Input.GetKeyUp(KeyCode.A))   // when A is raised set velocity to 0 so he doesnt move
-            {
-                rb2D.velocity = new Vector2(0, 0);
-                anim.SetInteger("state", 0);
+			} else if (Dpressed == true) {
+				rb2D.velocity = new Vector2 (speed, 0);
+				GetComponent<SpriteRenderer> ().flipX = false;
+				anim.SetInteger ("state", 1);
+			} else {
+					rb2D.velocity = new Vector2 (0, 0);
+					anim.SetInteger ("state", 0);
+				}
 
             }
-
-            else if (Input.GetKeyDown(KeyCode.D))   // same as moving for A 
-            {
-                rb2D.velocity = new Vector2(speed, 0);
-
-
-
-                if (orintation == 0)
-                {
-                    GetComponent<SpriteRenderer>().flipX = false;
-                }
-                anim.SetInteger("state", 1);
-                orintation = 1;
-
-
-            }
-            else if (Input.GetKeyUp(KeyCode.D))
-            {
-                rb2D.velocity = new Vector2(0, 0);
-                anim.SetInteger("state", 0);
-            }
-
-
-        }
-    }
-
-
-
+				
+				
+		}
 }

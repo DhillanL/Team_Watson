@@ -15,6 +15,7 @@ public class clue: MonoBehaviour{
  
     public bool is_found = false;
     public bool is_verbal = false;
+	public bool is_motive = false; // needed for interaction script to handle motive clue differently, assigned in createClue script -- faceless drones addition.
 
     public NPC npc_verbal;
 	public Sprite look;
@@ -39,8 +40,6 @@ public class clue: MonoBehaviour{
     {
         return info;  
 	}
-
-
 
     void OnMouseDown() // When the clue is clicked on it is removed and added to the logbook
     {

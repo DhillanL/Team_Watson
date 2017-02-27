@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-// scirpt addded to the player selection screen which allows all of the button pressing to happen for selecting the personialtes 
+// script addded to the player selection screen which allows all of the button pressing to happen for selecting the personialtes 
 // will chnage the name and personality as selcted by the player 
 // once the finish button is pressed it will call transfer_info()
 
@@ -21,6 +21,8 @@ public class PlayerSelect : MonoBehaviour {
     public Button dumbcopbutton;
     public Button trustycopbutton;
     public Button suspicouscopbutton;
+
+	private bool personality_selected = false;
   
     public Button Finish;    // button pressed when all selections are made
 
@@ -166,11 +168,6 @@ public class PlayerSelect : MonoBehaviour {
 
     // transfering data to gamemanager 
 
-    public void transfer_name()  // transfers the name into the gameManger script holding the static variables used in all scenes.   
-    {
-        data = gameMan.GetComponent<gameManager>();
-        data.loadName(Name); // load name into the gameManager
-    }
     public void transfer_personality()  // transfers the personailty into the gameManger script holding the static variables used in all scenes.   
     {
         data = gameMan.GetComponent<gameManager>();
@@ -193,8 +190,10 @@ public class PlayerSelect : MonoBehaviour {
 
     public void uploadname()     //set the name to what the user typed in and transfer it to gamManager 
     {
-        Name = Namein.text;   // set name to what the user inputs 
-        transfer_name();      // transfer the name into game manager 
+
+		// set name to what the user inputs
+		gameManager.Name = Name; 
+      // transfer the name into game manager 
     }
 
 
@@ -207,20 +206,21 @@ public class PlayerSelect : MonoBehaviour {
 
 
 
-
-
-
-
-
-
-
-	// Use this for initialization
-	void Start () {
-	
+	public void SetPersonalitySelected(){
+		personality_selected = true;
 	}
+		
 	
 	// Update is called once per frame
 	void Update () {
+
+		Name = Namein.text;
+
+		if (Name != "" && personality_selected) {
+			Finish.interactable = true;
+		} else {
+			Finish.interactable = false; 
+		}
 	
 	}
 }

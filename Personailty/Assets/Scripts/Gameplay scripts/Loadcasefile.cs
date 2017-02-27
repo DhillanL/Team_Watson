@@ -19,7 +19,7 @@ public class Loadcasefile : MonoBehaviour {
     public void setcasefile()
     {
         gameManager info = gameman.GetComponent<gameManager>();
-        Victim_name.text = "Name: " + info.get_whole_victim().Name;
+        Victim_name.text = "Name: " + gameManager.victim.Name;
         Victim_age.text = "Age: " + info.get_whole_victim().age;
         victim_known_info.text = info.get_crime();
         headshot.GetComponent<SpriteRenderer>().sprite = info.get_whole_victim().headshot;
