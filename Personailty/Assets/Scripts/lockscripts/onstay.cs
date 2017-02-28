@@ -23,13 +23,14 @@ public class onstay : MonoBehaviour {
             {
                 GameObject.FindWithTag("locks").GetComponent<Makelocks>().startlock3();
                 Debug.Log("start3");
+
             } else
             {
                 GameObject.FindWithTag("locks").GetComponent<Makelocks>().lock_picked(true);
                 GameObject.FindWithTag("locks").GetComponent<Makelocks>().stopgame();
                 
 
-                Debug.Log("you win ");
+               
             }
         }
     }

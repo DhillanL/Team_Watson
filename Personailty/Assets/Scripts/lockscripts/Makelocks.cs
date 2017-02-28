@@ -13,8 +13,13 @@ public class Makelocks : MonoBehaviour {
     public GameObject holder;   // hold the temp green marker 
     public GameObject lock1;
 
+    public GameObject lockanim;
+
     // UI ELEMENTS 
     public Text pass_fail;
+    public Text pin1;
+    public Text pin2;
+    public Text pin3;
    
 
     private bool gameplaying = true;
@@ -60,15 +65,10 @@ public class Makelocks : MonoBehaviour {
 
     }
 
-
-
     public int getlocknumber()   // returns the lock number 
     {
         return locknumber;
     }
-
-
-
 
     public void playlock(GameObject Lock, int speed)    // starts the lock line moving 
     {
@@ -78,7 +78,6 @@ public class Makelocks : MonoBehaviour {
 
         rb.velocity = new Vector2(speed, 0);
     }
-
 
 
     public void stopline(GameObject Lock)    // stops the lock line moving 
@@ -109,18 +108,34 @@ public class Makelocks : MonoBehaviour {
         gameplaying = false;
     }
 
+    public void setpintext(Text pin,bool result)
+    {
+        if (result == true)
+        {
+            pin.text += " Pass";
+            pin.color = Color.green;
+        } else
+        {
+            pin.text += " Fail";
+            pin.color = Color.red;
+        }
+    }
+
     public void startlock1()  // starts the first lock 
     {
         playlock(lock1, 70);
 
-    } 
+    }
+    
 
     public void startlock2()   // starts the second look at a faster speed 
     {
         destorygreen(lock1);
         miss++;   // accounts for the latency in the collider boxes 
         makeGreen(lock1);
-        playlock(lock1, 100);
+        playlock(lock1, 110);
+        setpintext(pin1,true);
+        lockanim.GetComponent<Animator>().SetInteger("state", 1);   // chnages the state of the aniamtaion 
         locknumber++;
     }
 
@@ -130,27 +145,31 @@ public class Makelocks : MonoBehaviour {
         miss++;
         makeGreen(lock1);
         playlock(lock1, 140);
+        setpintext(pin2, true);
+        lockanim.GetComponent<Animator>().SetInteger("state", 2);   // chnages the state of the aniamtaion 
         locknumber++;
     }
 
-    public void lock_picked(bool b)
+    public void lock_picked(bool b)  // at the end  its tested if the player wins or not to display result
     {
         if (b.Equals(true))
         {
-            pass_fail.text += " PASSED";
+            setpintext(pin3,true);
+            pass_fail.text += " - Open";
+            pass_fail.color = Color.green;
+            lockanim.GetComponent<Animator>().SetBool("finished", true);
+
         } else
         {
-            pass_fail.text += " FAIL";
+            pass_fail.text += "- Failed";
+            pass_fail.color = Color.red;
         }
     }
-
-    
-
 
 
 	// Use this for initialization
 	void Start () {
-        makelock(lock1,0);   // make the lock on the screen
+        makelock(lock1,-50);   // make the lock on the screen
         makeGreen(lock1);    // set the first green target for the lock 
 
         startlock1();       // start the line moving 
@@ -166,18 +185,22 @@ public class Makelocks : MonoBehaviour {
             }
             if (miss < 0)
             {
+                if (locknumber == 1)
+                {
+                    setpintext(pin1, false);
+                } else if (locknumber == 2)
+                {
+                    setpintext(pin2, false);
+                } else
+                {
+                    setpintext(pin3, false);
+                }
+                lockanim.GetComponent<Animator>().SetBool("checking",false);   // chnages the state of the aniamtaion 
                 stopline(lock1);
-                Debug.Log("LOCK MISSED");
                 lock_picked(false);
                 stopgame();
             }
         }
     }
-
-
-
-
-
-
 
 }
