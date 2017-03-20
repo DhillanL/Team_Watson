@@ -16,12 +16,23 @@ public class gameManager : MonoBehaviour {
     static public int person_int;                      // int to represent the personailty choice 
     static public Sprite Sprite;                       // players look 
 
+    // player 2 attributes 
+    static public string Name2;
+    static public Personality_player personiltyplayer2;
+    static public int perons2_int;
+
+    static public bool istwoplayer = false;
+
+
     static public NPC murderer;      // murderer
     static public NPC victim;        // victim 
 
     static public string crime;    // the crime that took place EG: stabbed, drowned 
 
     public NPC current_interaction;
+
+    
+    
 
 
     // NPC GAMEOBJECTS AND LOCATIONS
@@ -119,7 +130,51 @@ public class gameManager : MonoBehaviour {
 
 
     // ----------------------------------------------------------------------------------------------------------------------------------
+    // two player functions
 
+    public void Twoplayeron()
+    {
+        istwoplayer = true;
+    }
+
+    public bool istwoplayeron()
+    {
+        return istwoplayer;
+    }
+
+    public void setplayer2personint(int person)
+    {
+        perons2_int = person;
+    }
+
+    public int getperson2()
+    {
+        return perons2_int;
+    }
+
+    public void setplayer2name(string name)
+    {
+        Name2 = name;
+    }
+
+    public string getnameplayer2()
+    {
+        return Name2;
+    }
+
+    public void loadpersonilty2(Personality_player person)
+    {
+        personiltyplayer2 = person;
+    }
+
+    public Personality_player getplayer2person()
+    {
+        return personiltyplayer2;
+    }
+
+
+
+    // ------------------------------------------------------------------------------------------
     // FUNCTIONS TO SET THE MURDERER FOR THE GAME AND THE VICTIM AND THE MURDER 
 
     public void set_murder(NPC npc)
@@ -413,7 +468,7 @@ public class gameManager : MonoBehaviour {
         populateroom1();
         set_player_vel_0();
         GameObject.FindWithTag("Player").GetComponent<player>().walkT(); // set it so the player can walk again
-
+       
 
     }
 
@@ -477,4 +532,12 @@ public class gameManager : MonoBehaviour {
     {
         SceneManager.LoadScene("HomeScreen");
     }
+
+    public void load_2player()
+    {
+        SceneManager.LoadScene("twoplayer");
+    }
+
+    
+
 }

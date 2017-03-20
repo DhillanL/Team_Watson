@@ -65,6 +65,68 @@ public class setplayer : MonoBehaviour {
             Destroy(GameObject.FindWithTag("player_smart"));
             Destroy(GameObject.FindWithTag("player_dumb"));
         }
+        
+        if (gameman.istwoplayeron().Equals(true))          
+        {
+            if (gameman.getperson2().Equals(1))
+            {
+                GameObject.FindWithTag("bad2").tag = "Player2";
+                Destroy(GameObject.FindWithTag("good2"));
+                Destroy(GameObject.FindWithTag("susp2"));
+                Destroy(GameObject.FindWithTag("trust2"));
+                Destroy(GameObject.FindWithTag("smart2"));
+                Destroy(GameObject.FindWithTag("dumb2"));
+
+            } else if (gameman.getperson2().Equals(2))
+            {
+                GameObject.FindWithTag("good2").tag = "Player2";
+                Destroy(GameObject.FindWithTag("bad2"));
+                Destroy(GameObject.FindWithTag("susp2"));
+                Destroy(GameObject.FindWithTag("trust2"));
+                Destroy(GameObject.FindWithTag("smart2"));
+                Destroy(GameObject.FindWithTag("dumb2"));
+            } else if (gameman.getperson2().Equals(3))
+            {
+                GameObject.FindWithTag("smart2").tag = "Player2";
+                Destroy(GameObject.FindWithTag("bad2"));
+                Destroy(GameObject.FindWithTag("susp2"));
+                Destroy(GameObject.FindWithTag("trust2"));
+                Destroy(GameObject.FindWithTag("good2"));
+                Destroy(GameObject.FindWithTag("dumb2"));
+            } else if (gameman.getperson2().Equals(4))
+            {
+                GameObject.FindWithTag("dumb2").tag = "Player2";
+                Destroy(GameObject.FindWithTag("bad2"));
+                Destroy(GameObject.FindWithTag("susp2"));
+                Destroy(GameObject.FindWithTag("trust2"));
+                Destroy(GameObject.FindWithTag("good2"));
+                Destroy(GameObject.FindWithTag("smart2"));
+            } else if (gameman.getperson2().Equals(5))
+            {
+                GameObject.FindWithTag("trust2").tag = "Player2";
+                Destroy(GameObject.FindWithTag("bad2"));
+                Destroy(GameObject.FindWithTag("susp2"));
+                Destroy(GameObject.FindWithTag("dumb2"));
+                Destroy(GameObject.FindWithTag("good2"));
+                Destroy(GameObject.FindWithTag("smart2"));
+            } else
+            {
+                GameObject.FindWithTag("susp2").tag = "Player2";
+                Destroy(GameObject.FindWithTag("bad2"));
+                Destroy(GameObject.FindWithTag("trust2"));
+                Destroy(GameObject.FindWithTag("dumb2"));
+                Destroy(GameObject.FindWithTag("good2"));
+                Destroy(GameObject.FindWithTag("smart2"));
+            }
+        } else
+        {
+            Destroy(GameObject.FindWithTag("bad2"));
+            Destroy(GameObject.FindWithTag("trust2"));
+            Destroy(GameObject.FindWithTag("dumb2"));
+            Destroy(GameObject.FindWithTag("good2"));
+            Destroy(GameObject.FindWithTag("smart2"));
+            Destroy(GameObject.FindWithTag("susp2"));
+        }
     }
 	
 	// Update is called once per frame

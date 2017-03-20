@@ -7,6 +7,8 @@ public class player : MonoBehaviour {
 
     // The player class 
 
+    public bool playerno;  // public to select the player if its 1 or 2
+
     static public bool spwaned = false;
 
     public Text speach_box;
@@ -34,13 +36,27 @@ public class player : MonoBehaviour {
 
     public bool walk = true;
 
+    // new additions 
 
-    public void setPlay()    // sets the name personailty Aand the sprite for the player 
+    public string PastScene = "Screen2";
+
+
+    public void setPlay(bool player)    // sets the name personailty Aand the sprite for the player 
     {
-        data = gameMan.GetComponent<gameManager>();
-        Name = data.getName();
-        Personailty = data.getPersonality();
-        personint = data.getpersonint();
+        if (player == true)  // player1
+        {
+            data = gameMan.GetComponent<gameManager>();
+            Name = data.getName();
+            Personailty = data.getPersonality();
+            personint = data.getpersonint();
+        } else
+        {
+            data = gameMan.GetComponent<gameManager>();
+            Name = data.getnameplayer2();
+            Personailty = data.getplayer2person();
+            personint = data.getperson2();
+        }
+        
       
     }
 
@@ -63,7 +79,7 @@ public class player : MonoBehaviour {
 
     void Start()
     {
-        setPlay();
+        setPlay(playerno);
         rb2D = GetComponent<Rigidbody2D>(); // gets the ridig body of the player sets the rigid body 
         gameMan.GetComponent<gameManager>().set_player_to_true();
         anim = GetComponent<Animator>();
@@ -83,7 +99,9 @@ public class player : MonoBehaviour {
     void Update()      // making the player move. A goes left, D goes right 
     {
 
-		if (lastScene != SceneManager.GetActiveScene().name) {
+        
+
+        if (lastScene != SceneManager.GetActiveScene().name) {
 			Apressed = false;
 			Dpressed = false;
 		}

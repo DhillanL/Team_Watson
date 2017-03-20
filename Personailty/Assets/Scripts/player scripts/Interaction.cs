@@ -117,7 +117,7 @@ public class Interaction : MonoBehaviour {
                 
                     if (npc.first_interaction == true)   /// if its the players first interaction wiht the NPC
                     {
-                        speachbox.text = "Detective " + player.Name + " :  " + player.Personailty.intro;   // dispaly introduction for the NPC
+                speachbox.text = "Detective " + player.Name + " :  " + player.Personailty.intro;   // dispaly introduction for the NPC
 
                         speachbox.text = speachbox.text + "\n\n" + npc.Name + ": " + npc.intro;
 
