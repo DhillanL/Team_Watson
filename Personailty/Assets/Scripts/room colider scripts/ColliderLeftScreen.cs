@@ -21,37 +21,37 @@ public class ColliderLeftScreen : MonoBehaviour {
             
             if (room.Equals("Room7"))
             {
-                GameObject.FindWithTag("Player").GetComponent<player>().PastScene = "Room7";
+                GameObject.FindWithTag("Player").GetComponent<player>().PastScene = "Room3";
                 gamemanager.GetComponent<gameManager>().load_meetingroom(); // load the meeting room (scencename - Room3)
                 Col.transform.position = starting_pos_left;
             }
             else if (room.Equals("Room5"))
             {
-                GameObject.FindWithTag("Player").GetComponent<player>().PastScene = "Room5";
+                GameObject.FindWithTag("Player").GetComponent<player>().PastScene = "Room7";
                 gamemanager.GetComponent<gameManager>().load_upstairslecture(); // load the upsairs lecture hall (scenename - Room 7 )
                 Col.transform.position = starting_pos_left;
             }
             else if ( room.Equals("Room4"))
             {
-                GameObject.FindWithTag("Player").GetComponent<player>().PastScene = "Room4";
+                GameObject.FindWithTag("Player").GetComponent<player>().PastScene = "Screen3";
                 gamemanager.GetComponent<gameManager>().load_RCH2(); // load second main RCH room (scenename - Screen3 )
                 Col.transform.position = starting_pos_left;
             }
             else if (room.Equals("Screen3"))
             {
-                GameObject.FindWithTag("Player").GetComponent<player>().PastScene = "Screen3";
+                GameObject.FindWithTag("Player").GetComponent<player>().PastScene = "Screen2";
                 gamemanager.GetComponent<gameManager>().load_RCH1(); // (scenename - Screen2 )
                 Col.transform.position = starting_pos_left;
             }
             else if (room.Equals("Screen2"))
             {
-                GameObject.FindWithTag("Player").GetComponent<player>().PastScene = "Screen2";
+                GameObject.FindWithTag("Player").GetComponent<player>().PastScene = "Room6";
                 gamemanager.GetComponent<gameManager>().load_outside_lakes(); // (scenename - room6)
                 Col.transform.position = starting_pos_left;
             }
             else if (room.Equals("Room6"))
             {
-                GameObject.FindWithTag("Player").GetComponent<player>().PastScene = "Room6";
+                GameObject.FindWithTag("Player").GetComponent<player>().PastScene = "Room8";
                 gamemanager.GetComponent<gameManager>().load_outside_bottombalcony(); // (scenename - Room8)
                 Col.transform.position = starting_pos_left;
             } else

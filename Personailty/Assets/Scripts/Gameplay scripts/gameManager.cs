@@ -20,6 +20,8 @@ public class gameManager : MonoBehaviour {
     static public string Name2;
     static public Personality_player personiltyplayer2;
     static public int perons2_int;
+    static public int player_turn = 1;
+    //
 
     static public bool istwoplayer = false;
 
@@ -68,6 +70,7 @@ public class gameManager : MonoBehaviour {
     static public int clues_found = 0;
 
 	static public int failed_accusations = 0;
+    static public int failed_accusationpplayer2 = 0;
 
     static bool player_set = false;
 
@@ -170,6 +173,27 @@ public class gameManager : MonoBehaviour {
     public Personality_player getplayer2person()
     {
         return personiltyplayer2;
+    }
+
+    public int get_player_turn()
+    {
+        return player_turn;
+    }
+
+    public void swap_players()
+    {
+        if (get_player_turn() == 1)
+        {
+            player_turn = 2;
+        } else
+        {
+            player_turn = 1; 
+        }
+    }
+
+    public int getfailedaccplay2()
+    {
+        return failed_accusationpplayer2; 
     }
 
 

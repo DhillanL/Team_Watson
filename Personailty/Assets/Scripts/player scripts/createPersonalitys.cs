@@ -33,7 +33,7 @@ public class createPersonalitys : MonoBehaviour {
     {
         getname();
         badCop.Name = Name;
-        badCop.setintro("My name is Detective " + Name.ToString());
+        badCop.setintro("Hello there, lets get on with this");
         badCop.settype1("Aggressive"); 
         badCop.set1("Tell me where you were at the time of the murder or else...");  
         badCop.settype2("Violent");
@@ -57,7 +57,7 @@ public class createPersonalitys : MonoBehaviour {
     {
         getname();
         goodCop.Name = Name;
-        goodCop.setintro("Hi there, my name is Detective " + Name.ToString() + ". How are you today?");
+        goodCop.setintro("Hi there, How are you today?");
         goodCop.settype1("Kind");
         goodCop.set1("I'm here to help you catch who did this. Did you see or hear anything, friend?");  //aggresive
         goodCop.settype2("Sympthetic");
@@ -81,7 +81,7 @@ public class createPersonalitys : MonoBehaviour {
     {
         getname();
         smart.Name = Name;
-        smart.setintro("Why hello there, I am very smart, call me Detective " + Name.ToString());
+        smart.setintro("Why hello there, I am very smart");
         smart.settype1("Friendly");
         smart.set1("How well did you know the victim? Great shoes, by the way.");
         smart.settype2("Cunning");
@@ -102,7 +102,7 @@ public class createPersonalitys : MonoBehaviour {
     {
         getname();
         dumb.Name = Name;
-        dumb.setintro("Hi there, my name Detective " + Name.ToString());
+        dumb.setintro("Hi there, i'm not sure what im doing here");
         dumb.settype1("Kind");
         dumb.set1("Hi friend, any idea what happened?");
         dumb.settype2("Violent");
@@ -123,7 +123,7 @@ public class createPersonalitys : MonoBehaviour {
     {
         getname();
         trust.Name = Name;
-        trust.setintro("Hello there, my name is " + Name.ToString() + " and I am here to help you.");
+        trust.setintro("Hello there, I am here to help you.");
         trust.settype1("Sympathetic");
         trust.set1("I'm sorry to hear what happened. I can offer you help if you can give me any information.");
         trust.settype2("Mean");
@@ -147,7 +147,7 @@ public class createPersonalitys : MonoBehaviour {
     {
         getname();
         susp.Name = Name;
-        susp.setintro("Hello there, my name is " + Name.ToString() + " and I am here to question you.");
+        susp.setintro("Hello there I am here to question you.");
         susp.settype1("Cunning");
         susp.set1("I heard that you have something to do with this. Anything to say?");
         susp.settype2("Violent");

@@ -36,9 +36,11 @@ public class player : MonoBehaviour {
 
     public bool walk = true;
 
-    // new additions 
 
+
+    // new additions 
     public string PastScene = "Screen2";
+    //public int playerid;
 
 
     public void setPlay(bool player)    // sets the name personailty Aand the sprite for the player 
@@ -65,7 +67,7 @@ public class player : MonoBehaviour {
         walk = true;
     }
 
-    public void walkF()  // means the playe can't walk
+    public void walkF()  // means the player can't walk
     {
         walk = false ;
     }

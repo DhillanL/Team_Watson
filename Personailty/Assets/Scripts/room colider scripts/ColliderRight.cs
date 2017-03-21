@@ -22,37 +22,37 @@ public class ColliderRight : MonoBehaviour {
         {    
             if (room.Equals("Room7"))
             {
-                GameObject.FindWithTag("Player").GetComponent<player>().PastScene = "Room7";
+                GameObject.FindWithTag("Player").GetComponent<player>().PastScene = "Room5";
                 gamemanager.GetComponent<gameManager>().load_lakehousebalcony(); // load the balcony (Scenename - Rom5)
                 Coll.transform.position = starting_pos_right;
             }
             else if (room.Equals("Room3"))
             {
-                GameObject.FindWithTag("Player").GetComponent<player>().PastScene = "Room3";
+                GameObject.FindWithTag("Player").GetComponent<player>().PastScene = "Room7";
                 gamemanager.GetComponent<gameManager>().load_upstairslecture(); // (SceneName - Room7)
                 Coll.transform.position = starting_pos_right;
             }
             else if (room.Equals("Room8"))
             {
-                GameObject.FindWithTag("Player").GetComponent<player>().PastScene = "Room8";
+                GameObject.FindWithTag("Player").GetComponent<player>().PastScene = "Room6";
                 gamemanager.GetComponent<gameManager>().load_outside_lakes(); //(Sccenename - room6)
                 Coll.transform.position = starting_pos_right;
             }
             else if (room.Equals("Screen3"))
             {
-                GameObject.FindWithTag("Player").GetComponent<player>().PastScene = "Screen3";
+                GameObject.FindWithTag("Player").GetComponent<player>().PastScene = "Room4";
                 gamemanager.GetComponent<gameManager>().load_kitchen(); // (scenename - Room4 )
                 Coll.transform.position = starting_pos_right;
             }
             else if (room.Equals("Screen2"))
             {
-                GameObject.FindWithTag("Player").GetComponent<player>().PastScene = "Screen2";
+                GameObject.FindWithTag("Player").GetComponent<player>().PastScene = "Screen3";
                 gamemanager.GetComponent<gameManager>().load_RCH2(); // (Scenename - Screen3)
                 Coll.transform.position = starting_pos_right;
             }
             else if (room.Equals("Room6"))
             {
-                GameObject.FindWithTag("Player").GetComponent<player>().PastScene = "Room6";
+                GameObject.FindWithTag("Player").GetComponent<player>().PastScene = "Screen2";
                 gamemanager.GetComponent<gameManager>().load_RCH1(); // (scenename - Screen2)
                 Coll.transform.position = starting_pos_right;
             } else

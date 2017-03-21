@@ -99,8 +99,11 @@ public class Interaction : MonoBehaviour {
     }
 
 
-    public void pick_interaction()   // function whihc runs all of interaction 
+    public void pick_interaction(int id)   // function whihc runs all of interaction 
     {
+
+        Player = GameObject.FindWithTag("Player");          // sets up the player and in the interaction class for each scene 
+        player = Player.GetComponent<player>();
         if (npc.is_victim == true)    // if the victim's body - give descitption 
         {
 
@@ -110,27 +113,57 @@ public class Interaction : MonoBehaviour {
         }
         else
         {
+            if (id == 1)
+            {
+                head_shot.GetComponent<SpriteRenderer>().sprite = npc.headshot;  // get teh headshot to put into the GUI
 
-            head_shot.GetComponent<SpriteRenderer>().sprite = npc.headshot;  // get teh headshot to put into the GUI
+                set_orintation();  // set the NPC to face the player 
 
-            set_orintation();  // set the NPC to face the player 
-                
-                    if (npc.first_interaction == true)   /// if its the players first interaction wiht the NPC
-                    {
-                speachbox.text = "Detective " + player.Name + " :  " + player.Personailty.intro;   // dispaly introduction for the NPC
+                if (npc.first_interactionid1 == true)   /// if its the players first interaction wiht the NPC
+                {
+                    speachbox.text = "Detective " + player.Name + " :  " + player.Personailty.intro;   // dispaly introduction for the NPC
 
-                        speachbox.text = speachbox.text + "\n\n" + npc.Name + ": " + npc.intro;
+                    speachbox.text = speachbox.text + "\n\n" + npc.Name + ": " + npc.intro;
 
-                        npc.first_interaction = false;   // set first interaction to false 
+                    npc.first_interactionid1 = false;   // set first interaction to false 
 
-                        npc = null;
-                    } else {
-                    
-                        speachbox.text = "How would you like to interact:";
-                        question.transform.Translate(0, 57, 0);   // bring up the three buttons to the screen so the player can pick to QUESTION, ACCUSE or IGNORE
-                        accusebutt.transform.Translate(0, 57, 0);
-						ignorebutt.transform.Translate (0, 57, 0);
-                    }      
+                    npc = null;
+                }
+                else
+                {
+
+                    speachbox.text = "How would you like to interact:";
+                    question.transform.Translate(0, 57, 0);   // bring up the three buttons to the screen so the player can pick to QUESTION, ACCUSE or IGNORE
+                    accusebutt.transform.Translate(0, 57, 0);
+                    ignorebutt.transform.Translate(0, 57, 0);
+                }
+
+            } else if (id == 2)
+            {
+                head_shot.GetComponent<SpriteRenderer>().sprite = npc.headshot;  // get teh headshot to put into the GUI
+
+                set_orintation();  // set the NPC to face the player 
+
+                if (npc.first_interactionid2 == true)   /// if its the players first interaction wiht the NPC
+                {
+                    speachbox.text = "Detective " + player.Name + " :  " + player.Personailty.intro;   // dispaly introduction for the NPC
+
+                    speachbox.text = speachbox.text + "\n\n" + npc.Name + ": " + npc.intro;
+
+                    npc.first_interactionid2 = false;   // set first interaction to false 
+
+                    npc = null;
+                }
+                else
+                {
+
+                    speachbox.text = "How would you like to interact:";
+                    question.transform.Translate(0, 57, 0);   // bring up the three buttons to the screen so the player can pick to QUESTION, ACCUSE or IGNORE
+                    accusebutt.transform.Translate(0, 57, 0);
+                    ignorebutt.transform.Translate(0, 57, 0);
+                }
+            }
+              
 
             }
 
@@ -173,7 +206,7 @@ public class Interaction : MonoBehaviour {
 	}
 
 	//____NEW___ADDITION_____
-    public void ignore()   // function to be called when teh ignore button is pressed
+    public void ignore()   // function to be called when the ignore button is pressed
 	{
 		//Move UI Elements out of scene view
 		question.transform.Translate(0, -57, 0);
@@ -190,7 +223,7 @@ public class Interaction : MonoBehaviour {
     public void questioing_style1()  // if the user picks their first interaction style
 	{
         
-		move_boxes ();
+        move_boxes ();
 		question_style_text = player.Personailty.questiontype1;
 		speachbox.text = "Detective " + player.Name + ": " + player.Personailty.Question1 ();
 
@@ -299,36 +332,71 @@ public class Interaction : MonoBehaviour {
 			gameManager.failed_accusations++;
         } else
         {
-            if (npc.acuuse_wrong == false)
+            if (GameObject.FindWithTag("gamemanager").GetComponent<gameManager>().get_player_turn() == 1)
             {
-				
-                if (npc.Name == Gamemanager.get_murder())  // IF THE PLAYER ACCUSES THE MURDERER
-                {
-                    Debug.Log("YOU WIN");
-                    destory_objects();
-                    reset_newgame();
-                    npc = null;
-                    SceneManager.LoadScene("win");
+                
 
-				} else {  // IF THE PLAYER DOES NOT ACCUSE THE CORRECT NPC
-					gameManager.failed_accusations++;
-                    speachbox.text = npc.incorect_accusation;
-                    increase_acc_num();
-                    Debug.Log(incorrect_aac_num);
-                    npc.acuuse_wrong = true;
-                    npc = null;
-					if (incorrect_aac_num > 1) {
-                        Debug.Log("GAME OVER");
+                    if (npc.Name == Gamemanager.get_murder())  // IF THE PLAYER ACCUSES THE MURDERER
+                    {
+                        Debug.Log("YOU WIN");
                         destory_objects();
                         reset_newgame();
                         npc = null;
-                        SceneManager.LoadScene("lose");  // load the losing screen 
+                        SceneManager.LoadScene("win");
+
                     }
-                }
-            } else {
-                speachbox.text = "You have already accussed this person! You can not accuse them again";
-                npc = null;
+                    else
+                    {  // IF THE PLAYER DOES NOT ACCUSE THE CORRECT NPC
+                        gameManager.failed_accusations++;
+                        speachbox.text = npc.incorect_accusation;
+                        increase_acc_num();
+                        Debug.Log(incorrect_aac_num);
+                        npc.acuuse_wrong = true;
+                        npc = null;
+                        if (gameManager.failed_accusations > 1)
+                        {
+                            Debug.Log("GAME OVER");
+                            destory_objects();
+                            reset_newgame();
+                            npc = null;
+                            SceneManager.LoadScene("lose");  // load the losing screen 
+                        }
+                    }
+                
+
+            } else
+            {
+               
+
+                    if (npc.Name == Gamemanager.get_murder())  // IF THE PLAYER ACCUSES THE MURDERER
+                    {
+                        Debug.Log("YOU WIN");
+                        destory_objects();
+                        reset_newgame();
+                        npc = null;
+                        SceneManager.LoadScene("win");
+
+                    }
+                    else
+                    {  // IF THE PLAYER DOES NOT ACCUSE THE CORRECT NPC
+                        gameManager.failed_accusationpplayer2++;
+                        speachbox.text = npc.incorect_accusation;
+                        increase_acc_num();
+                        Debug.Log(incorrect_aac_num);
+                        npc.acuuse_wrong = true;
+                        npc = null;
+                        if (gameManager.failed_accusationpplayer2 > 1)
+                        {
+                            Debug.Log("GAME OVER");
+                            destory_objects();
+                            reset_newgame();
+                            npc = null;
+                            SceneManager.LoadScene("lose");  // load the losing screen 
+                        }
+                    }
+                
             }
+            
         }
 
     }

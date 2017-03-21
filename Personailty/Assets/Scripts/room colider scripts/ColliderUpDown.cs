@@ -21,25 +21,25 @@ public class ColliderUpDown : MonoBehaviour {
         {
             if (room.Equals("Screen2"))
             {
-                GameObject.FindWithTag("Player").GetComponent<player>().PastScene = "Screen2";
+                GameObject.FindWithTag("Player").GetComponent<player>().PastScene = "Room3";
                 gameman.GetComponent<gameManager>().load_meetingroom(); // go upstiars to the meeting room
                 col.transform.position = starting_pos_left;
             }
             else if (room.Equals("Screen3"))
             {
-                GameObject.FindWithTag("Player").GetComponent<player>().PastScene = "Screen3";
+                GameObject.FindWithTag("Player").GetComponent<player>().PastScene = "Room7";
                 gameman.GetComponent<gameManager>().load_upstairslecture(); // go upstiars to the lecture room 
                 col.transform.position = starting_pos_left;
             } 
             else if (room.Equals("Room7"))
             {
-                GameObject.FindWithTag("Player").GetComponent<player>().PastScene = "Room7";
+                GameObject.FindWithTag("Player").GetComponent<player>().PastScene = "Screen3";
                 gameman.GetComponent<gameManager>().load_RCH2(); // load second rch room go downstaris 
                 col.transform.position = starting_pos_left;
             }
             else if (room.Equals("Room3"))
             {
-                GameObject.FindWithTag("Player").GetComponent<player>().PastScene = "Room3";
+                GameObject.FindWithTag("Player").GetComponent<player>().PastScene = "Screen2";
                 gameman.GetComponent<gameManager>().load_RCH1(); // do downstairs to rch 1 
                 col.transform.position = starting_pos_left;
             }            

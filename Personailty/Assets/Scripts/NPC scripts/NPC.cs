@@ -27,7 +27,8 @@ public class NPC : MonoBehaviour {
     public bool is_accused = false;
     public bool is_victim = false;
 
-    public bool first_interaction = true;
+    public bool first_interactionid1 = true;
+    public bool first_interactionid2 = true; 
     public bool okay_to_interact = true;
 
     public string clue;
@@ -108,8 +109,8 @@ public class NPC : MonoBehaviour {
         {
             Interaction.GetComponent<Interaction>().setNPC(me.GetComponent<NPC>());   // sets the npc who is being comuncated with in the gameman
             Interaction.GetComponent<Interaction>().setNPCobj(me);                    // set the game object
-                                                                
-            Interaction.GetComponent<Interaction>().pick_interaction();               // starts the interaction - call the interaction class 
+                                                               
+            Interaction.GetComponent<Interaction>().pick_interaction(GameObject.FindWithTag("gamemanager").GetComponent<gameManager>().get_player_turn());               // starts the interaction - call the interaction class 
         }
         else
         {
