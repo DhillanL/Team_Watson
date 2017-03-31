@@ -11,17 +11,30 @@ public class leavelogbook : MonoBehaviour {
 
     void OnMouseDown()
     {
+         string[] logbookplaces = { "logtext1", "logtext2", "logtext3", "logtext4", "logtext5", "logtext6", "logtext7", "logtext8" };
+         string[] logbookplaces2 = { "logtext1-2", "logtext2-2", "logtext3-2", "logtext4-2", "logtext5-2", "logtext6-2", "logtext7-2", "logtext8-2" };
+
         if (x == 1) // close the clues page 
         {
             GameObject.FindWithTag("logbook").GetComponent<Transform>().position = new Vector3(185, 188, 0);
-            GameObject.FindWithTag("logtext1").GetComponent<Transform>().Translate(290, 0, 0);
-            GameObject.FindWithTag("logtext2").GetComponent<Transform>().Translate(290, 0, 0);
-            GameObject.FindWithTag("logtext3").GetComponent<Transform>().Translate(290, 0, 0);
-            GameObject.FindWithTag("logtext4").GetComponent<Transform>().Translate(290, 0, 0);
-            GameObject.FindWithTag("logtext5").GetComponent<Transform>().Translate(290, 0, 0);
-            GameObject.FindWithTag("logtext6").GetComponent<Transform>().Translate(290, 0, 0);
-            GameObject.FindWithTag("logtext7").GetComponent<Transform>().Translate(290, 0, 0);
-            GameObject.FindWithTag("logtext8").GetComponent<Transform>().Translate(290, 0, 0);
+            GameObject.FindWithTag("logbook2").GetComponent<Transform>().position = new Vector3(185, 517, 0);
+            if (GameObject.FindWithTag("gamemanager").GetComponent<gameManager>().get_player_turn() == 1)
+            {
+                for (int i = 0; i < 7; i++) // way to iterate through all of the logbooktext places and move them out of the way 
+                {
+                    string logbooktext = logbookplaces[i];
+                    GameObject.FindWithTag(logbooktext).GetComponent<Transform>().Translate(290, 0, 0);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < 7; i++) // way to iterate through all of the logbooktext places and move them out of the way 
+                {
+                    string logbooktext = logbookplaces2[i];
+                    GameObject.FindWithTag(logbooktext).GetComponent<Transform>().Translate(290, 0, 0);
+                }
+            }
+
             GameObject.FindWithTag("logbookcluetitle").GetComponent<Transform>().Translate(310, 0, 0);
 
             GameObject.FindWithTag("log_button").GetComponent<logbookbutton>().already_open = false;

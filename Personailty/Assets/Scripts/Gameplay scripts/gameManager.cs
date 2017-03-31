@@ -20,7 +20,7 @@ public class gameManager : MonoBehaviour {
     static public string Name2;
     static public Personality_player personiltyplayer2;
     static public int perons2_int;
-    static public int player_turn = 1;
+    static public int player_turn = 1;      // 1 for player 1 , 2 for player 2 
     //
 
     static public bool istwoplayer = false;
@@ -182,12 +182,12 @@ public class gameManager : MonoBehaviour {
 
     public void swap_players()
     {
-        if (get_player_turn() == 1)
+        if (get_player_turn() == 1)     //player 2 
         {
             player_turn = 2;
         } else
         {
-            player_turn = 1; 
+            player_turn = 1;           // player 1 
         }
     }
 
@@ -354,13 +354,26 @@ public class gameManager : MonoBehaviour {
             ;
         } else
         {
-            if (roomclue.GetComponent<clue>().is_found == true)
+            if (get_player_turn() == 1)
             {
-                ;
-            }
-            else
+                if (roomclue.GetComponent<clue>().is_found1 == true)
+                {
+                    ;
+                }
+                else
+                {
+                    GameObject.FindWithTag(roomclue.GetComponent<clue>().cluename).GetComponent<Transform>().Translate(xpos, -28, 0);
+                }
+            } else
             {
-                GameObject.FindWithTag(roomclue.GetComponent<clue>().cluename).GetComponent<Transform>().Translate(xpos, -28, 0);
+                if (roomclue.GetComponent<clue>().is_found2 == true)
+                {
+                    ;
+                }
+                else
+                {
+                    GameObject.FindWithTag(roomclue.GetComponent<clue>().cluename).GetComponent<Transform>().Translate(xpos, -28, 0);
+                }
             }
             
         }
@@ -482,7 +495,10 @@ public class gameManager : MonoBehaviour {
         set_log_bookbutton();
         GameObject.FindWithTag("Player").GetComponent<player>().walkT(); // set it so the player can walk again
         GameObject.FindWithTag("GUI").GetComponent<Transform>().Translate(400,0,1); // bring the GUI into the game 
-      
+        if (istwoplayeron())
+        {
+            GameObject.FindWithTag("turn").GetComponent<turnswitcher>().startGameloopcorotine();
+        }
     }
 
 

@@ -200,12 +200,12 @@ public class Interaction : MonoBehaviour {
 
 	//____NEW___ADDITION_____
 	public void NewClueObtainedCheck(){		//Made public for testing periods
-		if ((logbookparts.clue_count - npc.GetNumOfClues ()) > 0) { //Check number of clues obtained since last speaking to this character is at least one
+		if ((logbookparts.clue_count1 - npc.GetNumOfClues ()) > 0) { //Check number of clues obtained since last speaking to this character is at least one
 			npc.okay_to_interact = true;
 		} 
 	}
 
-	//____NEW___ADDITION_____
+	
     public void ignore()   // function to be called when the ignore button is pressed
 	{
 		//Move UI Elements out of scene view
@@ -214,7 +214,7 @@ public class Interaction : MonoBehaviour {
 		ignorebutt.transform.Translate (0, -57, 0);
 		speachbox.text = ""; 									//Show no text in speech box
 		head_shot.GetComponent<SpriteRenderer>().sprite = null; //Replace headshot image with no image 							
-		npc.StoreNumOfClues(logbookparts.clue_count);
+		npc.StoreNumOfClues(logbookparts.clue_count1);
 		npc.okay_to_interact = false;							//Can't interact with npc again
 		npc = null;												//Update npc to reflect that there is no npc selected
 	}
@@ -413,7 +413,7 @@ public class Interaction : MonoBehaviour {
     {
         string[] objects = {"Player", "Bernard", "Tonald", "George", "Ethan", "Ryan", "Zoe", "Alice", "Stephen",
         "Robert", "Sophie", "Clue1", "Clue2", "Clue3", "Clue4", "Clue5", "Clue6", "Clue7", "Clue8", "map", "map_icon",
-        "log_button","logbook","logbookcrime","GUI"};
+        "log_button","logbook","logbookcrime","GUI",};
         for (int i = 0; i < 25; i++)
         {
             Destroy(GameObject.FindWithTag(objects[i]));

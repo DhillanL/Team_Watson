@@ -32,9 +32,10 @@ public class turnswitcher : MonoBehaviour {
         GameObject.FindWithTag("Player").GetComponent<Transform>().position = GameObject.FindWithTag("Player2").GetComponent<Transform>().position;
         GameObject.FindWithTag("Player2").GetComponent<Transform>().position = new Vector3(0, -200, 0);
 
-        loadroom();
         GameObject.FindWithTag("ID").GetComponent<showid>().swap_ID();
         GameObject.FindWithTag("Player").GetComponent<player>().walkT();
+        loadroom();
+        
     }
 
 
@@ -85,10 +86,16 @@ public class turnswitcher : MonoBehaviour {
         }
     }
 
+    public void startGameloopcorotine()
+    {
+        StartCoroutine(Gameloop());
+    }
+
+
 
 	// Use this for initialization
 	void Start () {
-        StartCoroutine(Gameloop());
+        
 	}
 	
 	// Update is called once per frame

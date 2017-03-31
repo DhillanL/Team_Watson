@@ -13,7 +13,8 @@ public class clue: MonoBehaviour{
 	public string name;
     public string info;
  
-    public bool is_found = false;
+    public bool is_found1 = false;
+    public bool is_found2 = false;
     public bool is_verbal = false;
 	public bool is_motive = false; // needed for interaction script to handle motive clue differently, assigned in createClue script -- faceless drones addition.
 
@@ -44,7 +45,12 @@ public class clue: MonoBehaviour{
     void OnMouseDown() // When the clue is clicked on it is removed and added to the logbook
     {
         GameManger = GameObject.FindWithTag("gamemanager");
-        is_found = true;
+        if (GameManger.GetComponent<gameManager>().get_player_turn() == 1)
+        {
+            is_found1 = true;
+        } else
+        { is_found2 = true; }
+        
         GameManger.GetComponent<gameManager>().increase_clue_count();
         reset_pos(); 
         GameObject.FindWithTag("logbookparts").GetComponent<logbookparts>().add_clue(this);  // add the clue and its info to the logbook 

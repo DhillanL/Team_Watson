@@ -74,7 +74,7 @@ public class Interaction_test
 	public void NewClueObtainedCheckPositive(){
 		//Checks that okay_to_interact is set to true if clue_count > stored clues
 		Interaction inter = new Interaction();
-		logbookparts.clue_count = 3;
+		logbookparts.clue_count1 = 3;
 
 		inter.npc = new NPC ();
 
@@ -93,7 +93,7 @@ public class Interaction_test
 		//Should never occur unless code changed 
 		//Checks that if okay_to_interact stays false if stored clues > clue_count
 		Interaction inter = new Interaction();
-		logbookparts.clue_count = 0;
+		logbookparts.clue_count1 = 0;
 
 		inter.npc = new NPC ();
 
@@ -111,7 +111,7 @@ public class Interaction_test
 	public void NewClueObtainedCheckEqual(){ 
 		//Tests that if clue_count == stored clues, okay_to_interact stays false
 		Interaction inter = new Interaction();
-		logbookparts.clue_count = 0;
+		logbookparts.clue_count1 = 0;
 
 		inter.npc = new NPC ();
 

@@ -28,6 +28,10 @@ public class Makelocks : MonoBehaviour {
 
     int miss = 0;
 
+    public float greenposx;
+    public float greenposy;
+    public float greenposz;
+
 
     public void makelock(GameObject Lock,int pos )   // creates the first barrell and line for the lock 
     {
@@ -57,7 +61,12 @@ public class Makelocks : MonoBehaviour {
         GameObject Line = Instantiate(lockline) as GameObject;
         Line.transform.parent = GreenTarget.transform;
 
-        Green.transform.position = new Vector3(Lock.transform.position.x + Random.Range(-110, 110), Lock.transform.position.y, Lock.transform.position.z);
+        int rand = Random.Range(-110, 110);
+        greenposx = Lock.transform.position.x + rand;
+        greenposy = Green.transform.position.y;
+        greenposz = Green.transform.position.z;
+
+        Green.transform.position = new Vector3(Lock.transform.position.x + rand, Lock.transform.position.y, Lock.transform.position.z);
         orangeL.transform.position = new Vector3(Green.transform.position.x - 11, Green.transform.position.y, Green.transform.position.z);
         orangeR.transform.position = new Vector3(Green.transform.position.x + 11, Green.transform.position.y, Green.transform.position.z);
 
@@ -85,6 +94,7 @@ public class Makelocks : MonoBehaviour {
         Rigidbody2D rb;
 
         rb = Lock.transform.FindChild("lockline(Clone)").GetComponent<Rigidbody2D>();
+        
         rb.velocity = new Vector2(0, 0);
     }
 
@@ -195,8 +205,10 @@ public class Makelocks : MonoBehaviour {
                 {
                     setpintext(pin3, false);
                 }
-                lockanim.GetComponent<Animator>().SetBool("checking",false);   // chnages the state of the aniamtaion 
                 stopline(lock1);
+                
+                lockanim.GetComponent<Animator>().SetBool("checking",false);   // chnages the state of the aniamtaion 
+                
                 lock_picked(false);
                 stopgame();
             }

@@ -16,20 +16,37 @@ public class logbookbutton : MonoBehaviour {
 
     void OnMouseDown()
     {
-        if (!already_open)
+        if (!already_open)    // opens the right log book depending on the player
         {
+            if (GameObject.FindWithTag("gamemanager").GetComponent<gameManager>().get_player_turn() == 1)
+            {
+                GameObject.FindWithTag("logbook").GetComponent<Transform>().position = finish_pos;
+                GameObject.FindWithTag("logbookparts").GetComponent<logbookparts>().load_logbook();
+                GameObject.FindWithTag("logtext1").GetComponent<Transform>().Translate(-290, 0, 0);
+                GameObject.FindWithTag("logtext2").GetComponent<Transform>().Translate(-290, 0, 0);
+                GameObject.FindWithTag("logtext3").GetComponent<Transform>().Translate(-290, 0, 0);
+                GameObject.FindWithTag("logtext4").GetComponent<Transform>().Translate(-290, 0, 0);
+                GameObject.FindWithTag("logtext5").GetComponent<Transform>().Translate(-290, 0, 0);
+                GameObject.FindWithTag("logtext6").GetComponent<Transform>().Translate(-290, 0, 0);
+                GameObject.FindWithTag("logtext7").GetComponent<Transform>().Translate(-290, 0, 0);
+                GameObject.FindWithTag("logtext8").GetComponent<Transform>().Translate(-290, 0, 0);
+                GameObject.FindWithTag("logbookcluetitle").GetComponent<Transform>().Translate(-310, 0, 0);
+            } else
+            {
+                GameObject.FindWithTag("logbook2").GetComponent<Transform>().position = finish_pos;
+                GameObject.FindWithTag("logbookparts").GetComponent<logbookparts>().load_logbook();
+                GameObject.FindWithTag("logtext1-2").GetComponent<Transform>().Translate(-290, 0, 0);
+                GameObject.FindWithTag("logtext2-2").GetComponent<Transform>().Translate(-290, 0, 0);
+                GameObject.FindWithTag("logtext3-2").GetComponent<Transform>().Translate(-290, 0, 0);
+                GameObject.FindWithTag("logtext4-2").GetComponent<Transform>().Translate(-290, 0, 0);
+                GameObject.FindWithTag("logtext5-2").GetComponent<Transform>().Translate(-290, 0, 0);
+                GameObject.FindWithTag("logtext6-2").GetComponent<Transform>().Translate(-290, 0, 0);
+                GameObject.FindWithTag("logtext7-2").GetComponent<Transform>().Translate(-290, 0, 0);
+                GameObject.FindWithTag("logtext8-2").GetComponent<Transform>().Translate(-290, 0, 0);
+                GameObject.FindWithTag("logbookcluetitle").GetComponent<Transform>().Translate(-310, 0, 0);
+            }
             // implement faster for loop way
-            GameObject.FindWithTag("logbookparts").GetComponent<logbookparts>().load_logbook();
-            GameObject.FindWithTag("logbook").GetComponent<Transform>().position = finish_pos;
-            GameObject.FindWithTag("logtext1").GetComponent<Transform>().Translate(-290, 0, 0);
-            GameObject.FindWithTag("logtext2").GetComponent<Transform>().Translate(-290, 0, 0);
-            GameObject.FindWithTag("logtext3").GetComponent<Transform>().Translate(-290, 0, 0);
-            GameObject.FindWithTag("logtext4").GetComponent<Transform>().Translate(-290, 0, 0);
-            GameObject.FindWithTag("logtext5").GetComponent<Transform>().Translate(-290, 0, 0);
-            GameObject.FindWithTag("logtext6").GetComponent<Transform>().Translate(-290, 0, 0);
-            GameObject.FindWithTag("logtext7").GetComponent<Transform>().Translate(-290, 0, 0);
-            GameObject.FindWithTag("logtext8").GetComponent<Transform>().Translate(-290, 0, 0);
-            GameObject.FindWithTag("logbookcluetitle").GetComponent<Transform>().Translate(-310, 0, 0);
+            
 
             GameObject.FindWithTag("logbookparts").GetComponent<logbookparts>().load_logbook();
             GameObject.FindWithTag("Player").GetComponent<player>().walkF(); // set it so the player cant move when the map is up
