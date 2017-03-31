@@ -176,10 +176,17 @@ public class Makelocks : MonoBehaviour {
         }
     }
 
+    IEnumerator leavepage()  // main game loop for the turn based game
+    {
+        yield return new WaitForSeconds(3);
+        GameObject.FindWithTag("Player").GetComponent<Transform>().position = new Vector3(-80,-21,0);
+        GameObject.FindWithTag("gamemanager").GetComponent<gameManager>().load_lakehousebalcony();
+    }
 
-	// Use this for initialization
-	void Start () {
-        makelock(lock1,-50);   // make the lock on the screen
+
+    // Use this for initialization
+    void Start () {
+        makelock(lock1,-30);   // make the lock on the screen
         makeGreen(lock1);    // set the first green target for the lock 
 
         startlock1();       // start the line moving 
@@ -211,6 +218,7 @@ public class Makelocks : MonoBehaviour {
                 
                 lock_picked(false);
                 stopgame();
+                StartCoroutine(leavepage());
             }
         }
     }

@@ -578,6 +578,15 @@ public class gameManager : MonoBehaviour {
         SceneManager.LoadScene("twoplayer");
     }
 
+    public void load_lockedroom()
+    {
+        reset_clue_pos();
+        reset_npc_pos();
+        GameObject.FindWithTag("Player").GetComponent<Transform>().position = new Vector3(0,-140,0);
+        SceneManager.LoadScene("testing_puzzle");
+    }
+
+
     
 
 }
