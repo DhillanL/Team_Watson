@@ -586,6 +586,12 @@ public class gameManager : MonoBehaviour {
         SceneManager.LoadScene("testing_puzzle");
     }
 
+    public void load_hiddenroom()
+    {
+        SceneManager.LoadScene("hidden_room");
+    }
+        
+
 
     
 

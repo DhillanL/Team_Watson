@@ -168,11 +168,13 @@ public class Makelocks : MonoBehaviour {
             pass_fail.text += " - Open";
             pass_fail.color = Color.green;
             lockanim.GetComponent<Animator>().SetBool("finished", true);
+            StartCoroutine(load_hidden_room());
 
         } else
         {
             pass_fail.text += "- Failed";
             pass_fail.color = Color.red;
+            StartCoroutine(leavepage());
         }
     }
 
@@ -181,6 +183,15 @@ public class Makelocks : MonoBehaviour {
         yield return new WaitForSeconds(3);
         GameObject.FindWithTag("Player").GetComponent<Transform>().position = new Vector3(-80,-21,0);
         GameObject.FindWithTag("gamemanager").GetComponent<gameManager>().load_lakehousebalcony();
+        GameObject.FindWithTag("turn").GetComponent<turnswitcher>().start_loop();
+    }
+
+    IEnumerator load_hidden_room()
+    {
+        yield return new WaitForSeconds(2);
+        GameObject.FindWithTag("Player").GetComponent<Transform>().position = new Vector3(-80, -21, 0);
+        GameObject.FindWithTag("turn").GetComponent<turnswitcher>().start_loop();
+        GameObject.FindWithTag("gamemanager").GetComponent<gameManager>().load_hiddenroom();
     }
 
 
@@ -218,7 +229,7 @@ public class Makelocks : MonoBehaviour {
                 
                 lock_picked(false);
                 stopgame();
-                StartCoroutine(leavepage());
+                
             }
         }
     }

@@ -4,15 +4,28 @@ using UnityEngine.SceneManagement;
 
 public class turnswitcher : MonoBehaviour {
 
-    public bool isawinner = false;
+    public bool playing = true;
     public bool player1turn = true;
+
+    public bool in_puzzle = false;
+ 
+
 
     IEnumerator Gameloop()  // main game loop for the turn based game
     {
-        while(!isawinner)
+        while(playing)
         {
+
             yield return new WaitForSeconds(30);
-            StartCoroutine(swapplayer());
+            if (in_puzzle)
+            {
+                ;
+
+            } else
+            {
+                StartCoroutine(swapplayer());
+            }
+            
             
         }
         
@@ -91,10 +104,19 @@ public class turnswitcher : MonoBehaviour {
         StartCoroutine(Gameloop());
     }
 
+    public void stop_loop()
+    {
+        in_puzzle = true;
+    }
+
+    public void start_loop()
+    {
+        in_puzzle = false;
+    }
 
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         
 	}
 	
