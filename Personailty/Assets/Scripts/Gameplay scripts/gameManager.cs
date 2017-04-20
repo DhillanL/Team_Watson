@@ -316,7 +316,7 @@ public class gameManager : MonoBehaviour {
     {
         room72 = npc;
     }
-    public void setroom81(GameObject npc)
+    public void setroom81(GameObject npc)   // clue in the hidden room 
     {
         room81 = npc;
     }
@@ -441,14 +441,15 @@ public class gameManager : MonoBehaviour {
         check_room_clue(clue_room7, Random.Range(80, 331));
     }
 
-    public void populateroom8()
+    public void populateroom8()    
     {
         reset_npc_pos();
         reset_clue_pos();
         GameObject.FindWithTag(room81.GetComponent<NPC>().Name).GetComponent<Transform>().Translate(400, 0, 0);
-        check_room_clue(clue_room8, Random.Range(80, 331));
+        
     }
 
+   
     public void set_player_pos_firsttime()
     {
         GameObject.FindWithTag("Player").GetComponent<Transform>().position = new Vector3(-140, -21, 0);
@@ -589,6 +590,8 @@ public class gameManager : MonoBehaviour {
     public void load_hiddenroom()
     {
         SceneManager.LoadScene("hidden_room");
+        check_room_clue(clue_room8, Random.Range(80, 331));
+
     }
         
 

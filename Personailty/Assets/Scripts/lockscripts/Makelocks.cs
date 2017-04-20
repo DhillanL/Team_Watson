@@ -190,7 +190,11 @@ public class Makelocks : MonoBehaviour {
     {
         yield return new WaitForSeconds(2);
         GameObject.FindWithTag("Player").GetComponent<Transform>().position = new Vector3(-80, -21, 0);
-        GameObject.FindWithTag("turn").GetComponent<turnswitcher>().start_loop();
+        if (GameObject.FindWithTag("gamemanager").GetComponent<gameManager>().istwoplayeron())
+        {
+            GameObject.FindWithTag("turn").GetComponent<turnswitcher>().start_loop();
+        }
+        
         GameObject.FindWithTag("gamemanager").GetComponent<gameManager>().load_hiddenroom();
     }
 

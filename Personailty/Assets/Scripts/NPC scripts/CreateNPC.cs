@@ -495,7 +495,7 @@ public class CreateNPC : MonoBehaviour {
         
         crime.GetComponent<CreateCrime>().select_crime();   // make the crime selection 
 
-       // Debug.Log(crime.GetComponent<CreateCrime>().murder_int); // DEBUGGING PURPOSES
+       
 
         if (crime.GetComponent<CreateCrime>().murder_int == 1)  // drowned 
         {

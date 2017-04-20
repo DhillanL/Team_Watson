@@ -689,7 +689,7 @@ public class createClue: MonoBehaviour{
 		
 	public void setCluesInGameman(){
 
-        int[] clue_room_pos_ = new int[8] {0,1,2,3,4,5,6,7};
+        int[] clue_room_pos_ = new int[7] {0,1,2,3,4,5,6};
         int[] random_room_pos = new int[6];
 
 
@@ -711,39 +711,47 @@ public class createClue: MonoBehaviour{
         for (int c = 0; c < 6; c++)
         {
             int d = random_room_pos[c];
+
+            if ( c == 5)
+            {
+                game_manager.GetComponent<gameManager>().setClue8(gameobjectlst_[c]);  // forces the clue to be put in the hiddenroom
+
+
+            } else
+            {
+                if (d == 0)
+                {
+                    game_manager.GetComponent<gameManager>().setClue1(gameobjectlst_[c]);
+                }
+                else if (d == 1)
+                {
+                    game_manager.GetComponent<gameManager>().setClue2(gameobjectlst_[c]);
+                }
+                else if (d == 2)
+                {
+                    game_manager.GetComponent<gameManager>().setClue3(gameobjectlst_[c]);
+                }
+                else if (d == 3)
+                {
+                    game_manager.GetComponent<gameManager>().setClue4(gameobjectlst_[c]);
+                }
+                else if (d == 4)
+                {
+                    game_manager.GetComponent<gameManager>().setClue5(gameobjectlst_[c]);
+                }
+                else if (d == 5)
+                {
+                    game_manager.GetComponent<gameManager>().setClue6(gameobjectlst_[c]);
+                }
+                else if (d == 6)
+                {
+                    game_manager.GetComponent<gameManager>().setClue7(gameobjectlst_[c]);
+                }
+                
+
+            }
             
-            if (d == 0)
-            {
-                game_manager.GetComponent<gameManager>().setClue1(gameobjectlst_[c]);
-            }
-            else if (d == 1)
-            {
-                game_manager.GetComponent<gameManager>().setClue2(gameobjectlst_[c]);
-            }
-            else if (d == 2)
-            {
-                game_manager.GetComponent<gameManager>().setClue3(gameobjectlst_[c]);
-            }
-            else if (d == 3)
-            {
-                game_manager.GetComponent<gameManager>().setClue4(gameobjectlst_[c]);
-            }
-            else if (d == 4)
-            {
-                game_manager.GetComponent<gameManager>().setClue5(gameobjectlst_[c]);
-            }
-            else if (d == 5)
-            {
-                game_manager.GetComponent<gameManager>().setClue6(gameobjectlst_[c]);
-            }
-            else if (d == 6)
-            {
-                game_manager.GetComponent<gameManager>().setClue7(gameobjectlst_[c]);
-            }
-            else
-            {
-                game_manager.GetComponent<gameManager>().setClue8(gameobjectlst_[c]);
-            }
+            
         }
              
 
