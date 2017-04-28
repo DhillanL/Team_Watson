@@ -12,8 +12,11 @@ public class lockeddoor : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.W) && visible)
         {
             GameObject.FindWithTag("gamemanager").GetComponent<gameManager>().load_lockedroom();
-            GameObject.FindWithTag("turn").GetComponent<turnswitcher>().stop_loop();
-            
+            if (GameObject.FindWithTag("gamemanager").GetComponent<gameManager>().istwoplayeron())
+            {
+                GameObject.FindWithTag("turn").GetComponent<turnswitcher>().start_loop();
+            }
+
         }
 
     }

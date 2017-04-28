@@ -94,41 +94,45 @@ public class CreateCrime : MonoBehaviour
         murder1 = ("So we've heard from " + gamemanob.GetComponent<gameManager>().get_victim() + "'s family "
             + gamemanob.GetComponent<gameManager>().get_whole_victim().he_she + " was being extored for money by someone. \n\n " +
             gamemanob.GetComponent<gameManager>().get_whole_victim().he_she + " was apparently meeting this individual at the Ron Cooke Hub today. \n\n"
-            + gamemanob.GetComponent<gameManager>().get_victim() + "'s body was found satbbed in " + gamemanob.GetComponent<gameManager>().get_whole_victim().room);  // room set by the npc generator
+            + gamemanob.GetComponent<gameManager>().get_victim() + "'s body was found satbbed in " + gamemanob.GetComponent<gameManager>().get_whole_victim().room
+            + "\n\n Also the old janitor has told us that apparently there is a hidden room behind a bookcase, maybe worth trying to move some?");  // room set by the npc generator
 
         // pushed into the freeing lake 
         murder2 = ("The lake outside of the Ron Cooke Hub is cold at the best of times. Last night the lake wasnt far off being frozen.\n\n  " + gamemanob.GetComponent<gameManager>().get_victim() +
-            "'s body was found at the bottom, cold as ice \n\nIt looks like " + gamemanob.GetComponent<gameManager>().get_whole_victim().he_she + " was pushed.");
+            "'s body was found at the bottom, cold as ice \n\nIt looks like " + gamemanob.GetComponent<gameManager>().get_whole_victim().he_she + " was pushed. \n\n Also the old janitor has told us that apparently there is a hidden room behind a bookcase, maybe worth trying to move some?");
 
         // pushed over the lakehouse 
         murder3 = ("The height of the lake house balcony is around 30 feet tall and " + gamemanob.GetComponent<gameManager>().get_victim()  + " feel all 30...head first. \n\n" +
-            gamemanob.GetComponent<gameManager>().get_victim() + " can be found at " + gamemanob.GetComponent<gameManager>().get_whole_victim().room) ;
+            gamemanob.GetComponent<gameManager>().get_victim() + " can be found at " + gamemanob.GetComponent<gameManager>().get_whole_victim().room
+            + "\n\n Also the old janitor has told us that apparently there is a hidden room behind a bookcase, maybe worth trying to move some?") ;
 
         // strangled by a scarf
         murder4 = (gamemanob.GetComponent<gameManager>().get_victim() + "'s body was found in " + gamemanob.GetComponent<gameManager>().get_whole_victim().room
-            + "\n " + gamemanob.GetComponent<gameManager>().get_whole_victim().he_she + " was found strangled by a scraf");
+            + "\n " + gamemanob.GetComponent<gameManager>().get_whole_victim().he_she + " was found strangled by a scraf"
+            + "\n\n Also the old janitor has told us that apparently there is a hidden room behind a bookcase, maybe worth trying to move some?");
 
         //posioned
-        murder5 = (gamemanob.GetComponent<gameManager>().get_victim() + "s teeth were black their tounge swollen. They were poisoned \n\n The body is in " + gamemanob.GetComponent<gameManager>().get_whole_victim().room);
+        murder5 = (gamemanob.GetComponent<gameManager>().get_victim() + "s teeth were black their tounge swollen. They were poisoned \n\n The body is in " + gamemanob.GetComponent<gameManager>().get_whole_victim().room
+            + "\n\n Also the old janitor has told us that apparently there is a hidden room behind a bookcase, maybe worth trying to move some?");
 
         // shot in the neck with an arrow  
 
-        murder6 = "victim shot in the back of the neck with an arrow";
+        murder6 = "victim shot in the back of the neck with an arrow" + "\n\n Also the old janitor has told us that apparently there is a hidden room behind a bookcase, maybe worth trying to move some?";
 
         // throat was cut - rumor is that he/she was having an affair
 
-        murder7 = "The victim has had their throat slit, so the kill was silent \n Nobdy even found the body for quite a while";
+        murder7 = "The victim has had their throat slit, so the kill was silent \n Nobdy even found the body for quite a while" + "\n\n Also the old janitor has told us that apparently there is a hidden room behind a bookcase, maybe worth trying to move some?";
 
         // crushed by chandelier
 
-        murder8 = "the victim was crushed under the weight of the chandelier.\n The chandelier has since been removed \n worth noting there were a lot of people witness to the death";
+        murder8 = "the victim was crushed under the weight of the chandelier.\n The chandelier has since been removed \n worth noting there were a lot of people witness to the death" + "\n\n Also the old janitor has told us that apparently there is a hidden room behind a bookcase, maybe worth trying to move some?";
 
         // murder 9 
-        murder9 = "The victims body was found in the fire, but they had already been stabbed a few times it seems ";
+        murder9 = "The victims body was found in the fire, but they had already been stabbed a few times it seems " + "\n\n Also the old janitor has told us that apparently there is a hidden room behind a bookcase, maybe worth trying to move some?";
 
         // murder 10 
 
-        murder10 = "The victim has been found wihtout a heart in the middle of the floor looking like a tricky one";
+        murder10 = "The victim has been found wihtout a heart in the middle of the floor looking like a tricky one"+ "\n\n Also the old janitor has told us that apparently there is a hidden room behind a bookcase, maybe worth trying to move some?";
 
 
     }

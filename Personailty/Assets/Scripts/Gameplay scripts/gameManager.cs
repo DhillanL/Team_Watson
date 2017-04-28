@@ -543,6 +543,8 @@ public class gameManager : MonoBehaviour {
         populateroom5();
         set_player_vel_0();
         GameObject.FindWithTag("Player").GetComponent<player>().walkT(); // set it so the player can walk again
+        reset_logbutton_mapbutton();
+
     }
 
     public void load_outside_lakes() // loads the pods outside 
@@ -569,6 +571,17 @@ public class gameManager : MonoBehaviour {
         GameObject.FindWithTag("Player").GetComponent<player>().walkT(); // set it so the player can walk again
     }
 
+    public void load_balcony_from_hidden()
+    {
+        SceneManager.LoadScene("Room5");
+        populateroom5();
+        set_player_vel_0();
+        GameObject.FindWithTag("Player").GetComponent<player>().walkT(); // set it so the player can walk again
+        //Destroy(GameObject.FindWithTag("log_button"));
+        reset_logbutton_mapbutton();
+
+    }
+
     public void load_main_menu()
     {
         SceneManager.LoadScene("HomeScreen");
@@ -583,7 +596,9 @@ public class gameManager : MonoBehaviour {
     {
         reset_clue_pos();
         reset_npc_pos();
-        GameObject.FindWithTag("Player").GetComponent<Transform>().position = new Vector3(0,-140,0);
+        GameObject.FindWithTag("map_icon").GetComponent<Transform>().position = new Vector3(100,150,0);
+        GameObject.FindWithTag("log_button").GetComponent<Transform>().position = new Vector3(100, 150, 0);
+        GameObject.FindWithTag("Player").GetComponent<Transform>().position = new Vector3(0, -140, 0);
         SceneManager.LoadScene("testing_puzzle");
     }
 
@@ -591,11 +606,14 @@ public class gameManager : MonoBehaviour {
     {
         SceneManager.LoadScene("hidden_room");
         check_room_clue(clue_room8, Random.Range(80, 331));
-
+        place_map_gui();
+        set_log_bookbutton();
+        set_player_vel_0();
     }
-        
-
-
-    
-
+       
+    public void reset_logbutton_mapbutton()
+    {
+        place_map_gui();
+        set_log_bookbutton();
+    }
 }

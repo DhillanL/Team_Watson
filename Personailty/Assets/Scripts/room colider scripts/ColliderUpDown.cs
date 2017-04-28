@@ -42,6 +42,11 @@ public class ColliderUpDown : MonoBehaviour {
                 GameObject.FindWithTag("Player").GetComponent<player>().PastScene = "Screen2";
                 gameman.GetComponent<gameManager>().load_RCH1(); // do downstairs to rch 1 
                 col.transform.position = starting_pos_left;
+            }
+            else if (room.Equals("hidden_room"))
+            {
+                GameObject.FindWithTag("Player").GetComponent<player>().PastScene = "Room5";
+                gameman.GetComponent<gameManager>().load_balcony_from_hidden();
             }            
         }
     }
