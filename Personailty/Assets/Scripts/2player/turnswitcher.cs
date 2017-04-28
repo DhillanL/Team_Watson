@@ -8,6 +8,8 @@ public class turnswitcher : MonoBehaviour {
     public bool player1turn = true;
 
     public bool in_puzzle = false;
+
+    public bool gamefinished = false;
  
 
 
@@ -26,7 +28,6 @@ public class turnswitcher : MonoBehaviour {
                 StartCoroutine(swapplayer());
             }
             
-            
         }
         
     }
@@ -43,7 +44,8 @@ public class turnswitcher : MonoBehaviour {
         GameObject.FindWithTag("swap").GetComponent<Transform>().position = new Vector3(4, 200, 0);
 
         GameObject.FindWithTag("Player").GetComponent<Transform>().position = GameObject.FindWithTag("Player2").GetComponent<Transform>().position;
-        GameObject.FindWithTag("Player2").GetComponent<Transform>().position = new Vector3(0, -200, 0);
+        moveoffscreen(GameObject.FindWithTag("Player2"));
+        //GameObject.FindWithTag("Player2").GetComponent<Transform>().position = new Vector3(0, -200, 0);
 
         GameObject.FindWithTag("ID").GetComponent<showid>().swap_ID();
         GameObject.FindWithTag("Player").GetComponent<player>().walkT();
@@ -52,15 +54,25 @@ public class turnswitcher : MonoBehaviour {
     }
 
 
+    public void moveoffscreen(GameObject player)
+    {
+        player.GetComponent<Transform>().position = new Vector3(0, -200, 0);
+    }
+
 
     private void switchplayertags()  // switch the tags of the player 
+    {
+        swaptags();
+        gameManager gameman = GameObject.FindWithTag("gamemanager").GetComponent<gameManager>();
+        gameman.swap_players();  // swap the id for who is playing in the game manager 
+
+    }
+
+    public void swaptags()
     {
         GameObject.FindWithTag("Player").tag = "tempplayer";
         GameObject.FindWithTag("Player2").tag = "Player";
         GameObject.FindWithTag("tempplayer").tag = "Player2";
-        gameManager gameman = GameObject.FindWithTag("gamemanager").GetComponent<gameManager>();
-        gameman.swap_players();  // swap the id for who is playing in the game manager 
-
     }
 
     private void loadroom()  // loads the last room that the player was in  
@@ -114,14 +126,11 @@ public class turnswitcher : MonoBehaviour {
         in_puzzle = false;
     }
 
+    public void stop_playing()
+    {
+        playing = false;
+    }
 
-    // Use this for initialization
-    void Start () {
-        
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+     
+    
 }
