@@ -107,7 +107,7 @@ public class Interaction : MonoBehaviour {
         if (npc.is_victim == true)    // if the victim's body - give descitption 
         {
 
-            speachbox.text = "the Body has been placed in a bag and taped off - probably best";
+            speachbox.text = "R.I.P";
             npc = null;
 
         }

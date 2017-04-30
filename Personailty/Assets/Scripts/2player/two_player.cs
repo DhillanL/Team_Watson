@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿// WHOLE SCRIPT IS NEW FOR ASSESSMENT 4  ALL CHNAGES MEET THE NEW UPDATED REQUIREMENTS TO ADD A TWO PLAYER ELEMET TO THE GAME 
+// PROCEDURES AND COROUTIENS HAVE BEEN ADDED TO IMPLEMENT IT 
+// THE FINAL EXE FOR THE GAME CAN BE FOUND AT:  +
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
@@ -10,7 +13,7 @@ public class two_player : MonoBehaviour {
     public InputField playe1name;
     public InputField playe2name;
 
-    // buttons for the personalites
+    // buttons for the personalites so that when they are clicked on it selects the personaility for the player 
     public Button good1;
     public Button good2;
     public Button bad1;
@@ -28,9 +31,10 @@ public class two_player : MonoBehaviour {
     public Button current_button1 = null;   
     public Button current_button2 = null;
 
+    // ganmemmanger objects 
     public gameManager gamemanager;
 
-  
+    // procedures for all the buttons so that only one button is lit at a time 
     public void goodcop_but(int play)
     {
         if (play == 1)
@@ -209,6 +213,7 @@ public class two_player : MonoBehaviour {
         }
     }
 
+    // procedure which sets both the personailtes for the players 
     public void setplayers()
     {
         gamemanager.GetComponent<gameManager>().loadName(playe1name.text);
@@ -296,7 +301,7 @@ public class two_player : MonoBehaviour {
         // ensures that you can only finish when all fields are filled in 
         if (playe1name.text == "" || playe2name.text == "" || current_button1 == null || current_button2 == null)
         {
-            // do nothing
+            // do nothing - if all the feilds aren't full do nothing 
         }
 
         gamemanager.GetComponent<gameManager>().Twoplayeron();
@@ -305,14 +310,4 @@ public class two_player : MonoBehaviour {
 
     }
 
-
-
-    void Start () {
-	
-	}
-	
-	
-	void Update () {
-	
-	}
 }
