@@ -47,7 +47,7 @@ public class two_player_Test
     }
 
     [Test]
-    public void Gamemanager_switching_turns_flag()
+    public void Gamemanager_switching_player_turns_flag()
     {
         // create a game manager object to test the swaping player flag 
         gameManager gameman = new gameManager();
@@ -60,17 +60,44 @@ public class two_player_Test
     }
 
     [Test]
-    public void Gamemanager_reswitching_turns_flag()
+    public void Testing_player2_name()
     {
         // create a game manager object to test the swaping player flag 
         gameManager gameman = new gameManager();
 
-        // call the swap flag procedure to re flip to go back to player 1 
-        gameman.swap_players();
-        gameman.swap_players();
+        //set the var for the player name
+        gameman.setplayer2name("test_name");
 
-        // check that the flag has been set to two as the player has switched 
-        Assert.IsTrue(gameman.get_player_turn() == 1);
+        Assert.IsTrue(gameman.getnameplayer2() == "test_name");
+
+    }
+
+    [Test]
+    public void set_two_player_flag_test()
+    {
+        // create a game manager object to test the swaping player flag 
+        gameManager gameman = new gameManager();
+
+        // turn on the two player game flag 
+        gameman.Twoplayeron();
+
+        Assert.IsTrue(gameman.istwoplayeron() == true);
+
+    }
+
+    [Test]
+    public void clue_found_by_both_players()
+    {
+        // create a clue that can be found by the players 
+        clue clue = new clue();
+
+        // set the clue so that it is found by both of the players 
+        clue.is_found1 = true;
+        clue.is_found2 = true;
+
+        //assert that the clue has been found by both of the players
+        Assert.IsTrue(clue.found_by_both() == true);
+
     }
 
 

@@ -31,6 +31,17 @@ public class clue: MonoBehaviour{
         transform.position = newPos;
     }
 
+    public bool found_by_both()
+    {
+        if (is_found1 == true && is_found2 == true)
+        {
+            return true;
+        } else
+        {
+            return false;
+        }
+    }
+
 
 	public string getName()  // accessor to get the name of a clue 
     {
