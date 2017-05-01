@@ -1,4 +1,6 @@
-﻿using UnityEngine;           // modules used in the script 
+﻿// THE FINAL EXE FOR THE GAME CAN BE FOUND AT: github.com/DhillanL/Team_Watson
+
+using UnityEngine;           // modules used in the script 
 using System.Collections;
 using UnityEngine.UI;
 
@@ -14,7 +16,7 @@ public class clue: MonoBehaviour{
     public string info;
  
     public bool is_found1 = false;
-    public bool is_found2 = false;
+    public bool is_found2 = false; // <-- NEW FOR ASSESSMENT 4 
     public bool is_verbal = false;
 	public bool is_motive = false; // needed for interaction script to handle motive clue differently, assigned in createClue script -- faceless drones addition.
 
@@ -31,6 +33,7 @@ public class clue: MonoBehaviour{
         transform.position = newPos;
     }
 
+    // NEW FOR ASSESSMENT 4 - function to test if the clue has been found by both of the players
     public bool found_by_both()
     {
         if (is_found1 == true && is_found2 == true)

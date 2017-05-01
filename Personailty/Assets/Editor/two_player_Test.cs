@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿// NEW FOR ASSESSMENT 4 
+// THE FINAL EXE FOR THE GAME CAN BE FOUND AT: github.com/DhillanL/Team_Watson
+
+using UnityEngine;
 using System.Collections;
 using NUnit.Framework;
 using UnityEngine.UI;

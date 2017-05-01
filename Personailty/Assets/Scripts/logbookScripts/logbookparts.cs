@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿// THE FINAL EXE FOR THE GAME CAN BE FOUND AT: github.com/DhillanL/Team_Watson
+
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 

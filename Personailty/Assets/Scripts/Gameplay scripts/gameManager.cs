@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿// THE FINAL EXE FOR THE GAME CAN BE FOUND AT: github.com/DhillanL/Team_Watson
+
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -16,7 +18,7 @@ public class gameManager : MonoBehaviour {
     static public int person_int;                      // int to represent the personailty choice 
     static public Sprite Sprite;                       // players look 
 
-    // player 2 attributes 
+    // NEW FOR ASSESSMENT 4 - 2ND PLAYER ATTRIBUTES 
     static public string Name2;
     static public Personality_player personiltyplayer2;
     static public int perons2_int;
@@ -133,14 +135,14 @@ public class gameManager : MonoBehaviour {
 
 
     // ----------------------------------------------------------------------------------------------------------------------------------
-    // two player functions
+    // NEW FOR ASSESSSMENT 4 - TWO PLAYER ASPECTS 
 
-    public void Twoplayeron()
+    public void Twoplayeron()  // flag to say that the game is in two player mode 
     {
         istwoplayer = true;
     }
 
-    public bool istwoplayeron()
+    public bool istwoplayeron()   // predicate to test if two player is on. used in later procedures 
     {
         return istwoplayer;
     }
@@ -155,7 +157,7 @@ public class gameManager : MonoBehaviour {
         return perons2_int;
     }
 
-    public void setplayer2name(string name)
+    public void setplayer2name(string name) // set the name for the player 2 detective 
     {
         Name2 = name;
     }
@@ -165,7 +167,7 @@ public class gameManager : MonoBehaviour {
         return Name2;
     }
 
-    public void loadpersonilty2(Personality_player person)
+    public void loadpersonilty2(Personality_player person)   // loads hte personailty for the second player
     {
         personiltyplayer2 = person;
     }
@@ -175,12 +177,12 @@ public class gameManager : MonoBehaviour {
         return personiltyplayer2;
     }
 
-    public int get_player_turn()
+    public int get_player_turn()  // gets the current player who is playing id 
     {
         return player_turn;
     }
 
-    public void swap_players()
+    public void swap_players()  // swaps the player flags 
     {
         if (get_player_turn() == 1)     //player 2 
         {
@@ -191,7 +193,7 @@ public class gameManager : MonoBehaviour {
         }
     }
 
-    public int getfailedaccplay2()
+    public int getfailedaccplay2()   // get the amount of times player 2 has failed accusations 
     {
         return failed_accusationpplayer2; 
     }
@@ -587,28 +589,28 @@ public class gameManager : MonoBehaviour {
         SceneManager.LoadScene("HomeScreen");
     }
 
-    public void load_2player()
+    public void load_2player()  //  NEW FOR ASSSESSMENT 4 - used to load the two player intro scene 
     {
         SceneManager.LoadScene("twoplayer");
     }
 
-    public void load_lockedroom()
+    public void load_lockedroom()  // NEW FOR ASSESSMENT 4 - Loads the locked solving scene  
     {
         reset_clue_pos();
         reset_npc_pos();
-        GameObject.FindWithTag("map_icon").GetComponent<Transform>().position = new Vector3(100,150,0);
-        GameObject.FindWithTag("log_button").GetComponent<Transform>().position = new Vector3(100, 150, 0);
-        GameObject.FindWithTag("Player").GetComponent<Transform>().position = new Vector3(0, -140, 0);
+        GameObject.FindWithTag("map_icon").GetComponent<Transform>().position = new Vector3(100,150,0);  // bring the map icon out of  the scene 
+        GameObject.FindWithTag("log_button").GetComponent<Transform>().position = new Vector3(100, 150, 0);  // bring the log book out of the frame 
+        GameObject.FindWithTag("Player").GetComponent<Transform>().position = new Vector3(0, -140, 0); // brings the current player out of the game 
         SceneManager.LoadScene("testing_puzzle");
     }
 
-    public void load_hiddenroom()
+    public void load_hiddenroom()//  NEW FOR ASSESSMENT 4 - does the lower end aspects such as adding in clues to the hidden room 
     {
-        SceneManager.LoadScene("hidden_room");
-        check_room_clue(clue_room8, Random.Range(80, 331));
-        place_map_gui();
+        SceneManager.LoadScene("hidden_room"); // laods the hidden room afte the puzzle has been solved 
+        check_room_clue(clue_room8, Random.Range(80, 331));  // adds the 8th physcial clue into the room 
+        place_map_gui();  // brings the gui back into teh frame of the game 
         set_log_bookbutton();
-        set_player_vel_0();
+        set_player_vel_0();  // set the player velocity to zero they dont start walking imediately
     }
        
     public void reset_logbutton_mapbutton()

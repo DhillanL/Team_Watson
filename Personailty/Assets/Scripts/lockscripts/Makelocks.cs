@@ -1,9 +1,14 @@
-﻿using UnityEngine;
+﻿// WHOLE SCRIPT IS NEW FOR ASSESSMENT 4 
+// ALL PROCEDURES ARE USED TO LOAD IN THE LOCKS INTO THE GAME TO SOLVE TO GET INTO THE HIDDEN ROOM. 
+// THE FINAL EXE FOR THE GAME CAN BE FOUND AT: github.com/DhillanL/Team_Watson
+
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
 public class Makelocks : MonoBehaviour {
 
+    // ALL THE ATTRIUBTES TO BUILD THE LOCOK FROM  
     public GameObject Lockbarrell;
     public GameObject lockgreen;
     public GameObject lockorange;
@@ -26,8 +31,9 @@ public class Makelocks : MonoBehaviour {
 
     int locknumber = 1;
 
-    int miss = 0;
+    int miss = 0;  // how many times you miss the lock 
 
+    // coordinate positions for the locks so the line can be placed correctly and tested if it goes in the green
     public float greenposx;
     public float greenposy;
     public float greenposz;
@@ -38,14 +44,14 @@ public class Makelocks : MonoBehaviour {
 
         Lock.transform.position = new Vector3(0, pos, 0);
 
-        GameObject Barrell = Instantiate(Lockbarrell) as GameObject;
+        GameObject Barrell = Instantiate(Lockbarrell) as GameObject;  // makes an instatce of the barrllel from the already created one 
         Barrell.transform.parent = Lock.transform;
         GameObject Line = Instantiate(lockline) as GameObject;
         Line.transform.parent = Lock.transform;
 
         Barrell.transform.position = Lock.transform.position;
         
-        Line.transform.position = new Vector3(Lock.transform.position.x - 130, Lock.transform.position.y, Lock.transform.position.z);
+        Line.transform.position = new Vector3(Lock.transform.position.x - 130, Lock.transform.position.y, Lock.transform.position.z);  //set it to teh right position 
     }
 
     public void makeGreen(GameObject Lock)      // will make the green targets in a random place along the lock 
@@ -59,7 +65,7 @@ public class Makelocks : MonoBehaviour {
         GameObject orangeL = Instantiate(lockorange) as GameObject;
         orangeL.transform.parent = GreenTarget.transform;
         GameObject Line = Instantiate(lockline) as GameObject;
-        Line.transform.parent = GreenTarget.transform;
+        Line.transform.parent = GreenTarget.transform;  // create all the green and oraznge parts to add to the lock barrell
 
         int rand = Random.Range(-110, 110);
         greenposx = Lock.transform.position.x + rand;
@@ -69,6 +75,8 @@ public class Makelocks : MonoBehaviour {
         Green.transform.position = new Vector3(Lock.transform.position.x + rand, Lock.transform.position.y, Lock.transform.position.z);
         orangeL.transform.position = new Vector3(Green.transform.position.x - 11, Green.transform.position.y, Green.transform.position.z);
         orangeR.transform.position = new Vector3(Green.transform.position.x + 11, Green.transform.position.y, Green.transform.position.z);
+        // put the green in a random place in the barrell and then put the orange either side of it 
+
 
         GreenTarget.transform.parent = Lock.transform;
 
@@ -85,7 +93,7 @@ public class Makelocks : MonoBehaviour {
         Lock.transform.FindChild("lockline(Clone)").GetComponent<speed>().set_speed(speed);
         rb = Lock.transform.FindChild("lockline(Clone)").GetComponent<Rigidbody2D>();
 
-        rb.velocity = new Vector2(speed, 0);
+        rb.velocity = new Vector2(speed, 0);  // set the line so it starts moving 
     }
 
 
@@ -95,7 +103,7 @@ public class Makelocks : MonoBehaviour {
 
         rb = Lock.transform.FindChild("lockline(Clone)").GetComponent<Rigidbody2D>();
         
-        rb.velocity = new Vector2(0, 0);
+        rb.velocity = new Vector2(0, 0);  // set the velocity of the line to zero
     }
 
 
@@ -118,7 +126,7 @@ public class Makelocks : MonoBehaviour {
         gameplaying = false;
     }
 
-    public void setpintext(Text pin,bool result)
+    public void setpintext(Text pin,bool result)   // set the dispaly text to either win or lose when the result is calculated 
     {
         if (result == true)
         {
@@ -190,16 +198,26 @@ public class Makelocks : MonoBehaviour {
         
     }
 
-    IEnumerator load_hidden_room()
+    IEnumerator load_hidden_room()  // loasd shte hidden room if the player solves the puzzle
     {
         yield return new WaitForSeconds(2);
         GameObject.FindWithTag("Player").GetComponent<Transform>().position = new Vector3(-80, -21, 0);
         if (GameObject.FindWithTag("gamemanager").GetComponent<gameManager>().istwoplayeron())
         {
-            GameObject.FindWithTag("turn").GetComponent<turnswitcher>().start_loop();
+            GameObject.FindWithTag("turn").GetComponent<turnswitcher>().start_loop(); 
         }
         
         GameObject.FindWithTag("gamemanager").GetComponent<gameManager>().load_hiddenroom();
+    }
+
+    public void set_line_green()
+    {
+        lockline.GetComponent<Transform>().position = new Vector3(greenposx,greenposy,greenposz);
+    }
+
+    public void set_line_fail()
+    {
+        lockline.GetComponent<Transform>().position = new Vector3(greenposx+30, greenposy, greenposz);
     }
 
 
@@ -215,28 +233,32 @@ public class Makelocks : MonoBehaviour {
     {
         if (gameplaying)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0))  // if the player clicks 
             {
                 miss--;
             }
             if (miss < 0)
             {
-                if (locknumber == 1)
+                stopline(lock1);
+                if (locknumber == 1)  // checks which lock the player is currently trying to solve 
                 {
                     setpintext(pin1, false);
+                    set_line_fail();
                 } else if (locknumber == 2)
                 {
                     setpintext(pin2, false);
+                    set_line_fail();
                 } else
                 {
                     setpintext(pin3, false);
+                    set_line_fail();
                 }
-                stopline(lock1);
+                
                 
                 lockanim.GetComponent<Animator>().SetBool("checking",false);   // chnages the state of the aniamtaion 
                 
                 lock_picked(false);
-                stopgame();
+                stopgame();  // stops the game 
                 
             }
         }

@@ -1,4 +1,10 @@
-﻿using UnityEngine;
+﻿//  WHOLE SCRIPT IS NEW FOR ASSESSEMNT 4.
+// THE TURN SWITCHER IS USED TO RUN THE PROCEDURE TO ENSURE THAT TEH SWITCHER OF THE PLAYER WORKS WELL AND IS DONE CORRECTLTY.
+// WANT BOTH OF THEM TO HAVE THEIR OWN LOG BOOKS ADN NO INFORAMTION IS LOST BETWEEN THEM. 
+// ALL OF THE COROUTINES PROVIDE THAT FUNCTIONALITY
+// THE FINAL EXE FOR THE GAME CAN BE FOUND AT: github.com/DhillanL/Team_Watson
+
+using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
@@ -10,22 +16,24 @@ public class turnswitcher : MonoBehaviour {
     public bool in_puzzle = false;
 
     public bool gamefinished = false;
+
+    public int turn_length = 30; // int is used to set the length of a turn for each player 
  
 
 
-    IEnumerator Gameloop()  // main game loop for the turn based game
+    IEnumerator Gameloop()  // main game loop for the turn based PART FO THE GAME
     {
-        while(playing)
+        while(playing) // WHILE TH GAME IS RUNNING (there is no winner)
         {
 
-            yield return new WaitForSeconds(30);
+            yield return new WaitForSeconds(turn_length);  // this provided procedure determine the turn length by waiting for that many seconds before performing a switch  
             if (in_puzzle)
             {
-                ;
+                ;  // if tyou are in the puzzle do not switch players, we have done this as it didnt work well in gameplay tests 
 
             } else
             {
-                StartCoroutine(swapplayer());
+                StartCoroutine(swapplayer());   //once the turn is call the switch players coroutine.  
             }
             
         }
@@ -49,7 +57,7 @@ public class turnswitcher : MonoBehaviour {
 
         GameObject.FindWithTag("ID").GetComponent<showid>().swap_ID();
         GameObject.FindWithTag("Player").GetComponent<player>().walkT();
-        loadroom();
+        loadroom();  // loads the last room that the players were in 
         
     }
 
@@ -68,7 +76,7 @@ public class turnswitcher : MonoBehaviour {
 
     }
 
-    public void swaptags()
+    public void swaptags() // swpas the tags of the players 
     {
         GameObject.FindWithTag("Player").tag = "tempplayer";
         GameObject.FindWithTag("Player2").tag = "Player";
@@ -111,7 +119,7 @@ public class turnswitcher : MonoBehaviour {
         }
     }
 
-    public void startGameloopcorotine()
+    public void startGameloopcorotine()  // called to start the game turn loop. Called after the case file scene. 
     {
         StartCoroutine(Gameloop());
     }
@@ -126,7 +134,7 @@ public class turnswitcher : MonoBehaviour {
         in_puzzle = false;
     }
 
-    public void stop_playing()
+    public void stop_playing() // once there is a winning swap the players 
     {
         playing = false;
     }
