@@ -87,6 +87,7 @@ public class turnswitcher : MonoBehaviour {
     {
         gameManager gameman = GameObject.FindWithTag("gamemanager").GetComponent<gameManager>();
         string room = GameObject.FindWithTag("Player").GetComponent<player>().PastScene;
+        Debug.Log(room);
         if (room == "Room3")
         {
             gameman.load_meetingroom();
@@ -110,7 +111,7 @@ public class turnswitcher : MonoBehaviour {
         else if (room == "Room8")
         {
             gameman.load_outside_bottombalcony();
-        } else if (room == "screen2")
+        } else if (room == "Screen2")
         {
             gameman.load_RCH1();
         } else if (room == "Screen3")

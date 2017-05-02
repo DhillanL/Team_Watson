@@ -40,6 +40,7 @@ public class player : MonoBehaviour {
 
     // new additions 
     public string PastScene = "Screen2";
+    
     //public int playerid;
 
 

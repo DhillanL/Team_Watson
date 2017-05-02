@@ -10,6 +10,7 @@ public class movebalcony : MonoBehaviour {
 
         GameObject.FindWithTag("map").transform.position = new Vector3(-91, 191, -1);
         GameObject.FindWithTag("gamemanager").GetComponent<gameManager>().load_lakehousebalcony();
+        GameObject.FindWithTag("Player").GetComponent<player>().PastScene = "Room5";
     }
 
 

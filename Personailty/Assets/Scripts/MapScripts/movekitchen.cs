@@ -10,6 +10,7 @@ public class movekitchen : MonoBehaviour {
       
         GameObject.FindWithTag("map").transform.position = new Vector3(-91, 191, -1);
         GameObject.FindWithTag("gamemanager").GetComponent<gameManager>().load_kitchen();
+        GameObject.FindWithTag("Player").GetComponent<player>().PastScene = "Room4";
     }
 
 

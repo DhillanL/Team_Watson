@@ -10,6 +10,7 @@ public class moveRCH1 : MonoBehaviour {
         Debug.Log("click");
         GameObject.FindWithTag("map").transform.position = new Vector3(-91,191,-1);
         GameObject.FindWithTag("gamemanager").GetComponent<gameManager>().load_RCH1();
+        GameObject.FindWithTag("Player").GetComponent<player>().PastScene = "Screen2";
     }
 
 
